@@ -6,7 +6,7 @@ class SupermanLogo extends Component {
     super(props);
     this.state = {
       tl: new TimelineMax({ delay: 5, paused: false }),
-      duration: 0.5,
+      duration: 0.55,
       durationStroke: 6.5,
       durationFill: 3
     };
@@ -29,7 +29,6 @@ class SupermanLogo extends Component {
         '.supermanLogo_svg path',
         durationStroke,
         {
-          fillOpacity: 0.7,
           drawSVG: 0,
           ease: Power1.easeOut
         },
@@ -38,26 +37,22 @@ class SupermanLogo extends Component {
       .addPause()
       .addLabel('initIn')
       .to(
-        '.supermanLogo_svg',
-        duration - 0.2,
+        '.supermanLogo_svg path',
+        duration,
         {
-          scale: 1.1,
-          alpha: 0.7,
-          y: 5,
-          ease: Power1.easeOut
+          fillOpacity: 0.8,
+          ease: Bounce.easeOut
         },
         '+=0'
       )
       .addPause()
       .addLabel('initOut')
       .to(
-        '.supermanLogo_svg',
-        duration - 0.2,
+        '.supermanLogo_svg path',
+        duration,
         {
-          scale: 1,
-          alpha: 1,
-          y: 0,
-          ease: Power1.easeOut
+          fillOpacity: 0.5,
+          ease: Bounce.easeOut
         },
         '+=0'
       )
@@ -85,9 +80,9 @@ class SupermanLogo extends Component {
           xmlSpace="preserve"
         >
           <path
-            fill="#404040"
-            fillOpacity="1"
-            stroke="#757575"
+            fill="#c80000"
+            fillOpacity="0.5"
+            stroke="#FFFFFF"
             strokeWidth="7"
             strokeMiterlimit="10"
             d="M879,550.4c-95.1-29.4-274.8,17.3-378.6-55.3
