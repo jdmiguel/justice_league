@@ -6,7 +6,7 @@ class SupermanLogo extends Component {
     super(props);
     this.state = {
       tl: new TimelineMax({ delay: 5, paused: false }),
-      duration: 0.35,
+      duration: 0.5,
       durationStroke: 6.5,
       durationFill: 3
     };
@@ -44,7 +44,7 @@ class SupermanLogo extends Component {
           scale: 1.1,
           alpha: 0.7,
           y: 5,
-          ease: Cubic.easeOut
+          ease: Power1.easeOut
         },
         '+=0'
       )
@@ -57,7 +57,7 @@ class SupermanLogo extends Component {
           scale: 1,
           alpha: 1,
           y: 0,
-          ease: Cubic.easeIn
+          ease: Power1.easeOut
         },
         '+=0'
       )
