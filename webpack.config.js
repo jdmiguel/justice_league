@@ -51,7 +51,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'gsap_animations',
+      title: 'dc_universe',
       template: '../assets/template-app.ejs',
       filename: 'index.html',
       hash: true
