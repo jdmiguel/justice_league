@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="694.20099"
+   height="1000"
+   viewBox="0 0 694.20099 1000"
+   id="svg4305"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="The Flash Print.svg">
+  <defs
+     id="defs4307" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="240.50993"
+     inkscape:cy="475.23566"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1366"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4310">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-52.36214)">
+    <path
+       id="path14"
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       d="m 694.20058,552.36232 c 0,191.69558 -155.41072,347.09411 -347.10629,347.09411 C 155.39872,899.45643 0,744.0579 0,552.36232 0,360.66064 155.39872,205.26192 347.09429,205.26192 c 191.69557,0 347.10629,155.39872 347.10629,347.1004"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path16"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       d="m 680.70535,552.36232 c 0,184.2407 -149.37023,333.60459 -333.61106,333.60459 -184.24083,0 -333.59906,-149.36389 -333.59906,-333.60459 0,-184.24694 149.35823,-333.60517 333.59906,-333.60517 184.24083,0 333.61106,149.35823 333.61106,333.60517"
+       inkscape:connector-curvature="0" />
+    <path
+       id="path18"
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       d="M 621.12745,52.3621 234.31458,485.02393 323.13612,473.56633 148.35148,719.99168 237.17302,708.52194 7.9461167,1052.3621 503.66155,542.33664 403.3643,559.52911 552.36895,338.90172 454.94215,350.35945 621.12745,52.3621"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
