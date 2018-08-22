@@ -88,6 +88,7 @@ class Letters extends Component {
     });
 
     outLogoAnimation();
+    // TweenMax.killDelayedCallsTo(this.animLetters);
   }
 
   render() {
@@ -106,7 +107,9 @@ class Letters extends Component {
   }
 }
 
-const mapStateToProps = state => ({ logoAnimation: state.logoAnimation });
+const mapStateToProps = state => ({
+  isActiveLettersAnim: state.isActiveLettersAnim
+});
 const mapDispatchToProps = dispatch => ({
   inLogoAnimation: () => dispatch({ type: actionTypes.IN_LOGO_ANIMATION }),
   outLogoAnimation: () => dispatch({ type: actionTypes.OUT_LOGO_ANIMATION })

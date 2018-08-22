@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class SupermanLogo extends Component {
+class SupermanLogo extends Component {
   constructor(props) {
     super(props);
     this.state = {
       tl: new TimelineMax({ delay: 5, paused: false }),
-      duration: 1.2,
+      duration: 0.35,
       durationStroke: 6.5,
       durationFill: 3
     };
@@ -22,7 +23,7 @@ export default class SupermanLogo extends Component {
           scale: 0.5,
           ease: Power1.easeInOut
         },
-        '-=1'
+        '+=0'
       )
       .to(
         '.supermanLogo_svg path',
@@ -41,8 +42,9 @@ export default class SupermanLogo extends Component {
         duration - 0.2,
         {
           scale: 1.1,
-          alpha: 0.5,
-          ease: Power1.easeOut
+          alpha: 0.7,
+          y: 5,
+          ease: Cubic.easeOut
         },
         '+=0'
       )
@@ -54,11 +56,17 @@ export default class SupermanLogo extends Component {
         {
           scale: 1,
           alpha: 1,
-          ease: Power1.easeOut
+          y: 0,
+          ease: Cubic.easeIn
         },
         '+=0'
       )
       .addPause();
+  }
+
+  componentDidUpdate() {
+    const { isActiveLettersAnim } = this.props;
+    isActiveLettersAnim ? this.animate('in') : this.animate('out');
   }
 
   animate(mode) {
@@ -95,3 +103,9 @@ export default class SupermanLogo extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  isActiveLettersAnim: state.isActiveLettersAnim
+});
+
+export default connect(mapStateToProps)(SupermanLogo);
