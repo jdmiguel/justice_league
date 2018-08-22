@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class DcLogo extends Component {
+export default class LogoIntro extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +13,7 @@ export default class DcLogo extends Component {
   componentDidMount() {
     const { tl, durationFill } = this.state;
     tl.addLabel('initIntro').from(
-      '.dcLogo_svg',
+      '.logoIntro_svg',
       durationFill,
       {
         alpha: 0,
@@ -32,11 +32,11 @@ export default class DcLogo extends Component {
 
   render() {
     return (
-      <div className="dcLogo_container">
+      <div className="logoIntro_container">
         <svg
           width="900"
           height="900"
-          className="dcLogo_svg"
+          className="logoIntro_svg"
           viewBox="0 0 900 900"
           xmlSpace="preserve"
         >

@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader';
-import DcLogo from '../components/dcLogo';
+import Logo from '../components/Logo';
+import LogoIntro from '../components/LogoIntro';
 import Background from '../components/background';
 import Letters from '../components/letters';
 import SupermanLogo from '../components/superman/logo';
 
 const App = () => (
   <div className="app_container">
-    <DcLogo />
+    <Logo />
+    <LogoIntro />
     <Background />
     <Letters />
     <SupermanLogo />
