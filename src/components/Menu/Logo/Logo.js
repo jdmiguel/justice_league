@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class SupermanLogo extends Component {
+class Logo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -103,4 +103,4 @@ const mapStateToProps = state => ({
   isActiveLettersAnim: state.isActiveLettersAnim
 });
 
-export default connect(mapStateToProps)(SupermanLogo);
+export default connect(mapStateToProps)(Logo);

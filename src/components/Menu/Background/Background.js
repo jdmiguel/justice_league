@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Background extends Component {
+class Background extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,3 +22,5 @@ export default class Background extends Component {
     return <div className="background" />;
   }
 }
+
+export default Background;

@@ -1,19 +1,16 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
+import Wrapper from '../hoc/Wrapper';
+import Intro from './Intro';
 import Logo from '../components/Logo';
-import LogoIntro from '../components/LogoIntro';
-import Background from '../components/background';
-import Letters from '../components/letters';
-import SupermanLogo from '../components/superman/logo';
+import Menu from './Menu';
 
 const App = () => (
-  <div className="app_container">
+  <Wrapper>
+    <Intro />
     <Logo />
-    <LogoIntro />
-    <Background />
-    <Letters />
-    <SupermanLogo />
-  </div>
+    <Menu />
+  </Wrapper>
 );
 
 export default hot(module)(App);
