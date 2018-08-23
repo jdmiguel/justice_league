@@ -108,11 +108,12 @@ class Letters extends Component {
 }
 
 const mapStateToProps = state => ({
-  isActiveLettersAnim: state.isActiveLettersAnim
+  isActiveMenuLettersAnimation: state.isActiveMenuLettersAnimation
 });
 const mapDispatchToProps = dispatch => ({
-  inLogoAnimation: () => dispatch({ type: actionTypes.IN_LOGO_ANIMATION }),
-  outLogoAnimation: () => dispatch({ type: actionTypes.OUT_LOGO_ANIMATION })
+  inLogoAnimation: () => dispatch({ type: actionTypes.MENU_LOGO_ANIMATION_IN }),
+  outLogoAnimation: () =>
+    dispatch({ type: actionTypes.MENU_LOGO_ANIMATION_OUT })
 });
 
 export default connect(

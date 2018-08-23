@@ -5,11 +5,11 @@ import { Provider } from 'react-redux';
 
 import './scss/styles.scss';
 
-import App from './containers/app';
-import logoReducer from './store/reducers/logo';
+import App from './containers/App';
+import logoMenuReducer from './store/reducers/menu/logo';
 
 const store = createStore(
-  logoReducer,
+  logoMenuReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 

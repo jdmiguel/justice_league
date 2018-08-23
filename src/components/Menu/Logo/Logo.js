@@ -60,8 +60,8 @@ class Logo extends Component {
   }
 
   componentDidUpdate() {
-    const { isActiveLettersAnim } = this.props;
-    isActiveLettersAnim ? this.animate('in') : this.animate('out');
+    const { isActiveMenuLettersAnimation } = this.props;
+    isActiveMenuLettersAnimation ? this.animate('in') : this.animate('out');
   }
 
   animate(mode) {
@@ -100,7 +100,7 @@ class Logo extends Component {
 }
 
 const mapStateToProps = state => ({
-  isActiveLettersAnim: state.isActiveLettersAnim
+  isActiveMenuLettersAnimation: state.isActiveMenuLettersAnimation
 });
 
 export default connect(mapStateToProps)(Logo);
