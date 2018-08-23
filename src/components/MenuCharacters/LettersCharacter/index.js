@@ -7,7 +7,6 @@ class LettersCharacter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tit: 'SUPERMAN',
       intro: {
         delay: 5.5,
         duration: 1.1
@@ -93,13 +92,14 @@ class LettersCharacter extends Component {
   }
 
   render() {
-    const { tit } = this.state;
-    const { isReadyOverMenuLetters } = this.props;
+    const { txt, isVisible, isReadyOverMenuLetters } = this.props;
+    const getLettersContainerClasses = () =>
+      isVisible ? 'letters_container' : 'letters_container invisible';
     const getLettersClasses = () =>
       !isReadyOverMenuLetters ? 'letters' : 'letters active';
 
     return (
-      <div className="letters_container">
+      <div className={getLettersContainerClasses()}>
         <h2
           className={getLettersClasses()}
           onMouseEnter={() => {
@@ -107,7 +107,7 @@ class LettersCharacter extends Component {
           }}
           onMouseLeave={this.mouseOutHandler}
         >
-          {tit}
+          {txt}
         </h2>
       </div>
     );
@@ -125,6 +125,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 LettersCharacter.propTypes = {
+  txt: PropTypes.string.isRequired,
+  isVisible: PropTypes.bool.isRequired,
   isReadyOverMenuLetters: PropTypes.bool.isRequired,
   inLogoAnimation: PropTypes.func.isRequired,
   outLogoAnimation: PropTypes.func.isRequired

@@ -4,6 +4,9 @@
     position: absolute;
     z-index: 3;
     @include flexContainer();
+    &.invisible{
+        transform: translateX(-200px)
+    }
 }
 
 .letters{
