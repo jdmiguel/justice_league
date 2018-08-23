@@ -1,13 +1,11 @@
 import React from 'react';
-import Background from '../components/Menu/Background/Background';
-import Letters from '../components/Menu/Letters/Letters';
-import Logo from '../components/Menu/Logo/Logo';
+import Intro from './Intro';
+import MenuCharactersWrapper from './MenuCharactersWrapper';
 
 const MenuCharacters = () => (
-  <div className="menu_container">
-    <Background />
-    <Letters />
-    <Logo />
+  <div className="menuCharacters_container">
+    <Intro />
+    <MenuCharactersWrapper />
   </div>
 );
 

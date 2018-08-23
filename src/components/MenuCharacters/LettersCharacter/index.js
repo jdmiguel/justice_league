@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../../store/actions';
 
-class Letters extends Component {
+class LettersCharacter extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -96,10 +96,13 @@ class Letters extends Component {
   render() {
     const { tit } = this.state;
     const { isReadyOverMenuLetters } = this.props;
+    const getLettersClasses = () =>
+      !isReadyOverMenuLetters ? 'letters' : 'letters active';
+
     return (
       <div className="letters_container">
         <h2
-          className="letters"
+          className={getLettersClasses()}
           onMouseEnter={() => {
             if (isReadyOverMenuLetters) this.mouseOverHandler();
           }}
@@ -126,4 +129,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Letters);
+)(LettersCharacter);
