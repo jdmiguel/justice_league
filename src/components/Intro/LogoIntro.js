@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 
-class Logo extends Component {
+class LogoIntro extends Component {
   constructor(props) {
     super(props);
     this.state = {
       tl: new TimelineMax({ delay: 0, paused: false }),
-      durationStroke: 6.5,
-      durationFill: 2
+      duration: 2
     };
   }
 
   componentDidMount() {
-    const { tl, durationFill } = this.state;
+    const { tl, duration } = this.state;
     tl.addLabel('initIntro').from(
       '.logoIntro_svg',
-      durationFill,
+      duration,
       {
         alpha: 0,
         scaleX: 1.5,
@@ -64,4 +63,4 @@ class Logo extends Component {
   }
 }
 
-export default Logo;
+export default LogoIntro;

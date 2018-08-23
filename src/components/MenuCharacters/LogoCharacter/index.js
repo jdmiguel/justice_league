@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../../store/actions';
 
@@ -110,6 +111,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   isOverReady: () => dispatch({ type: actionTypes.IS_READY_OVER_MENU_LETTERS })
 });
+
+LogoCharacter.propTypes = {
+  isActiveMenuLettersAnimation: PropTypes.bool.isRequired,
+  isOverReady: PropTypes.func.isRequired
+};
 
 export default connect(
   mapStateToProps,

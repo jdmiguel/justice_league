@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Logo from '../components/Intro/Logo';
+import LogoIntro from '../components/Intro/LogoIntro';
 
 class Intro extends Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class Intro extends Component {
   render() {
     return (
       <div className="intro_container">
-        <Logo />
+        <LogoIntro />
       </div>
     );
   }

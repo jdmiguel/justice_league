@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../../store/actions';
 
@@ -57,7 +58,6 @@ class LettersCharacter extends Component {
   }
 
   mouseOverHandler() {
-    console.log('mouseOverHandler');
     const { chars, totalChars } = this.state;
     const { inLogoAnimation } = this.props;
 
@@ -78,7 +78,6 @@ class LettersCharacter extends Component {
   }
 
   mouseOutHandler() {
-    console.log('mouseOutHandler');
     const { chars } = this.state;
     const { outLogoAnimation } = this.props;
 
@@ -116,8 +115,7 @@ class LettersCharacter extends Component {
 }
 
 const mapStateToProps = state => ({
-  isReadyOverMenuLetters: state.isReadyOverMenuLetters,
-  isActiveMenuLettersAnimation: state.isActiveMenuLettersAnimation
+  isReadyOverMenuLetters: state.isReadyOverMenuLetters
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -125,6 +123,12 @@ const mapDispatchToProps = dispatch => ({
   outLogoAnimation: () =>
     dispatch({ type: actionTypes.MENU_LOGO_ANIMATION_OUT })
 });
+
+LettersCharacter.propTypes = {
+  isReadyOverMenuLetters: PropTypes.bool.isRequired,
+  inLogoAnimation: PropTypes.func.isRequired,
+  outLogoAnimation: PropTypes.func.isRequired
+};
 
 export default connect(
   mapStateToProps,

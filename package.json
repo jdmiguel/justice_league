@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "optimize-css-assets-webpack-plugin": "^5.0.0",
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-hot-loader": "^4.3.4",
