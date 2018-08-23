@@ -95,13 +95,13 @@ class Letters extends Component {
     const { tit } = this.state;
     return (
       <div className="letters_container">
-        <h1
+        <h2
           className="letters"
           onMouseEnter={this.mouseOverHandler}
           onMouseLeave={this.mouseOutHandler}
         >
           {tit}
-        </h1>
+        </h2>
       </div>
     );
   }
