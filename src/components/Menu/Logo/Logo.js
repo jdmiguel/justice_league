@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actionTypes from '../../../store/actions';
 
 class Logo extends Component {
   constructor(props) {
@@ -14,6 +15,8 @@ class Logo extends Component {
 
   componentDidMount() {
     const { tl, duration, durationStroke, durationFill } = this.state;
+    const { isOverReady } = this.props;
+
     tl.addLabel('initIntro')
       .from(
         '.supermanLogo_svg',
@@ -30,7 +33,8 @@ class Logo extends Component {
         durationStroke,
         {
           drawSVG: 0,
-          ease: Power1.easeOut
+          ease: Power1.easeOut,
+          onComplete: () => isOverReady()
         },
         '-=6.5'
       )
@@ -103,4 +107,11 @@ const mapStateToProps = state => ({
   isActiveMenuLettersAnimation: state.isActiveMenuLettersAnimation
 });
 
-export default connect(mapStateToProps)(Logo);
+const mapDispatchToProps = dispatch => ({
+  isOverReady: () => dispatch({ type: actionTypes.IS_READY_OVER_MENU_LETTERS })
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Logo);

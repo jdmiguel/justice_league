@@ -1,11 +1,12 @@
 @import 'vars';
 @import 'mixins';
 @import 'reset';
-@import 'general';
+@import 'index';
 @import './intro/intro';
 @import './logo/logo';
-@import './menu/background';
-@import './menu/letters';
-@import './menu/logo';
-@import './section/section';
+@import './menuCharacters/index';
+@import './menuCharacters/background';
+@import './menuCharacters/letters';
+@import './menuCharacters/logo';
+@import './sectionCharacter/index';
 

@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import './scss/styles.scss';
 
 import App from './containers/App';
-import logoMenuReducer from './store/reducers/menu/logo';
+import logoMenuReducer from './store/reducers/menu/letters';
 
 const store = createStore(
   logoMenuReducer,

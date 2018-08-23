@@ -17,7 +17,8 @@ module.exports = {
         SplitText: true,
         Back: true,
         Power1: true,
-        Cubic: true
+        Cubic: true,
+        Bounce: true
     },
   
     parserOptions: {

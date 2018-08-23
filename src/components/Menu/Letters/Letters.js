@@ -57,6 +57,7 @@ class Letters extends Component {
   }
 
   mouseOverHandler() {
+    console.log('mouseOverHandler');
     const { chars, totalChars } = this.state;
     const { inLogoAnimation } = this.props;
 
@@ -77,6 +78,7 @@ class Letters extends Component {
   }
 
   mouseOutHandler() {
+    console.log('mouseOutHandler');
     const { chars } = this.state;
     const { outLogoAnimation } = this.props;
 
@@ -93,11 +95,14 @@ class Letters extends Component {
 
   render() {
     const { tit } = this.state;
+    const { isReadyOverMenuLetters } = this.props;
     return (
       <div className="letters_container">
         <h2
           className="letters"
-          onMouseEnter={this.mouseOverHandler}
+          onMouseEnter={() => {
+            if (isReadyOverMenuLetters) this.mouseOverHandler();
+          }}
           onMouseLeave={this.mouseOutHandler}
         >
           {tit}
@@ -108,8 +113,10 @@ class Letters extends Component {
 }
 
 const mapStateToProps = state => ({
+  isReadyOverMenuLetters: state.isReadyOverMenuLetters,
   isActiveMenuLettersAnimation: state.isActiveMenuLettersAnimation
 });
+
 const mapDispatchToProps = dispatch => ({
   inLogoAnimation: () => dispatch({ type: actionTypes.MENU_LOGO_ANIMATION_IN }),
   outLogoAnimation: () =>
