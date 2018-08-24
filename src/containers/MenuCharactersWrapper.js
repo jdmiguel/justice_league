@@ -6,11 +6,15 @@ import LogoCharacter from '../components/MenuCharacters/LogoCharacter';
 
 const MenuCharactersWrapper = () => {
   const superheroes = [
-    { name: 'SUPERMAN', id: 'a1s', isVisible: true },
+    {
+      name: 'SUPERMAN',
+      id: 'a1s',
+      isVisible: true
+    } /* ,
     { name: 'BATMAN', id: 'a2f', isVisible: false },
     { name: 'WONDER WOMAN', id: 'a3r', isVisible: false },
     { name: 'GREEN LANTERN', id: 'a4p', isVisible: false },
-    { name: 'GREEN ARROW', id: 'a5m', isVisible: false }
+    { name: 'GREEN ARROW', id: 'a5m', isVisible: false } */
   ];
 
   return (

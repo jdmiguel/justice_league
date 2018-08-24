@@ -16,7 +16,7 @@ class LogoCharacter extends Component {
 
   componentDidMount() {
     const { tl, duration, durationStroke, durationFill } = this.state;
-    const { isOverReady } = this.props;
+    const { activeOverMenuLetters } = this.props;
 
     tl.addLabel('initIntro')
       .from(
@@ -34,8 +34,9 @@ class LogoCharacter extends Component {
         durationStroke,
         {
           drawSVG: 0,
+          fillOpacity: 0.5,
           ease: Power1.easeOut,
-          onComplete: () => isOverReady()
+          onComplete: () => activeOverMenuLetters()
         },
         '-=6.5'
       )
@@ -64,12 +65,19 @@ class LogoCharacter extends Component {
       .addPause();
   }
 
-  componentDidUpdate() {
-    const { isActiveMenuLettersAnimation } = this.props;
+  componentDidUpdate(prevProps) {
+    // console.log(`prevProps: ${prevProps.isActiveOverMenuLetters}`);
+    // console.log(`this.props: ${this.props.isActiveOverMenuLetters}`);
+    const {
+      isActiveOverMenuLetters,
+      isActiveMenuLettersAnimation
+    } = this.props;
+    if (prevProps.isActiveOverMenuLetters !== isActiveOverMenuLetters) return;
     isActiveMenuLettersAnimation ? this.animate('in') : this.animate('out');
   }
 
   animate(mode) {
+    console.log(`animate: ${mode}`);
     const { tl } = this.state;
     mode === 'in' ? tl.play('initIn') : tl.play('initOut');
   }
@@ -105,16 +113,19 @@ class LogoCharacter extends Component {
 }
 
 const mapStateToProps = state => ({
-  isActiveMenuLettersAnimation: state.isActiveMenuLettersAnimation
+  isActiveMenuLettersAnimation: state.isActiveMenuLettersAnimation,
+  isActiveOverMenuLetters: state.isActiveOverMenuLetters
 });
 
 const mapDispatchToProps = dispatch => ({
-  isOverReady: () => dispatch({ type: actionTypes.IS_READY_OVER_MENU_LETTERS })
+  activeOverMenuLetters: () =>
+    dispatch({ type: actionTypes.ACTIVE_OVER_MENU_LETTERS })
 });
 
 LogoCharacter.propTypes = {
   isActiveMenuLettersAnimation: PropTypes.bool.isRequired,
-  isOverReady: PropTypes.func.isRequired
+  isActiveOverMenuLetters: PropTypes.bool.isRequired,
+  activeOverMenuLetters: PropTypes.func.isRequired
 };
 
 export default connect(

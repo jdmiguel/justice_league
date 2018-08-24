@@ -1,16 +1,22 @@
 import * as actionTypes from '../../actions';
 
 const initialState = {
-  isReadyOverMenuLetters: false,
+  isActiveOverMenuLetters: false,
   isActiveMenuLettersAnimation: false
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.IS_READY_OVER_MENU_LETTERS:
+    case actionTypes.ACTIVE_OVER_MENU_LETTERS:
       return {
         ...state,
-        isReadyOverMenuLetters: true
+        isActiveOverMenuLetters: true
+      };
+      break;
+    case actionTypes.DESACTIVE_OVER_MENU_LETTERS:
+      return {
+        ...state,
+        isActiveOverMenuLetters: false
       };
       break;
     case actionTypes.MENU_LOGO_ANIMATION_IN:

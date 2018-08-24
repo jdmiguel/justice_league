@@ -7,9 +7,20 @@ class LettersCharacter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      intro: {
-        delay: 5.5,
-        duration: 1.1
+      tl: new TimelineMax({ delay: 5, paused: true }),
+      configTl: {
+        introAnimation: {
+          delay: 5.5,
+          duration: 1.1
+        },
+        outAnimation: {
+          delay: 5.5,
+          duration: 0.5
+        },
+        inAnimation: {
+          delay: 5.5,
+          duration: 1.1
+        }
       },
       chars: null,
       totalChars: 0
@@ -17,12 +28,12 @@ class LettersCharacter extends Component {
 
     this.mouseOverHandler = this.mouseOverHandler.bind(this);
     this.mouseOutHandler = this.mouseOutHandler.bind(this);
+    this.clickHandler = this.clickHandler.bind(this);
   }
 
   componentDidMount() {
-    const { intro } = this.state;
-    const { duration, delay } = intro;
-    const tl = new TimelineMax();
+    const { tl, configTl } = this.state;
+    const { introAnimation, inAnimation, outAnimation } = configTl;
     const mySplitText = new SplitText('.letters', { type: 'words,chars' });
     const { chars } = mySplitText;
 
@@ -31,19 +42,58 @@ class LettersCharacter extends Component {
       totalChars: chars.length
     });
 
-    tl.staggerFrom(
-      chars,
-      duration,
-      {
-        delay,
-        opacity: 0,
-        rotationY: 120,
-        transformOrigin: '50% 50%',
-        ease: Power1.easeOut
-      },
-      0.08,
-      '+=0'
-    );
+    tl.addLabel('introAnimation')
+      .staggerFromTo(
+        chars,
+        introAnimation.duration,
+        {
+          alpha: 0,
+          x: -50,
+          rotationY: 120
+        },
+        {
+          alpha: 1,
+          x: 0,
+          rotationY: 0,
+          transformOrigin: '50% 50%',
+          ease: Power1.easeOut
+        },
+        0.08,
+        `+=${introAnimation.delay}`
+      )
+      .addPause()
+      .addLabel('outAnimation')
+      .staggerTo(
+        chars,
+        outAnimation.duration,
+        {
+          cycle: { x: i => 200 + i * 20 },
+          alpha: 0,
+          ease: Power1.easeOut
+        },
+        0.02,
+        `+=${outAnimation.delay}`
+      )
+      .addPause()
+      .addLabel('inAnimation')
+      .staggerFromTo(
+        chars,
+        inAnimation.duration,
+        {
+          alpha: 0,
+          cycle: { x: i => -200 - i * 20 }
+        },
+        {
+          alpha: 1,
+          x: 0,
+          ease: Power1.easeOut
+        },
+        0.02,
+        `+=${inAnimation.delay}`
+      )
+      .addPause();
+
+    tl.play('introAnimation');
   }
 
   getDistance(index) {
@@ -77,6 +127,7 @@ class LettersCharacter extends Component {
   }
 
   mouseOutHandler() {
+    console.log('mouseOutHandler');
     const { chars } = this.state;
     const { outLogoAnimation } = this.props;
 
@@ -91,21 +142,29 @@ class LettersCharacter extends Component {
     // TweenMax.killDelayedCallsTo(this.animLetters);
   }
 
+  clickHandler() {
+    const { tl } = this.state;
+    const { desactiveOverMenuLetters } = this.props;
+    tl.play('outAnimation');
+    desactiveOverMenuLetters();
+  }
+
   render() {
-    const { txt, isVisible, isReadyOverMenuLetters } = this.props;
-    const getLettersContainerClasses = () =>
-      isVisible ? 'letters_container' : 'letters_container invisible';
+    const { txt, isActiveOverMenuLetters } = this.props;
     const getLettersClasses = () =>
-      !isReadyOverMenuLetters ? 'letters' : 'letters active';
+      !isActiveOverMenuLetters ? 'letters' : 'letters active';
 
     return (
-      <div className={getLettersContainerClasses()}>
+      <div className="letters_container">
         <h2
           className={getLettersClasses()}
           onMouseEnter={() => {
-            if (isReadyOverMenuLetters) this.mouseOverHandler();
+            if (isActiveOverMenuLetters) this.mouseOverHandler();
           }}
-          onMouseLeave={this.mouseOutHandler}
+          onMouseLeave={() => {
+            if (isActiveOverMenuLetters) this.mouseOutHandler();
+          }}
+          onClick={this.clickHandler}
         >
           {txt}
         </h2>
@@ -115,21 +174,24 @@ class LettersCharacter extends Component {
 }
 
 const mapStateToProps = state => ({
-  isReadyOverMenuLetters: state.isReadyOverMenuLetters
+  isActiveOverMenuLetters: state.isActiveOverMenuLetters
 });
 
 const mapDispatchToProps = dispatch => ({
   inLogoAnimation: () => dispatch({ type: actionTypes.MENU_LOGO_ANIMATION_IN }),
   outLogoAnimation: () =>
-    dispatch({ type: actionTypes.MENU_LOGO_ANIMATION_OUT })
+    dispatch({ type: actionTypes.MENU_LOGO_ANIMATION_OUT }),
+  desactiveOverMenuLetters: () =>
+    dispatch({ type: actionTypes.DESACTIVE_OVER_MENU_LETTERS })
 });
 
 LettersCharacter.propTypes = {
   txt: PropTypes.string.isRequired,
   isVisible: PropTypes.bool.isRequired,
-  isReadyOverMenuLetters: PropTypes.bool.isRequired,
+  isActiveOverMenuLetters: PropTypes.bool.isRequired,
   inLogoAnimation: PropTypes.func.isRequired,
-  outLogoAnimation: PropTypes.func.isRequired
+  outLogoAnimation: PropTypes.func.isRequired,
+  desactiveOverMenuLetters: PropTypes.func.isRequired
 };
 
 export default connect(
