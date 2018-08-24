@@ -11,9 +11,11 @@
 
 .letters{
     @include font('Cinzel',8em,700);
+    //@include font('Rozha One',9em,400);
     text-align: center;
     color: $darkWhite;
     mix-blend-mode: multiply;
+    display: block;
     &.active{
         cursor: pointer;
     }

@@ -156,18 +156,22 @@ class LettersCharacter extends Component {
 
     return (
       <div className="letters_container">
-        <h2
+        <button
+          type="button"
           className={getLettersClasses()}
           onMouseEnter={() => {
             if (isActiveOverMenuLetters) this.mouseOverHandler();
           }}
+          onBlur={() => console.log('onBlur')}
+          onFocus={() => console.log('onFocus')}
+          onKeyDown={() => console.log('onFocus')}
           onMouseLeave={() => {
             if (isActiveOverMenuLetters) this.mouseOutHandler();
           }}
           onClick={this.clickHandler}
         >
           {txt}
-        </h2>
+        </button>
       </div>
     );
   }

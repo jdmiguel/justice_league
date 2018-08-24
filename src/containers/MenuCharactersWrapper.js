@@ -7,7 +7,7 @@ import LogoCharacter from '../components/MenuCharacters/LogoCharacter';
 const MenuCharactersWrapper = () => {
   const superheroes = [
     {
-      name: 'SUPERMAN',
+      name: 'Superman',
       id: 'a1s',
       isVisible: true
     } /* ,
