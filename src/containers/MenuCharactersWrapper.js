@@ -11,10 +11,10 @@ const MenuCharactersWrapper = () => {
       id: 'a1s',
       isVisible: true
     } /* ,
-    { name: 'BATMAN', id: 'a2f', isVisible: false },
-    { name: 'WONDER WOMAN', id: 'a3r', isVisible: false },
-    { name: 'GREEN LANTERN', id: 'a4p', isVisible: false },
-    { name: 'GREEN ARROW', id: 'a5m', isVisible: false } */
+    { name: 'BATMAN', id: 'a2f', isVisible: true },
+    { name: 'WONDER WOMAN', id: 'a3r', isVisible: true },
+    { name: 'GREEN LANTERN', id: 'a4p', isVisible: true },
+    { name: 'GREEN ARROW', id: 'a5m', isVisible: true } */
   ];
 
   return (
@@ -23,7 +23,7 @@ const MenuCharactersWrapper = () => {
       {superheroes.map(superhero => (
         <Wrapper key={superhero.id}>
           <Letters txt={superhero.name} isVisible={superhero.isVisible} />
-          <LogoCharacter />
+          <LogoCharacter isVisible={superhero.isVisible} />
         </Wrapper>
       ))}
     </div>

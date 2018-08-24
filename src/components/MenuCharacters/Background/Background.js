@@ -6,7 +6,7 @@ class Background extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tl: new TimelineMax({ delay: 4.2, paused: false }),
+      tl: new TimelineMax({ paused: false }),
       durationInit: 6,
       duration: 0.55
     };
@@ -22,7 +22,7 @@ class Background extends Component {
           alpha: 0,
           ease: Power1.easeInOut
         },
-        '+=0'
+        '+=3.5'
       )
       .addPause()
       .addLabel('initIn')
@@ -30,7 +30,7 @@ class Background extends Component {
         '.menuCharacters_background',
         duration,
         {
-          alpha: 0.85,
+          alpha: 0.7,
           ease: Bounce.easeOut
         },
         '+=0'
@@ -41,7 +41,7 @@ class Background extends Component {
         '.menuCharacters_background',
         duration,
         {
-          alpha: 0.7,
+          alpha: 0.6,
           ease: Bounce.easeOut
         },
         '+=0'

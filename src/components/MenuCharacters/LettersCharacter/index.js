@@ -7,18 +7,18 @@ class LettersCharacter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tl: new TimelineMax({ delay: 5, paused: true }),
+      tl: new TimelineMax({ paused: true }),
       configTl: {
         introAnimation: {
-          delay: 5.5,
+          delay: 4.5,
           duration: 1.1
         },
         outAnimation: {
-          delay: 5.5,
+          delay: 0,
           duration: 0.5
         },
         inAnimation: {
-          delay: 5.5,
+          delay: 0,
           duration: 1.1
         }
       },
@@ -33,6 +33,7 @@ class LettersCharacter extends Component {
 
   componentDidMount() {
     const { tl, configTl } = this.state;
+    const { isVisible } = this.props;
     const { introAnimation, inAnimation, outAnimation } = configTl;
     const mySplitText = new SplitText('.letters', { type: 'words,chars' });
     const { chars } = mySplitText;
@@ -93,7 +94,7 @@ class LettersCharacter extends Component {
       )
       .addPause();
 
-    tl.play('introAnimation');
+    if (isVisible) tl.play('introAnimation');
   }
 
   getDistance(index) {
@@ -127,7 +128,6 @@ class LettersCharacter extends Component {
   }
 
   mouseOutHandler() {
-    console.log('mouseOutHandler');
     const { chars } = this.state;
     const { outLogoAnimation } = this.props;
 

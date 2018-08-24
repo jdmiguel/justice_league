@@ -7,7 +7,7 @@ class LogoCharacter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tl: new TimelineMax({ delay: 5, paused: false }),
+      tl: new TimelineMax({ paused: true }),
       duration: 0.55,
       durationStroke: 6.5,
       durationFill: 3
@@ -16,18 +16,24 @@ class LogoCharacter extends Component {
 
   componentDidMount() {
     const { tl, duration, durationStroke, durationFill } = this.state;
-    const { activeOverMenuLetters } = this.props;
+    const { isVisible, activeOverMenuLetters } = this.props;
+
+    console.log(`isVisible: ${isVisible}`);
 
     tl.addLabel('initIntro')
-      .from(
+      .fromTo(
         '.supermanLogo_svg',
         durationFill,
         {
           alpha: 0,
-          scale: 0.5,
+          scale: 0.5
+        },
+        {
+          alpha: 1,
+          scale: 1,
           ease: Power1.easeInOut
         },
-        '+=0'
+        '+=3.5'
       )
       .to(
         '.supermanLogo_svg path',
@@ -63,6 +69,8 @@ class LogoCharacter extends Component {
         '+=0'
       )
       .addPause();
+
+    if (isVisible) tl.play('initIntro');
   }
 
   componentDidUpdate(prevProps) {
@@ -123,6 +131,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 LogoCharacter.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
   isActiveMenuLettersAnimation: PropTypes.bool.isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
   activeOverMenuLetters: PropTypes.func.isRequired
