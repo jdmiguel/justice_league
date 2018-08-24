@@ -15,7 +15,7 @@ class LettersCharacter extends Component {
         },
         outAnimation: {
           delay: 0,
-          duration: 0.5
+          duration: 0.4
         },
         inAnimation: {
           delay: 0,
@@ -33,9 +33,13 @@ class LettersCharacter extends Component {
 
   componentDidMount() {
     const { tl, configTl } = this.state;
-    const { isVisible } = this.props;
+    const { isVisible, classSuperHero } = this.props;
+    const classSelected = `.${classSuperHero}`;
+
     const { introAnimation, inAnimation, outAnimation } = configTl;
-    const mySplitText = new SplitText('.letters', { type: 'words,chars' });
+    const mySplitText = new SplitText(classSelected, {
+      type: 'words,chars'
+    });
     const { chars } = mySplitText;
 
     this.setState({
@@ -64,15 +68,21 @@ class LettersCharacter extends Component {
       )
       .addPause()
       .addLabel('outAnimation')
-      .staggerTo(
+      .staggerFromTo(
         chars,
         outAnimation.duration,
         {
-          cycle: { x: i => 200 + i * 20 },
-          alpha: 0,
-          ease: Power1.easeOut
+          alpha: 1,
+          x: 0,
+          rotationY: 0
         },
-        0.02,
+        {
+          cycle: { x: i => 50 + i * 40 },
+          alpha: 0,
+          rotationY: 0,
+          ease: Power1.easeIn
+        },
+        0.01,
         `+=${outAnimation.delay}`
       )
       .addPause()
@@ -82,10 +92,12 @@ class LettersCharacter extends Component {
         inAnimation.duration,
         {
           alpha: 0,
+          rotationY: 0,
           cycle: { x: i => -200 - i * 20 }
         },
         {
           alpha: 1,
+          rotationY: 0,
           x: 0,
           ease: Power1.easeOut
         },
@@ -139,7 +151,6 @@ class LettersCharacter extends Component {
     });
 
     outLogoAnimation();
-    // TweenMax.killDelayedCallsTo(this.animLetters);
   }
 
   clickHandler() {
@@ -150,21 +161,27 @@ class LettersCharacter extends Component {
   }
 
   render() {
-    const { txt, isActiveOverMenuLetters } = this.props;
+    const {
+      txt,
+      isVisible,
+      classSuperHero,
+      isActiveOverMenuLetters
+    } = this.props;
+    const getLettersContainerClasses = () =>
+      !isVisible ? 'letters_container' : 'letters_container visible';
     const getLettersClasses = () =>
-      !isActiveOverMenuLetters ? 'letters' : 'letters active';
+      !isActiveOverMenuLetters
+        ? `letters ${classSuperHero}`
+        : `letters ${classSuperHero} active`;
 
     return (
-      <div className="letters_container">
+      <div className={getLettersContainerClasses()}>
         <button
           type="button"
           className={getLettersClasses()}
           onMouseEnter={() => {
             if (isActiveOverMenuLetters) this.mouseOverHandler();
           }}
-          onBlur={() => console.log('onBlur')}
-          onFocus={() => console.log('onFocus')}
-          onKeyDown={() => console.log('onFocus')}
           onMouseLeave={() => {
             if (isActiveOverMenuLetters) this.mouseOutHandler();
           }}
@@ -191,6 +208,7 @@ const mapDispatchToProps = dispatch => ({
 
 LettersCharacter.propTypes = {
   txt: PropTypes.string.isRequired,
+  classSuperHero: PropTypes.string.isRequired,
   isVisible: PropTypes.bool.isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
   inLogoAnimation: PropTypes.func.isRequired,

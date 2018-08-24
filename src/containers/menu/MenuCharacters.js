@@ -1,5 +1,5 @@
 import React from 'react';
-import Intro from './Intro';
+import Intro from '../Intro';
 import MenuCharactersWrapper from './MenuCharactersWrapper';
 
 const MenuCharacters = () => (

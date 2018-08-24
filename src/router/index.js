@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter, Route } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import Wrapper from '../hoc/Wrapper';
-import MenuCharacters from '../containers/MenuCharacters';
+import MenuCharacters from '../containers/menu/MenuCharacters';
 import SectionCharacter from '../containers/SectionCharacter';
 
 const history = createHistory();

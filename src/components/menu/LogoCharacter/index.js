@@ -18,7 +18,7 @@ class LogoCharacter extends Component {
     const { tl, duration, durationStroke, durationFill } = this.state;
     const { isVisible, activeOverMenuLetters } = this.props;
 
-    console.log(`isVisible: ${isVisible}`);
+    // console.log(`isVisible: ${isVisible}`);
 
     tl.addLabel('initIntro')
       .fromTo(
