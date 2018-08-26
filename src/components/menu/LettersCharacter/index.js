@@ -33,8 +33,8 @@ class LettersCharacter extends Component {
 
   componentDidMount() {
     const { tl, configTl } = this.state;
-    const { isVisible, classSuperHero } = this.props;
-    const classSelected = `.${classSuperHero}`;
+    const { superhero } = this.props;
+    const classSelected = `.${superhero}`;
 
     const { introAnimation, inAnimation, outAnimation } = configTl;
     const mySplitText = new SplitText(classSelected, {
@@ -106,7 +106,7 @@ class LettersCharacter extends Component {
       )
       .addPause();
 
-    if (isVisible) tl.play('introAnimation');
+    tl.play('introAnimation');
   }
 
   getDistance(index) {
@@ -161,21 +161,14 @@ class LettersCharacter extends Component {
   }
 
   render() {
-    const {
-      txt,
-      isVisible,
-      classSuperHero,
-      isActiveOverMenuLetters
-    } = this.props;
-    const getLettersContainerClasses = () =>
-      !isVisible ? 'letters_container' : 'letters_container visible';
+    const { superhero, isActiveOverMenuLetters } = this.props;
     const getLettersClasses = () =>
       !isActiveOverMenuLetters
-        ? `letters ${classSuperHero}`
-        : `letters ${classSuperHero} active`;
+        ? `letters ${superhero}`
+        : `letters ${superhero} active`;
 
     return (
-      <div className={getLettersContainerClasses()}>
+      <div className="letters_container visible">
         <button
           type="button"
           className={getLettersClasses()}
@@ -187,7 +180,7 @@ class LettersCharacter extends Component {
           }}
           onClick={this.clickHandler}
         >
-          {txt}
+          {superhero}
         </button>
       </div>
     );
@@ -195,7 +188,7 @@ class LettersCharacter extends Component {
 }
 
 const mapStateToProps = state => ({
-  isActiveOverMenuLetters: state.isActiveOverMenuLetters
+  isActiveOverMenuLetters: state.lettersMenuRdc.isActiveOverMenuLetters
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -207,9 +200,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 LettersCharacter.propTypes = {
-  txt: PropTypes.string.isRequired,
-  classSuperHero: PropTypes.string.isRequired,
-  isVisible: PropTypes.bool.isRequired,
+  superhero: PropTypes.string.isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
   inLogoAnimation: PropTypes.func.isRequired,
   outLogoAnimation: PropTypes.func.isRequired,

@@ -65,7 +65,8 @@ class Background extends Component {
 }
 
 const mapStateToProps = state => ({
-  isActiveMenuLettersAnimation: state.isActiveMenuLettersAnimation
+  isActiveMenuLettersAnimation:
+    state.lettersMenuRdc.isActiveMenuLettersAnimation
 });
 
 Background.propTypes = {

@@ -16,7 +16,7 @@ class LogoCharacter extends Component {
 
   componentDidMount() {
     const { tl, duration, durationStroke, durationFill } = this.state;
-    const { isVisible, activeOverMenuLetters } = this.props;
+    const { activeOverMenuLetters } = this.props;
 
     // console.log(`isVisible: ${isVisible}`);
 
@@ -70,7 +70,7 @@ class LogoCharacter extends Component {
       )
       .addPause();
 
-    if (isVisible) tl.play('initIntro');
+    tl.play('initIntro');
   }
 
   componentDidUpdate(prevProps) {
@@ -121,8 +121,9 @@ class LogoCharacter extends Component {
 }
 
 const mapStateToProps = state => ({
-  isActiveMenuLettersAnimation: state.isActiveMenuLettersAnimation,
-  isActiveOverMenuLetters: state.isActiveOverMenuLetters
+  isActiveMenuLettersAnimation:
+    state.lettersMenuRdc.isActiveMenuLettersAnimation,
+  isActiveOverMenuLetters: state.lettersMenuRdc.isActiveOverMenuLetters
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -131,7 +132,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 LogoCharacter.propTypes = {
-  isVisible: PropTypes.bool.isRequired,
   isActiveMenuLettersAnimation: PropTypes.bool.isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
   activeOverMenuLetters: PropTypes.func.isRequired
