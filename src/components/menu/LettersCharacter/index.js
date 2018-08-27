@@ -22,8 +22,8 @@ class LettersCharacter extends Component {
           duration: 1.1
         }
       },
-      chars: null,
-      totalChars: 0
+      letters: null,
+      lettersLength: 0
     };
 
     this.mouseOverHandler = this.mouseOverHandler.bind(this);
@@ -32,24 +32,58 @@ class LettersCharacter extends Component {
   }
 
   componentDidMount() {
+    this.createTimeline();
+    this.setTimeline('intro');
+  }
+
+  shouldComponentUpdate(nextProps) {
+    if (this.props !== nextProps) return true;
+    return false;
+  }
+
+  componentDidUpdate() {
+    this.setTimeline('out');
+  }
+
+  getDistance(index) {
+    const { lettersLength } = this.state;
+    const factor = lettersLength / 2;
+    const distance =
+      index < lettersLength / 2
+        ? (Math.sin(index) - lettersLength) * (factor - index)
+        : (Math.sin(index) + lettersLength) * (index - factor);
+
+    return distance;
+  }
+
+  setTimeline(typeAnimation = 'intro') {
+    const { tl } = this.state;
+
+    switch (typeAnimation) {
+      case 'intro':
+        tl.play('intro');
+        break;
+      case 'in':
+        tl.play('in');
+        break;
+      case 'out':
+        tl.play('out');
+        break;
+      default:
+        tl.play('intro');
+        break;
+    }
+  }
+
+  createTimeline() {
+    const lettersCreated = this.createSuperheroLetters();
+
     const { tl, configTl } = this.state;
-    const { superhero } = this.props;
-    const classSelected = `.${superhero}`;
-
     const { introAnimation, inAnimation, outAnimation } = configTl;
-    const mySplitText = new SplitText(classSelected, {
-      type: 'words,chars'
-    });
-    const { chars } = mySplitText;
 
-    this.setState({
-      chars,
-      totalChars: chars.length
-    });
-
-    tl.addLabel('introAnimation')
+    tl.addLabel('intro')
       .staggerFromTo(
-        chars,
+        lettersCreated,
         introAnimation.duration,
         {
           alpha: 0,
@@ -67,9 +101,9 @@ class LettersCharacter extends Component {
         `+=${introAnimation.delay}`
       )
       .addPause()
-      .addLabel('outAnimation')
+      .addLabel('out')
       .staggerFromTo(
-        chars,
+        lettersCreated,
         outAnimation.duration,
         {
           alpha: 1,
@@ -86,9 +120,9 @@ class LettersCharacter extends Component {
         `+=${outAnimation.delay}`
       )
       .addPause()
-      .addLabel('inAnimation')
+      .addLabel('in')
       .staggerFromTo(
-        chars,
+        lettersCreated,
         inAnimation.duration,
         {
           alpha: 0,
@@ -105,34 +139,38 @@ class LettersCharacter extends Component {
         `+=${inAnimation.delay}`
       )
       .addPause();
-
-    tl.play('introAnimation');
   }
 
-  getDistance(index) {
-    const { totalChars } = this.state;
-    const factor = totalChars / 2;
-    const distance =
-      index < totalChars / 2
-        ? (Math.sin(index) - totalChars) * (factor - index)
-        : (Math.sin(index) + totalChars) * (index - factor);
-    return distance;
+  createSuperheroLetters() {
+    const { superhero } = this.props;
+    const classSelected = `.${superhero}`;
+
+    const mySplitText = new SplitText(classSelected, {
+      type: 'words,chars'
+    });
+
+    const { chars } = mySplitText;
+
+    this.setState({
+      letters: chars,
+      lettersLength: chars.length
+    });
+
+    return chars;
   }
 
   mouseOverHandler() {
-    const { chars, totalChars } = this.state;
+    const { letters, lettersLength } = this.state;
     const { inLogoAnimation } = this.props;
 
-    console.log('mouseOverHandler');
-
-    chars.forEach((char, i) => {
-      if (i < totalChars / 2)
-        TweenMax.to(char, 1, {
+    letters.forEach((letter, i) => {
+      if (i < lettersLength / 2)
+        TweenMax.to(letter, 1, {
           x: `${this.getDistance(i)}`,
           ease: Power1.easeOut
         });
-      if (i > totalChars / 2)
-        TweenMax.to(char, 1.2, {
+      if (i > lettersLength / 2)
+        TweenMax.to(letter, 1.2, {
           x: `${this.getDistance(i)}`,
           ease: Power1.easeOut
         });
@@ -142,13 +180,11 @@ class LettersCharacter extends Component {
   }
 
   mouseOutHandler() {
-    const { chars } = this.state;
+    const { letters } = this.state;
     const { outLogoAnimation } = this.props;
 
-    console.log('mouseOutHandler');
-
-    chars.forEach(char => {
-      TweenMax.to(char, 1, {
+    letters.forEach(letter => {
+      TweenMax.to(letter, 1, {
         x: 0,
         ease: Power1.easeOut
       });
@@ -160,7 +196,8 @@ class LettersCharacter extends Component {
   clickHandler() {
     const { tl } = this.state;
     const { desactiveOverMenuLetters } = this.props;
-    tl.play('outAnimation');
+
+    tl.play('out');
     desactiveOverMenuLetters();
   }
 

@@ -28,6 +28,7 @@ class MenuCharactersWrapper extends Component {
   mouseWheelHandler(e) {
     const { isActiveOverMenuLetters } = this.props;
     const { onMouseWheel } = this.state;
+
     if (onMouseWheel || !isActiveOverMenuLetters) return;
     this.setState({
       onMouseWheel: true,
@@ -37,13 +38,13 @@ class MenuCharactersWrapper extends Component {
 
   changeMenu(e) {
     const { delayOnMouseWheel } = this.state;
-    console.log('changeMenu: ', e);
     const { setActiveSuperhero } = this.props;
-    // console.log(e);
+
     if (e.deltaY > 0) setActiveSuperhero('next');
     else setActiveSuperhero('prev');
 
     clearTimeout(delayOnMouseWheel);
+
     this.setState({
       onMouseWheel: false
     });
@@ -54,8 +55,9 @@ class MenuCharactersWrapper extends Component {
     // console.log('from render__ superheroes: ', superheroesList);
     const activeSuperhero = superheroesList.reduce(
       (allSuperheroes, superhero) => {
-        if (superhero.isActive === true) allSuperheroes = superhero;
-        return allSuperheroes;
+        let listSuperhero = allSuperheroes;
+        if (superhero.isActive === true) listSuperhero = superhero;
+        return listSuperhero;
       },
       {}
     ).name;
@@ -84,7 +86,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 MenuCharactersWrapper.propTypes = {
-  superheroesList: PropTypes.array.isRequired,
+  superheroesList: PropTypes.arrayOf(PropTypes.object).isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
   setActiveSuperhero: PropTypes.func.isRequired
 };

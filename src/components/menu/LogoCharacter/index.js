@@ -81,13 +81,15 @@ class LogoCharacter extends Component {
       isActiveMenuLettersAnimation
     } = this.props;
     if (prevProps.isActiveOverMenuLetters !== isActiveOverMenuLetters) return;
-    isActiveMenuLettersAnimation ? this.animate('in') : this.animate('out');
+    if (isActiveMenuLettersAnimation) this.animate('in');
+    else this.animate('out');
   }
 
   animate(mode) {
     console.log(`animate: ${mode}`);
     const { tl } = this.state;
-    mode === 'in' ? tl.play('initIn') : tl.play('initOut');
+    if (mode === 'in') tl.play('initIn');
+    else tl.play('initOut');
   }
 
   render() {

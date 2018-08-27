@@ -45,7 +45,8 @@ const updateHandlerSuperheroesList = (list, updatedCounter) => {
   const updatedList = [...list];
 
   updatedList.forEach(listElement => {
-    listElement.isActive = false;
+    const currentListElement = listElement;
+    currentListElement.isActive = false;
   });
 
   updatedList[updatedCounter].isActive = true;
@@ -55,7 +56,7 @@ const updateHandlerSuperheroesList = (list, updatedCounter) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SET_ACTIVE_SUPERHERO_MENU:
+    case actionTypes.SET_ACTIVE_SUPERHERO_MENU: {
       const updateCounterActivateSuperheroes = updateHandlerCounterActivateSuperheroes(
         state,
         action.active
@@ -71,13 +72,11 @@ const reducer = (state = initialState, action) => {
         superheroesList: updateSuperheroesList,
         counterActivateSuperhero: updateCounterActivateSuperheroes
       };
-      break;
+    }
 
     default:
       return state;
-      break;
   }
-  return state;
 };
 
 export default reducer;
