@@ -2,7 +2,9 @@ import * as actionTypes from '../../actions';
 
 const initialState = {
   isActiveOverMenuLetters: false,
-  isActiveMenuLettersAnimation: false
+  isActiveMenuLettersAnimation: false,
+  inDirectionMenuLetters: null,
+  outDirectionMenuLetters: null
 };
 
 const reducer = (state = initialState, action) => {
