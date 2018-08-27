@@ -168,7 +168,7 @@ class LettersCharacter extends Component {
         : `letters ${superhero} active`;
 
     return (
-      <div className="letters_container visible">
+      <div className="letters_container">
         <button
           type="button"
           className={getLettersClasses()}

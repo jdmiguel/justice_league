@@ -16,9 +16,12 @@ class MenuCharactersWrapper extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('mousewheel', event =>
-      this.mouseWheelHandler(event)
-    );
+    const { isActiveOverMenuLetters } = this.props;
+    if (isActiveOverMenuLetters) {
+      document.addEventListener('mousewheel', event =>
+        this.mouseWheelHandler(event)
+      );
+    }
   }
 
   componentDidUpdate() {
@@ -49,12 +52,15 @@ class MenuCharactersWrapper extends Component {
   }
 
   render() {
-    const { superheroes } = this.props;
-    console.log('from render__ superheroes: ', superheroes);
-    const activeSuperhero = superheroes.reduce((allSuperheroes, superhero) => {
-      if (superhero.isActive === true) allSuperheroes = superhero;
-      return allSuperheroes;
-    }, {}).name;
+    const { superheroesList } = this.props;
+    // console.log('from render__ superheroes: ', superheroesList);
+    const activeSuperhero = superheroesList.reduce(
+      (allSuperheroes, superhero) => {
+        if (superhero.isActive === true) allSuperheroes = superhero;
+        return allSuperheroes;
+      },
+      {}
+    ).name;
 
     return (
       <div className="menuCharacters_wrapper">
@@ -67,7 +73,8 @@ class MenuCharactersWrapper extends Component {
 }
 
 const mapStateToProps = state => ({
-  superheroes: state.superheroesMenuRdc.superheroes
+  superheroesList: state.superheroesMenuRdc.superheroesList,
+  isActiveOverMenuLetters: state.lettersMenuRdc.isActiveOverMenuLetters
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -79,7 +86,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 MenuCharactersWrapper.propTypes = {
-  superheroes: PropTypes.array.isRequired,
+  superheroesList: PropTypes.array.isRequired,
+  isActiveOverMenuLetters: PropTypes.bool.isRequired,
   setActiveSuperhero: PropTypes.func.isRequired
 };
 

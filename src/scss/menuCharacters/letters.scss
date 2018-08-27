@@ -1,10 +1,6 @@
 .letters_container{
     position: absolute;
     z-index: 3;
-    transform: translateX(200%);
-    &.visible{
-        transform: translateX(0);
-    }
 }
 
 .letters{
@@ -13,6 +9,7 @@
     text-align: center;
     color: $darkWhite;
     display: block;
+    line-height: 0;
     &.active{
         cursor: pointer;
     }

@@ -1,43 +1,75 @@
 import * as actionTypes from '../../actions';
 
 const initialState = {
-  superheroes: [
+  superheroesList: [
     { name: 'superman', isActive: true },
     { name: 'batman', isActive: false },
     { name: 'wonder woman', isActive: false },
     { name: 'flash', isActive: false },
     { name: 'green lantern', isActive: false },
     { name: 'green arrow', isActive: false }
-  ]
+  ],
+
+  counterActivateSuperhero: 0
+};
+
+const getTotalSuperheroes = list => list.length - 1;
+
+const resetHandlerCounterActivateSuperheroes = (counter, limitMax) => {
+  let counterValue = counter;
+
+  if (counterValue < 0) counterValue = limitMax;
+  if (counterValue > limitMax) counterValue = 0;
+
+  return counterValue;
+};
+
+const updateHandlerCounterActivateSuperheroes = (state, elementToActive) => {
+  const { superheroesList, counterActivateSuperhero } = state;
+  const totalSuperHeroes = getTotalSuperheroes(superheroesList);
+
+  let counter = counterActivateSuperhero;
+
+  if (elementToActive === 'next') counter += 1;
+  else counter -= 1;
+
+  const resetCounter = resetHandlerCounterActivateSuperheroes(
+    counter,
+    totalSuperHeroes
+  );
+
+  return resetCounter;
+};
+
+const updateHandlerSuperheroesList = (list, updatedCounter) => {
+  const updatedList = [...list];
+
+  updatedList.forEach(listElement => {
+    listElement.isActive = false;
+  });
+
+  updatedList[updatedCounter].isActive = true;
+
+  return updatedList;
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_ACTIVE_SUPERHERO_MENU:
-      const limitNumSuperheroes = state.superheroes.length - 1;
-      const superheroesUpdated = state.superheroes.map(
-        (superhero, index, arr) => {
-          /* console.log('superhero: ', superhero);
-          console.log('index: ', index);
-          console.log('arr: ', arr); */
-          superhero.isActive = false;
-          if (action.active === 'next' && index < limitNumSuperheroes) {
-            arr[index++].isActive = true;
-          }
-
-          /* if (action.active === 'next') {
-            if (index !== limitNumSuperheroes) arr[index++].isActive = true;
-            else arr[0].isActive = true;
-          } else if (index !== 0) arr[index--].isActive = true;
-          else arr[limitNumSuperheroes].isActive = true;  */
-        }
+      const updateCounterActivateSuperheroes = updateHandlerCounterActivateSuperheroes(
+        state,
+        action.active
       );
 
-      // console.log(superheroesUpdated);
+      const updateSuperheroesList = updateHandlerSuperheroesList(
+        state.superheroesList,
+        updateCounterActivateSuperheroes
+      );
 
       return {
-        ...state /* ,
-        superheroes: superheroesUpdated */
+        ...state,
+        superheroesList: updateSuperheroesList,
+        counterActivateSuperhero: updateCounterActivateSuperheroes
       };
       break;
 
