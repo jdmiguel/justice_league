@@ -16,12 +16,9 @@ class MenuCharactersWrapper extends Component {
   }
 
   componentDidMount() {
-    const { isActiveOverMenuLetters } = this.props;
-    if (isActiveOverMenuLetters) {
-      document.addEventListener('mousewheel', event =>
-        this.mouseWheelHandler(event)
-      );
-    }
+    document.addEventListener('mousewheel', event =>
+      this.mouseWheelHandler(event)
+    );
   }
 
   componentDidUpdate() {
@@ -29,8 +26,9 @@ class MenuCharactersWrapper extends Component {
   }
 
   mouseWheelHandler(e) {
+    const { isActiveOverMenuLetters } = this.props;
     const { onMouseWheel } = this.state;
-    if (onMouseWheel) return;
+    if (onMouseWheel || !isActiveOverMenuLetters) return;
     this.setState({
       onMouseWheel: true,
       delayOnMouseWheel: setTimeout(() => this.changeMenu(e), 1000)
