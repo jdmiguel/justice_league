@@ -74,12 +74,12 @@ class LogoCharacter extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    // console.log(`prevProps: ${prevProps.isActiveOverMenuLetters}`);
-    // console.log(`this.props: ${this.props.isActiveOverMenuLetters}`);
+    console.log('componentDidUpdate from Logo');
     const {
       isActiveOverMenuLetters,
       isActiveMenuLettersAnimation
     } = this.props;
+
     if (prevProps.isActiveOverMenuLetters !== isActiveOverMenuLetters) return;
     if (isActiveMenuLettersAnimation) this.animate('in');
     else this.animate('out');

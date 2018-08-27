@@ -13,6 +13,8 @@ class MenuCharactersWrapper extends Component {
       onMouseWheel: false,
       delayOnMouseWheel: null
     };
+
+    this.getActiveSuperhero = this.getActiveSuperhero.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +25,39 @@ class MenuCharactersWrapper extends Component {
 
   componentDidUpdate() {
     console.log('componentDidUpdate');
+  }
+
+  getActiveSuperhero() {
+    const { superheroesList } = this.props;
+    const activeSuperhero = superheroesList.reduce(
+      (allSuperheroes, superhero) => {
+        let listSuperhero = allSuperheroes;
+        if (superhero.isActive === true) listSuperhero = superhero;
+        return listSuperhero;
+      },
+      {}
+    ).name;
+
+    return activeSuperhero;
+  }
+
+  changeMenu(e) {
+    const { delayOnMouseWheel } = this.state;
+    const { setActiveSuperhero, setOutDirectionLetters } = this.props;
+
+    if (e.deltaY > 0) {
+      setActiveSuperhero('next');
+      setOutDirectionLetters('right');
+    } else {
+      setActiveSuperhero('prev');
+      setOutDirectionLetters('left');
+    }
+
+    clearTimeout(delayOnMouseWheel);
+
+    this.setState({
+      onMouseWheel: false
+    });
   }
 
   mouseWheelHandler(e) {
@@ -36,37 +71,13 @@ class MenuCharactersWrapper extends Component {
     });
   }
 
-  changeMenu(e) {
-    const { delayOnMouseWheel } = this.state;
-    const { setActiveSuperhero } = this.props;
-
-    if (e.deltaY > 0) setActiveSuperhero('next');
-    else setActiveSuperhero('prev');
-
-    clearTimeout(delayOnMouseWheel);
-
-    this.setState({
-      onMouseWheel: false
-    });
-  }
-
   render() {
-    const { superheroesList } = this.props;
-    // console.log('from render__ superheroes: ', superheroesList);
-    const activeSuperhero = superheroesList.reduce(
-      (allSuperheroes, superhero) => {
-        let listSuperhero = allSuperheroes;
-        if (superhero.isActive === true) listSuperhero = superhero;
-        return listSuperhero;
-      },
-      {}
-    ).name;
-
+    const { outDirection } = this.props;
     return (
       <div className="menuCharacters_wrapper">
         <Background />
-        <Letters superhero={activeSuperhero} />
-        <LogoCharacter superhero={activeSuperhero} />
+        <Letters superhero="superman" outDirection={outDirection} />
+        <LogoCharacter superhero={this.getActiveSuperhero()} />
       </div>
     );
   }
@@ -74,21 +85,29 @@ class MenuCharactersWrapper extends Component {
 
 const mapStateToProps = state => ({
   superheroesList: state.superheroesMenuRdc.superheroesList,
-  isActiveOverMenuLetters: state.lettersMenuRdc.isActiveOverMenuLetters
+  isActiveOverMenuLetters: state.lettersMenuRdc.isActiveOverMenuLetters,
+  outDirection: state.lettersMenuRdc.outDirectionMenuLetters
 });
 
 const mapDispatchToProps = dispatch => ({
-  setActiveSuperhero: select =>
+  setActiveSuperhero: selected =>
     dispatch({
       type: actionTypes.SET_ACTIVE_SUPERHERO_MENU,
-      active: select
+      active: selected
+    }),
+  setOutDirectionLetters: directionSelected =>
+    dispatch({
+      type: actionTypes.SET_OUT_DIRECTION_MENU_LETTERS,
+      direction: directionSelected
     })
 });
 
 MenuCharactersWrapper.propTypes = {
   superheroesList: PropTypes.arrayOf(PropTypes.object).isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
-  setActiveSuperhero: PropTypes.func.isRequired
+  outDirection: PropTypes.string.isRequired,
+  setActiveSuperhero: PropTypes.func.isRequired,
+  setOutDirectionLetters: PropTypes.func.isRequired
 };
 
 export default connect(

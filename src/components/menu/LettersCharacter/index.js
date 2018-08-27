@@ -36,14 +36,7 @@ class LettersCharacter extends Component {
     this.setTimeline('intro');
   }
 
-  shouldComponentUpdate(nextProps) {
-    if (this.props !== nextProps) return true;
-    return false;
-  }
-
-  componentDidUpdate() {
-    this.setTimeline('out');
-  }
+  componentDidUpdate() {}
 
   getDistance(index) {
     const { lettersLength } = this.state;
@@ -66,8 +59,11 @@ class LettersCharacter extends Component {
       case 'in':
         tl.play('in');
         break;
-      case 'out':
-        tl.play('out');
+      case 'outRight':
+        tl.play('outRight');
+        break;
+      case 'outLeft':
+        tl.play('outLeft');
         break;
       default:
         tl.play('intro');
@@ -101,7 +97,7 @@ class LettersCharacter extends Component {
         `+=${introAnimation.delay}`
       )
       .addPause()
-      .addLabel('out')
+      .addLabel('outRight')
       .staggerFromTo(
         lettersCreated,
         outAnimation.duration,
@@ -112,6 +108,25 @@ class LettersCharacter extends Component {
         },
         {
           cycle: { x: i => 50 + i * 40 },
+          alpha: 0,
+          rotationY: 0,
+          ease: Power1.easeIn
+        },
+        0.01,
+        `+=${outAnimation.delay}`
+      )
+      .addPause()
+      .addLabel('outLeft')
+      .staggerFromTo(
+        lettersCreated,
+        outAnimation.duration,
+        {
+          alpha: 1,
+          x: 0,
+          rotationY: 0
+        },
+        {
+          cycle: { x: i => -200 + i * 20 },
           alpha: 0,
           rotationY: 0,
           ease: Power1.easeIn
@@ -202,16 +217,17 @@ class LettersCharacter extends Component {
   }
 
   render() {
-    const { superhero, isActiveOverMenuLetters } = this.props;
-    const getLettersClasses = () =>
-      !isActiveOverMenuLetters
-        ? `letters ${superhero}`
-        : `letters ${superhero} active`;
+    const { superhero, isActiveOverMenuLetters, outDirection } = this.props;
+    if (outDirection === 'left') this.setTimeline('outLeft');
+    if (outDirection === 'right') this.setTimeline('outRight');
+
+    const getLettersBtnClasses = () =>
+      !isActiveOverMenuLetters ? 'letters_btn' : 'letters_btn active';
 
     return (
       <div className="letters_container">
         <button
-          className="letters_btn"
+          className={getLettersBtnClasses()}
           type="button"
           onMouseOver={() => {
             if (isActiveOverMenuLetters) this.mouseOverHandler();
@@ -224,13 +240,14 @@ class LettersCharacter extends Component {
           onBlur={e => e.preventDefault}
           onClick={this.clickHandler}
         />
-        <h2 className={getLettersClasses()}>{superhero}</h2>
+        <h2 className={`letters ${superhero}`}>{superhero}</h2>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
+  superheroesList: state.superheroesMenuRdc.superheroesList,
   isActiveOverMenuLetters: state.lettersMenuRdc.isActiveOverMenuLetters
 });
 
@@ -243,7 +260,9 @@ const mapDispatchToProps = dispatch => ({
 });
 
 LettersCharacter.propTypes = {
+  superheroesList: PropTypes.arrayOf(PropTypes.object).isRequired,
   superhero: PropTypes.string.isRequired,
+  outDirection: PropTypes.string.isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
   inLogoAnimation: PropTypes.func.isRequired,
   outLogoAnimation: PropTypes.func.isRequired,

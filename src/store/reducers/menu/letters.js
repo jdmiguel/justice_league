@@ -3,8 +3,8 @@ import * as actionTypes from '../../actions';
 const initialState = {
   isActiveOverMenuLetters: false,
   isActiveMenuLettersAnimation: false,
-  inDirectionMenuLetters: null,
-  outDirectionMenuLetters: null
+  inDirectionMenuLetters: '',
+  outDirectionMenuLetters: ''
 };
 
 const reducer = (state = initialState, action) => {
@@ -28,6 +28,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         isActiveMenuLettersAnimation: false
+      };
+    case actionTypes.SET_OUT_DIRECTION_MENU_LETTERS:
+      return {
+        ...state,
+        outDirectionMenuLetters: action.direction
       };
     default:
       return state;

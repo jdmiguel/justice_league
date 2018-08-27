@@ -50,13 +50,17 @@ class Background extends Component {
   }
 
   componentDidUpdate() {
+    console.log('componentDidUpdate from Background');
     const { isActiveMenuLettersAnimation } = this.props;
-    isActiveMenuLettersAnimation ? this.animate('in') : this.animate('out');
+
+    if (isActiveMenuLettersAnimation) this.animate('in');
+    else this.animate('out');
   }
 
   animate(mode) {
     const { tl } = this.state;
-    mode === 'in' ? tl.play('initIn') : tl.play('initOut');
+    if (mode === 'in') tl.play('initIn');
+    else tl.play('initOut');
   }
 
   render() {
