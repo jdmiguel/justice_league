@@ -123,6 +123,8 @@ class LettersCharacter extends Component {
     const { chars, totalChars } = this.state;
     const { inLogoAnimation } = this.props;
 
+    console.log('mouseOverHandler');
+
     chars.forEach((char, i) => {
       if (i < totalChars / 2)
         TweenMax.to(char, 1, {
@@ -142,6 +144,8 @@ class LettersCharacter extends Component {
   mouseOutHandler() {
     const { chars } = this.state;
     const { outLogoAnimation } = this.props;
+
+    console.log('mouseOutHandler');
 
     chars.forEach(char => {
       TweenMax.to(char, 1, {
@@ -170,18 +174,20 @@ class LettersCharacter extends Component {
     return (
       <div className="letters_container">
         <button
+          className="letters_btn"
           type="button"
-          className={getLettersClasses()}
-          onMouseEnter={() => {
+          onMouseOver={() => {
             if (isActiveOverMenuLetters) this.mouseOverHandler();
           }}
-          onMouseLeave={() => {
+          onMouseOut={() => {
             if (isActiveOverMenuLetters) this.mouseOutHandler();
           }}
+          onKeyDown={e => e.preventDefault}
+          onFocus={e => e.preventDefault}
+          onBlur={e => e.preventDefault}
           onClick={this.clickHandler}
-        >
-          {superhero}
-        </button>
+        />
+        <h2 className={getLettersClasses()}>{superhero}</h2>
       </div>
     );
   }
