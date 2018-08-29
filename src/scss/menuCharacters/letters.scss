@@ -2,6 +2,10 @@
     position: absolute;
     z-index: 3;
     white-space: nowrap;
+    display: none;
+    &.active{
+        display: block;
+    }
 }
 
 .letters_btn{
@@ -10,8 +14,10 @@
     height: 100%;
     position: absolute;
     z-index: 1;
+    pointer-events: none;
+    cursor: pointer;
     &.active{
-        cursor: pointer;
+        pointer-events: all;
     }
 }
 
