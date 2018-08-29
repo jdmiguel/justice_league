@@ -22,10 +22,12 @@ class LettersCharacter extends Component {
           duration: 1.1
         }
       },
-      letters: null,
-      lettersLength: 0
+      activedLetters: null,
+      activedLettersLength: 0
     };
 
+    this.createSuperheroLetters = this.createSuperheroLetters.bind(this);
+    this.setActiveSuperheroLetters = this.setActiveSuperheroLetters.bind(this);
     this.mouseOverHandler = this.mouseOverHandler.bind(this);
     this.mouseOutHandler = this.mouseOutHandler.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
@@ -33,20 +35,25 @@ class LettersCharacter extends Component {
 
   componentDidMount() {
     const { superheroActive } = this.props;
+    const createdLetters = this.createSuperheroLetters();
+    const activeLetters = this.setActiveSuperheroLetters(createdLetters);
 
-    this.createTimeline();
+    console.log('createdLetters: ', createdLetters);
+    console.log('activeLetters: ', activeLetters);
+
+    this.createTimeline(createdLetters);
     if (superheroActive) this.setTimeline('intro');
   }
 
   componentDidUpdate() {}
 
   getDistance(index) {
-    const { lettersLength } = this.state;
-    const factor = lettersLength / 2;
+    const { ActiveLettersLength } = this.state;
+    const factor = ActiveLettersLength / 2;
     const distance =
-      index < lettersLength / 2
-        ? (Math.sin(index) - lettersLength) * (factor - index)
-        : (Math.sin(index) + lettersLength) * (index - factor);
+      index < ActiveLettersLength / 2
+        ? (Math.sin(index) - ActiveLettersLength) * (factor - index)
+        : (Math.sin(index) + ActiveLettersLength) * (index - factor);
 
     return distance;
   }
@@ -73,15 +80,38 @@ class LettersCharacter extends Component {
     }
   }
 
-  createTimeline() {
-    const lettersCreated = this.createSuperheroLetters();
+  setActiveSuperheroLetters(letters) {
+    const { superheroActive } = this.props;
 
-    const { tl, configTl } = this.state;
+    if (superheroActive) {
+      this.setState({
+        activedLetters: letters,
+        activedLettersLength: letters.length
+      });
+    }
+  }
+
+  createSuperheroLetters() {
+    const { superheroClass } = this.props;
+
+    const mySplitText = new SplitText(`.${superheroClass}`, {
+      type: 'words,chars'
+    });
+
+    const { chars } = mySplitText;
+
+    return chars;
+  }
+
+  createTimeline(elementToAnimate) {
+    const { activedLetters, tl, configTl } = this.state;
     const { introAnimation, inAnimation, outAnimation } = configTl;
+
+    console.log('activedLetters from createTimeline: ', activedLetters);
 
     tl.addLabel('intro')
       .staggerFromTo(
-        lettersCreated,
+        elementToAnimate,
         introAnimation.duration,
         {
           alpha: 0,
@@ -101,7 +131,7 @@ class LettersCharacter extends Component {
       .addPause()
       .addLabel('outRight')
       .staggerFromTo(
-        lettersCreated,
+        elementToAnimate,
         outAnimation.duration,
         {
           alpha: 1,
@@ -120,7 +150,7 @@ class LettersCharacter extends Component {
       .addPause()
       .addLabel('outLeft')
       .staggerFromTo(
-        lettersCreated,
+        elementToAnimate,
         outAnimation.duration,
         {
           alpha: 1,
@@ -139,7 +169,7 @@ class LettersCharacter extends Component {
       .addPause()
       .addLabel('in')
       .staggerFromTo(
-        lettersCreated,
+        elementToAnimate,
         inAnimation.duration,
         {
           alpha: 0,
@@ -158,26 +188,12 @@ class LettersCharacter extends Component {
       .addPause();
   }
 
-  createSuperheroLetters() {
-    const { superheroClass } = this.props;
-
-    const mySplitText = new SplitText(`.${superheroClass}`, {
-      type: 'words,chars'
-    });
-
-    const { chars } = mySplitText;
-
-    this.setState({
-      letters: chars,
-      lettersLength: chars.length
-    });
-
-    return chars;
-  }
-
   mouseOverHandler() {
     const { letters, lettersLength } = this.state;
     const { triggerOverLogoAnimation } = this.props;
+
+    console.log('letters from mouseOverHandler', letters);
+    console.log('lettersLength from mouseOverHandler', lettersLength);
 
     letters.forEach((letter, i) => {
       if (i < lettersLength / 2)

@@ -124,8 +124,6 @@ const mapDispatchToProps = dispatch => ({
 MenuCharactersWrapper.propTypes = {
   superheroesList: PropTypes.arrayOf(PropTypes.object).isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
-  /* inDirection: PropTypes.string.isRequired,
-  outDirection: PropTypes.string.isRequired, */
   setActiveSuperhero: PropTypes.func.isRequired,
   setDirectionInLetters: PropTypes.func.isRequired,
   setDirectionOutLetters: PropTypes.func.isRequired
