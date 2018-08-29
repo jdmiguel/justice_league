@@ -5,37 +5,37 @@ const initialState = {
     {
       name: 'superman',
       class: 'superman',
-      isActive: true,
+      active: true,
       id: '012b'
     },
     {
       name: 'batman',
       class: 'batman',
-      isActive: false,
+      active: false,
       id: '024ee'
     },
     {
       name: 'wonder woman',
       class: 'wonderwoman',
-      isActive: false,
+      active: false,
       id: '034pl'
     },
     {
       name: 'flash',
       class: 'flash',
-      isActive: false,
+      active: false,
       id: '0021fg'
     },
     {
       name: 'green lantern',
       class: 'greenlantern',
-      isActive: false,
+      active: false,
       id: '077df'
     },
     {
       name: 'green arrow',
       class: 'greenarrow',
-      isActive: false,
+      active: false,
       id: '34jafd'
     }
   ],
@@ -76,10 +76,10 @@ const updateHandlerSuperheroesList = (list, updatedCounter) => {
 
   updatedList.forEach(listElement => {
     const currentListElement = listElement;
-    currentListElement.isActive = false;
+    currentListElement.active = false;
   });
 
-  updatedList[updatedCounter].isActive = true;
+  updatedList[updatedCounter].active = true;
 
   return updatedList;
 };

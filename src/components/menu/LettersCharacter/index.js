@@ -32,8 +32,10 @@ class LettersCharacter extends Component {
   }
 
   componentDidMount() {
+    const { superheroActive } = this.props;
+
     this.createTimeline();
-    this.setTimeline('intro');
+    if (superheroActive) this.setTimeline('intro');
   }
 
   componentDidUpdate() {}
@@ -175,7 +177,7 @@ class LettersCharacter extends Component {
 
   mouseOverHandler() {
     const { letters, lettersLength } = this.state;
-    const { inLogoAnimation } = this.props;
+    const { triggerOverLogoAnimation } = this.props;
 
     letters.forEach((letter, i) => {
       if (i < lettersLength / 2)
@@ -190,12 +192,12 @@ class LettersCharacter extends Component {
         });
     });
 
-    inLogoAnimation();
+    triggerOverLogoAnimation();
   }
 
   mouseOutHandler() {
     const { letters } = this.state;
-    const { outLogoAnimation } = this.props;
+    const { triggerOutLogoAnimation } = this.props;
 
     letters.forEach(letter => {
       TweenMax.to(letter, 1, {
@@ -204,7 +206,7 @@ class LettersCharacter extends Component {
       });
     });
 
-    outLogoAnimation();
+    triggerOutLogoAnimation();
   }
 
   clickHandler() {
@@ -250,26 +252,29 @@ class LettersCharacter extends Component {
 }
 
 const mapStateToProps = state => ({
-  superheroesList: state.superheroesMenuRdc.superheroesList,
+  outDirection: state.lettersMenuRdc.outDirectionMenuLetters,
+  inDirection: state.lettersMenuRdc.inDirectionMenuLetters,
   isActiveOverMenuLetters: state.lettersMenuRdc.isActiveOverMenuLetters
 });
 
 const mapDispatchToProps = dispatch => ({
-  inLogoAnimation: () => dispatch({ type: actionTypes.MENU_LOGO_ANIMATION_IN }),
-  outLogoAnimation: () =>
-    dispatch({ type: actionTypes.MENU_LOGO_ANIMATION_OUT }),
+  triggerOverLogoAnimation: () =>
+    dispatch({ type: actionTypes.MENU_LOGO_ANIMATION_MOUSE_OVER }),
+  triggerOutLogoAnimation: () =>
+    dispatch({ type: actionTypes.MENU_LOGO_ANIMATION_MOUSE_OUT }),
   desactiveOverMenuLetters: () =>
     dispatch({ type: actionTypes.DESACTIVE_OVER_MENU_LETTERS })
 });
 
 LettersCharacter.propTypes = {
-  superheroesList: PropTypes.arrayOf(PropTypes.object).isRequired,
   superheroName: PropTypes.string.isRequired,
   superheroClass: PropTypes.string.isRequired,
-  /* outDirection: PropTypes.string.isRequired, */
+  superheroActive: PropTypes.bool.isRequired,
+  inDirection: PropTypes.string.isRequired,
+  outDirection: PropTypes.string.isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
-  inLogoAnimation: PropTypes.func.isRequired,
-  outLogoAnimation: PropTypes.func.isRequired,
+  triggerOverLogoAnimation: PropTypes.func.isRequired,
+  triggerOutLogoAnimation: PropTypes.func.isRequired,
   desactiveOverMenuLetters: PropTypes.func.isRequired
 };
 

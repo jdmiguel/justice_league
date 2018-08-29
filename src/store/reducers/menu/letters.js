@@ -20,22 +20,22 @@ const reducer = (state = initialState, action) => {
         ...state,
         isActiveOverMenuLetters: false
       };
-    case actionTypes.MENU_LOGO_ANIMATION_IN:
+    case actionTypes.MENU_LOGO_ANIMATION_MOUSE_OVER:
       return {
         ...state,
         isActiveMenuLettersAnimation: true
       };
-    case actionTypes.MENU_LOGO_ANIMATION_OUT:
+    case actionTypes.MENU_LOGO_ANIMATION_MOUSE_OUT:
       return {
         ...state,
         isActiveMenuLettersAnimation: false
       };
-    case actionTypes.SET_IN_DIRECTION_MENU_LETTERS:
+    case actionTypes.SET_DIRECTION_IN_MENU_LETTERS:
       return {
         ...state,
         inDirectionMenuLetters: action.direction
       };
-    case actionTypes.SET_OUT_DIRECTION_MENU_LETTERS:
+    case actionTypes.SET_DIRECTION_OUT_MENU_LETTERS:
       return {
         ...state,
         outDirectionMenuLetters: action.direction

@@ -43,14 +43,20 @@ class MenuCharactersWrapper extends Component {
 
   changeMenu(e) {
     const { delayOnMouseWheel } = this.state;
-    const { setActiveSuperhero, setOutDirectionLetters } = this.props;
+    const {
+      setActiveSuperhero,
+      setDirectionInLetters,
+      setDirectionOutLetters
+    } = this.props;
 
     if (e.deltaY > 0) {
       setActiveSuperhero('next');
-      setOutDirectionLetters('right');
+      setDirectionInLetters('left');
+      setDirectionOutLetters('right');
     } else {
       setActiveSuperhero('prev');
-      setOutDirectionLetters('left');
+      setDirectionInLetters('right');
+      setDirectionOutLetters('left');
     }
 
     clearTimeout(delayOnMouseWheel);
@@ -83,6 +89,7 @@ class MenuCharactersWrapper extends Component {
             key={superhero.id}
             superheroName={superhero.name}
             superheroClass={superhero.class}
+            superheroActive={superhero.active}
           />
         ))}
         <LogoCharacter superheroName={this.getActiveSuperhero()} />
@@ -93,8 +100,7 @@ class MenuCharactersWrapper extends Component {
 
 const mapStateToProps = state => ({
   superheroesList: state.superheroesMenuRdc.superheroesList,
-  isActiveOverMenuLetters: state.lettersMenuRdc.isActiveOverMenuLetters,
-  outDirection: state.lettersMenuRdc.outDirectionMenuLetters
+  isActiveOverMenuLetters: state.lettersMenuRdc.isActiveOverMenuLetters
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -103,14 +109,14 @@ const mapDispatchToProps = dispatch => ({
       type: actionTypes.SET_ACTIVE_SUPERHERO_MENU,
       active: selected
     }),
-  setInDirectionLetters: directionSelected =>
+  setDirectionInLetters: directionSelected =>
     dispatch({
-      type: actionTypes.SET_IN_DIRECTION_MENU_LETTERS,
+      type: actionTypes.SET_DIRECTION_IN_MENU_LETTERS,
       direction: directionSelected
     }),
-  setOutDirectionLetters: directionSelected =>
+  setDirectionOutLetters: directionSelected =>
     dispatch({
-      type: actionTypes.SET_OUT_DIRECTION_MENU_LETTERS,
+      type: actionTypes.SET_DIRECTION_OUT_MENU_LETTERS,
       direction: directionSelected
     })
 });
@@ -121,8 +127,8 @@ MenuCharactersWrapper.propTypes = {
   /* inDirection: PropTypes.string.isRequired,
   outDirection: PropTypes.string.isRequired, */
   setActiveSuperhero: PropTypes.func.isRequired,
-  setInDirectionLetters: PropTypes.func.isRequired,
-  setOutDirectionLetters: PropTypes.func.isRequired
+  setDirectionInLetters: PropTypes.func.isRequired,
+  setDirectionOutLetters: PropTypes.func.isRequired
 };
 
 export default connect(
