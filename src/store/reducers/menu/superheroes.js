@@ -2,12 +2,42 @@ import * as actionTypes from '../../actions';
 
 const initialState = {
   superheroesList: [
-    { name: 'superman', isActive: true },
-    { name: 'batman', isActive: false },
-    { name: 'wonder woman', isActive: false },
-    { name: 'flash', isActive: false },
-    { name: 'green lantern', isActive: false },
-    { name: 'green arrow', isActive: false }
+    {
+      name: 'superman',
+      class: 'superman',
+      isActive: true,
+      id: '012b'
+    },
+    {
+      name: 'batman',
+      class: 'batman',
+      isActive: false,
+      id: '024ee'
+    },
+    {
+      name: 'wonder woman',
+      class: 'wonderwoman',
+      isActive: false,
+      id: '034pl'
+    },
+    {
+      name: 'flash',
+      class: 'flash',
+      isActive: false,
+      id: '0021fg'
+    },
+    {
+      name: 'green lantern',
+      class: 'greenlantern',
+      isActive: false,
+      id: '077df'
+    },
+    {
+      name: 'green arrow',
+      class: 'greenarrow',
+      isActive: false,
+      id: '34jafd'
+    }
   ],
 
   counterActivateSuperhero: 0

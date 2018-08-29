@@ -29,6 +29,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         isActiveMenuLettersAnimation: false
       };
+    case actionTypes.SET_IN_DIRECTION_MENU_LETTERS:
+      return {
+        ...state,
+        inDirectionMenuLetters: action.direction
+      };
     case actionTypes.SET_OUT_DIRECTION_MENU_LETTERS:
       return {
         ...state,

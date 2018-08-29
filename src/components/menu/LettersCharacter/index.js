@@ -157,10 +157,9 @@ class LettersCharacter extends Component {
   }
 
   createSuperheroLetters() {
-    const { superhero } = this.props;
-    const classSelected = `.${superhero}`;
+    const { superheroClass } = this.props;
 
-    const mySplitText = new SplitText(classSelected, {
+    const mySplitText = new SplitText(`.${superheroClass}`, {
       type: 'words,chars'
     });
 
@@ -217,9 +216,13 @@ class LettersCharacter extends Component {
   }
 
   render() {
-    const { superhero, isActiveOverMenuLetters, outDirection } = this.props;
-    if (outDirection === 'left') this.setTimeline('outLeft');
-    if (outDirection === 'right') this.setTimeline('outRight');
+    const {
+      superheroName,
+      superheroClass,
+      isActiveOverMenuLetters
+    } = this.props;
+    // if (outDirection === 'left') this.setTimeline('outLeft');
+    // if (outDirection === 'right') this.setTimeline('outRight');
 
     const getLettersBtnClasses = () =>
       !isActiveOverMenuLetters ? 'letters_btn' : 'letters_btn active';
@@ -240,7 +243,7 @@ class LettersCharacter extends Component {
           onBlur={e => e.preventDefault}
           onClick={this.clickHandler}
         />
-        <h2 className={`letters ${superhero}`}>{superhero}</h2>
+        <h2 className={`letters ${superheroClass}`}>{superheroName}</h2>
       </div>
     );
   }
@@ -261,8 +264,9 @@ const mapDispatchToProps = dispatch => ({
 
 LettersCharacter.propTypes = {
   superheroesList: PropTypes.arrayOf(PropTypes.object).isRequired,
-  superhero: PropTypes.string.isRequired,
-  outDirection: PropTypes.string.isRequired,
+  superheroName: PropTypes.string.isRequired,
+  superheroClass: PropTypes.string.isRequired,
+  /* outDirection: PropTypes.string.isRequired, */
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
   inLogoAnimation: PropTypes.func.isRequired,
   outLogoAnimation: PropTypes.func.isRequired,
