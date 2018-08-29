@@ -1,6 +1,7 @@
 import * as actionTypes from '../../actions';
 
 const initialState = {
+  isFirstUserTime: true,
   isActiveOverMenuLetters: false,
   isActiveMenuLettersAnimation: false,
   inDirectionMenuLetters: '',

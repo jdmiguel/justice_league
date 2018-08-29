@@ -6,10 +6,12 @@ import { Provider } from 'react-redux';
 import './scss/styles.scss';
 
 import App from './containers/App';
+import globalReducer from './store/reducers/global';
 import lettersMenuReducer from './store/reducers/menu/letters';
 import superheroesMenuReducer from './store/reducers/menu/superheroes';
 
 const rootReducer = combineReducers({
+  globalRdc: globalReducer,
   lettersMenuRdc: lettersMenuReducer,
   superheroesMenuRdc: superheroesMenuReducer
 });
