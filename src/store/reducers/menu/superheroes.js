@@ -3,14 +3,14 @@ import * as actionTypes from '../../actions';
 const initialState = {
   superheroesList: [
     {
-      name: 'superman',
+      name: 'Superman',
       class: 'superman',
       active: true,
       breakpointCharacter: 4,
       id: '012b'
     },
     {
-      name: 'batman',
+      name: 'Batman',
       class: 'batman',
       active: false,
       breakpointCharacter: 2,
@@ -24,7 +24,7 @@ const initialState = {
       id: '034pl'
     },
     {
-      name: 'flash',
+      name: 'Flash',
       class: 'flash',
       active: false,
       breakpointCharacter: 2,
