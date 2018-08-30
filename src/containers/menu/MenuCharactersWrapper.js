@@ -78,7 +78,7 @@ class MenuCharactersWrapper extends Component {
 
     this.setState({
       onMouseWheel: true,
-      delayOnMouseWheel: setTimeout(() => this.changeMenu(e), 1300)
+      delayOnMouseWheel: setTimeout(() => this.changeMenu(e), 1000)
     });
   }
 
