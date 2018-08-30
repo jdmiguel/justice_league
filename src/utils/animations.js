@@ -1,67 +1,100 @@
-export const introLettersMenu = (
-  elementToAnimate,
-  { duration, globalDelay, staggerDelay }
-) => {
+export const introLettersMenu = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
-    duration,
+    1.1,
     {
       alpha: 0,
       x: -50,
       rotationY: 120
     },
     {
-      delay: globalDelay,
+      delay: 5,
       alpha: 1,
       x: 0,
       rotationY: 0,
       transformOrigin: '50% 50%',
       ease: Power1.easeOut
     },
-    staggerDelay
+    0.08
   );
 };
 
-export const inLettersMenu = (
-  elementToAnimate,
-  { duration, globalDelay, staggerDelay, xDistances }
-) => {
-  console.log('outLettersMenu elementToAnimate: ', elementToAnimate);
-  console.log('outLettersMenu duration: ', duration);
-  console.log('outLettersMenu globalDelay: ', globalDelay);
-  console.log('outLettersMenu staggerDelay: ', staggerDelay);
-  console.log('outLettersMenu xDistances: ', xDistances);
-
-  const { global, stagger } = xDistances;
-};
-
-export const outLettersMenu = (
-  elementToAnimate,
-  { duration, globalDelay, staggerDelay, xDistances }
-) => {
-  /* console.log('outLettersMenu elementToAnimate: ', elementToAnimate);
-  console.log('outLettersMenu duration: ', duration);
-  console.log('outLettersMenu globalDelay: ', globalDelay);
-  console.log('outLettersMenu staggerDelay: ', staggerDelay);
-  console.log('outLettersMenu xDistances: ', xDistances); */
-
-  const { global, stagger } = xDistances;
-
+export const inRightLettersMenu = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
-    duration,
+    0.4,
+    {
+      alpha: 0,
+      x: 0,
+      rotationY: 0
+    },
+    {
+      delay: 0,
+      cycle: { x: i => -200 + i * 20 },
+      alpha: 1,
+      rotationY: 0,
+      ease: Power1.easeOut
+    },
+    0.01
+  );
+};
+
+export const inLeftLettersMenu = elementToAnimate => {
+  TweenMax.staggerFromTo(
+    elementToAnimate,
+    0.4,
+    {
+      alpha: 0,
+      x: 0,
+      rotationY: 0
+    },
+    {
+      delay: 0,
+      cycle: { x: i => 50 + i * 40 },
+      alpha: 1,
+      rotationY: 0,
+      ease: Power1.easeOut
+    },
+    0.01
+  );
+};
+
+export const outLeftLettersMenu = elementToAnimate => {
+  TweenMax.staggerFromTo(
+    elementToAnimate,
+    0.4,
     {
       alpha: 1,
       x: 0,
       rotationY: 0
     },
     {
-      delay: globalDelay,
-      cycle: { x: i => global + i * stagger },
+      delay: 0,
+      cycle: { x: i => -200 + i * 20 },
       alpha: 0,
       rotationY: 0,
       ease: Power1.easeIn
     },
-    staggerDelay
+    0.01
+  );
+};
+
+export const outRightLettersMenu = elementToAnimate => {
+  TweenMax.staggerFromTo(
+    elementToAnimate,
+    0.4,
+    {
+      alpha: 1,
+      x: 0,
+      rotationY: 0
+    },
+    {
+      delay: 0,
+      cycle: { x: i => 50 + i * 40 },
+      alpha: 0,
+      rotationY: 0,
+      ease: Power1.easeIn
+    },
+    0.01
   );
 };

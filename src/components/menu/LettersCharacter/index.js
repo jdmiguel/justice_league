@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../../store/actions';
-import { introLettersMenu, outLettersMenu } from '../../../utils/animations';
+import {
+  introLettersMenu,
+  inLeftLettersMenu,
+  inRightLettersMenu,
+  outLeftLettersMenu,
+  outRightLettersMenu
+} from '../../../utils/animations';
 
 class LettersCharacter extends Component {
   constructor(props) {
@@ -77,91 +83,6 @@ class LettersCharacter extends Component {
     return chars;
   }
 
-  /* createTimeline(elementToAnimate) {
-    const { activedLetters, tl, configTl } = this.state;
-    const { introAnimation, inAnimation, outAnimation } = configTl;
-
-    console.log('activedLetters from createTimeline: ', activedLetters);
-
-    tl.addLabel('intro')
-      .staggerFromTo(
-        elementToAnimate,
-        introAnimation.duration,
-        {
-          alpha: 0,
-          x: -50,
-          rotationY: 120
-        },
-        {
-          alpha: 1,
-          x: 0,
-          rotationY: 0,
-          transformOrigin: '50% 50%',
-          ease: Power1.easeOut
-        },
-        0.08,
-        `+=${introAnimation.delay}`
-      )
-      .addPause()
-      .addLabel('outRight')
-      .staggerFromTo(
-        elementToAnimate,
-        outAnimation.duration,
-        {
-          alpha: 1,
-          x: 0,
-          rotationY: 0
-        },
-        {
-          cycle: { x: i => 50 + i * 40 },
-          alpha: 0,
-          rotationY: 0,
-          ease: Power1.easeIn
-        },
-        0.01,
-        `+=${outAnimation.delay}`
-      )
-      .addPause()
-      .addLabel('outLeft')
-      .staggerFromTo(
-        elementToAnimate,
-        outAnimation.duration,
-        {
-          alpha: 1,
-          x: 0,
-          rotationY: 0
-        },
-        {
-          cycle: { x: i => -200 + i * 20 },
-          alpha: 0,
-          rotationY: 0,
-          ease: Power1.easeIn
-        },
-        0.01,
-        `+=${outAnimation.delay}`
-      )
-      .addPause()
-      .addLabel('in')
-      .staggerFromTo(
-        elementToAnimate,
-        inAnimation.duration,
-        {
-          alpha: 0,
-          rotationY: 0,
-          cycle: { x: i => -200 - i * 20 }
-        },
-        {
-          alpha: 1,
-          rotationY: 0,
-          x: 0,
-          ease: Power1.easeOut
-        },
-        0.02,
-        `+=${inAnimation.delay}`
-      )
-      .addPause();
-  } */
-
   mouseOverHandler() {
     // const createdLetters = this.createSuperheroLetters();
     const { activedLetters, activedLettersLength } = this.state;
@@ -202,7 +123,7 @@ class LettersCharacter extends Component {
     const { activedLetters, configLettersAnimations } = this.state;
     const { outRightAnimation } = configLettersAnimations;
 
-    outLettersMenu(activedLetters, outRightAnimation);
+    outRightLettersMenu(activedLetters, outRightAnimation);
     desactiveOverMenuLetters();
   }
 
