@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../../store/actions';
 import SupermanLogo from './SupermanLogo';
+import BatmanLogo from './BatmanLogo';
+import WonderWomanLogo from './WonderWomanLogo';
+import FlashLogo from './FlashLogo';
+import GreenLanternLogo from './GreenLanternLogo';
+import GreenArrowLogo from './GreenArrowLogo';
 
 class LogoCharacter extends Component {
   constructor(props) {
@@ -94,7 +99,7 @@ class LogoCharacter extends Component {
   }
 
   render() {
-    return <SupermanLogo />;
+    return <GreenLanternLogo />;
   }
 }
 
