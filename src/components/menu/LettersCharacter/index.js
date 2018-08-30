@@ -121,12 +121,17 @@ class LettersCharacter extends Component {
   }
 
   mouseOverHandler() {
-    // const createdLetters = this.createSuperheroLetters();
     const { activedLetters } = this.state;
     const {
+      isActiveOverMenuLetters,
+      superheroActive,
       superheroBreakpointCharacter,
       triggerOverLogoAnimation
     } = this.props;
+
+    if (!isActiveOverMenuLetters || !superheroActive) return;
+
+    // console.log('mouseOverHandler');
 
     activedLetters.forEach((letter, i) => {
       if (i < superheroBreakpointCharacter)
@@ -159,13 +164,13 @@ class LettersCharacter extends Component {
   }
 
   clickHandler() {
-    const { desactiveOverMenuLetters } = this.props;
-    const { activedLetters } = this.state;
+    // const { desactiveOverMenuLetters } = this.props;
+    // const { activedLetters } = this.state;
 
     console.log(`onClick: ${this.props.superheroName}`);
 
-    outRightLettersMenu(activedLetters);
-    desactiveOverMenuLetters();
+    // outRightLettersMenu(activedLetters);
+    // desactiveOverMenuLetters();
   }
 
   render() {
@@ -184,17 +189,15 @@ class LettersCharacter extends Component {
     const getLettersBtnClasses = () =>
       !superheroActive ? 'letters_btn' : 'letters_btn active';
 
+    console.log('isActiveOverMenuLetters from render', isActiveOverMenuLetters);
+
     return (
       <div className={getLettersContainerClasses()}>
         <button
           className={getLettersBtnClasses()}
           type="button"
-          onMouseOver={() => {
-            if (isActiveOverMenuLetters) this.mouseOverHandler();
-          }}
-          onMouseOut={() => {
-            if (isActiveOverMenuLetters) this.mouseOutHandler();
-          }}
+          onMouseOver={this.mouseOverHandler}
+          onMouseOut={this.mouseOutHandler}
           onKeyDown={e => e.preventDefault}
           onFocus={e => e.preventDefault}
           onBlur={e => e.preventDefault}

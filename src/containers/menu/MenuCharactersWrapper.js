@@ -49,15 +49,15 @@ class MenuCharactersWrapper extends Component {
       setDirectionOutLetters
     } = this.props;
 
-    console.log('changeMenu from MenuCharactersWrapper');
+    // console.log('changeMenu from MenuCharactersWrapper');
 
     if (e.deltaY > 0) {
-      console.log('go next superhero');
+      // console.log('go next superhero');
       setDirectionInLetters('left');
       setDirectionOutLetters('right');
       setActiveSuperhero('next');
     } else {
-      console.log('go prev superhero');
+      // console.log('go prev superhero');
       setDirectionInLetters('right');
       setDirectionOutLetters('left');
       setActiveSuperhero('prev');
@@ -78,7 +78,7 @@ class MenuCharactersWrapper extends Component {
 
     this.setState({
       onMouseWheel: true,
-      delayOnMouseWheel: setTimeout(() => this.changeMenu(e), 1000)
+      delayOnMouseWheel: setTimeout(() => this.changeMenu(e), 1300)
     });
   }
 
