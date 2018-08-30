@@ -38,15 +38,24 @@ class LettersCharacter extends Component {
   }
 
   componentDidUpdate() {
-    console.log('componentDidUpdate from LettersCharacter');
-    const { superheroActive } = this.props;
+    // console.log('componentDidUpdate from LettersCharacter');
+    const { superheroActive, inDirection, outDirection } = this.props;
 
-    this.setActiveLetters(false);
+    this.setActiveLetters();
 
     const { allLetters, activedLetters } = this.state;
 
-    if (superheroActive) inLeftLettersMenu(allLetters);
-    else outRightLettersMenu(activedLetters);
+    if (superheroActive) {
+      console.log('active item inDirection: ', inDirection);
+      if (inDirection === 'left') inLeftLettersMenu(allLetters);
+      else inRightLettersMenu(allLetters);
+    }
+
+    if (!superheroActive) {
+      console.log('desactive item outDirection: ', outDirection);
+      if (outDirection === 'left') outLeftLettersMenu(activedLetters);
+      else outRightLettersMenu(activedLetters);
+    }
   }
 
   getDistance(index) {
@@ -67,7 +76,7 @@ class LettersCharacter extends Component {
     return distance;
   }
 
-  setActiveLetters(introStage) {
+  setActiveLetters(stage = '') {
     const { superheroName, superheroActive } = this.props;
     const { allLetters } = this.state;
 
@@ -78,7 +87,7 @@ class LettersCharacter extends Component {
           totalSuperheroCharacters: superheroName.length
         },
         () => {
-          if (introStage) this.introSuperheroLetters();
+          if (stage === 'intro') this.introSuperheroLetters();
         }
       );
     }
@@ -106,11 +115,9 @@ class LettersCharacter extends Component {
         allLetters: chars
       },
       () => {
-        this.setActiveLetters(true);
+        this.setActiveLetters('intro');
       }
     );
-
-    // return chars;
   }
 
   mouseOverHandler() {

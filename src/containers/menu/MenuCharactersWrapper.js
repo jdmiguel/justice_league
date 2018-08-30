@@ -24,7 +24,7 @@ class MenuCharactersWrapper extends Component {
   }
 
   componentDidUpdate() {
-    console.log('componentDidUpdate from MenuCharactersWrapper');
+    // console.log('componentDidUpdate from MenuCharactersWrapper');
   }
 
   getActiveSuperhero() {
@@ -52,13 +52,15 @@ class MenuCharactersWrapper extends Component {
     console.log('changeMenu from MenuCharactersWrapper');
 
     if (e.deltaY > 0) {
-      setActiveSuperhero('next');
+      console.log('go next superhero');
       setDirectionInLetters('left');
       setDirectionOutLetters('right');
+      setActiveSuperhero('next');
     } else {
-      setActiveSuperhero('prev');
+      console.log('go prev superhero');
       setDirectionInLetters('right');
       setDirectionOutLetters('left');
+      setActiveSuperhero('prev');
     }
 
     clearTimeout(delayOnMouseWheel);
