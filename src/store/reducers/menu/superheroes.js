@@ -6,36 +6,42 @@ const initialState = {
       name: 'superman',
       class: 'superman',
       active: true,
+      breakpointCharacter: 4,
       id: '012b'
     },
     {
       name: 'batman',
       class: 'batman',
       active: false,
+      breakpointCharacter: 2,
       id: '024ee'
     },
     {
-      name: 'wonder woman',
+      name: 'WonderWoman',
       class: 'wonderwoman',
       active: false,
+      breakpointCharacter: 5,
       id: '034pl'
     },
     {
       name: 'flash',
       class: 'flash',
       active: false,
+      breakpointCharacter: 2,
       id: '0021fg'
     },
     {
-      name: 'green lantern',
+      name: 'GreenLantern',
       class: 'greenlantern',
       active: false,
+      breakpointCharacter: 5,
       id: '077df'
     },
     {
-      name: 'green arrow',
+      name: 'GreenArrow',
       class: 'greenarrow',
       active: false,
+      breakpointCharacter: 5,
       id: '34jafd'
     }
   ],

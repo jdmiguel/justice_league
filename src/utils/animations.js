@@ -22,15 +22,15 @@ export const introLettersMenu = elementToAnimate => {
 export const inRightLettersMenu = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
-    0.4,
+    0.55,
     {
       alpha: 0,
-      x: 0,
+      cycle: { x: i => 50 + i * 40 },
       rotationY: 0
     },
     {
-      delay: 0,
-      cycle: { x: i => -200 + i * 20 },
+      delay: 0.35,
+      x: 0,
       alpha: 1,
       rotationY: 0,
       ease: Power1.easeOut
@@ -42,15 +42,15 @@ export const inRightLettersMenu = elementToAnimate => {
 export const inLeftLettersMenu = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
-    0.4,
+    0.55,
     {
       alpha: 0,
-      x: 0,
+      cycle: { x: i => -200 + i * 20 },
       rotationY: 0
     },
     {
-      delay: 0,
-      cycle: { x: i => 50 + i * 40 },
+      delay: 0.35,
+      x: 0,
       alpha: 1,
       rotationY: 0,
       ease: Power1.easeOut

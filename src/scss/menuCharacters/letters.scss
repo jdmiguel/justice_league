@@ -2,9 +2,9 @@
     position: absolute;
     z-index: 3;
     white-space: nowrap;
-    display: none;
+    pointer-events: none;
     &.active{
-        display: block;
+        pointer-events: all;
     }
 }
 

@@ -24,7 +24,7 @@ class MenuCharactersWrapper extends Component {
   }
 
   componentDidUpdate() {
-    console.log('componentDidUpdate');
+    console.log('componentDidUpdate from MenuCharactersWrapper');
   }
 
   getActiveSuperhero() {
@@ -48,6 +48,8 @@ class MenuCharactersWrapper extends Component {
       setDirectionInLetters,
       setDirectionOutLetters
     } = this.props;
+
+    console.log('changeMenu from MenuCharactersWrapper');
 
     if (e.deltaY > 0) {
       setActiveSuperhero('next');
@@ -90,6 +92,7 @@ class MenuCharactersWrapper extends Component {
             superheroName={superhero.name}
             superheroClass={superhero.class}
             superheroActive={superhero.active}
+            superheroBreakpointCharacter={superhero.breakpointCharacter}
           />
         ))}
         <LogoCharacter superheroName={this.getActiveSuperhero()} />

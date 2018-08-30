@@ -14,27 +14,13 @@ class LettersCharacter extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      allLetters: null,
       activedLetters: null,
-      activedLettersLength: 0,
-      configLettersAnimations: {
-        intro: {
-          duration: 1.1,
-          globalDelay: 5,
-          staggerDelay: 0.08
-        },
-        outRightAnimation: {
-          duration: 0.4,
-          globalDelay: 0,
-          staggerDelay: 0.01,
-          xDistances: {
-            global: 50,
-            stagger: 40
-          }
-        }
-      }
+      totalSuperheroCharacters: 0
     };
 
     this.createSuperheroLetters = this.createSuperheroLetters.bind(this);
+    this.setActiveLetters = this.setActiveLetters.bind(this);
     this.mouseOverHandler = this.mouseOverHandler.bind(this);
     this.mouseOutHandler = this.mouseOutHandler.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
@@ -42,30 +28,63 @@ class LettersCharacter extends Component {
 
   componentDidMount() {
     const { superheroActive } = this.props;
-    const { configLettersAnimations } = this.state;
-    const { intro } = configLettersAnimations;
 
     const createdLetters = this.createSuperheroLetters();
 
-    if (superheroActive) introLettersMenu(createdLetters, intro);
+    if (superheroActive) introLettersMenu(createdLetters);
     else TweenMax.set(createdLetters, { alpha: 0 });
   }
 
-  componentDidUpdate() {}
+  shouldComponentUpdate(nextProps, nextState) {
+    const { superheroActive } = this.props;
+    if (superheroActive !== nextProps.superheroActive) return true;
+    return false;
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate from LettersCharacter');
+    const { superheroActive } = this.props;
+
+    this.setActiveLetters();
+
+    const { allLetters, activedLetters } = this.state;
+
+    if (superheroActive) inLeftLettersMenu(allLetters);
+    else outRightLettersMenu(activedLetters);
+  }
 
   getDistance(index) {
-    const { activedLettersLength } = this.state;
-    const factor = activedLettersLength / 2;
-    const distance =
-      index < activedLettersLength / 2
-        ? (Math.sin(index) - activedLettersLength) * (factor - index)
-        : (Math.sin(index) + activedLettersLength) * (index - factor);
+    const { superheroBreakpointCharacter } = this.props;
+    const { totalSuperheroCharacters } = this.state;
+    const splitFactor = 0.45;
 
+    const distance =
+      index < superheroBreakpointCharacter
+        ? (Math.sin(index) - totalSuperheroCharacters) *
+          (superheroBreakpointCharacter - index) *
+          splitFactor
+        : (Math.sin(index) + totalSuperheroCharacters) *
+          (index - superheroBreakpointCharacter) *
+          splitFactor;
+
+    console.log('distance: ', distance);
     return distance;
   }
 
+  setActiveLetters() {
+    const { superheroName, superheroActive } = this.props;
+    const { allLetters } = this.state;
+
+    if (superheroActive) {
+      this.setState({
+        activedLetters: allLetters,
+        totalSuperheroCharacters: superheroName.length
+      });
+    }
+  }
+
   createSuperheroLetters() {
-    const { superheroActive, superheroClass } = this.props;
+    const { superheroClass } = this.props;
 
     const mySplitText = new SplitText(`.${superheroClass}`, {
       type: 'words,chars'
@@ -73,28 +92,30 @@ class LettersCharacter extends Component {
 
     const { chars } = mySplitText;
 
-    if (superheroActive) {
-      this.setState({
-        activedLetters: chars,
-        activedLettersLength: chars.length
-      });
-    }
+    this.setState({
+      allLetters: chars
+    });
+
+    this.setActiveLetters();
 
     return chars;
   }
 
   mouseOverHandler() {
     // const createdLetters = this.createSuperheroLetters();
-    const { activedLetters, activedLettersLength } = this.state;
-    const { triggerOverLogoAnimation } = this.props;
+    const { activedLetters } = this.state;
+    const {
+      superheroBreakpointCharacter,
+      triggerOverLogoAnimation
+    } = this.props;
 
     activedLetters.forEach((letter, i) => {
-      if (i < activedLettersLength / 2)
+      if (i < superheroBreakpointCharacter)
         TweenMax.to(letter, 1, {
           x: `${this.getDistance(i)}`,
           ease: Power1.easeOut
         });
-      if (i > activedLettersLength / 2)
+      if (i > superheroBreakpointCharacter)
         TweenMax.to(letter, 1.2, {
           x: `${this.getDistance(i)}`,
           ease: Power1.easeOut
@@ -120,14 +141,15 @@ class LettersCharacter extends Component {
 
   clickHandler() {
     const { desactiveOverMenuLetters } = this.props;
-    const { activedLetters, configLettersAnimations } = this.state;
-    const { outRightAnimation } = configLettersAnimations;
+    const { activedLetters } = this.state;
 
-    outRightLettersMenu(activedLetters, outRightAnimation);
+    outRightLettersMenu(activedLetters);
     desactiveOverMenuLetters();
   }
 
   render() {
+    console.log('render from LettersCharacter');
+
     const {
       superheroName,
       superheroClass,
@@ -139,7 +161,7 @@ class LettersCharacter extends Component {
       !superheroActive ? 'letters_container' : 'letters_container active';
 
     const getLettersBtnClasses = () =>
-      !isActiveOverMenuLetters ? 'letters_btn' : 'letters_btn active';
+      !superheroActive ? 'letters_btn' : 'letters_btn active';
 
     return (
       <div className={getLettersContainerClasses()}>
@@ -184,6 +206,7 @@ LettersCharacter.propTypes = {
   superheroName: PropTypes.string.isRequired,
   superheroClass: PropTypes.string.isRequired,
   superheroActive: PropTypes.bool.isRequired,
+  superheroBreakpointCharacter: PropTypes.number.isRequired,
   inDirection: PropTypes.string.isRequired,
   outDirection: PropTypes.string.isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
