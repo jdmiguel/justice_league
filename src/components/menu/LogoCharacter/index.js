@@ -8,6 +8,8 @@ import WonderWomanLogo from './WonderWomanLogo';
 import FlashLogo from './FlashLogo';
 import GreenLanternLogo from './GreenLanternLogo';
 import GreenArrowLogo from './GreenArrowLogo';
+import AquamanLogo from './AquamanLogo';
+import CyborgLogo from './CyborgLogo';
 
 class LogoCharacter extends Component {
   constructor(props) {
@@ -99,7 +101,7 @@ class LogoCharacter extends Component {
   }
 
   render() {
-    return <GreenLanternLogo />;
+    return <WonderWomanLogo />;
   }
 }
 

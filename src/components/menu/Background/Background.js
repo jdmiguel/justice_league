@@ -13,7 +13,7 @@ class Background extends Component {
   }
 
   componentDidMount() {
-    const { tl, durationInit, duration } = this.state;
+    /*  const { tl, durationInit, duration } = this.state;
     tl.addLabel('initIntro')
       .from(
         '.menuCharacters_background',
@@ -46,7 +46,7 @@ class Background extends Component {
         },
         '+=0'
       )
-      .addPause();
+      .addPause(); */
   }
 
   componentDidUpdate() {
