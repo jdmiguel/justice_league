@@ -101,7 +101,7 @@ class LogoCharacter extends Component {
   }
 
   render() {
-    return <WonderWomanLogo />;
+    return <SupermanLogo />;
   }
 }
 

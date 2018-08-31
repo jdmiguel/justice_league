@@ -43,6 +43,20 @@ const initialState = {
       active: false,
       breakpointCharacter: 5,
       id: '34jafd'
+    },
+    {
+      name: 'Aquaman',
+      class: 'aquaman',
+      active: false,
+      breakpointCharacter: 3,
+      id: '21orsy'
+    },
+    {
+      name: 'Cyborg',
+      class: 'cyborg',
+      active: false,
+      breakpointCharacter: 2,
+      id: '98dfda'
     }
   ],
 

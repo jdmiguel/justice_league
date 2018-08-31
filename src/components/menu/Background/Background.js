@@ -13,7 +13,7 @@ class Background extends Component {
   }
 
   componentDidMount() {
-    /*  const { tl, durationInit, duration } = this.state;
+    const { tl, durationInit, duration } = this.state;
     tl.addLabel('initIntro')
       .from(
         '.menuCharacters_background',
@@ -30,7 +30,7 @@ class Background extends Component {
         '.menuCharacters_background',
         duration,
         {
-          alpha: 0.7,
+          alpha: 0.2,
           ease: Bounce.easeOut
         },
         '+=0'
@@ -41,12 +41,12 @@ class Background extends Component {
         '.menuCharacters_background',
         duration,
         {
-          alpha: 0.6,
+          alpha: 0.1,
           ease: Bounce.easeOut
         },
         '+=0'
       )
-      .addPause(); */
+      .addPause();
   }
 
   componentDidUpdate() {
