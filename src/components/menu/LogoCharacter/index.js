@@ -99,7 +99,7 @@ class LogoCharacter extends Component {
   }
 
   render() {
-    return <GreenLanternLogo />;
+    return <SupermanLogo />;
   }
 }
 
