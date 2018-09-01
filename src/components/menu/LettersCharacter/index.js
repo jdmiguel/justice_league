@@ -46,13 +46,13 @@ class LettersCharacter extends Component {
     const { allLetters, activedLetters } = this.state;
 
     if (superheroActive) {
-      console.log('active item inDirection: ', inDirection);
+      // console.log('active item inDirection: ', inDirection);
       if (inDirection === 'left') inLeftLettersMenu(allLetters);
       else inRightLettersMenu(allLetters);
     }
 
     if (!superheroActive) {
-      console.log('desactive item outDirection: ', outDirection);
+      // console.log('desactive item outDirection: ', outDirection);
       if (outDirection === 'left') outLeftLettersMenu(activedLetters);
       else outRightLettersMenu(activedLetters);
     }
@@ -174,7 +174,7 @@ class LettersCharacter extends Component {
   }
 
   render() {
-    console.log('render from LettersCharacter');
+    // console.log('render from LettersCharacter');
 
     const {
       superheroName,
@@ -189,7 +189,7 @@ class LettersCharacter extends Component {
     const getLettersBtnClasses = () =>
       !superheroActive ? 'letters_btn' : 'letters_btn active';
 
-    console.log('isActiveOverMenuLetters from render', isActiveOverMenuLetters);
+    // console.log('isActiveOverMenuLetters from render', isActiveOverMenuLetters);
 
     return (
       <div className={getLettersContainerClasses()}>

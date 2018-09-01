@@ -1,10 +1,22 @@
 .superheroLogo_container{
     position: absolute;
     z-index: 2;
+    @include flexContainer();
     svg{
         opacity: 1;
     }
     circle{
         fill-opacity: .7;
     }
+}
+
+#supermanLogo{
+    position: absolute;
+    z-index: 2;
+}
+
+#batmanLogo{
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
 }
