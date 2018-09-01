@@ -7,7 +7,7 @@ class Background extends Component {
     super(props);
     this.state = {
       tl: new TimelineMax({ paused: false }),
-      durationInit: 6,
+      durationInit: 5,
       duration: 0.55
     };
   }
@@ -22,7 +22,7 @@ class Background extends Component {
           alpha: 0,
           ease: Power1.easeInOut
         },
-        '+=3.5'
+        '+=2.5'
       )
       .addPause()
       .addLabel('initIn')
@@ -64,7 +64,7 @@ class Background extends Component {
   }
 
   render() {
-    return <div className="menuCharacters_background" />;
+    return <div className="menuCharacters_background superman" />;
   }
 }
 

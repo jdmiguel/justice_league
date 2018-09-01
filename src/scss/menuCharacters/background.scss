@@ -1,16 +1,43 @@
 .menuCharacters_background {
-    /* background: #585858; 
-    background: -moz-radial-gradient(center, ellipse cover, #585858 0%, #000000 71%); 
-    background: -webkit-radial-gradient(center, ellipse cover, #585858 0%,#000000 71%); 
-    background: radial-gradient(ellipse at center, #585858 0%,#000000 71%); 
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#585858', endColorstr='#000000',GradientType=1 );  */
-    background: url(#{$imgPath}/superman_bg.jpg) no-repeat center;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-color: $blueSuperman;
     background-blend-mode: hard-light;
     width: 100%;
     height: 100vh;
     position: absolute;
     z-index: 1;
     opacity: 0.1;
+    &.superman{
+        background-image: url(#{$imgPath}/superman_bg.jpg);
+        background-color: $blueSuperman;
+    }
+    &.batman{
+        background-image: url(#{$imgPath}/batman_bg.jpg);
+        background-color: $greyBatman;
+    }
+    &.wonderwoman{
+        background-image: url(#{$imgPath}/wonder_woman_bg.jpg);
+        background-color: $orangeWonder;
+    }
+    &.flash{
+        background-image: url(#{$imgPath}/flash_bg.jpg);
+        background-color: $redFlash;
+    }
+    &.greenLantern{
+        background-image: url(#{$imgPath}/green_lantern_bg.jpg);
+        background-color: $greenLantern;
+    }
+    &.greenArrow{
+        background-image: url(#{$imgPath}/green_arrow_bg.jpg);
+        background-color: $greenArrow;
+    }
+    &.aquaman{
+        background-image: url(#{$imgPath}/aquaman_bg.jpg);
+        background-color: $yellowAquaman;
+    }
+    &.cyborg{
+        background-image: url(#{$imgPath}/cyborg_bg.jpg);
+        background-color: $redCyborg;
+    }
 }

@@ -24,10 +24,10 @@ const initialState = {
       id: '034pl'
     },
     {
-      name: 'Flash',
+      name: 'TheFlash',
       class: 'flash',
       active: false,
-      breakpointCharacter: 2,
+      breakpointCharacter: 3,
       id: '0021fg'
     },
     {
