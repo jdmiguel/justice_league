@@ -1,3 +1,5 @@
+// LETTERS MENU ANIMATIONS
+
 export const introLettersMenu = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
@@ -96,5 +98,21 @@ export const outRightLettersMenu = elementToAnimate => {
       ease: Power1.easeIn
     },
     0.01
+  );
+};
+
+// BACKGROUND MENU ANIMATIONS
+
+export const introBackgroundMenu = elementToAnimate => {
+  TweenMax.fromTo(
+    elementToAnimate,
+    5,
+    {
+      alpha: 0
+    },
+    {
+      alpha: 0.2,
+      ease: Power1.easeOut
+    }
   );
 };

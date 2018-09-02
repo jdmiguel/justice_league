@@ -17,8 +17,7 @@ module.exports = {
       './vendor/gsap/TweenMax.min.js',
       './vendor/gsap/TweenLite.js',
       './vendor/gsap/utils/SplitText.min.js',
-      './vendor/gsap/plugins/DrawSVGPlugin.js',
-      './vendor/gsap/plugins/MorphSVGPlugin.min.js'
+      './vendor/gsap/plugins/DrawSVGPlugin.js'
     ],
     app: './index.js'
   },

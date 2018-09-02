@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../store/actions';
-import Background from '../../components/menu/Background/Background';
-import Letters from '../../components/menu/LettersCharacter';
-import LogoCharacter from '../../components/menu/LogoCharacter';
+import Background from '../../components/menu/Background';
+import LettersWrapper from './MenuLettersWrapper';
+import LogosWeapper from './MenuLogosWrapper';
+import BgsWrapper from './MenuBgsWrapper';
 
 class MenuCharactersWrapper extends Component {
   constructor(props) {
@@ -87,17 +88,9 @@ class MenuCharactersWrapper extends Component {
     const { superheroesList } = this.props;
     return (
       <div className="menuCharacters_wrapper">
-        <Background />
-        {superheroesList.map(superhero => (
-          <Letters
-            key={superhero.id}
-            superheroName={superhero.name}
-            superheroClass={superhero.class}
-            superheroActive={superhero.active}
-            superheroBreakpointCharacter={superhero.breakpointCharacter}
-          />
-        ))}
-        <LogoCharacter superheroName={this.getActiveSuperhero()} />
+        <LettersWrapper list={superheroesList} />
+        <LogosWeapper list={superheroesList} />
+        <BgsWrapper list={superheroesList} />
       </div>
     );
   }

@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { introBackgroundMenu } from '../../../utils/animations';
 
 class Background extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tl: new TimelineMax({ paused: false }),
-      durationInit: 5,
-      duration: 0.55
+      currentBg: null
     };
   }
 
   componentDidMount() {
-    const { tl, durationInit, duration } = this.state;
-    tl.addLabel('initIntro')
+    const bg = document.querySelector('.menuCharacters_background');
+    this.setState({
+      currentBg: bg
+    });
+
+    introBackgroundMenu(bg);
+    /* const { tl, durationInit, duration } = this.state;
+     tl.addLabel('initIntro')
       .from(
         '.menuCharacters_background',
         durationInit,
@@ -30,7 +35,7 @@ class Background extends Component {
         '.menuCharacters_background',
         duration,
         {
-          alpha: 0.2,
+          alpha: 0.3,
           ease: Bounce.easeOut
         },
         '+=0'
@@ -41,15 +46,15 @@ class Background extends Component {
         '.menuCharacters_background',
         duration,
         {
-          alpha: 0.1,
+          alpha: 0.2,
           ease: Bounce.easeOut
         },
         '+=0'
       )
-      .addPause();
+      .addPause(); */
   }
 
-  componentDidUpdate() {
+  /* componentDidUpdate() {
     console.log('componentDidUpdate from Background');
     const { isActiveMenuLettersAnimation } = this.props;
 
@@ -62,9 +67,21 @@ class Background extends Component {
     if (mode === 'in') tl.play('initIn');
     else tl.play('initOut');
   }
+ */
+  shouldComponentUpdate(nextProps, nextState) {
+    const { superheroActive } = this.props;
+    if (superheroActive !== nextProps.superheroActive) return true;
+    return false;
+  }
 
   render() {
-    return <div className="menuCharacters_background superman" />;
+    const { superheroActive, superheroClass } = this.props;
+    const getBgClasses = () =>
+      !superheroActive
+        ? `menuCharacters_background ${superheroClass}`
+        : `menuCharacters_background ${superheroClass} active`;
+
+    return <div className={getBgClasses()} />;
   }
 }
 
@@ -74,6 +91,9 @@ const mapStateToProps = state => ({
 });
 
 Background.propTypes = {
+  superheroName: PropTypes.string.isRequired,
+  superheroClass: PropTypes.string.isRequired,
+  superheroActive: PropTypes.bool.isRequired,
   isActiveMenuLettersAnimation: PropTypes.bool.isRequired
 };
 
