@@ -103,7 +103,7 @@ export const outRightLettersMenu = elementToAnimate => {
 
 // BACKGROUND MENU ANIMATIONS
 
-export const introBackgroundMenu = elementToAnimate => {
+/* export const introBackgroundMenu = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
     5,
@@ -111,8 +111,37 @@ export const introBackgroundMenu = elementToAnimate => {
       alpha: 0
     },
     {
+      delay: 4,
       alpha: 0.2,
       ease: Power1.easeOut
     }
   );
 };
+
+export const overBackgroundMenu = elementToAnimate => {
+  TweenMax.fromTo(
+    elementToAnimate,
+    0.55,
+    {
+      alpha: 0.2
+    },
+    {
+      alpha: 0.4,
+      ease: Bounce.easeOut
+    }
+  );
+};
+
+export const outBackgroundMenu = elementToAnimate => {
+  TweenMax.fromTo(
+    elementToAnimate,
+    0.55,
+    {
+      alpha: 0.4
+    },
+    {
+      alpha: 0.2,
+      ease: Bounce.easeOut
+    }
+  );
+}; */

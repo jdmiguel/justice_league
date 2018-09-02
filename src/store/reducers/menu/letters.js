@@ -20,12 +20,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         isActiveOverMenuLetters: false
       };
-    case actionTypes.MENU_LOGO_ANIMATION_MOUSE_OVER:
+    case actionTypes.ANIMATION_MENU_LETTERS_OVER:
       return {
         ...state,
         isActiveMenuLettersAnimation: true
       };
-    case actionTypes.MENU_LOGO_ANIMATION_MOUSE_OUT:
+    case actionTypes.ANIMATION_MENU_LETTERS_OUT:
       return {
         ...state,
         isActiveMenuLettersAnimation: false

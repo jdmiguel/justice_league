@@ -81,14 +81,14 @@ class LogoCharacter extends Component {
     tl.play('initIntro');
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     const { superheroActive } = this.props;
     if (superheroActive !== nextProps.superheroActive) return true;
     return false;
   }
 
   componentDidUpdate(prevProps) {
-    // console.log('componentDidUpdate from Logo');
+    console.log('componentDidUpdate from Logo');
     const {
       inDirection,
       isActiveOverMenuLetters,
@@ -100,7 +100,7 @@ class LogoCharacter extends Component {
     else this.animate('out');
 
     if (inDirection === 'left') {
-      console.log('go morph');
+      // console.log('go morph');
       TweenMax.to('#supermanLogo', 0.6, {
         scale: 0.7,
         autoAlpha: 0,
@@ -124,7 +124,7 @@ class LogoCharacter extends Component {
   }
 
   render() {
-    return <FlashLogo />;
+    return <SupermanLogo />;
   }
 }
 

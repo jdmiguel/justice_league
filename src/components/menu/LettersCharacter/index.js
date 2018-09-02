@@ -31,7 +31,7 @@ class LettersCharacter extends Component {
     this.createSuperheroLetters();
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     const { superheroActive } = this.props;
     if (superheroActive !== nextProps.superheroActive) return true;
     return false;
@@ -126,7 +126,7 @@ class LettersCharacter extends Component {
       isActiveOverMenuLetters,
       superheroActive,
       superheroBreakpointCharacter,
-      triggerOverLogoAnimation
+      triggerOverLettersAnimation
     } = this.props;
 
     if (!isActiveOverMenuLetters || !superheroActive) return;
@@ -146,12 +146,12 @@ class LettersCharacter extends Component {
         });
     });
 
-    triggerOverLogoAnimation();
+    triggerOverLettersAnimation();
   }
 
   mouseOutHandler() {
     const { activedLetters } = this.state;
-    const { triggerOutLogoAnimation } = this.props;
+    const { triggerOutLettersAnimation } = this.props;
 
     activedLetters.forEach(letter => {
       TweenMax.to(letter, 1, {
@@ -160,7 +160,7 @@ class LettersCharacter extends Component {
       });
     });
 
-    triggerOutLogoAnimation();
+    triggerOutLettersAnimation();
   }
 
   clickHandler() {
@@ -218,10 +218,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  triggerOverLogoAnimation: () =>
-    dispatch({ type: actionTypes.MENU_LOGO_ANIMATION_MOUSE_OVER }),
-  triggerOutLogoAnimation: () =>
-    dispatch({ type: actionTypes.MENU_LOGO_ANIMATION_MOUSE_OUT }),
+  triggerOverLettersAnimation: () =>
+    dispatch({ type: actionTypes.ANIMATION_MENU_LETTERS_OVER }),
+  triggerOutLettersAnimation: () =>
+    dispatch({ type: actionTypes.ANIMATION_MENU_LETTERS_OUT }),
   desactiveOverMenuLetters: () =>
     dispatch({ type: actionTypes.DESACTIVE_OVER_MENU_LETTERS })
 });
@@ -234,8 +234,8 @@ LettersCharacter.propTypes = {
   inDirection: PropTypes.string.isRequired,
   outDirection: PropTypes.string.isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
-  triggerOverLogoAnimation: PropTypes.func.isRequired,
-  triggerOutLogoAnimation: PropTypes.func.isRequired,
+  triggerOverLettersAnimation: PropTypes.func.isRequired,
+  triggerOutLettersAnimation: PropTypes.func.isRequired,
   desactiveOverMenuLetters: PropTypes.func.isRequired
 };
 

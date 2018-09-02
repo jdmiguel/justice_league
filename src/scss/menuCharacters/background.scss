@@ -7,14 +7,17 @@
     height: 100vh;
     position: absolute;
     z-index: 1;
-    transform: translateX(1000);
     visibility: hidden;
     opacity: 0;
-    @include transition(all,0.5,ease-out,0);
+    transform: scale(1.3);
+    @include transition(all,.5s,ease-out,0);
     &.active{
-        transform: translateX(0);
-        opacity: 1;
         visibility: visible;
+        opacity: 0.2;
+        transform: scale(1);
+    }
+    &.highlight{
+        opacity: 0.4;
     }
     &.superman{
         background-image: url(#{$imgPath}/superman_bg.jpg);
@@ -32,11 +35,11 @@
         background-image: url(#{$imgPath}/flash_bg.jpg);
         background-color: $redFlash;
     }
-    &.greenLantern{
+    &.greenlantern{
         background-image: url(#{$imgPath}/green_lantern_bg.jpg);
         background-color: $greenLantern;
     }
-    &.greenArrow{
+    &.greenarrow{
         background-image: url(#{$imgPath}/green_arrow_bg.jpg);
         background-color: $greenArrow;
     }

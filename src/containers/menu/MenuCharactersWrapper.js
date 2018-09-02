@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../store/actions';
-import Background from '../../components/menu/Background';
 import LettersWrapper from './MenuLettersWrapper';
 import LogosWeapper from './MenuLogosWrapper';
 import BgsWrapper from './MenuBgsWrapper';
