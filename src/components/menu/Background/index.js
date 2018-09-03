@@ -2,23 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-/* 
-  TASK: CREATE ARRAY WITH CLASSES MENUCHARACTERS_BACKGROUND, ACTIVE AND HIGHLIGHT
-  AND CHANGING THE ARRAY DEPENDING ON SUPERHEROACTIVE, SUPERHEROCLASS AND
-  ISACTIVEMENULETTERSANIMATIONS PROPS
-*/
-
 const Background = ({
   superheroActive,
   superheroClass,
   isActiveMenuLettersAnimation
 }) => {
-  const getBgClasses = () =>
-    !superheroActive
-      ? `menuCharacters_background ${superheroClass}`
-      : `menuCharacters_background ${superheroClass} active`;
+  const listClasses = ['menuCharacters_background', `${superheroClass}`];
 
-  return <div className={getBgClasses()} />;
+  if (superheroActive) listClasses.push('active');
+  if (superheroActive && isActiveMenuLettersAnimation)
+    listClasses.push('highlight');
+
+  return <div className={listClasses.join(' ')} />;
 };
 
 const mapStateToProps = state => ({

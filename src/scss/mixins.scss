@@ -56,3 +56,29 @@
         -ms-user-select: none; 
             user-select: none; 
 }
+
+@mixin backgroundMenuEasing(){
+    animation: easeOutBounce 1s 0s forwards;
+    webkit-animation: easeOutBounce 1s 0s forwards;
+
+    @-webkit-keyframes easeOutBounce {
+        0% {opacity: 0.2; -webkit-animation-timing-function: ease-in;}
+        33% {opacity: 0.4; -webkit-animation-timing-function: ease-out;}
+        50% {opacity: 0.35; -webkit-animation-timing-function: ease-in;}
+        66% {opacity: 0.4; -webkit-animation-timing-function: ease-out;}
+        82% {opacity: 0.37; -webkit-animation-timing-function: ease-in;}
+        92% {opacity: 0.4; -webkit-animation-timing-function: ease-out;}
+        97% {opacity: 0.38; -webkit-animation-timing-function: ease-in;}
+        100% { opacity: 0.4;}
+      }
+      @keyframes easeOutBounce {
+        0% {opacity: 0.2; -webkit-animation-timing-function: ease-in;}
+        33% {opacity: 0.4; -webkit-animation-timing-function: ease-out;}
+        50% {opacity: 0.35; -webkit-animation-timing-function: ease-in;}
+        66% {opacity: 0.4; -webkit-animation-timing-function: ease-out;}
+        82% {opacity: 0.37; -webkit-animation-timing-function: ease-in;}
+        92% {opacity: 0.4; -webkit-animation-timing-function: ease-out;}
+        97% {opacity: 0.38; -webkit-animation-timing-function: ease-in;}
+        100% { opacity: 0.4;}
+      }
+}

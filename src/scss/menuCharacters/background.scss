@@ -17,7 +17,8 @@
         transform: scale(1);
     }
     &.highlight{
-        opacity: 0.4;
+        //opacity: 0.4;
+        @include backgroundMenuEasing();
     }
     &.superman{
         background-image: url(#{$imgPath}/superman_bg.jpg);
