@@ -44,15 +44,14 @@ class LogoCharacter extends Component {
         '+=3.5'
       )
       .to(
-        '.superheroLogo_svg path',
+        '.superheroLogo_path',
         durationStroke,
         {
           drawSVG: 0,
-          fillOpacity: 0.5,
           ease: Power1.easeOut,
           onComplete: () => activeOverMenuLetters()
         },
-        '-=6.5'
+        '-=6'
       )
       .addPause()
       .addLabel('initIn')
