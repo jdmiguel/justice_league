@@ -10,6 +10,7 @@ import GreenLanternLogo from './GreenLanternLogo';
 import GreenArrowLogo from './GreenArrowLogo';
 import AquamanLogo from './AquamanLogo';
 import CyborgLogo from './CyborgLogo';
+import { introLogoMenu } from '../../../utils/animations';
 
 class LogoCharacter extends Component {
   constructor(props) {
@@ -23,12 +24,17 @@ class LogoCharacter extends Component {
   }
 
   componentDidMount() {
-    const { tl, duration, durationStroke, durationFill } = this.state;
     const { activeOverMenuLetters } = this.props;
+    const logoContainer = document.querySelector('.menuCharacters_logo');
+    const logoSvg = logoContainer.querySelector('svg');
+    const logoPath = logoSvg.querySelector('path');
 
+    introLogoMenu(logoSvg)(logoPath);
+    activeOverMenuLetters();
+    // const { tl, duration, durationStroke, durationFill } = this.state;
+    // const { activeOverMenuLetters } = this.props;
     // console.log(`isVisible: ${isVisible}`);
-
-    tl.addLabel('initIntro')
+    /* tl.addLabel('initIntro')
       .fromTo(
         '.superheroLogo_svg',
         durationFill,
@@ -77,7 +83,7 @@ class LogoCharacter extends Component {
       )
       .addPause();
 
-    tl.play('initIntro');
+    tl.play('initIntro'); */
   }
 
   shouldComponentUpdate(nextProps) {
@@ -87,7 +93,7 @@ class LogoCharacter extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('componentDidUpdate from Logo');
+    // console.log('componentDidUpdate from Logo');
     const {
       inDirection,
       isActiveOverMenuLetters,
@@ -123,7 +129,19 @@ class LogoCharacter extends Component {
   }
 
   render() {
-    return <SupermanLogo />;
+    const {
+      superheroActive,
+      superheroClass,
+      isActiveMenuLettersAnimation
+    } = this.props;
+
+    const listClasses = ['menuCharacters_logo', `${superheroClass}`];
+
+    if (superheroActive) listClasses.push('active');
+    if (superheroActive && isActiveMenuLettersAnimation)
+      listClasses.push('highlight');
+
+    return <SupermanLogo classes={listClasses} />;
   }
 }
 

@@ -166,9 +166,7 @@ class LettersCharacter extends Component {
   clickHandler() {
     // const { desactiveOverMenuLetters } = this.props;
     // const { activedLetters } = this.state;
-
-    console.log(`onClick: ${this.props.superheroName}`);
-
+    //console.log(`onClick: ${this.props.superheroName}`);
     // outRightLettersMenu(activedLetters);
     // desactiveOverMenuLetters();
   }

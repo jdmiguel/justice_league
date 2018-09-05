@@ -101,6 +101,121 @@ export const outRightLettersMenu = elementToAnimate => {
   );
 };
 
+// MENU LOGO ANIMATIONS
+
+export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => {
+  TweenMax.fromTo(
+    firstElementToAnimate,
+    3,
+    {
+      alpha: 0,
+      scale: 0.5,
+      drawSVG: '100%'
+    },
+    {
+      delay: 3.5,
+      alpha: 1,
+      scale: 1,
+      drawSVG: 0,
+      transformOrigin: '50% 50%',
+      ease: Power1.easeOut
+    }
+  );
+
+  TweenMax.fromTo(
+    secondElementToAnimate,
+    6.5,
+    {
+      drawSVG: '100%'
+    },
+    {
+      delay: '-=3.5',
+      drawSVG: 0,
+      ease: Power1.easeOut
+    }
+  );
+};
+
+export const inRightLogoMenu = elementToAnimate => {
+  TweenMax.staggerFromTo(
+    elementToAnimate,
+    0.55,
+    {
+      alpha: 0,
+      cycle: { x: i => 50 + i * 40 },
+      rotationY: 0
+    },
+    {
+      delay: 0.35,
+      x: 0,
+      alpha: 1,
+      rotationY: 0,
+      ease: Power1.easeOut
+    },
+    0.01
+  );
+};
+
+export const inLeftLogoMenu = elementToAnimate => {
+  TweenMax.staggerFromTo(
+    elementToAnimate,
+    0.55,
+    {
+      alpha: 0,
+      cycle: { x: i => -200 + i * 20 },
+      rotationY: 0
+    },
+    {
+      delay: 0.35,
+      x: 0,
+      alpha: 1,
+      rotationY: 0,
+      ease: Power1.easeOut
+    },
+    0.01
+  );
+};
+
+export const outLeftLogoMenu = elementToAnimate => {
+  TweenMax.staggerFromTo(
+    elementToAnimate,
+    0.4,
+    {
+      alpha: 1,
+      x: 0,
+      rotationY: 0
+    },
+    {
+      delay: 0,
+      cycle: { x: i => -200 + i * 20 },
+      alpha: 0,
+      rotationY: 0,
+      ease: Power1.easeIn
+    },
+    0.01
+  );
+};
+
+export const outRightLogoMenu = elementToAnimate => {
+  TweenMax.staggerFromTo(
+    elementToAnimate,
+    0.4,
+    {
+      alpha: 1,
+      x: 0,
+      rotationY: 0
+    },
+    {
+      delay: 0,
+      cycle: { x: i => 50 + i * 40 },
+      alpha: 0,
+      rotationY: 0,
+      ease: Power1.easeIn
+    },
+    0.01
+  );
+};
+
 // BACKGROUND MENU ANIMATIONS
 
 /* export const introBackgroundMenu = elementToAnimate => {

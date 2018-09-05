@@ -1,7 +1,7 @@
 import React from 'react';
 
-const SupermanLogo = () => (
-  <div className="superheroLogo_container">
+const SupermanLogo = ({ classes }) => (
+  <div className={classes.join(' ')}>
     <svg
       x="0px"
       y="0px"
@@ -14,7 +14,6 @@ const SupermanLogo = () => (
     >
       <path
         fill="#0e88f0"
-        fillOpacity="0.5"
         stroke="#8fcbfc"
         strokeWidth="3"
         className="superheroLogo_path"
