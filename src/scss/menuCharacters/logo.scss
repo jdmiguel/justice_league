@@ -1,13 +1,14 @@
-.superheroLogo_container{
+.menuCharacters_logo{
     position: absolute;
     z-index: 2;
     opacity: 0;
     visibility: hidden;
     @include flexContainer();
-    svg{
+    max-width: 65vh;
+    .superheroLogo_svg{
         opacity: 0;
     }
-    path{
+    .superheroLogo_path{
         fill-opacity: 0.5;
     }
     &.active{
@@ -15,7 +16,7 @@
         visibility: visible;
     }
     &.highlight{
-        path{
+        .superheroLogo_path{
             fill-opacity: 1;
         }
     }

@@ -103,7 +103,7 @@ export const outRightLettersMenu = elementToAnimate => {
 
 // MENU LOGO ANIMATIONS
 
-export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => {
+export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => callback => {
   TweenMax.fromTo(
     firstElementToAnimate,
     3,
@@ -118,7 +118,8 @@ export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => 
       scale: 1,
       drawSVG: 0,
       transformOrigin: '50% 50%',
-      ease: Power1.easeOut
+      ease: Power1.easeOut,
+      onComplete: () => callback()
     }
   );
 

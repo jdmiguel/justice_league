@@ -25,12 +25,13 @@ class LogoCharacter extends Component {
 
   componentDidMount() {
     const { activeOverMenuLetters } = this.props;
-    const logoContainer = document.querySelector('.menuCharacters_logo');
-    const logoSvg = logoContainer.querySelector('svg');
-    const logoPath = logoSvg.querySelector('path');
+    const logoSvg = document.querySelector('.superheroLogo_svg');
+    const logoPath = logoSvg.querySelector('.superheroLogo_path');
 
-    introLogoMenu(logoSvg)(logoPath);
-    activeOverMenuLetters();
+    const introLogoMenuSvg = introLogoMenu(logoSvg);
+    const introLogoMenuPath = introLogoMenuSvg(logoPath);
+    introLogoMenuPath(activeOverMenuLetters);
+
     // const { tl, duration, durationStroke, durationFill } = this.state;
     // const { activeOverMenuLetters } = this.props;
     // console.log(`isVisible: ${isVisible}`);
@@ -104,7 +105,7 @@ class LogoCharacter extends Component {
     if (isActiveMenuLettersAnimation) this.animate('in');
     else this.animate('out');
 
-    if (inDirection === 'left') {
+    /* if (inDirection === 'left') {
       // console.log('go morph');
       TweenMax.to('#supermanLogo', 0.6, {
         scale: 0.7,
@@ -118,7 +119,7 @@ class LogoCharacter extends Component {
         { scale: 0.8, autoAlpha: 0, rotationY: 120 },
         { delay: 0.5, scale: 1, autoAlpha: 1, rotationY: 0, ease: Back.easeOut }
       );
-    }
+    } */
   }
 
   animate(mode) {
