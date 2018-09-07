@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const GreenLanternLogo = () => (
-  <div className="superheroLogo_container">
+const GreenLanternLogo = ({ classes }) => (
+  <div className={classes}>
     <svg
       x="0px"
       y="0px"
@@ -27,5 +28,9 @@ const GreenLanternLogo = () => (
     </svg>
   </div>
 );
+
+GreenLanternLogo.propTypes = {
+  classes: PropTypes.string.isRequired
+};
 
 export default GreenLanternLogo;

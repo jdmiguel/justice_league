@@ -164,22 +164,13 @@ class LettersCharacter extends Component {
   }
 
   clickHandler() {
-    // const { desactiveOverMenuLetters } = this.props;
-    // const { activedLetters } = this.state;
-    //console.log(`onClick: ${this.props.superheroName}`);
-    // outRightLettersMenu(activedLetters);
-    // desactiveOverMenuLetters();
+    console.log(this);
   }
 
   render() {
     // console.log('render from LettersCharacter');
 
-    const {
-      superheroName,
-      superheroClass,
-      superheroActive,
-      isActiveOverMenuLetters
-    } = this.props;
+    const { superheroName, superheroClass, superheroActive } = this.props;
 
     const getLettersContainerClasses = () =>
       !superheroActive ? 'letters_container' : 'letters_container active';
@@ -210,8 +201,8 @@ class LettersCharacter extends Component {
 }
 
 const mapStateToProps = state => ({
-  inDirection: state.lettersMenuRdc.inDirectionMenuLetters,
-  outDirection: state.lettersMenuRdc.outDirectionMenuLetters,
+  inDirection: state.directionsMenuRdc.inDirectionMenu,
+  outDirection: state.directionsMenuRdc.outDirectionMenu,
   isActiveOverMenuLetters: state.lettersMenuRdc.isActiveOverMenuLetters
 });
 
@@ -219,9 +210,7 @@ const mapDispatchToProps = dispatch => ({
   triggerOverLettersAnimation: () =>
     dispatch({ type: actionTypes.ANIMATION_MENU_LETTERS_OVER }),
   triggerOutLettersAnimation: () =>
-    dispatch({ type: actionTypes.ANIMATION_MENU_LETTERS_OUT }),
-  desactiveOverMenuLetters: () =>
-    dispatch({ type: actionTypes.DESACTIVE_OVER_MENU_LETTERS })
+    dispatch({ type: actionTypes.ANIMATION_MENU_LETTERS_OUT })
 });
 
 LettersCharacter.propTypes = {
@@ -233,8 +222,7 @@ LettersCharacter.propTypes = {
   outDirection: PropTypes.string.isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
   triggerOverLettersAnimation: PropTypes.func.isRequired,
-  triggerOutLettersAnimation: PropTypes.func.isRequired,
-  desactiveOverMenuLetters: PropTypes.func.isRequired
+  triggerOutLettersAnimation: PropTypes.func.isRequired
 };
 
 export default connect(

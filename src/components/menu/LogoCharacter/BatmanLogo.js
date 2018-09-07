@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const BatmanLogo = () => (
-  <div className="superheroLogo_container">
+const BatmanLogo = ({ classes }) => (
+  <div className={classes}>
     <svg
       x="0px"
       y="0px"
@@ -37,5 +38,9 @@ const BatmanLogo = () => (
     </svg>
   </div>
 );
+
+BatmanLogo.propTypes = {
+  classes: PropTypes.string.isRequired
+};
 
 export default BatmanLogo;

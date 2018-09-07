@@ -96,9 +96,9 @@ class LogoCharacter extends Component {
   componentDidUpdate(prevProps) {
     console.log('componentDidUpdate from Logo');
 
-    const { isActiveOverMenuLetters } = this.props;
+    const { isActiveOverMenuLetters, inDirection, outDirection } = this.props;
 
-    if (prevProps.isActiveOverMenuLetters !== isActiveOverMenuLetters) return;
+    // if (prevProps.isActiveOverMenuLetters !== isActiveOverMenuLetters) return;
     /* if (isActiveMenuLettersAnimation) this.animate('in');
     else this.animate('out'); */
 
@@ -139,7 +139,26 @@ class LogoCharacter extends Component {
     if (superheroActive && isActiveMenuLettersAnimation)
       listClasses.push('highlight');
 
-    return <SupermanLogo classes={listClasses.join(' ')} />;
+    switch (superheroClass) {
+      case 'superman':
+        return <SupermanLogo classes={listClasses.join(' ')} />;
+      case 'batman':
+        return <BatmanLogo classes={listClasses.join(' ')} />;
+      case 'wonderwoman':
+        return <WonderWomanLogo classes={listClasses.join(' ')} />;
+      case 'flash':
+        return <FlashLogo classes={listClasses.join(' ')} />;
+      case 'greenlanter':
+        return <GreenArrowLogo classes={listClasses.join(' ')} />;
+      case 'greenarrow':
+        return <GreenArrowLogo classes={listClasses.join(' ')} />;
+      case 'aquaman':
+        return <AquamanLogo classes={listClasses.join(' ')} />;
+      case 'cyborg':
+        return <CyborgLogo classes={listClasses.join(' ')} />;
+      default:
+        return <SupermanLogo classes={listClasses.join(' ')} />;
+    }
   }
 }
 
@@ -147,8 +166,8 @@ const mapStateToProps = state => ({
   isActiveMenuLettersAnimation:
     state.lettersMenuRdc.isActiveMenuLettersAnimation,
   isActiveOverMenuLetters: state.lettersMenuRdc.isActiveOverMenuLetters,
-  inDirection: state.lettersMenuRdc.inDirectionMenuLetters,
-  outDirection: state.lettersMenuRdc.outDirectionMenuLetters
+  inDirection: state.directionsMenuRdc.inDirectionMenu,
+  outDirection: state.directionsMenuRdc.outDirectionMenu
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -157,14 +176,13 @@ const mapDispatchToProps = dispatch => ({
 });
 
 LogoCharacter.propTypes = {
-  superheroName: PropTypes.string.isRequired,
   superheroClass: PropTypes.string.isRequired,
   superheroActive: PropTypes.bool.isRequired,
   isActiveMenuLettersAnimation: PropTypes.bool.isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
-  activeOverMenuLetters: PropTypes.func.isRequired,
-  inDirection: PropTypes.string.isRequired,
-  outDirection: PropTypes.string.isRequired
+  activeOverMenuLetters: PropTypes.func.isRequired
+  /* inDirection: PropTypes.string.isRequired,
+  outDirection: PropTypes.string.isRequired */
 };
 
 export default connect(

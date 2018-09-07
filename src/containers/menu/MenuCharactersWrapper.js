@@ -43,23 +43,19 @@ class MenuCharactersWrapper extends Component {
 
   changeMenu(e) {
     const { delayOnMouseWheel } = this.state;
-    const {
-      setActiveSuperhero,
-      setDirectionInLetters,
-      setDirectionOutLetters
-    } = this.props;
+    const { setActiveSuperhero, setDirectionIn, setDirectionOut } = this.props;
 
     // console.log('changeMenu from MenuCharactersWrapper');
 
     if (e.deltaY > 0) {
       // console.log('go next superhero');
-      setDirectionInLetters('left');
-      setDirectionOutLetters('right');
+      setDirectionIn('left');
+      setDirectionOut('right');
       setActiveSuperhero('next');
     } else {
       // console.log('go prev superhero');
-      setDirectionInLetters('right');
-      setDirectionOutLetters('left');
+      setDirectionIn('right');
+      setDirectionOut('left');
       setActiveSuperhero('prev');
     }
 
@@ -106,14 +102,14 @@ const mapDispatchToProps = dispatch => ({
       type: actionTypes.SET_ACTIVE_SUPERHERO_MENU,
       active: selected
     }),
-  setDirectionInLetters: directionSelected =>
+  setDirectionIn: directionSelected =>
     dispatch({
-      type: actionTypes.SET_DIRECTION_IN_MENU_LETTERS,
+      type: actionTypes.SET_DIRECTION_IN_MENU,
       direction: directionSelected
     }),
-  setDirectionOutLetters: directionSelected =>
+  setDirectionOut: directionSelected =>
     dispatch({
-      type: actionTypes.SET_DIRECTION_OUT_MENU_LETTERS,
+      type: actionTypes.SET_DIRECTION_OUT_MENU,
       direction: directionSelected
     })
 });
@@ -122,8 +118,8 @@ MenuCharactersWrapper.propTypes = {
   superheroesList: PropTypes.arrayOf(PropTypes.object).isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
   setActiveSuperhero: PropTypes.func.isRequired,
-  setDirectionInLetters: PropTypes.func.isRequired,
-  setDirectionOutLetters: PropTypes.func.isRequired
+  setDirectionIn: PropTypes.func.isRequired,
+  setDirectionOut: PropTypes.func.isRequired
 };
 
 export default connect(

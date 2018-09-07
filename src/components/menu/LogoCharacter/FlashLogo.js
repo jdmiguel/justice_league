@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const FlashLogo = () => (
-  <div className="superheroLogo_container">
+const FlashLogo = ({ classes }) => (
+  <div className={classes}>
     <svg
       x="0px"
       y="0px"
@@ -23,5 +24,9 @@ const FlashLogo = () => (
     </svg>
   </div>
 );
+
+FlashLogo.propTypes = {
+  classes: PropTypes.string.isRequired
+};
 
 export default FlashLogo;

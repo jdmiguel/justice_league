@@ -7,11 +7,13 @@ import './scss/styles.scss';
 
 import App from './containers/App';
 import globalReducer from './store/reducers/global';
+import directionsMenuReducer from './store/reducers/menu/directions';
 import lettersMenuReducer from './store/reducers/menu/letters';
 import superheroesMenuReducer from './store/reducers/menu/superheroes';
 
 const rootReducer = combineReducers({
   globalRdc: globalReducer,
+  directionsMenuRdc: directionsMenuReducer,
   lettersMenuRdc: lettersMenuReducer,
   superheroesMenuRdc: superheroesMenuReducer
 });
