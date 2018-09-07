@@ -61,26 +61,6 @@ export const inLeftLettersMenu = elementToAnimate => {
   );
 };
 
-export const outLeftLettersMenu = elementToAnimate => {
-  TweenMax.staggerFromTo(
-    elementToAnimate,
-    0.4,
-    {
-      alpha: 1,
-      x: 0,
-      rotationY: 0
-    },
-    {
-      delay: 0,
-      cycle: { x: i => -200 + i * 20 },
-      alpha: 0,
-      rotationY: 0,
-      ease: Power1.easeIn
-    },
-    0.01
-  );
-};
-
 export const outRightLettersMenu = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
@@ -93,6 +73,26 @@ export const outRightLettersMenu = elementToAnimate => {
     {
       delay: 0,
       cycle: { x: i => 50 + i * 40 },
+      alpha: 0,
+      rotationY: 0,
+      ease: Power1.easeIn
+    },
+    0.01
+  );
+};
+
+export const outLeftLettersMenu = elementToAnimate => {
+  TweenMax.staggerFromTo(
+    elementToAnimate,
+    0.4,
+    {
+      alpha: 1,
+      x: 0,
+      rotationY: 0
+    },
+    {
+      delay: 0,
+      cycle: { x: i => -200 + i * 20 },
       alpha: 0,
       rotationY: 0,
       ease: Power1.easeIn
@@ -138,82 +138,76 @@ export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => 
 };
 
 export const inRightLogoMenu = elementToAnimate => {
-  TweenMax.staggerFromTo(
+  TweenMax.fromTo(
     elementToAnimate,
-    0.55,
+    0.7,
     {
-      alpha: 0,
-      cycle: { x: i => 50 + i * 40 },
-      rotationY: 0
+      scale: 0.8,
+      alpha: 1,
+      rotationY: -120
     },
     {
-      delay: 0.35,
-      x: 0,
+      delay: 0.5,
+      scale: 1,
       alpha: 1,
       rotationY: 0,
-      ease: Power1.easeOut
-    },
-    0.01
+      ease: Power1.easeIn
+    }
   );
 };
 
 export const inLeftLogoMenu = elementToAnimate => {
-  TweenMax.staggerFromTo(
+  TweenMax.fromTo(
     elementToAnimate,
-    0.55,
+    0.7,
     {
-      alpha: 0,
-      cycle: { x: i => -200 + i * 20 },
-      rotationY: 0
-    },
-    {
-      delay: 0.35,
-      x: 0,
+      scale: 0.8,
       alpha: 1,
-      rotationY: 0,
-      ease: Power1.easeOut
+      rotationY: 120
     },
-    0.01
-  );
-};
-
-export const outLeftLogoMenu = elementToAnimate => {
-  TweenMax.staggerFromTo(
-    elementToAnimate,
-    0.4,
     {
+      delay: 0.5,
+      scale: 1,
       alpha: 1,
-      x: 0,
-      rotationY: 0
-    },
-    {
-      delay: 0,
-      cycle: { x: i => -200 + i * 20 },
-      alpha: 0,
       rotationY: 0,
       ease: Power1.easeIn
-    },
-    0.01
+    }
   );
 };
 
 export const outRightLogoMenu = elementToAnimate => {
-  TweenMax.staggerFromTo(
+  TweenMax.fromTo(
     elementToAnimate,
-    0.4,
+    0.7,
     {
+      scale: 1,
       alpha: 1,
-      x: 0,
       rotationY: 0
     },
     {
-      delay: 0,
-      cycle: { x: i => 50 + i * 40 },
-      alpha: 0,
-      rotationY: 0,
+      scale: 0.7,
+      alpha: 1,
+      rotationY: -120,
       ease: Power1.easeIn
+    }
+  );
+};
+
+export const outLeftLogoMenu = elementToAnimate => {
+  TweenMax.fromTo(
+    elementToAnimate,
+    0.7,
+    {
+      scale: 1,
+      alpha: 1,
+      rotationY: 0
     },
-    0.01
+    {
+      scale: 0.7,
+      alpha: 1,
+      rotationY: 120,
+      ease: Power1.easeIn
+    }
   );
 };
 
