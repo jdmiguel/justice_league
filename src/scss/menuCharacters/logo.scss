@@ -3,21 +3,23 @@
     z-index: 2;
     opacity: 0;
     visibility: hidden;
-    @include flexContainer();
     max-width: 65vh;
+    @include flexContainer();
+    @include transition(all,.7s, cubic-bezier(0.175, 0.885, 0.32, 1.275),0);
     .superheroLogo_svg{
         opacity: 0;
     }
     .superheroLogo_path{
-        fill-opacity: 0.5;
+        fill-opacity: 0.4;
     }
     &.active{
         opacity: 1;
         visibility: visible;
     }
     &.highlight{
+        transform: scale(1.05);
         .superheroLogo_path{
-            fill-opacity: 1;
+            fill-opacity: 0.65;
         }
     }
 }

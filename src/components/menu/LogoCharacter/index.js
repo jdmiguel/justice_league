@@ -87,23 +87,20 @@ class LogoCharacter extends Component {
     tl.play('initIntro'); */
   }
 
-  shouldComponentUpdate(nextProps) {
+  /* shouldComponentUpdate(nextProps) {
     const { superheroActive } = this.props;
     if (superheroActive !== nextProps.superheroActive) return true;
     return false;
-  }
+  } */
 
   componentDidUpdate(prevProps) {
-    // console.log('componentDidUpdate from Logo');
-    const {
-      inDirection,
-      isActiveOverMenuLetters,
-      isActiveMenuLettersAnimation
-    } = this.props;
+    console.log('componentDidUpdate from Logo');
+
+    const { isActiveOverMenuLetters } = this.props;
 
     if (prevProps.isActiveOverMenuLetters !== isActiveOverMenuLetters) return;
-    if (isActiveMenuLettersAnimation) this.animate('in');
-    else this.animate('out');
+    /* if (isActiveMenuLettersAnimation) this.animate('in');
+    else this.animate('out'); */
 
     /* if (inDirection === 'left') {
       // console.log('go morph');
@@ -122,12 +119,12 @@ class LogoCharacter extends Component {
     } */
   }
 
-  animate(mode) {
+  /* animate(mode) {
     console.log(`animate: ${mode}`);
     const { tl } = this.state;
     if (mode === 'in') tl.play('initIn');
     else tl.play('initOut');
-  }
+  } */
 
   render() {
     const {
@@ -142,7 +139,7 @@ class LogoCharacter extends Component {
     if (superheroActive && isActiveMenuLettersAnimation)
       listClasses.push('highlight');
 
-    return <SupermanLogo classes={listClasses} />;
+    return <SupermanLogo classes={listClasses.join(' ')} />;
   }
 }
 

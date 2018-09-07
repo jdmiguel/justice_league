@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const SupermanLogo = ({ classes }) => (
-  <div className={classes.join(' ')}>
+  <div className={classes}>
     <svg
       x="0px"
       y="0px"
@@ -33,5 +34,9 @@ const SupermanLogo = ({ classes }) => (
     </svg>
   </div>
 );
+
+SupermanLogo.propTypes = {
+  classes: PropTypes.string.isRequired
+};
 
 export default SupermanLogo;
