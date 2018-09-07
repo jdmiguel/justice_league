@@ -109,14 +109,12 @@ export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => 
     3,
     {
       alpha: 0,
-      scale: 0.5,
-      drawSVG: '100%'
+      scale: 0.5
     },
     {
       delay: 3.5,
       alpha: 1,
       scale: 1,
-      drawSVG: 0,
       transformOrigin: '50% 50%',
       ease: Power1.easeOut,
       onComplete: () => callback()
@@ -136,122 +134,3 @@ export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => 
     }
   );
 };
-
-export const inRightLogoMenu = elementToAnimate => {
-  TweenMax.fromTo(
-    elementToAnimate,
-    0.7,
-    {
-      scale: 0.8,
-      alpha: 1,
-      rotationY: -120
-    },
-    {
-      delay: 0.5,
-      scale: 1,
-      alpha: 1,
-      rotationY: 0,
-      ease: Power1.easeIn
-    }
-  );
-};
-
-export const inLeftLogoMenu = elementToAnimate => {
-  TweenMax.fromTo(
-    elementToAnimate,
-    0.7,
-    {
-      scale: 0.8,
-      alpha: 1,
-      rotationY: 120
-    },
-    {
-      delay: 0.5,
-      scale: 1,
-      alpha: 1,
-      rotationY: 0,
-      ease: Power1.easeIn
-    }
-  );
-};
-
-export const outRightLogoMenu = elementToAnimate => {
-  TweenMax.fromTo(
-    elementToAnimate,
-    0.7,
-    {
-      scale: 1,
-      alpha: 1,
-      rotationY: 0
-    },
-    {
-      scale: 0.7,
-      alpha: 1,
-      rotationY: -120,
-      ease: Power1.easeIn
-    }
-  );
-};
-
-export const outLeftLogoMenu = elementToAnimate => {
-  TweenMax.fromTo(
-    elementToAnimate,
-    0.7,
-    {
-      scale: 1,
-      alpha: 1,
-      rotationY: 0
-    },
-    {
-      scale: 0.7,
-      alpha: 1,
-      rotationY: 120,
-      ease: Power1.easeIn
-    }
-  );
-};
-
-// BACKGROUND MENU ANIMATIONS
-
-/* export const introBackgroundMenu = elementToAnimate => {
-  TweenMax.fromTo(
-    elementToAnimate,
-    5,
-    {
-      alpha: 0
-    },
-    {
-      delay: 4,
-      alpha: 0.2,
-      ease: Power1.easeOut
-    }
-  );
-};
-
-export const overBackgroundMenu = elementToAnimate => {
-  TweenMax.fromTo(
-    elementToAnimate,
-    0.55,
-    {
-      alpha: 0.2
-    },
-    {
-      alpha: 0.4,
-      ease: Bounce.easeOut
-    }
-  );
-};
-
-export const outBackgroundMenu = elementToAnimate => {
-  TweenMax.fromTo(
-    elementToAnimate,
-    0.55,
-    {
-      alpha: 0.4
-    },
-    {
-      alpha: 0.2,
-      ease: Bounce.easeOut
-    }
-  );
-}; */

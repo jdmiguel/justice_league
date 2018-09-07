@@ -14,11 +14,11 @@
     //@include transition(all,.5s, cubic-bezier(0.175, 0.885, 0.32, 1.275),0);
     &.active{
         visibility: visible;
-        opacity: 0.2;
+        opacity: 0.25;
         transform: scale(1);
     }
     &.highlight{
-        opacity: 0.4;
+        opacity: 0.1;
         //@include backgroundMenuEasing();
     }
     &.superman{

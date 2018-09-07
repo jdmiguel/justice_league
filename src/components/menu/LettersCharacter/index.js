@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import * as actionTypes from '../../../store/actions';
 import {
   introLettersMenu,
-  inLeftLettersMenu,
   inRightLettersMenu,
-  outLeftLettersMenu,
-  outRightLettersMenu
+  inLeftLettersMenu,
+  outRightLettersMenu,
+  outLeftLettersMenu
 } from '../../../utils/animations';
 
 class LettersCharacter extends Component {
