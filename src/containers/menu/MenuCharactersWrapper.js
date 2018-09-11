@@ -14,7 +14,7 @@ class MenuCharactersWrapper extends Component {
       delayOnMouseWheel: null
     };
 
-    this.getActiveSuperhero = this.getActiveSuperhero.bind(this);
+    // this.getActiveSuperhero = this.getActiveSuperhero.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +27,7 @@ class MenuCharactersWrapper extends Component {
     // console.log('componentDidUpdate from MenuCharactersWrapper');
   }
 
-  getActiveSuperhero() {
+  /* getActiveSuperhero() {
     const { superheroesList } = this.props;
     const activeSuperhero = superheroesList.reduce(
       (allSuperheroes, superhero) => {
@@ -39,7 +39,7 @@ class MenuCharactersWrapper extends Component {
     ).name;
 
     return activeSuperhero;
-  }
+  } */
 
   changeMenu(e) {
     const { delayOnMouseWheel } = this.state;

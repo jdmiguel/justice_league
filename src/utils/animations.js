@@ -1,3 +1,52 @@
+// INTRO ANIMATIONS
+
+export const introLogoIntro = elementToAnimate => {
+  TweenMax.fromTo(
+    elementToAnimate,
+    0.7,
+    {
+      alpha: 0,
+      rotation: -30,
+      x: -50,
+      transformOrigin: '50% 50%'
+    },
+    {
+      delay: 0.5,
+      alpha: 1,
+      x: 0,
+      rotation: 0,
+      transformOrigin: '50% 50%',
+      ease: Back.easeOut
+    }
+  );
+};
+
+export const introLettersIntro = elementToAnimate => {
+  TweenMax.staggerFromTo(
+    elementToAnimate,
+    3,
+    {
+      drawSVG: '25%',
+      stroke: '#FFFFFF'
+    },
+    {
+      delay: 1.5,
+      drawSVG: '100%',
+      stroke: '#000000',
+      ease: Power1.easeOut
+    },
+    0.08
+  );
+};
+
+export const outIntro = elementToAnimate => {
+  TweenMax.to(elementToAnimate, 0.5, {
+    delay: 0,
+    y: '-100%',
+    ease: Cubic.easeIn
+  });
+};
+
 // LETTERS MENU ANIMATIONS
 
 export const introLettersMenu = elementToAnimate => {
@@ -7,7 +56,8 @@ export const introLettersMenu = elementToAnimate => {
     {
       alpha: 0,
       x: -50,
-      rotationY: 120
+      rotationY: 120,
+      transformOrigin: '50% 50%'
     },
     {
       delay: 5,
@@ -109,7 +159,8 @@ export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => 
     3,
     {
       alpha: 0,
-      scale: 0.5
+      scale: 0.5,
+      transformOrigin: '50% 50%'
     },
     {
       delay: 3.5,

@@ -4,14 +4,13 @@
     background: $white;
 }
 
-.logoIntro_container{
+.characters_intro{
     width: 100%;
     height: 100vh;
     position: absolute;
     z-index: 1;
     @include flexContainer();
     svg{
-        width: 70%;
-        height: 70%;
+        width: 45vw;
     }
 }
