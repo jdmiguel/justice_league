@@ -1,42 +1,34 @@
 // INTRO ANIMATIONS
 
-export const introLogoIntro = elementToAnimate => {
-  TweenMax.fromTo(
-    elementToAnimate,
-    0.7,
-    {
-      alpha: 0,
-      rotation: -30,
-      x: -50,
-      transformOrigin: '50% 50%'
-    },
-    {
-      delay: 0.5,
-      alpha: 1,
-      x: 0,
-      rotation: 0,
-      transformOrigin: '50% 50%',
-      ease: Back.easeOut
-    }
-  );
-};
-
 export const introLettersIntro = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
     3,
     {
       drawSVG: '25%',
-      stroke: '#FFFFFF'
+      scale: 2,
+      x: -550,
+      stroke: '#FFFFFF',
+      transformOrigin: '50% 50%'
     },
     {
-      delay: 1.5,
+      delay: 0.5,
       drawSVG: '100%',
+      scale: 1,
+      x: 0,
       stroke: '#000000',
-      ease: Power1.easeOut
+      transformOrigin: '50% 50%',
+      ease: Cubic.easeInOut
     },
-    0.08
+    0.02
   );
+
+  TweenMax.to(elementToAnimate, 5.5, {
+    delay: 1.2,
+    fillOpacity: 1,
+    stroke: '#FFFFFF',
+    ease: Elastic.easeOut
+  });
 };
 
 export const outIntro = elementToAnimate => {
