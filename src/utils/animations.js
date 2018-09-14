@@ -33,7 +33,7 @@ export const introLettersIntro = elementToAnimate => {
     elementToAnimate,
     2.4,
     {
-      cycle: { y: i => (i % 2 ? 50 * (i / 12) : -100 * (i / 12)) },
+      cycle: { y: i => (i % 2 ? 200 * (i / 12) : -100 * (i * 0.05)) },
       alpha: 0,
       transformOrigin: '50% 50%'
     },
@@ -43,7 +43,7 @@ export const introLettersIntro = elementToAnimate => {
       alpha: 1,
       ease: Power1.easeOut
     },
-    0.03
+    0.02
   );
 
   TweenMax.to(elementToAnimate, 2, {
