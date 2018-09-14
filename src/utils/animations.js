@@ -26,7 +26,7 @@ export const introLogoIntro = firstElementToAnimate => secondElementToAnimate =>
   });
 };
 
-export const introLettersIntro = elementToAnimate => {
+export const introLettersIntro = elementToAnimate => callback => {
   TweenMax.staggerFromTo(
     elementToAnimate,
     2.4,
@@ -41,6 +41,7 @@ export const introLettersIntro = elementToAnimate => {
       y: 0,
       alpha: 1,
       fill: '#282828',
+      onComplete: () => callback(),
       ease: Power1.easeOut
     },
     0.02
