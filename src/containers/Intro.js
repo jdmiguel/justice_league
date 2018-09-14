@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
-import Characters from '../components/Intro/Characters';
+import Logo from '../components/Intro/Logo';
+import Letters from '../components/Intro/Letters';
 import { introLogoIntro, introLettersIntro } from '../utils/animations';
 
 class Intro extends Component {
   componentDidMount() {
-    const letters = document.querySelectorAll('.letter_intro');
+    const logoSvg = document.querySelectorAll('.logo_svg_intro');
+    const logoPath = document.querySelectorAll('.logo_path_intro');
+    const letters = document.querySelectorAll('.letters_path_intro');
+
+    const introLogoSvg = introLogoIntro(logoSvg);
+    introLogoSvg(logoPath);
+
     introLettersIntro(letters);
   }
 
   render() {
     return (
       <div className="intro_container">
-        <Characters />
+        <Logo />
+        <Letters />
       </div>
     );
   }

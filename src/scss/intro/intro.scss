@@ -4,13 +4,24 @@
     background: $white;
 }
 
-.characters_intro{
+.letters_intro{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 2;
+    @include flexContainer();
+    svg{
+        width: 45vw;
+    }
+}
+
+.logo_intro{
     width: 100%;
     height: 100vh;
     position: absolute;
     z-index: 1;
     @include flexContainer();
     svg{
-        width: 45vw;
+        width: 35vw;
     }
 }

@@ -1,33 +1,56 @@
 // INTRO ANIMATIONS
 
-export const introLettersIntro = elementToAnimate => {
-  TweenMax.staggerFromTo(
-    elementToAnimate,
-    3,
+export const introLogoIntro = firstElementToAnimate => secondElementToAnimate => {
+  TweenMax.fromTo(
+    firstElementToAnimate,
+    1.7,
     {
-      drawSVG: '25%',
-      scale: 2,
-      x: -550,
-      stroke: '#FFFFFF',
+      alpha: 0,
+      scaleX: 1.5,
+      rotationY: 180,
       transformOrigin: '50% 50%'
     },
     {
-      delay: 0.5,
-      drawSVG: '100%',
-      scale: 1,
-      x: 0,
-      stroke: '#000000',
+      alpha: 1,
+      scaleX: 1,
+      rotationY: 0,
       transformOrigin: '50% 50%',
-      ease: Cubic.easeInOut
-    },
-    0.02
+      ease: Back.easeInOut
+    }
   );
 
-  TweenMax.to(elementToAnimate, 5.5, {
-    delay: 1.2,
-    fillOpacity: 1,
+  TweenMax.to(secondElementToAnimate, 3.5, {
+    delay: 2.6,
+    fillOpacity: 0.3,
+    scale: 0.8,
+    transformOrigin: '50% 50%',
+    ease: Cubic.easeOut
+  });
+};
+
+export const introLettersIntro = elementToAnimate => {
+  TweenMax.staggerFromTo(
+    elementToAnimate,
+    2.4,
+    {
+      cycle: { y: i => (i % 2 ? 50 * (i / 12) : -100 * (i / 12)) },
+      alpha: 0,
+      transformOrigin: '50% 50%'
+    },
+    {
+      delay: 2,
+      y: 0,
+      alpha: 1,
+      ease: Power1.easeOut
+    },
+    0.03
+  );
+
+  TweenMax.to(elementToAnimate, 2, {
+    delay: 3,
+    drawSVG: 0,
     stroke: '#FFFFFF',
-    ease: Elastic.easeOut
+    ease: Power1.easeInOut
   });
 };
 
