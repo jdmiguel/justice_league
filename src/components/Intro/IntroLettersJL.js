@@ -1,18 +1,18 @@
 import React from 'react';
 
-const Letters = () => (
-  <div className="letters_intro">
+const IntroLettersJL = () => (
+  <div className="introLettersJL_container">
     <svg
       width="700"
       height="563.287"
-      className="letters_svg_intro"
+      className="introLettersJL_svg"
       viewBox="0 0 700 563.287"
       enableBackground="new 0 0 700 563.287"
       xmlSpace="preserve"
     >
       <path
         fill="#FFFFFF"
-        className="letters_path_intro"
+        className="introLettersJL_path"
         stroke="#FFFFFF"
         strokeWidth="3"
         fillOpacity="1"
@@ -23,7 +23,7 @@ const Letters = () => (
       />
       <path
         fill="#FFFFFF"
-        className="letters_path_intro"
+        className="introLettersJL_path"
         stroke="#FFFFFF"
         strokeWidth="3"
         fillOpacity="1"
@@ -33,7 +33,7 @@ const Letters = () => (
       />
       <path
         fill="#FFFFFF"
-        className="letters_path_intro"
+        className="introLettersJL_path"
         stroke="#FFFFFF"
         strokeWidth="3"
         fillOpacity="1"
@@ -45,7 +45,7 @@ const Letters = () => (
       />
       <path
         fill="#FFFFFF"
-        className="letters_path_intro"
+        className="introLettersJL_path"
         stroke="#FFFFFF"
         strokeWidth="3"
         fillOpacity="1"
@@ -55,7 +55,7 @@ const Letters = () => (
       <path
         fill="#FFFFFF"
         fillOpacity="1"
-        className="letters_path_intro"
+        className="introLettersJL_path"
         stroke="#FFFFFF"
         strokeWidth="3"
         d="M438.765,0.443v273.951h37.897V140.14l-18.601,12.78l9.996-28.217
@@ -64,7 +64,7 @@ const Letters = () => (
       <path
         fill="#FFFFFF"
         fillOpacity="1"
-        className="letters_path_intro"
+        className="introLettersJL_path"
         stroke="#FFFFFF"
         strokeWidth="3"
         d="M506.525,0c-11.484,1.151-16.833,8.028-18.222,18.601v74.404l4.808,14.868
@@ -76,7 +76,7 @@ const Letters = () => (
       <path
         fill="#FFFFFF"
         fillOpacity="1"
-        className="letters_path_intro"
+        className="introLettersJL_path"
         stroke="#FFFFFF"
         strokeWidth="3"
         d="M602.503,0.443v273.951H700v-39.479
@@ -85,7 +85,7 @@ const Letters = () => (
       <path
         fill="#FFFFFF"
         fillOpacity="1"
-        className="letters_path_intro"
+        className="introLettersJL_path"
         stroke="#FFFFFF"
         strokeWidth="3"
         d="M18.791,287.934v233.714v40.324h87.563
@@ -94,7 +94,7 @@ const Letters = () => (
       <path
         fill="#FFFFFF"
         fillOpacity="1"
-        className="letters_path_intro"
+        className="introLettersJL_path"
         stroke="#FFFFFF"
         strokeWidth="3"
         d="M115.888,287.696v273.951h91.939
@@ -103,7 +103,7 @@ const Letters = () => (
       <path
         fill="#FFFFFF"
         fillOpacity="1"
-        className="letters_path_intro"
+        className="introLettersJL_path"
         stroke="#FFFFFF"
         strokeWidth="3"
         d="M250.94,287.681l-35.07,273.572h36.57
@@ -112,7 +112,7 @@ const Letters = () => (
       <path
         fill="#FFFFFF"
         fillOpacity="1"
-        className="letters_path_intro"
+        className="introLettersJL_path"
         stroke="#FFFFFF"
         strokeWidth="3"
         d="M351.252,308.126
@@ -123,7 +123,7 @@ const Letters = () => (
       <path
         fill="#FFFFFF"
         fillOpacity="1"
-        className="letters_path_intro"
+        className="introLettersJL_path"
         stroke="#FFFFFF"
         strokeWidth="3"
         d="M475.81,287.253v18.601v228.651v8.542c0,10.292,8.924,18.601,20.004,18.601
@@ -132,7 +132,7 @@ const Letters = () => (
       />
       <path
         fill="#FFFFFF"
-        className="letters_path_intro"
+        className="introLettersJL_path"
         stroke="#FFFFFF"
         strokeWidth="3"
         fillOpacity="1"
@@ -143,4 +143,4 @@ const Letters = () => (
   </div>
 );
 
-export default Letters;
+export default IntroLettersJL;

@@ -1,18 +1,18 @@
 import React from 'react';
 
-const Logo = () => (
-  <div className="logo_intro">
+const IntroLogoDC = () => (
+  <div className="introLogoDC_container">
     <svg
       width="900"
       height="900"
-      className="logo_svg_intro"
+      className="introLogoDC_svg"
       viewBox="0 0 900 900"
       xmlSpace="preserve"
     >
       <path
         fill="#757575"
         fillOpacity="1"
-        className="logo_path_intro"
+        className="introLogoDC_path"
         d="M450.069,0C201.503,0,0,201.503,0,450.071c0,248.567,201.503,450.069,450.069,450.069
 c248.568,0,450.071-201.503,450.071-450.069C900.14,201.504,698.637,0,450.069,0z M33.109,450.071
 c0-48.352,8.128-95.443,24.204-140.321l43.292,30.07v337.863c-13.458-20.62-25.058-42.438-34.743-65.327
@@ -32,4 +32,4 @@ C827.343,628.75,819.421,644.592,810.533,659.841z"
   </div>
 );
 
-export default Logo;
+export default IntroLogoDC;

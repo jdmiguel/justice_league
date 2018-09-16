@@ -2,11 +2,11 @@ import React from 'react';
 import { hot } from 'react-hot-loader';
 import Wrapper from '../hoc/Wrapper';
 import Router from '../router';
-import Logo from '../components/Logo';
+import LogoDC from '../components/Logos/logoDC';
 
 const App = () => (
   <Wrapper>
-    <Logo />
+    <LogoDC />
     <Router />
   </Wrapper>
 );

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Logo from '../components/Intro/Logo';
-import Letters from '../components/Intro/Letters';
+import Logo from '../components/Intro/IntroLogoDC';
+import Letters from '../components/Intro/IntroLettersJL';
 import {
   introLogoIntro,
   introLettersIntro,
@@ -10,9 +10,9 @@ import {
 class Intro extends Component {
   componentDidMount() {
     const introContainer = document.querySelector('.intro_container');
-    const logoSvg = document.querySelector('.logo_svg_intro');
-    const logoPath = document.querySelector('.logo_path_intro');
-    const letters = document.querySelectorAll('.letters_path_intro');
+    const logoSvg = document.querySelector('.introLogoDC_svg');
+    const logoPath = document.querySelector('.introLogoDC_path');
+    const letters = document.querySelectorAll('.introLettersJL_path');
 
     const introLogoSvg = introLogoIntro(logoSvg);
     const fadeAwayLogoPath = introLogoSvg(logoPath);

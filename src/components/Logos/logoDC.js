@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Logo = () => (
-  <div className="logo_container">
+const LogoDC = () => (
+  <div className="logoDC_container">
     <svg width="50" height="50" viewBox="144 -54.1 130 130" xmlSpace="preserve">
       <path
         fill="#FFFFFF"
@@ -19,4 +19,4 @@ const Logo = () => (
   </div>
 );
 
-export default Logo;
+export default LogoDC;
