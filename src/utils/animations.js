@@ -77,7 +77,7 @@ export const introLettersMenu = elementToAnimate => {
       transformOrigin: '50% 50%'
     },
     {
-      delay: 6,
+      delay: 7,
       alpha: 1,
       x: 0,
       rotationY: 0,
@@ -176,11 +176,11 @@ export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => 
     3,
     {
       alpha: 0,
-      scale: 0.5,
+      scale: 1.5,
       transformOrigin: '50% 50%'
     },
     {
-      delay: 4.5,
+      delay: 5.5,
       alpha: 1,
       scale: 1,
       transformOrigin: '50% 50%',
@@ -191,12 +191,12 @@ export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => 
 
   TweenMax.fromTo(
     secondElementToAnimate,
-    7.5,
+    8.5,
     {
       drawSVG: '100%'
     },
     {
-      delay: '-=3.5',
+      delay: 1,
       drawSVG: 0,
       ease: Power1.easeOut
     }

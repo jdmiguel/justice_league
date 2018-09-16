@@ -2,9 +2,9 @@
     position: absolute;
     z-index: 3;
     white-space: nowrap;
-    pointer-events: none;
+    display: none;
     &.active{
-        pointer-events: all;
+        display: block;
     }
 }
 
@@ -14,10 +14,10 @@
     height: 100%;
     position: absolute;
     z-index: 1;
-    pointer-events: none;
+    display: none;
     cursor: pointer;
     &.active{
-        pointer-events: all;
+        display: block;
     }
 }
 
