@@ -1,6 +1,6 @@
 // INTRO ANIMATIONS
 
-export const introLogoIntro = firstElementToAnimate => secondElementToAnimate => {
+export const introLogoIntro = firstElementToAnimate => secondElementToAnimate => callback => thirdElementToAnimate => {
   TweenMax.fromTo(
     firstElementToAnimate,
     1.9,
@@ -22,11 +22,12 @@ export const introLogoIntro = firstElementToAnimate => secondElementToAnimate =>
     fillOpacity: 0.3,
     scale: 0.8,
     transformOrigin: '50% 50%',
+    onComplete: () => callback(thirdElementToAnimate),
     ease: Cubic.easeOut
   });
 };
 
-export const introLettersIntro = elementToAnimate => callback => {
+export const introLettersIntro = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
     2.4,
@@ -41,7 +42,6 @@ export const introLettersIntro = elementToAnimate => callback => {
       y: 0,
       alpha: 1,
       fill: '#282828',
-      onComplete: () => callback(),
       ease: Power1.easeOut
     },
     0.02
@@ -56,6 +56,7 @@ export const introLettersIntro = elementToAnimate => callback => {
 };
 
 export const outIntro = elementToAnimate => {
+  console.log('outIntro');
   TweenMax.to(elementToAnimate, 0.5, {
     delay: 0,
     y: '-100%',
@@ -76,7 +77,7 @@ export const introLettersMenu = elementToAnimate => {
       transformOrigin: '50% 50%'
     },
     {
-      delay: 5,
+      delay: 6,
       alpha: 1,
       x: 0,
       rotationY: 0,
@@ -179,7 +180,7 @@ export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => 
       transformOrigin: '50% 50%'
     },
     {
-      delay: 3.5,
+      delay: 4.5,
       alpha: 1,
       scale: 1,
       transformOrigin: '50% 50%',
@@ -190,7 +191,7 @@ export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => 
 
   TweenMax.fromTo(
     secondElementToAnimate,
-    6.5,
+    7.5,
     {
       drawSVG: '100%'
     },
