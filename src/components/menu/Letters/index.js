@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Letters from './Letters';
 
 const LettersWrapper = ({ list }) =>
@@ -11,5 +12,9 @@ const LettersWrapper = ({ list }) =>
       superheroBreakpointCharacter={superhero.breakpointCharacter}
     />
   ));
+
+LettersWrapper.propTypes = {
+  list: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default LettersWrapper;
