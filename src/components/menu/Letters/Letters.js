@@ -10,7 +10,7 @@ import {
   outLeftLettersMenu
 } from '../../../utils/animations';
 
-class LettersCharacter extends Component {
+class Letters extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,7 +38,6 @@ class LettersCharacter extends Component {
   }
 
   componentDidUpdate() {
-    // console.log('componentDidUpdate from LettersCharacter');
     const { superheroActive, inDirection, outDirection } = this.props;
 
     this.setActiveLetters();
@@ -46,13 +45,11 @@ class LettersCharacter extends Component {
     const { allLetters, activedLetters } = this.state;
 
     if (superheroActive) {
-      // console.log('active item inDirection: ', inDirection);
       if (inDirection === 'left') inLeftLettersMenu(allLetters);
       else inRightLettersMenu(allLetters);
     }
 
     if (!superheroActive) {
-      // console.log('desactive item outDirection: ', outDirection);
       if (outDirection === 'left') outLeftLettersMenu(activedLetters);
       else outRightLettersMenu(activedLetters);
     }
@@ -72,7 +69,6 @@ class LettersCharacter extends Component {
           (index - superheroBreakpointCharacter) *
           splitFactor;
 
-    // console.log('distance: ', distance);
     return distance;
   }
 
@@ -131,8 +127,6 @@ class LettersCharacter extends Component {
 
     if (!isActiveOverMenuLetters || !superheroActive) return;
 
-    // console.log('mouseOverHandler');
-
     activedLetters.forEach((letter, i) => {
       if (i < superheroBreakpointCharacter)
         TweenMax.to(letter, 1, {
@@ -168,8 +162,6 @@ class LettersCharacter extends Component {
   }
 
   render() {
-    // console.log('render from LettersCharacter');
-
     const { superheroName, superheroClass, superheroActive } = this.props;
 
     const getLettersContainerClasses = () =>
@@ -177,8 +169,6 @@ class LettersCharacter extends Component {
 
     const getLettersBtnClasses = () =>
       !superheroActive ? 'letters_btn' : 'letters_btn active';
-
-    // console.log('isActiveOverMenuLetters from render', isActiveOverMenuLetters);
 
     return (
       <div className={getLettersContainerClasses()}>
@@ -213,7 +203,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: actionTypes.ANIMATION_MENU_LETTERS_OUT })
 });
 
-LettersCharacter.propTypes = {
+Letters.propTypes = {
   superheroName: PropTypes.string.isRequired,
   superheroClass: PropTypes.string.isRequired,
   superheroActive: PropTypes.bool.isRequired,
@@ -228,4 +218,4 @@ LettersCharacter.propTypes = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LettersCharacter);
+)(Letters);

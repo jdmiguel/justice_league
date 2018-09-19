@@ -2,19 +2,17 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../store/actions';
-import LettersWrapper from './MenuLettersWrapper';
-import LogosWeapper from './MenuLogosWrapper';
-import BgsWrapper from './MenuBgsWrapper';
+import LettersWrapper from '../../components/menu/Letters';
+import LogoWrapper from '../../components/menu/Logo';
+import BackgroundWrapper from '../../components/menu/Background';
 
-class MenuCharactersWrapper extends Component {
+class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
       onMouseWheel: false,
       delayOnMouseWheel: null
     };
-
-    // this.getActiveSuperhero = this.getActiveSuperhero.bind(this);
   }
 
   componentDidMount() {
@@ -22,24 +20,6 @@ class MenuCharactersWrapper extends Component {
       this.mouseWheelHandler(event)
     );
   }
-
-  componentDidUpdate() {
-    // console.log('componentDidUpdate from MenuCharactersWrapper');
-  }
-
-  /* getActiveSuperhero() {
-    const { superheroesList } = this.props;
-    const activeSuperhero = superheroesList.reduce(
-      (allSuperheroes, superhero) => {
-        let listSuperhero = allSuperheroes;
-        if (superhero.isActive === true) listSuperhero = superhero;
-        return listSuperhero;
-      },
-      {}
-    ).name;
-
-    return activeSuperhero;
-  } */
 
   changeMenu(e) {
     const { delayOnMouseWheel } = this.state;
@@ -79,13 +59,12 @@ class MenuCharactersWrapper extends Component {
   }
 
   render() {
-    // const { inDirection, outDirection } = this.props;
     const { superheroesList } = this.props;
     return (
       <div className="menuCharacters_wrapper">
         <LettersWrapper list={superheroesList} />
-        <LogosWeapper list={superheroesList} />
-        <BgsWrapper list={superheroesList} />
+        <LogoWrapper list={superheroesList} />
+        <BackgroundWrapper list={superheroesList} />
       </div>
     );
   }
@@ -114,7 +93,7 @@ const mapDispatchToProps = dispatch => ({
     })
 });
 
-MenuCharactersWrapper.propTypes = {
+Menu.propTypes = {
   superheroesList: PropTypes.arrayOf(PropTypes.object).isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
   setActiveSuperhero: PropTypes.func.isRequired,
@@ -125,4 +104,4 @@ MenuCharactersWrapper.propTypes = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(MenuCharactersWrapper);
+)(Menu);

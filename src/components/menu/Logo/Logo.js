@@ -12,7 +12,7 @@ import AquamanLogo from './AquamanLogo';
 import CyborgLogo from './CyborgLogo';
 import { introLogoMenu } from '../../../utils/animations';
 
-class LogoCharacter extends Component {
+class Logo extends Component {
   componentDidMount() {
     const { activeOverMenuLetters } = this.props;
     const logoSvg = document.querySelector('.superheroLogo_svg');
@@ -73,7 +73,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: actionTypes.ACTIVE_OVER_MENU_LETTERS })
 });
 
-LogoCharacter.propTypes = {
+Logo.propTypes = {
   superheroClass: PropTypes.string.isRequired,
   superheroActive: PropTypes.bool.isRequired,
   isActiveMenuLettersAnimation: PropTypes.bool.isRequired,
@@ -83,4 +83,4 @@ LogoCharacter.propTypes = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LogoCharacter);
+)(Logo);

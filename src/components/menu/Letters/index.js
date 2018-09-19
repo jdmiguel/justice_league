@@ -1,7 +1,7 @@
 import React from 'react';
-import Letters from '../../components/menu/LettersCharacter';
+import Letters from './Letters';
 
-const MenuLettersWrapper = ({ list }) =>
+const LettersWrapper = ({ list }) =>
   list.map(superhero => (
     <Letters
       key={superhero.id}
@@ -12,4 +12,4 @@ const MenuLettersWrapper = ({ list }) =>
     />
   ));
 
-export default MenuLettersWrapper;
+export default LettersWrapper;

@@ -1,9 +1,9 @@
 import React from 'react';
-import Logos from '../../components/menu/LogoCharacter';
+import Logo from './Logo';
 
-const MenuLogosWrapper = ({ list }) =>
+const LogoWrapper = ({ list }) =>
   list.map(superhero => (
-    <Logos
+    <Logo
       key={superhero.id}
       superheroName={superhero.name}
       superheroClass={superhero.class}
@@ -11,4 +11,4 @@ const MenuLogosWrapper = ({ list }) =>
     />
   ));
 
-export default MenuLogosWrapper;
+export default LogoWrapper;

@@ -56,7 +56,6 @@ export const introLettersIntro = elementToAnimate => {
 };
 
 export const outIntro = elementToAnimate => {
-  console.log('outIntro');
   TweenMax.to(elementToAnimate, 0.5, {
     delay: 0,
     y: '-100%',
