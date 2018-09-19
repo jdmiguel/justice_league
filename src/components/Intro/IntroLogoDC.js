@@ -7,6 +7,7 @@ const IntroLogoDC = () => (
       height="900"
       className="introLogoDC_svg"
       viewBox="0 0 900 900"
+      enableBackground="new 0 0 900 900"
       xmlSpace="preserve"
     >
       <path

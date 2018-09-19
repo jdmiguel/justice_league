@@ -173,32 +173,22 @@ export const outLeftLettersMenu = elementToAnimate => {
 export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => callback => {
   TweenMax.fromTo(
     firstElementToAnimate,
-    3,
+    2.5,
     {
-      alpha: 0,
-      scale: 1.5,
-      transformOrigin: '50% 50%'
+      alpha: 0
     },
     {
-      delay: 5.5,
+      delay: 6,
       alpha: 1,
-      scale: 1,
       transformOrigin: '50% 50%',
       ease: Power1.easeOut,
       onComplete: () => callback()
     }
   );
 
-  TweenMax.fromTo(
-    secondElementToAnimate,
-    8.5,
-    {
-      drawSVG: '100%'
-    },
-    {
-      delay: 1,
-      drawSVG: 0,
-      ease: Power1.easeOut
-    }
-  );
+  TweenMax.to(secondElementToAnimate, 8, {
+    delay: 0.5,
+    drawSVG: 0,
+    ease: Power1.easeOut
+  });
 };
