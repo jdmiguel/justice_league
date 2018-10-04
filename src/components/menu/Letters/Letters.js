@@ -173,7 +173,7 @@ class Letters extends Component {
     return (
       <div className={getLettersContainerClasses()}>
         <button
-          className={getLettersBtnClasses()}
+          className="letters_btn"
           type="button"
           onMouseOver={this.mouseOverHandler}
           onMouseOut={this.mouseOutHandler}

@@ -2,29 +2,29 @@
     position: absolute;
     z-index: 3;
     white-space: nowrap;
-    display: none;
     &.active{
-        display: block;
+        z-index: 4;
+        button{
+            display: block;
+        }
+        .letters{
+            pointer-events: all;
+        }
     }
-}
-
-.letters_btn{
-    outline: none;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    display: none;
-    cursor: pointer;
-    &.active{
-        display: block;
+    button{
+        outline: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 1;
+        display: none;
+        cursor: pointer;
     }
-}
-
-.letters{
-    @include font('Cinzel',8em,700);
-    text-align: center;
-    color: $darkWhite;
-    display: inline-block;
-    /* line-height: 0; */
+    .letters{
+        @include font('Cinzel',8em,700);
+        text-align: center;
+        color: $darkWhite;
+        display: inline-block;
+        pointer-events: none;
+    }
 }
