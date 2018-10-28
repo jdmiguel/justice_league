@@ -5,6 +5,7 @@ import * as actionTypes from '../../store/actions';
 import LettersWrapper from '../../components/menu/Letters';
 import LogoWrapper from '../../components/menu/Logo';
 import BackgroundWrapper from '../../components/menu/Background';
+import SideDrawer from '../../components/menu/SideDrawer';
 
 class Menu extends Component {
   constructor(props) {
@@ -65,6 +66,7 @@ class Menu extends Component {
         <LettersWrapper list={superheroesList} />
         <LogoWrapper list={superheroesList} />
         <BackgroundWrapper list={superheroesList} />
+        <SideDrawer list={superheroesList} />
       </div>
     );
   }

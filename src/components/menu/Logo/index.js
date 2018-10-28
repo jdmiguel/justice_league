@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Logo from './Logo';
 
 const LogoWrapper = ({ list }) =>
@@ -10,5 +11,9 @@ const LogoWrapper = ({ list }) =>
       superheroActive={superhero.active}
     />
   ));
+
+LogoWrapper.propTypes = {
+  list: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 export default LogoWrapper;

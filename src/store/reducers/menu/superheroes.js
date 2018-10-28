@@ -7,56 +7,69 @@ const initialState = {
       class: 'superman',
       active: true,
       breakpointCharacter: 4,
-      id: '012b'
+      id: '012b',
+      sideDrawerLogoPath:
+        '../../../assets/img/sidedrawer_logos/logo_superman.svg'
     },
     {
       name: 'Batman',
       class: 'batman',
       active: false,
       breakpointCharacter: 2,
-      id: '024ee'
+      id: '024ee',
+      sideDrawerLogoPath: '../../../assets/img/sidedrawer_logos/logo_batman.svg'
     },
     {
       name: 'WonderWoman',
       class: 'wonderwoman',
       active: false,
       breakpointCharacter: 5,
-      id: '034pl'
+      id: '034pl',
+      sideDrawerLogoPath:
+        '../../../assets/img/sidedrawer_logos/logo_wonder_woman.svg'
     },
     {
       name: 'TheFlash',
       class: 'flash',
       active: false,
       breakpointCharacter: 3,
-      id: '0021fg'
+      id: '0021fg',
+      sideDrawerLogoPath: '../../../assets/img/sidedrawer_logos/logo_flash.svg'
     },
     {
       name: 'GreenLantern',
       class: 'greenlantern',
       active: false,
       breakpointCharacter: 5,
-      id: '077df'
+      id: '077df',
+      sideDrawerLogoPath:
+        '../../../assets/img/sidedrawer_logos/logo_green_lantern.svg'
     },
     {
       name: 'GreenArrow',
       class: 'greenarrow',
       active: false,
       breakpointCharacter: 5,
-      id: '34jafd'
+      id: '34jafd',
+      sideDrawerLogoPath:
+        '../../../assets/img/sidedrawer_logos/logo_green_arrow.svg'
     },
     {
       name: 'Aquaman',
       class: 'aquaman',
       active: false,
       breakpointCharacter: 3,
-      id: '21orsy'
+      id: '21orsy',
+      sideDrawerLogoPath:
+        '../../../assets/img/sidedrawer_logos/logo_aquaman.svg'
     },
     {
       name: 'Cyborg',
       class: 'cyborg',
       active: false,
       breakpointCharacter: 2,
-      id: '98dfda'
+      id: '98dfda',
+      sideDrawerLogoPath: '../../../assets/img/sidedrawer_logos/logo_cyborg.svg'
     }
   ],
 
