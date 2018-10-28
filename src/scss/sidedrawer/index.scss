@@ -6,31 +6,53 @@
     nav{
         display: flex;
         justify-content: center;
-        flex-direction: column;
+        flex-direction: row;
         height: 100%;
-        margin-left: 8px;
+        @media (min-width: 768px){
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 8px;
+        }
     }
     ul{
         width: 100px;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+        margin-bottom: 12px;
+        @media (min-width: 768px){
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 0;
+        }
     }
     li{
-        margin-bottom: 2.2vw;
         position: relative;
-        &:hover{
-            img{
-                opacity: 1;
-            }
-            span{
-                opacity: 1;
+        margin: 0 6vw 0 0;
+        &:last-of-type{
+            margin: 0;
+        }
+        @media (min-width: 768px){
+            margin: 0 0 2.2vw 0;
+            &:hover{
+                img{
+                    opacity: 1;
+                }
+                span{
+                    opacity: 1;
+                }
             }
         }
     }
     img{
-        cursor: pointer;
-        opacity: .55;
+        opacity: 1;
+        @media (min-width: 768px){
+            cursor: pointer;
+            opacity: .55;
+        }
         @include transition(all,.5s, ease-out,0);
         &.sidedrawer_superman{
             width: 32px;

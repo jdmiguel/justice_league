@@ -10,6 +10,19 @@
     .superheroLogo_svg{
         @include transition(all,.7s, ease-out,0);
         opacity: .7;
+        width: 32vw;
+        @media (min-width: 768px){
+            width: 33vw;
+        }
+        @media (min-width: 992px){
+            width: 34vw;
+        }
+        @media (min-width: 1200px){
+            width: 28vw;
+        }
+        @media (min-width: 1400px){
+            width: 25vw;
+        }
     }
     .superheroLogo_path{
         fill-opacity: 0.65;
