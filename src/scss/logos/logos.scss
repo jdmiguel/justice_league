@@ -3,6 +3,14 @@
     z-index: 3;
     svg{
         margin: 25px 0 0 35px;
+        @media (min-width: 1200px){
+            width: 42px;
+            margin: 17px 0 0 24px;
+        }
+        @media (min-width: 1400px){
+            width: 50px;
+            margin: 25px 0 0 35px;
+        }
     }
 }
 
