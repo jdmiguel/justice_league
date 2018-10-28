@@ -10,9 +10,9 @@ const SideDrawer = ({ list }) => (
             <img
               src={item.sideDrawerLogoPath}
               alt={item.name}
-              className={item.class}
+              className={`sidedrawer_${item.class}`}
             />
-            <span className={item.class}>{item.name}</span>
+            <span className={`sidedrawer_${item.class}`}>{item.name}</span>
           </li>
         ))}
       </ul>
