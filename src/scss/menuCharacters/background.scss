@@ -90,7 +90,7 @@
         background-image: url(#{$imgPath}/cyborg_bg.jpg);
         background-color: $redCyborg;
         &.active{
-            opacity: 0.4;
+            opacity: 0.5;
         }
         &.highlight{
             opacity: 0.1;

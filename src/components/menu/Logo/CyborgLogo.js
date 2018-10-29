@@ -14,7 +14,7 @@ const CyborgLogo = ({ classes }) => (
       xmlSpace="preserve"
     >
       <path
-        fill="#FD0000"
+        fill="#9e0306"
         fillOpacity="0.5"
         className="superheroLogo_path"
         d="M250.073-0.311c-138.07,0-250,111.929-250,250c0,138.071,111.93,250,250,250c138.071,0,250-111.93,250-250

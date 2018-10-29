@@ -14,8 +14,8 @@ const SupermanLogo = ({ classes }) => (
       xmlSpace="preserve"
     >
       <path
-        fill="#0e88f0"
-        stroke="#8fcbfc"
+        fill="#125b98"
+        stroke="#0e88f0"
         strokeWidth="3"
         className="superheroLogo_path"
         d="M23.035,215.585L5.974,195.771C15.941,150.645,38.088,110,68.81,78h32.491
