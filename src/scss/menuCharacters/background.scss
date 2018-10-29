@@ -14,43 +14,86 @@
     //@include transition(all,.5s, cubic-bezier(0.175, 0.885, 0.32, 1.275),0);
     &.active{
         visibility: visible;
-        opacity: 0.25;
         transform: scale(1);
-    }
-    &.highlight{
-        opacity: 0.1;
-        //@include backgroundMenuEasing();
     }
     &.superman{
         background-image: url(#{$imgPath}/superman_bg.jpg);
         background-color: $blueSuperman;
+        &.active{
+            opacity: 0.3;
+        }
+        &.highlight{
+            opacity: 0.1;
+        }
     }
     &.batman{
         background-image: url(#{$imgPath}/batman_bg.jpg);
         background-color: $greyBatman;
+        &.active{
+            opacity: 0.45;
+        }
+        &.highlight{
+            opacity: 0.1;
+        }
     }
     &.wonderwoman{
         background-image: url(#{$imgPath}/wonder_woman_bg.jpg);
         background-color: $orangeWonder;
+        &.active{
+            opacity: 0.4;
+        }
+        &.highlight{
+            opacity: 0.1;
+        }
     }
     &.flash{
         background-image: url(#{$imgPath}/flash_bg.jpg);
         background-color: $redFlash;
+        &.active{
+            opacity: 0.4;
+        }
+        &.highlight{
+            opacity: 0.1;
+        }
     }
     &.greenlantern{
         background-image: url(#{$imgPath}/green_lantern_bg.jpg);
         background-color: $greenLantern;
+        &.active{
+            opacity: 0.35;
+        }
+        &.highlight{
+            opacity: 0.1;
+        }
     }
     &.greenarrow{
         background-image: url(#{$imgPath}/green_arrow_bg.jpg);
         background-color: $greenArrow;
+        &.active{
+            opacity: 0.5;
+        }
+        &.highlight{
+            opacity: 0.1;
+        }
     }
     &.aquaman{
         background-image: url(#{$imgPath}/aquaman_bg.jpg);
         background-color: $yellowAquaman;
+        &.active{
+            opacity: 0.45;
+        }
+        &.highlight{
+            opacity: 0.1;
+        }
     }
     &.cyborg{
         background-image: url(#{$imgPath}/cyborg_bg.jpg);
         background-color: $redCyborg;
+        &.active{
+            opacity: 0.4;
+        }
+        &.highlight{
+            opacity: 0.1;
+        }
     }
 }
