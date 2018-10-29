@@ -6,6 +6,7 @@ import LettersWrapper from '../../components/menu/Letters';
 import LogoWrapper from '../../components/menu/Logo';
 import BackgroundWrapper from '../../components/menu/Background';
 import SideDrawer from '../../components/menu/SideDrawer';
+import Footer from '../../components/Footer';
 
 class Menu extends Component {
   constructor(props) {
@@ -67,6 +68,7 @@ class Menu extends Component {
         <LogoWrapper list={superheroesList} />
         <BackgroundWrapper list={superheroesList} />
         <SideDrawer list={superheroesList} />
+        <Footer />
       </div>
     );
   }
