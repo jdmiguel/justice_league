@@ -15,8 +15,7 @@ const SupermanLogo = ({ classes }) => (
     >
       <path
         fill="#10548c"
-        stroke="#0e88f0"
-        strokeWidth="3"
+        fillOpacity="0.5"
         className="superheroLogo_path"
         d="M23.035,215.585L5.974,195.771C15.941,150.645,38.088,110,68.81,78h32.491
         C19.482,117,18.296,184.122,23.035,215.585z M355.843,292.967c-26.194-11.388-103.541-17.049-205.963-20.471

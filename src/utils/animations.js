@@ -76,7 +76,7 @@ export const introLettersMenu = elementToAnimate => {
       transformOrigin: '50% 50%'
     },
     {
-      delay: 7,
+      delay: 6.5,
       alpha: 1,
       x: 0,
       rotationY: 0,
@@ -169,25 +169,21 @@ export const outLeftLettersMenu = elementToAnimate => {
 
 // MENU LOGO ANIMATIONS
 
-export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => callback => {
+export const introLogoMenu = firstElementToAnimate => callback => {
   TweenMax.fromTo(
     firstElementToAnimate,
-    2.5,
+    1,
     {
-      alpha: 0
+      alpha: 0,
+      rotationY: '60deg'
     },
     {
-      delay: 6,
+      delay: 5.8,
       alpha: 1,
+      rotationY: 0,
       transformOrigin: '50% 50%',
-      ease: Power1.easeOut,
+      ease: Power2.easeOut,
       onComplete: () => callback()
     }
   );
-
-  TweenMax.to(secondElementToAnimate, 8, {
-    delay: 0.5,
-    drawSVG: 0,
-    ease: Power1.easeOut
-  });
 };

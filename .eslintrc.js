@@ -17,6 +17,7 @@ module.exports = {
         SplitText: true,
         Back: true,
         Power1: true,
+        Power2: true,
         Cubic: true,
         Bounce: true
     },

@@ -15,13 +15,11 @@ import { introLogoMenu } from '../../utils/animations';
 class Logo extends Component {
   componentDidMount() {
     const { activeOverMenuLetters } = this.props;
-    const logoSvg = document.querySelector('.superheroLogo_svg');
-    const logoPath = logoSvg.querySelector('.superheroLogo_path');
+    const logoSvg = document.querySelectorAll('.superheroLogo_svg');
 
     const introLogoMenuSvg = introLogoMenu(logoSvg);
-    const introLogoMenuPath = introLogoMenuSvg(logoPath);
 
-    introLogoMenuPath(activeOverMenuLetters);
+    introLogoMenuSvg(activeOverMenuLetters);
   }
 
   render() {
