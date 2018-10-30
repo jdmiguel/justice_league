@@ -179,7 +179,6 @@ export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => 
     {
       delay: 6,
       alpha: 1,
-      ease: Bounce.easeInOut,
       onComplete: () => callback()
     }
   );
@@ -189,15 +188,13 @@ export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => 
     2.2,
     {
       transformOrigin: '50% 50%',
-      fillOpacity: 0,
-      scale: 1.2
+      scale: 0.7
     },
     {
       delay: 5.8,
       transformOrigin: '50% 50%',
-      fillOpacity: 1,
       scale: 1,
-      ease: Back.easeInOut
+      ease: Power1.easeInOut
     }
   );
 };
