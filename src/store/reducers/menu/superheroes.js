@@ -5,7 +5,7 @@ const initialState = {
     {
       name: 'Superman',
       class: 'superman',
-      active: true,
+      active: false,
       breakpointCharacter: 4,
       id: '012b',
       sideDrawerLogoPath:
@@ -48,7 +48,7 @@ const initialState = {
     {
       name: 'GreenArrow',
       class: 'greenarrow',
-      active: false,
+      active: true,
       breakpointCharacter: 5,
       id: '34jafd',
       sideDrawerLogoPath:
@@ -78,6 +78,12 @@ const initialState = {
 
 const getTotalSuperheroes = list => list.length - 1;
 
+const setInitialCounterValueActivateSuperheroes = list => {
+  const currentCounterValue = list.findIndex(item => item.active);
+
+  return currentCounterValue;
+};
+
 const resetHandlerCounterActivateSuperheroes = (counter, limitMax) => {
   let counterValue = counter;
 
@@ -105,7 +111,7 @@ const updateHandlerCounterActivateSuperheroes = (state, elementToActive) => {
 };
 
 const updateHandlerSuperheroesList = (list, updatedCounter) => {
-  const updatedList = [...list];
+  const updatedList = list;
 
   updatedList.forEach(listElement => {
     const currentListElement = listElement;
@@ -134,6 +140,17 @@ const reducer = (state = initialState, action) => {
         ...state,
         superheroesList: updateSuperheroesList,
         counterActivateSuperhero: updateCounterActivateSuperheroes
+      };
+    }
+
+    case actionTypes.SET_COUNTER_VALUE_ACTIVE_SUPERHERO_MENU: {
+      const initialCounterValue = setInitialCounterValueActivateSuperheroes(
+        state.superheroesList
+      );
+
+      return {
+        ...state,
+        counterActivateSuperhero: initialCounterValue
       };
     }
 

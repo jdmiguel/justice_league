@@ -18,6 +18,10 @@ class Menu extends Component {
   }
 
   componentDidMount() {
+    const { setInititalCounterValueActivateSuperheroes } = this.props;
+
+    setInititalCounterValueActivateSuperheroes();
+
     document.addEventListener('mousewheel', event =>
       this.mouseWheelHandler(event)
     );
@@ -80,6 +84,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  setInititalCounterValueActivateSuperheroes: () =>
+    dispatch({
+      type: actionTypes.SET_COUNTER_VALUE_ACTIVE_SUPERHERO_MENU
+    }),
   setActiveSuperhero: selected =>
     dispatch({
       type: actionTypes.SET_ACTIVE_SUPERHERO_MENU,
@@ -100,6 +108,7 @@ const mapDispatchToProps = dispatch => ({
 Menu.propTypes = {
   superheroesList: PropTypes.arrayOf(PropTypes.object).isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
+  setInititalCounterValueActivateSuperheroes: PropTypes.func.isRequired,
   setActiveSuperhero: PropTypes.func.isRequired,
   setDirectionIn: PropTypes.func.isRequired,
   setDirectionOut: PropTypes.func.isRequired
