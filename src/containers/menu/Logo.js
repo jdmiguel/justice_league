@@ -16,10 +16,12 @@ class Logo extends Component {
   componentDidMount() {
     const { activeOverMenuLetters } = this.props;
     const logoSvg = document.querySelectorAll('.superheroLogo_svg');
+    const logoPath = document.querySelectorAll('.superheroLogo_path');
 
     const introLogoMenuSvg = introLogoMenu(logoSvg);
+    const introLogoMenuPath = introLogoMenuSvg(logoPath);
 
-    introLogoMenuSvg(activeOverMenuLetters);
+    introLogoMenuPath(activeOverMenuLetters);
   }
 
   render() {
