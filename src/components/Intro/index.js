@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Logo from '../components/Intro/IntroLogoDC';
-import Letters from '../components/Intro/IntroLettersJL';
+import Logo from './IntroLogoDC';
+import Letters from './IntroLettersJL';
 import {
   introLogoIntro,
   introLettersIntro,
   outIntro
-} from '../utils/animations';
+} from '../../utils/animations';
 
 class Intro extends Component {
   componentDidMount() {

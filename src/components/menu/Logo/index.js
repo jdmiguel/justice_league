@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Logo from './Logo';
+import Logo from '../../../containers/menu/Logo';
 
 const LogoWrapper = ({ list }) =>
   list.map(superhero => (

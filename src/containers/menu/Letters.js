@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as actionTypes from '../../../store/actions';
+import * as actionTypes from '../../store/actions';
 import {
   introLettersMenu,
   inRightLettersMenu,
   inLeftLettersMenu,
   outRightLettersMenu,
   outLeftLettersMenu
-} from '../../../utils/animations';
+} from '../../utils/animations';
 
 class Letters extends Component {
   constructor(props) {
@@ -166,9 +166,6 @@ class Letters extends Component {
 
     const getLettersContainerClasses = () =>
       !superheroActive ? 'letters_container' : 'letters_container active';
-
-    const getLettersBtnClasses = () =>
-      !superheroActive ? 'letters_btn' : 'letters_btn active';
 
     return (
       <div className={getLettersContainerClasses()}>

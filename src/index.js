@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import './scss/styles.scss';
 
-import App from './containers/App';
+import App from './app';
 import globalReducer from './store/reducers/global';
 import directionsMenuReducer from './store/reducers/menu/directions';
 import lettersMenuReducer from './store/reducers/menu/letters';

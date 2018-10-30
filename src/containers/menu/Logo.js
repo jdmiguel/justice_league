@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as actionTypes from '../../../store/actions';
-import SupermanLogo from './SupermanLogo';
-import BatmanLogo from './BatmanLogo';
-import WonderWomanLogo from './WonderWomanLogo';
-import FlashLogo from './FlashLogo';
-import GreenLanternLogo from './GreenLanternLogo';
-import GreenArrowLogo from './GreenArrowLogo';
-import AquamanLogo from './AquamanLogo';
-import CyborgLogo from './CyborgLogo';
-import { introLogoMenu } from '../../../utils/animations';
+import * as actionTypes from '../../store/actions';
+import SupermanLogo from '../../components/menu/Logo/SupermanLogo';
+import BatmanLogo from '../../components/menu/Logo/BatmanLogo';
+import WonderWomanLogo from '../../components/menu/Logo/WonderWomanLogo';
+import FlashLogo from '../../components/menu/Logo/FlashLogo';
+import GreenLanternLogo from '../../components/menu/Logo/GreenLanternLogo';
+import GreenArrowLogo from '../../components/menu/Logo/GreenArrowLogo';
+import AquamanLogo from '../../components/menu/Logo/AquamanLogo';
+import CyborgLogo from '../../components/menu/Logo/CyborgLogo';
+import { introLogoMenu } from '../../utils/animations';
 
 class Logo extends Component {
   componentDidMount() {

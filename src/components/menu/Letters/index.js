@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Letters from './Letters';
+import Letters from '../../../containers/menu/Letters';
 
 const LettersWrapper = ({ list }) =>
   list.map(superhero => (
