@@ -47,8 +47,12 @@
         &:last-of-type{
             margin: 0;
         }
+        height: 27px;
+        display: flex;
         @media (min-width: 768px){
             margin: 0 0 2vw 0;
+            height: auto;
+            display: inline-block;
             &:hover{
                 img{
                     opacity: 1;
