@@ -169,32 +169,22 @@ export const outLeftLettersMenu = elementToAnimate => {
 
 // MENU LOGO ANIMATIONS
 
-export const introLogoMenu = firstElementToAnimate => secondElementToAnimate => callback => {
+export const introLogoMenu = elementToAnimate => callback => {
   TweenMax.fromTo(
-    firstElementToAnimate,
-    2.2,
-    {
-      alpha: 0
-    },
-    {
-      delay: 6,
-      alpha: 1,
-      onComplete: () => callback()
-    }
-  );
-
-  TweenMax.fromTo(
-    secondElementToAnimate,
+    elementToAnimate,
     2.2,
     {
       transformOrigin: '50% 50%',
+      alpha: 0,
       scale: 0.7
     },
     {
       delay: 5.8,
       transformOrigin: '50% 50%',
+      alpha: 1,
       scale: 1,
-      ease: Power1.easeInOut
+      ease: Power1.easeInOut,
+      onComplete: () => callback()
     }
   );
 };

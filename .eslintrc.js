@@ -19,6 +19,7 @@ module.exports = {
         Power1: true,
         Power2: true,
         Cubic: true,
+        Linear: true,
         Bounce: true
     },
   
