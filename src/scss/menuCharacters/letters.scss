@@ -21,7 +21,7 @@
         cursor: pointer;
     }
     .letters{
-        @include font('Cinzel',5em,700);
+        @include font('Cinzel',4.2em,700);
         text-align: center;
         color: $darkWhite;
         display: inline-block;
@@ -30,10 +30,10 @@
             @include font('Cinzel',6em,700);
         }
         @media (min-width: 992px){
-            @include font('Cinzel',6.5em,700);
+            @include font('Cinzel',5.2em,700);
         }
         @media (min-width: 1200px){
-            @include font('Cinzel',7em,700);
+            @include font('Cinzel',6.8em,700);
         }
         @media (min-width: 1400px){
             @include font('Cinzel',8em,700);

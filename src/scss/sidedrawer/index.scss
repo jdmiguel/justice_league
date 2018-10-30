@@ -22,7 +22,7 @@
         }
     }
     ul{
-        width: 100px;
+        width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -33,6 +33,7 @@
             flex-direction: column;
             align-items: center;
             margin-bottom: 0;
+            width: 81px;
         }
         @media (min-width: 1200px){
             width: 90px;
@@ -59,7 +60,13 @@
                 }
                 span{
                     opacity: 1;
-                    transform: translateX(0);
+                    transform: translateX(-3px);
+                    @media (min-width: 1200px){
+                        transform: translateX(-5px);
+                    }
+                    @media (min-width: 1400px){
+                        transform: translateX(-2px);
+                    }
                 }
             }
             &.active{
@@ -69,7 +76,13 @@
                 }
                 span{
                     opacity: .75;
-                    transform: translateX(0);
+                    transform: translateX(-4px);
+                    @media (min-width: 1200px){
+                        transform: translateX(-5px);
+                    }
+                    @media (min-width: 1400px){
+                        transform: translateX(-2px);
+                    }
                 }
             }
         }
@@ -110,14 +123,20 @@
         }
     }
     span{
-        @include font('Cinzel',1em,700);
         text-align: center;
         color: $darkWhite;
         position: absolute;
         opacity: 0;
-        @include transition(all,.5s, ease-out,0);
         transform: translateX(15px);
         pointer-events: none;
+        @include transition(all,.5s, ease-out,0);
+        @include font('Cinzel',1em,700);
+        @media (min-width: 992px){
+            @include font('Cinzel',.9em,700);
+        }
+        @media (min-width: 1200px){
+            @include font('Cinzel',1em,700);
+        }
         &.sidedrawer_superman{
             left: 60px;
             top: 3px;

@@ -10,7 +10,7 @@
     .superheroLogo_svg{
         @include transition(all,.7s, ease-out,0);
         opacity: .7;
-        width: 32vw;
+        width: 29vw;
         @media (min-width: 768px){
             width: 33vw;
         }
