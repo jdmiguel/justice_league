@@ -1,14 +1,30 @@
 import React from 'react';
-import Background from './Background';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const BackgroundWrapper = ({ list }) =>
-  list.map(superhero => (
-    <Background
-      key={superhero.id}
-      superheroName={superhero.name}
-      superheroClass={superhero.class}
-      superheroActive={superhero.active}
-    />
-  ));
+const Background = ({
+  superheroActive,
+  superheroClass,
+  isActiveMenuLettersAnimation
+}) => {
+  const listClasses = ['menuCharacters_background', `${superheroClass}`];
 
-export default BackgroundWrapper;
+  if (superheroActive) listClasses.push('active');
+  if (superheroActive && isActiveMenuLettersAnimation)
+    listClasses.push('highlight');
+
+  return <div className={listClasses.join(' ')} />;
+};
+
+const mapStateToProps = state => ({
+  isActiveMenuLettersAnimation:
+    state.lettersMenuRdc.isActiveMenuLettersAnimation
+});
+
+Background.propTypes = {
+  superheroClass: PropTypes.string.isRequired,
+  superheroActive: PropTypes.bool.isRequired,
+  isActiveMenuLettersAnimation: PropTypes.bool.isRequired
+};
+
+export default connect(mapStateToProps)(Background);

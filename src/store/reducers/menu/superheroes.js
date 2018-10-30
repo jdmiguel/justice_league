@@ -5,7 +5,7 @@ const initialState = {
     {
       name: 'Superman',
       class: 'superman',
-      active: false,
+      active: true,
       breakpointCharacter: 4,
       id: '012b',
       sideDrawerLogoPath:
@@ -48,7 +48,7 @@ const initialState = {
     {
       name: 'GreenArrow',
       class: 'greenarrow',
-      active: true,
+      active: false,
       breakpointCharacter: 5,
       id: '34jafd',
       sideDrawerLogoPath:

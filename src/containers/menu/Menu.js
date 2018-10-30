@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../store/actions';
-import LettersWrapper from '../../components/menu/Letters';
-import LogoWrapper from '../../components/menu/Logo';
-import BackgroundWrapper from '../../components/menu/Background';
-import SideDrawer from '../../components/menu/SideDrawer';
+import LettersWrapper from './Letters';
+import LogoWrapper from './Logo';
+import BackgroundWrapper from './Background';
+import SideDrawer from './sideDrawer';
 import Footer from '../../components/Footer';
 
 class Menu extends Component {

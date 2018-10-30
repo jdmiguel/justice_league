@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as actionTypes from '../../store/actions';
-import SupermanLogo from '../../components/menu/Logo/SupermanLogo';
-import BatmanLogo from '../../components/menu/Logo/BatmanLogo';
-import WonderWomanLogo from '../../components/menu/Logo/WonderWomanLogo';
-import FlashLogo from '../../components/menu/Logo/FlashLogo';
-import GreenLanternLogo from '../../components/menu/Logo/GreenLanternLogo';
-import GreenArrowLogo from '../../components/menu/Logo/GreenArrowLogo';
-import AquamanLogo from '../../components/menu/Logo/AquamanLogo';
-import CyborgLogo from '../../components/menu/Logo/CyborgLogo';
-import { introLogoMenu } from '../../utils/animations';
+import * as actionTypes from '../../../store/actions';
+import SupermanLogo from '../../../components/menu/Logo/SupermanLogo';
+import BatmanLogo from '../../../components/menu/Logo/BatmanLogo';
+import WonderWomanLogo from '../../../components/menu/Logo/WonderWomanLogo';
+import FlashLogo from '../../../components/menu/Logo/FlashLogo';
+import GreenLanternLogo from '../../../components/menu/Logo/GreenLanternLogo';
+import GreenArrowLogo from '../../../components/menu/Logo/GreenArrowLogo';
+import AquamanLogo from '../../../components/menu/Logo/AquamanLogo';
+import CyborgLogo from '../../../components/menu/Logo/CyborgLogo';
+import { introLogoMenu } from '../../../utils/animations';
 
-class Logo extends Component {
+class LogoContainer extends Component {
   componentDidMount() {
     const { activeOverMenuLetters } = this.props;
     const logoPath = document.querySelectorAll('.superheroLogo_path');
@@ -69,7 +69,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: actionTypes.ACTIVE_OVER_MENU_LETTERS })
 });
 
-Logo.propTypes = {
+LogoContainer.propTypes = {
   superheroClass: PropTypes.string.isRequired,
   superheroActive: PropTypes.bool.isRequired,
   isActiveMenuLettersAnimation: PropTypes.bool.isRequired,
@@ -79,4 +79,4 @@ Logo.propTypes = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Logo);
+)(LogoContainer);
