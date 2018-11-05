@@ -8,6 +8,7 @@ const initialState = {
       active: false,
       breakpointCharacter: 4,
       id: '012b',
+      counterValue: 0,
       sideDrawerLogoPath:
         '../../../assets/img/sidedrawer_logos/logo_superman.svg'
     },
@@ -17,6 +18,7 @@ const initialState = {
       active: false,
       breakpointCharacter: 2,
       id: '024ee',
+      counterValue: 1,
       sideDrawerLogoPath: '../../../assets/img/sidedrawer_logos/logo_batman.svg'
     },
     {
@@ -25,6 +27,7 @@ const initialState = {
       active: false,
       breakpointCharacter: 5,
       id: '034pl',
+      counterValue: 2,
       sideDrawerLogoPath:
         '../../../assets/img/sidedrawer_logos/logo_wonder_woman.svg'
     },
@@ -34,6 +37,7 @@ const initialState = {
       active: false,
       breakpointCharacter: 3,
       id: '0021fg',
+      counterValue: 3,
       sideDrawerLogoPath: '../../../assets/img/sidedrawer_logos/logo_flash.svg'
     },
     {
@@ -42,6 +46,7 @@ const initialState = {
       active: false,
       breakpointCharacter: 5,
       id: '077df',
+      counterValue: 4,
       sideDrawerLogoPath:
         '../../../assets/img/sidedrawer_logos/logo_green_lantern.svg'
     },
@@ -51,6 +56,7 @@ const initialState = {
       active: true,
       breakpointCharacter: 5,
       id: '34jafd',
+      counterValue: 5,
       sideDrawerLogoPath:
         '../../../assets/img/sidedrawer_logos/logo_green_arrow.svg'
     },
@@ -60,6 +66,7 @@ const initialState = {
       active: false,
       breakpointCharacter: 3,
       id: '21orsy',
+      counterValue: 6,
       sideDrawerLogoPath:
         '../../../assets/img/sidedrawer_logos/logo_aquaman.svg'
     },
@@ -69,6 +76,7 @@ const initialState = {
       active: false,
       breakpointCharacter: 2,
       id: '98dfda',
+      counterValue: 7,
       sideDrawerLogoPath: '../../../assets/img/sidedrawer_logos/logo_cyborg.svg'
     }
   ],
