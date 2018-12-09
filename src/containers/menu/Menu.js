@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import LettersWrapper from './Letters';
 import LogoWrapper from './Logo';
 import BackgroundWrapper from './Background';
-import SideDrawer from './sideDrawer';
+import SideDrawer from './Sidedrawer';
 import Footer from '../../components/Footer';
 
 import {

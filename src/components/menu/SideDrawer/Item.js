@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import { setSelectedSidedrawerItem } from '../../../store/actions/menu/sidedrawer';
 
 const Item = ({
   superheroName,
@@ -7,7 +10,7 @@ const Item = ({
   superheroActive,
   logoPath,
   counterValue,
-  handlerSideDrawer
+  setSelectedSidedrawerItemHandler
 }) => {
   const getActiveClass = () => (superheroActive ? 'active' : null);
 
@@ -24,7 +27,7 @@ const Item = ({
         onKeyDown={e => e.preventDefault}
         onFocus={e => e.preventDefault}
         onBlur={e => e.preventDefault}
-        onClick={() => handlerSideDrawer(counterValue)}
+        onClick={() => setSelectedSidedrawerItemHandler(counterValue)}
       />
     </li>
   );
@@ -36,7 +39,15 @@ Item.propTypes = {
   superheroActive: PropTypes.bool.isRequired,
   logoPath: PropTypes.string.isRequired,
   counterValue: PropTypes.number.isRequired,
-  handlerSideDrawer: PropTypes.func.isRequired
+  setSelectedSidedrawerItemHandler: PropTypes.func.isRequired
 };
 
-export default Item;
+const mapDispatchToProps = dispatch => ({
+  setSelectedSidedrawerItemHandler: itemSelected =>
+    dispatch(setSelectedSidedrawerItem(itemSelected))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Item);

@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Item from '../../../components/menu/SideDrawer/Item';
-
-const onHandlerSideDrawer = value => console.log(value);
+import Item from '../../../components/menu/Sidedrawer/Item';
 
 const SideDrawer = ({ list }) => (
   <div className="sidedrawer">
@@ -16,7 +14,6 @@ const SideDrawer = ({ list }) => (
             superheroActive={superhero.active}
             logoPath={superhero.sideDrawerLogoPath}
             counterValue={superhero.counterValue}
-            handlerSideDrawer={value => onHandlerSideDrawer(value)}
           />
         ))}
       </ul>
