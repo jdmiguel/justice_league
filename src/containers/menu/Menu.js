@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as actionTypes from '../../store/actions';
 import LettersWrapper from './Letters';
 import LogoWrapper from './Logo';
 import BackgroundWrapper from './Background';
 import SideDrawer from './sideDrawer';
 import Footer from '../../components/Footer';
+
+import {
+  setActiveSuperhero,
+  setSuperheroActiveCounter
+} from '../../store/actions/menu/superheroes';
+
+import {
+  setDirectionIn,
+  setDirectionOut
+} from '../../store/actions/menu/directions';
 
 class Menu extends Component {
   constructor(props) {
@@ -18,9 +27,9 @@ class Menu extends Component {
   }
 
   componentDidMount() {
-    const { setInititalCounterValueActivateSuperheroes } = this.props;
+    const { superheroesList, setSuperheroActiveCounterHandler } = this.props;
 
-    setInititalCounterValueActivateSuperheroes();
+    setSuperheroActiveCounterHandler(superheroesList);
 
     document.addEventListener('mousewheel', event =>
       this.mouseWheelHandler(event)
@@ -29,20 +38,27 @@ class Menu extends Component {
 
   changeMenu(e) {
     const { delayOnMouseWheel } = this.state;
-    const { setActiveSuperhero, setDirectionIn, setDirectionOut } = this.props;
+    const {
+      superheroesList,
+      counterActivateSuperhero,
+      setActiveSuperheroHandler,
+      setDirectionInHandler,
+      setDirectionOutHandler
+    } = this.props;
 
-    // console.log('changeMenu from MenuCharactersWrapper');
+    const superheroData = {
+      superheroesList,
+      counterActivateSuperhero
+    };
 
     if (e.deltaY > 0) {
-      // console.log('go next superhero');
-      setDirectionIn('left');
-      setDirectionOut('right');
-      setActiveSuperhero('next');
+      setDirectionInHandler('left');
+      setDirectionOutHandler('right');
+      setActiveSuperheroHandler(superheroData, 'next');
     } else {
-      // console.log('go prev superhero');
-      setDirectionIn('right');
-      setDirectionOut('left');
-      setActiveSuperhero('prev');
+      setDirectionInHandler('right');
+      setDirectionOutHandler('left');
+      setActiveSuperheroHandler(superheroData, 'prev');
     }
 
     clearTimeout(delayOnMouseWheel);
@@ -80,38 +96,27 @@ class Menu extends Component {
 
 const mapStateToProps = state => ({
   superheroesList: state.superheroesMenuRdc.superheroesList,
+  counterActivateSuperhero: state.superheroesMenuRdc.counterActivateSuperhero,
   isActiveOverMenuLetters: state.lettersMenuRdc.isActiveOverMenuLetters
 });
 
 const mapDispatchToProps = dispatch => ({
-  setInititalCounterValueActivateSuperheroes: () =>
-    dispatch({
-      type: actionTypes.SET_COUNTER_VALUE_ACTIVE_SUPERHERO_MENU
-    }),
-  setActiveSuperhero: selected =>
-    dispatch({
-      type: actionTypes.SET_ACTIVE_SUPERHERO_MENU,
-      active: selected
-    }),
-  setDirectionIn: directionSelected =>
-    dispatch({
-      type: actionTypes.SET_DIRECTION_IN_MENU,
-      direction: directionSelected
-    }),
-  setDirectionOut: directionSelected =>
-    dispatch({
-      type: actionTypes.SET_DIRECTION_OUT_MENU,
-      direction: directionSelected
-    })
+  setSuperheroActiveCounterHandler: list =>
+    dispatch(setSuperheroActiveCounter(list)),
+  setActiveSuperheroHandler: (data, selected) =>
+    dispatch(setActiveSuperhero(data, selected)),
+  setDirectionInHandler: direction => dispatch(setDirectionIn(direction)),
+  setDirectionOutHandler: direction => dispatch(setDirectionOut(direction))
 });
 
 Menu.propTypes = {
   superheroesList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  counterActivateSuperhero: PropTypes.number.isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
-  setInititalCounterValueActivateSuperheroes: PropTypes.func.isRequired,
-  setActiveSuperhero: PropTypes.func.isRequired,
-  setDirectionIn: PropTypes.func.isRequired,
-  setDirectionOut: PropTypes.func.isRequired
+  setSuperheroActiveCounterHandler: PropTypes.func.isRequired,
+  setActiveSuperheroHandler: PropTypes.func.isRequired,
+  setDirectionInHandler: PropTypes.func.isRequired,
+  setDirectionOutHandler: PropTypes.func.isRequired
 };
 
 export default connect(

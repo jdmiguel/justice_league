@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as actionTypes from '../../../store/actions';
+
+import { activeOverMenuLetters } from '../../../store/actions/menu/letters';
+
 import SupermanLogo from '../../../components/menu/Logo/SupermanLogo';
 import BatmanLogo from '../../../components/menu/Logo/BatmanLogo';
 import WonderWomanLogo from '../../../components/menu/Logo/WonderWomanLogo';
@@ -14,10 +16,10 @@ import { introLogoMenu } from '../../../utils/animations';
 
 class LogoContainer extends Component {
   componentDidMount() {
-    const { activeOverMenuLetters } = this.props;
+    const { activeOverMenuLettersHandler } = this.props;
     const logoPath = document.querySelectorAll('.superheroLogo_path');
 
-    introLogoMenu(logoPath)(activeOverMenuLetters);
+    introLogoMenu(logoPath)(activeOverMenuLettersHandler);
   }
 
   render() {
@@ -65,15 +67,14 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  activeOverMenuLetters: () =>
-    dispatch({ type: actionTypes.ACTIVE_OVER_MENU_LETTERS })
+  activeOverMenuLettersHandler: () => dispatch(activeOverMenuLetters())
 });
 
 LogoContainer.propTypes = {
   superheroClass: PropTypes.string.isRequired,
   superheroActive: PropTypes.bool.isRequired,
   isActiveMenuLettersAnimation: PropTypes.bool.isRequired,
-  activeOverMenuLetters: PropTypes.func.isRequired
+  activeOverMenuLettersHandler: PropTypes.func.isRequired
 };
 
 export default connect(

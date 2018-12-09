@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as actionTypes from '../../../store/actions';
+
+import {
+  setAnimationMenuLettersOver,
+  setAnimationMenuLettersOut
+} from '../../../store/actions/menu/letters';
+
 import {
   introLettersMenu,
   inRightLettersMenu,
@@ -122,7 +127,7 @@ class Letters extends Component {
       isActiveOverMenuLetters,
       superheroActive,
       superheroBreakpointCharacter,
-      triggerOverLettersAnimation
+      setAnimationMenuLettersOverHandler
     } = this.props;
 
     if (!isActiveOverMenuLetters || !superheroActive) return;
@@ -140,12 +145,12 @@ class Letters extends Component {
         });
     });
 
-    triggerOverLettersAnimation();
+    setAnimationMenuLettersOverHandler();
   }
 
   mouseOutHandler() {
     const { activedLetters } = this.state;
-    const { triggerOutLettersAnimation } = this.props;
+    const { setAnimationMenuLettersOutHandler } = this.props;
 
     activedLetters.forEach(letter => {
       TweenMax.to(letter, 1, {
@@ -154,7 +159,7 @@ class Letters extends Component {
       });
     });
 
-    triggerOutLettersAnimation();
+    setAnimationMenuLettersOutHandler();
   }
 
   clickHandler() {
@@ -194,10 +199,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  triggerOverLettersAnimation: () =>
-    dispatch({ type: actionTypes.ANIMATION_MENU_LETTERS_OVER }),
-  triggerOutLettersAnimation: () =>
-    dispatch({ type: actionTypes.ANIMATION_MENU_LETTERS_OUT })
+  setAnimationMenuLettersOverHandler: () =>
+    dispatch(setAnimationMenuLettersOver()),
+  setAnimationMenuLettersOutHandler: () =>
+    dispatch(setAnimationMenuLettersOut())
 });
 
 Letters.propTypes = {
@@ -208,8 +213,8 @@ Letters.propTypes = {
   inDirection: PropTypes.string.isRequired,
   outDirection: PropTypes.string.isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
-  triggerOverLettersAnimation: PropTypes.func.isRequired,
-  triggerOutLettersAnimation: PropTypes.func.isRequired
+  setAnimationMenuLettersOverHandler: PropTypes.func.isRequired,
+  setAnimationMenuLettersOutHandler: PropTypes.func.isRequired
 };
 
 export default connect(

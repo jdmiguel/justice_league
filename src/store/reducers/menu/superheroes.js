@@ -1,11 +1,11 @@
-import * as actionTypes from '../../actions';
+import * as actionTypes from '../../actionTypes';
 
 const initialState = {
   superheroesList: [
     {
       name: 'Superman',
       class: 'superman',
-      active: false,
+      active: true,
       breakpointCharacter: 4,
       id: '012b',
       counterValue: 0,
@@ -53,7 +53,7 @@ const initialState = {
     {
       name: 'GreenArrow',
       class: 'greenarrow',
-      active: true,
+      active: false,
       breakpointCharacter: 5,
       id: '34jafd',
       counterValue: 5,
@@ -84,81 +84,20 @@ const initialState = {
   counterActivateSuperhero: 0
 };
 
-const getTotalSuperheroes = list => list.length - 1;
-
-const setInitialCounterValueActivateSuperheroes = list => {
-  const currentCounterValue = list.findIndex(item => item.active);
-
-  return currentCounterValue;
-};
-
-const resetHandlerCounterActivateSuperheroes = (counter, limitMax) => {
-  let counterValue = counter;
-
-  if (counterValue < 0) counterValue = limitMax;
-  if (counterValue > limitMax) counterValue = 0;
-
-  return counterValue;
-};
-
-const updateHandlerCounterActivateSuperheroes = (state, elementToActive) => {
-  const { superheroesList, counterActivateSuperhero } = state;
-  const totalSuperHeroes = getTotalSuperheroes(superheroesList);
-
-  let counter = counterActivateSuperhero;
-
-  if (elementToActive === 'next') counter += 1;
-  else counter -= 1;
-
-  const resetCounter = resetHandlerCounterActivateSuperheroes(
-    counter,
-    totalSuperHeroes
-  );
-
-  return resetCounter;
-};
-
-const updateHandlerSuperheroesList = (list, updatedCounter) => {
-  const updatedList = list;
-
-  updatedList.forEach(listElement => {
-    const currentListElement = listElement;
-    currentListElement.active = false;
-  });
-
-  updatedList[updatedCounter].active = true;
-
-  return updatedList;
-};
-
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_ACTIVE_SUPERHERO_MENU: {
-      const updateCounterActivateSuperheroes = updateHandlerCounterActivateSuperheroes(
-        state,
-        action.active
-      );
-
-      const updateSuperheroesList = updateHandlerSuperheroesList(
-        state.superheroesList,
-        updateCounterActivateSuperheroes
-      );
-
       return {
         ...state,
-        superheroesList: updateSuperheroesList,
-        counterActivateSuperhero: updateCounterActivateSuperheroes
+        superheroesList: action.superheroesList,
+        counterActivateSuperhero: action.superheroSelected
       };
     }
 
     case actionTypes.SET_COUNTER_VALUE_ACTIVE_SUPERHERO_MENU: {
-      const initialCounterValue = setInitialCounterValueActivateSuperheroes(
-        state.superheroesList
-      );
-
       return {
         ...state,
-        counterActivateSuperhero: initialCounterValue
+        counterActivateSuperhero: action.counter
       };
     }
 
