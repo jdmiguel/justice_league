@@ -1,10 +1,10 @@
 {
   "name": "dc_universe",
   "version": "1.0.0",
-  "description": "",
+  "description": "Website animated",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env MODE='development' webpack-dev-server --hot",
+    "start": "cross-env MODE='development' webpack-dev-server --hot",
     "build": "rimraf ./dist && cross-env MODE='production' webpack --config webpack.prod.config.js"
   },
   "author": "jdmiguel",
