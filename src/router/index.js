@@ -1,19 +1,17 @@
 import React from 'react';
-import { HashRouter, Route } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
-import Wrapper from '../hoc/Wrapper';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Menu from '../containers/menu';
-import SectionCharacter from '../containers/SectionCharacter';
+import SectionCharacter from '../containers/sectionCharacter';
 
-const history = createHistory();
-
-const Router = () => (
-  <HashRouter>
-    <Wrapper>
-      <Route history={history} exact path="/" component={Menu} />
-      <Route history={history} path="/character" component={SectionCharacter} />
-    </Wrapper>
-  </HashRouter>
+export default () => (
+  <Router>
+    <Switch>
+      <Route exact path="/" render={props => <Menu {...props} />} />
+      <Route
+        exact
+        path="/character"
+        render={props => <SectionCharacter {...props} />}
+      />
+    </Switch>
+  </Router>
 );
-
-export default Router;

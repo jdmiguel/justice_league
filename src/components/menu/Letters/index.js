@@ -163,7 +163,8 @@ class Letters extends Component {
   }
 
   clickHandler() {
-    console.log(this);
+    const { history } = this.props;
+    history.push('/character');
   }
 
   render() {
@@ -182,9 +183,7 @@ class Letters extends Component {
           onKeyDown={e => e.preventDefault}
           onFocus={e => e.preventDefault}
           onBlur={e => e.preventDefault}
-          onClick={() => {
-            this.clickHandler();
-          }}
+          onClick={this.clickHandler}
         />
         <h2 className={`letters ${superheroClass}`}>{superheroName}</h2>
       </div>
@@ -206,6 +205,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 Letters.propTypes = {
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
   superheroName: PropTypes.string.isRequired,
   superheroClass: PropTypes.string.isRequired,
   superheroActive: PropTypes.bool.isRequired,

@@ -81,10 +81,10 @@ class Menu extends Component {
   }
 
   render() {
-    const { superheroesList } = this.props;
+    const { history, superheroesList } = this.props;
     return (
       <div className="menuCharacters_wrapper">
-        <LettersWrapper list={superheroesList} />
+        <LettersWrapper history={history} list={superheroesList} />
         <LogoWrapper list={superheroesList} />
         <BackgroundWrapper list={superheroesList} />
         <SideDrawer list={superheroesList} />
@@ -110,6 +110,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 Menu.propTypes = {
+  history: PropTypes.objectOf(PropTypes.any).isRequired,
   superheroesList: PropTypes.arrayOf(PropTypes.object).isRequired,
   counterActivateSuperhero: PropTypes.number.isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
