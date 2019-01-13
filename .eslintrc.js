@@ -12,12 +12,16 @@ module.exports = {
         MODE: true,
         window: true,
         document: true,
+        __REDUX_DEVTOOLS_EXTENSION_COMPOSE__:true,
+        __REDUX_DEVTOOLS_EXTENSION__:true,
         TweenMax: true,
         TimelineMax: true,
         SplitText: true,
         Back: true,
         Power1: true,
+        Power2: true,
         Cubic: true,
+        Linear: true,
         Bounce: true
     },
   

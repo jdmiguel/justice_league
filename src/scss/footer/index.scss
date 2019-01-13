@@ -1,0 +1,17 @@
+.footer{
+    display: none;
+    @media (min-width: 1024px){
+        position: absolute;
+        z-index: 3;
+        display: flex;
+        right: 30px;
+        bottom: 20px;
+    }
+    h3{
+        @include font('Open Sans',1em,400);
+    }
+    a{
+        @include font('Open Sans',.9em,700);
+        text-decoration: underline;
+    }
+}

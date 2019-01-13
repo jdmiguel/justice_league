@@ -1,0 +1,182 @@
+.sidedrawer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+    nav{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        height: 100%;
+        @media (min-width: 768px){
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 8px;
+        }
+        @media (min-width: 1200px){
+            margin-left: 0;
+        }
+        @media (min-width: 1400px){
+            margin-left: 8px;
+        }
+    }
+    ul{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+        margin-bottom: 12px;
+        @media (min-width: 768px){
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 0;
+            width: 81px;
+        }
+        @media (min-width: 1200px){
+            width: 90px;
+        }
+        @media (min-width: 1400px){
+            width: 100px;
+        }
+    }
+    li{
+        position: relative;
+        margin: 0 6vw 0 0;
+        &:last-of-type{
+            margin: 0;
+        }
+        height: 27px;
+        display: flex;
+        button{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            cursor: pointer;
+        }
+        @media (min-width: 768px){
+            margin: 0 0 2vw 0;
+            height: auto;
+            display: inline-block;
+            &:hover{
+                img{
+                    opacity: 1;
+                }
+                span{
+                    opacity: 1;
+                    transform: translateX(-3px);
+                    @media (min-width: 1200px){
+                        transform: translateX(-5px);
+                    }
+                    @media (min-width: 1400px){
+                        transform: translateX(-2px);
+                    }
+                }
+            }
+            &.active{
+                pointer-events: none;
+                img{
+                    opacity: .75;
+                }
+                span{
+                    opacity: .75;
+                    transform: translateX(-4px);
+                    @media (min-width: 1200px){
+                        transform: translateX(-5px);
+                    }
+                    @media (min-width: 1400px){
+                        transform: translateX(-2px);
+                    }
+                }
+            }
+        }
+        @media (min-width: 1400px){
+            margin: 0 0 2.2vw 0;
+        }
+    }
+    img{
+        opacity: 1;
+        @media (min-width: 768px){
+            cursor: pointer;
+            opacity: .75;
+        }
+        @include transition(all,.5s, ease-out,0);
+        &.sidedrawer_superman{
+            width: 32px;
+        }
+        &.sidedrawer_batman{
+            width: 40px;
+        }
+        &.sidedrawer_wonderwoman{
+            width: 40px;
+        }
+        &.sidedrawer_flash{
+            width: 24px;
+        }
+        &.sidedrawer_greenlantern{
+            width: 26px;
+        }
+        &.sidedrawer_greenarrow{
+            width: 26px;
+        }
+        &.sidedrawer_aquaman{
+            width: 24px;
+        }
+        &.sidedrawer_cyborg{
+            width: 26px;
+        }
+    }
+    span{
+        text-align: center;
+        color: $darkWhite;
+        position: absolute;
+        opacity: 0;
+        transform: translateX(15px);
+        pointer-events: none;
+        @include transition(all,.5s, ease-out,0);
+        @include font('Cinzel',1em,700);
+        @media (min-width: 992px){
+            @include font('Cinzel',.9em,700);
+        }
+        @media (min-width: 1200px){
+            @include font('Cinzel',1em,700);
+        }
+        &.sidedrawer_superman{
+            left: 60px;
+            top: 3px;
+        }
+        &.sidedrawer_batman{
+            left: 64px;
+            top: -3px;
+        }
+        &.sidedrawer_wonderwoman{
+            left: 65px;
+            top: 0;
+        }
+        &.sidedrawer_flash{
+            left: 58px;
+            top: 8px;
+        }
+        &.sidedrawer_greenlantern{
+            left: 60px;
+            top: 3px;
+        }
+        &.sidedrawer_greenarrow{
+            left: 60px;
+            top: 3px;
+        }
+        &.sidedrawer_aquaman{
+            left: 59px;
+            top: 3px;
+        }
+        &.sidedrawer_cyborg{
+            left: 60px;
+            top: 3px;
+        }
+    }
+}
