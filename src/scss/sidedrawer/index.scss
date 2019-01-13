@@ -81,10 +81,10 @@
             &.active{
                 pointer-events: none;
                 img{
-                    opacity: .75;
+                    opacity: 1;
                 }
                 span{
-                    opacity: .75;
+                    opacity: 1;
                     transform: translateX(-4px);
                     @media (min-width: 1200px){
                         transform: translateX(-5px);
@@ -103,7 +103,7 @@
         opacity: 1;
         @media (min-width: 768px){
             cursor: pointer;
-            opacity: .75;
+            opacity: .35;
         }
         @include transition(all,.5s, ease-out,0);
         &.sidedrawer_superman{
