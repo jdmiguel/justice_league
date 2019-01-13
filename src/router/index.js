@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Menu from '../containers/menu';
-import SectionCharacter from '../containers/sectionCharacter';
+import SectionCharacter from '../containers/SectionCharacter';
 
 export default () => (
   <Router>

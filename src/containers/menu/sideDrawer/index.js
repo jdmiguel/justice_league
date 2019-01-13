@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Item from '../../../components/menu/Sidedrawer/Item';
+import Item from '../../../components/menu/SideDrawer/Item';
 
 const SideDrawer = ({ list }) => (
   <div className="sidedrawer">
@@ -12,7 +12,7 @@ const SideDrawer = ({ list }) => (
             superheroName={superhero.name}
             superheroClass={superhero.class}
             superheroActive={superhero.active}
-            logoPath={superhero.sideDrawerLogoPath}
+            iconPath={superhero.sideDrawerIconPath}
             counterValue={superhero.counterValue}
           />
         ))}

@@ -16,8 +16,8 @@ module.exports = {
 
   entry: {
     vendor: [
+      './vendor/Hammer.min.js',
       './vendor/gsap/TweenMax.min.js',
-      './vendor/gsap/TweenLite.js',
       './vendor/gsap/utils/SplitText.min.js',
       './vendor/gsap/plugins/DrawSVGPlugin.js'
     ],
@@ -49,7 +49,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|svg)$/,
         use: [
           {
             loader: 'file-loader',

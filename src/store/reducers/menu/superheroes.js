@@ -1,4 +1,12 @@
 import * as actionTypes from '../../actionTypes';
+import supermanIconPath from '../../../../assets/img/icon_superman.svg';
+import batmanIconPath from '../../../../assets/img/icon_batman.svg';
+import wonderWomanIconPath from '../../../../assets/img/icon_wonder_woman.svg';
+import flashIconPath from '../../../../assets/img/icon_flash.svg';
+import greenLanternIconPath from '../../../../assets/img/icon_green_lantern.svg';
+import greenArrowIconPath from '../../../../assets/img/icon_green_arrow.svg';
+import aquamanIconPath from '../../../../assets/img/icon_aquaman.svg';
+import cyborgIconPath from '../../../../assets/img/icon_cyborg.svg';
 
 const initialState = {
   superheroesList: [
@@ -9,8 +17,7 @@ const initialState = {
       breakpointCharacter: 4,
       id: '012b',
       counterValue: 0,
-      sideDrawerLogoPath:
-        '../../../assets/img/sidedrawer_logos/logo_superman.svg'
+      sideDrawerIconPath: supermanIconPath
     },
     {
       name: 'Batman',
@@ -19,7 +26,7 @@ const initialState = {
       breakpointCharacter: 2,
       id: '024ee',
       counterValue: 1,
-      sideDrawerLogoPath: '../../../assets/img/sidedrawer_logos/logo_batman.svg'
+      sideDrawerIconPath: batmanIconPath
     },
     {
       name: 'WonderWoman',
@@ -28,8 +35,7 @@ const initialState = {
       breakpointCharacter: 5,
       id: '034pl',
       counterValue: 2,
-      sideDrawerLogoPath:
-        '../../../assets/img/sidedrawer_logos/logo_wonder_woman.svg'
+      sideDrawerIconPath: wonderWomanIconPath
     },
     {
       name: 'TheFlash',
@@ -38,7 +44,7 @@ const initialState = {
       breakpointCharacter: 3,
       id: '0021fg',
       counterValue: 3,
-      sideDrawerLogoPath: '../../../assets/img/sidedrawer_logos/logo_flash.svg'
+      sideDrawerIconPath: flashIconPath
     },
     {
       name: 'GreenLantern',
@@ -47,8 +53,7 @@ const initialState = {
       breakpointCharacter: 5,
       id: '077df',
       counterValue: 4,
-      sideDrawerLogoPath:
-        '../../../assets/img/sidedrawer_logos/logo_green_lantern.svg'
+      sideDrawerIconPath: greenLanternIconPath
     },
     {
       name: 'GreenArrow',
@@ -57,8 +62,7 @@ const initialState = {
       breakpointCharacter: 5,
       id: '34jafd',
       counterValue: 5,
-      sideDrawerLogoPath:
-        '../../../assets/img/sidedrawer_logos/logo_green_arrow.svg'
+      sideDrawerIconPath: greenArrowIconPath
     },
     {
       name: 'Aquaman',
@@ -67,8 +71,7 @@ const initialState = {
       breakpointCharacter: 3,
       id: '21orsy',
       counterValue: 6,
-      sideDrawerLogoPath:
-        '../../../assets/img/sidedrawer_logos/logo_aquaman.svg'
+      sideDrawerIconPath: aquamanIconPath
     },
     {
       name: 'Cyborg',
@@ -77,7 +80,7 @@ const initialState = {
       breakpointCharacter: 2,
       id: '98dfda',
       counterValue: 7,
-      sideDrawerLogoPath: '../../../assets/img/sidedrawer_logos/logo_cyborg.svg'
+      sideDrawerIconPath: cyborgIconPath
     }
   ],
 

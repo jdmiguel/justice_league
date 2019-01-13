@@ -8,7 +8,7 @@ const Item = ({
   superheroName,
   superheroClass,
   superheroActive,
-  logoPath,
+  iconPath,
   counterValue,
   setSelectedSidedrawerItemHandler
 }) => {
@@ -19,7 +19,7 @@ const Item = ({
       <img
         alt={superheroName}
         className={`sidedrawer_${superheroClass}`}
-        src={logoPath}
+        src={iconPath}
       />
       <span className={`sidedrawer_${superheroClass}`}>{superheroName}</span>
       <button
@@ -37,7 +37,7 @@ Item.propTypes = {
   superheroName: PropTypes.string.isRequired,
   superheroClass: PropTypes.string.isRequired,
   superheroActive: PropTypes.bool.isRequired,
-  logoPath: PropTypes.string.isRequired,
+  iconPath: PropTypes.string.isRequired,
   counterValue: PropTypes.number.isRequired,
   setSelectedSidedrawerItemHandler: PropTypes.func.isRequired
 };
