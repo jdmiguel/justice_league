@@ -24,6 +24,8 @@ class Menu extends Component {
       onMouseWheel: false,
       delayOnMouseWheel: null
     };
+
+    this.changeMenuBySideDrawer = this.changeMenuBySideDrawer.bind(this);
   }
 
   componentDidMount() {
@@ -36,7 +38,7 @@ class Menu extends Component {
     );
   }
 
-  changeMenu(e) {
+  changeMenuByMouseWheel(e) {
     const { delayOnMouseWheel } = this.state;
     const {
       superheroesList,
@@ -76,18 +78,47 @@ class Menu extends Component {
 
     this.setState({
       onMouseWheel: true,
-      delayOnMouseWheel: setTimeout(() => this.changeMenu(e), 1000)
+      delayOnMouseWheel: setTimeout(() => this.changeMenuByMouseWheel(e), 1000)
     });
+  }
+
+  changeMenuBySideDrawer(counterItem) {
+    const {
+      superheroesList,
+      counterActivateSuperhero,
+      setActiveSuperheroHandler,
+      setDirectionInHandler,
+      setDirectionOutHandler
+    } = this.props;
+
+    const superheroData = {
+      superheroesList,
+      counterActivateSuperhero
+    };
+
+    if (counterItem > counterActivateSuperhero) {
+      setDirectionInHandler('left');
+      setDirectionOutHandler('right');
+    } else {
+      setDirectionInHandler('right');
+      setDirectionOutHandler('left');
+    }
+
+    setActiveSuperheroHandler(superheroData, counterItem);
   }
 
   render() {
     const { history, superheroesList } = this.props;
+
     return (
       <div className="menuCharacters_wrapper">
         <LettersWrapper history={history} list={superheroesList} />
         <LogoWrapper list={superheroesList} />
         <BackgroundWrapper list={superheroesList} />
-        <SideDrawer list={superheroesList} />
+        <SideDrawer
+          list={superheroesList}
+          onClickSideDrawerItem={this.changeMenuBySideDrawer}
+        />
         <Footer />
       </div>
     );

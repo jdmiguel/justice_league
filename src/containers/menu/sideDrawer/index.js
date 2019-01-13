@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Item from '../../../components/menu/SideDrawer/Item';
 
-const SideDrawer = ({ list }) => (
+const SideDrawer = ({ list, onClickSideDrawerItem }) => (
   <div className="sidedrawer">
     <nav>
       <ul>
@@ -14,6 +14,7 @@ const SideDrawer = ({ list }) => (
             superheroActive={superhero.active}
             iconPath={superhero.sideDrawerIconPath}
             counterValue={superhero.counterValue}
+            onClickIcon={onClickSideDrawerItem}
           />
         ))}
       </ul>
@@ -22,7 +23,8 @@ const SideDrawer = ({ list }) => (
 );
 
 SideDrawer.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.object).isRequired
+  list: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onClickSideDrawerItem: PropTypes.func.isRequired
 };
 
 export default SideDrawer;

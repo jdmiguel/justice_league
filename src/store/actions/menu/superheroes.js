@@ -20,8 +20,13 @@ const updateHandlerCounterActivateSuperheroes = (
 
   let counter = counterActivateSuperhero;
 
-  if (elementToActive === 'next') counter += 1;
-  else counter -= 1;
+  if (elementToActive === 'next') {
+    counter += 1;
+  } else if (elementToActive === 'prev') {
+    counter -= 1;
+  } else {
+    counter = elementToActive;
+  }
 
   const resetCounter = resetHandlerCounterActivateSuperheroes(
     counter,
