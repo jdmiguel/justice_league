@@ -7,9 +7,65 @@
     max-width: 65vh;
     @include flexContainer();
     @include transition(all,.7s, ease-out,0);
+    &.superman{
+        &.highlight{
+            .superheroLogo_path{
+                fill: $blueSuperman;
+            }
+        }
+    }
+    &.batman{
+        &.highlight{
+            .superheroLogo_path{
+                fill: $greyBatman;
+            }
+        }
+    }
+    &.wonderwoman{
+        &.highlight{
+            .superheroLogo_path{
+                fill: $orangeWonder;
+            }
+        }
+    }
+    &.flash{
+        &.highlight{
+            .superheroLogo_path{
+                fill: $redFlash;
+            }
+        }
+    }
+    &.greenlantern{
+        &.highlight{
+            .superheroLogo_path{
+                fill: $greenLantern;
+            }
+        }
+    }
+    &.greenarrow{
+        &.highlight{
+            .superheroLogo_path{
+                fill: $greenArrow;
+            }
+        }
+    }
+    &.aquaman{
+        &.highlight{
+            .superheroLogo_path{
+                fill: $yellowAquaman;
+            }
+        }
+    }
+    &.cyborg{
+        &.highlight{
+            .superheroLogo_path{
+                fill: $redCyborg;
+            }
+        }
+    }
     .superheroLogo_svg{
         @include transition(all,.7s, ease-out,0);
-        opacity: .7;
+        opacity: .5;
         width: 29vw;
         @media (min-width: 768px){
             width: 33vw;
@@ -26,6 +82,7 @@
     }
     .superheroLogo_path{
         fill-opacity: 0.65;
+        @include transition(all,.7s, ease-out,0);
     }
     &.active{
         opacity: 1;
@@ -35,7 +92,7 @@
     &.highlight{
         transform: scale(1.05);
         .superheroLogo_svg{
-            opacity: .9;
+            opacity: 1;
         }
     }
 }

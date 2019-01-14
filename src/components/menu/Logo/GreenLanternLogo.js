@@ -14,7 +14,7 @@ const GreenLanternLogo = ({ classes }) => (
       xmlSpace="preserve"
     >
       <path
-        fill="#09a609"
+        fill="#b4b4b4"
         fillOpacity="0.5"
         className="superheroLogo_path"
         d="M245.892,144.247c55.575,0,100.622,45.049,100.622,100.621c0,55.576-45.053,100.623-100.622,100.623
