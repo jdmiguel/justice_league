@@ -1,5 +1,5 @@
 .logoDC_container{
-    position: absolute;
+    position: fixed;
     z-index: 3;
     svg{
         margin: 12px 0 0 16px;
@@ -19,7 +19,7 @@
 }
 
 .logoJL_container{
-    position: absolute;
+    position: fixed;
     z-index: 3;
     right: 0;
     svg{
