@@ -26,6 +26,7 @@ class Menu extends Component {
     };
 
     this.changeMenuBySideDrawer = this.changeMenuBySideDrawer.bind(this);
+    this.onSwipePress = this.onSwipePress.bind(this);
   }
 
   componentDidMount() {
@@ -36,6 +37,38 @@ class Menu extends Component {
     document.addEventListener('mousewheel', event =>
       this.mouseWheelHandler(event)
     );
+
+    this.swipeManager = new Hammer.Manager(document.body);
+    this.swipeEvent = new Hammer.Swipe('DIRECTION_ALL');
+    this.swipeManager.add(this.swipeEvent);
+    this.swipeManager.on('swipe', this.onSwipePress);
+  }
+
+  onSwipePress(e) {
+    const {
+      superheroesList,
+      counterActivateSuperhero,
+      setActiveSuperheroHandler,
+      setDirectionInHandler,
+      setDirectionOutHandler
+    } = this.props;
+
+    const superheroData = {
+      superheroesList,
+      counterActivateSuperhero
+    };
+
+    if (e.direction === 2) {
+      setDirectionInHandler('right');
+      setDirectionOutHandler('left');
+      setActiveSuperheroHandler(superheroData, 'prev');
+    }
+
+    if (e.direction === 4) {
+      setDirectionInHandler('left');
+      setDirectionOutHandler('right');
+      setActiveSuperheroHandler(superheroData, 'next');
+    }
   }
 
   changeMenuByMouseWheel(e) {

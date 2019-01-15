@@ -17,6 +17,7 @@ module.exports = {
         TweenMax: true,
         TimelineMax: true,
         SplitText: true,
+        Hammer: true,
         Back: true,
         Power1: true,
         Power2: true,
