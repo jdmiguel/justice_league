@@ -1,6 +1,6 @@
 .logoDC_container{
     position: fixed;
-    z-index: 3;
+    z-index: 4;
     display: none;
     @media (min-width: 992px){
         display: block;
@@ -20,7 +20,7 @@
 
 .logoJL_container{
     position: fixed;
-    z-index: 3;
+    z-index: 4;
     left: 0;
     @media (min-width: 992px){
         display: block;
@@ -44,7 +44,7 @@
 
 .logoGithub_container{
     position: fixed;
-    z-index: 3;
+    z-index: 4;
     right: 22px;
     top: 8px;
     @media (min-width: 992px){

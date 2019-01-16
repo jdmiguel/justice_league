@@ -1,0 +1,9 @@
+.character_container{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: $black;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+}

@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
-import { hot } from 'react-hot-loader';
 import Lansdcape from './components/Landscape';
 import LogoDC from './components/Logos/LogoDC';
 import LogoJL from './components/Logos/LogoJL';
 import LogoGithub from './components/Logos/LogoGithub';
-import Menu from './containers/menu';
 import Intro from './components/Intro';
+import Menu from './containers/menu';
+import Character from './containers/character';
 
 const App = () => (
   <Fragment>
@@ -15,7 +15,8 @@ const App = () => (
     <LogoGithub />
     <Intro />
     <Menu />
+    <Character />
   </Fragment>
 );
 
-export default hot(module)(App);
+export default App;

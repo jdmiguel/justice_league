@@ -144,7 +144,7 @@ class Menu extends Component {
     const { superheroesList } = this.props;
 
     return (
-      <div className="menuCharacters_wrapper">
+      <div className="menu_container">
         <LettersWrapper list={superheroesList} />
         <LogoWrapper list={superheroesList} />
         <BackgroundWrapper list={superheroesList} />
