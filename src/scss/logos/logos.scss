@@ -1,13 +1,13 @@
 .logoDC_container{
     position: fixed;
     z-index: 3;
+    display: none;
+    @media (min-width: 992px){
+        display: block;
+    }
     svg{
         margin: 12px 0 0 16px;
         width: 42px;
-        @media (min-width: 768px){
-            width: 50px;
-            margin: 17px 0 0 24px;
-        }
         @media (min-width: 1200px){
             margin: 17px 0 0 19px;
         }
@@ -21,14 +21,50 @@
 .logoJL_container{
     position: fixed;
     z-index: 3;
-    right: 0;
+    left: 0;
+    @media (min-width: 992px){
+        display: block;
+        right: 0;
+        left: initial;
+    }
     svg{
-        margin-top: 10px;
-        width: 180px;
-        height: 50px;
+        margin-top: 5px;
+        width: 130px;
+        height: 40px;
+        @media (min-width: 728px){
+            width: 180px;
+        }
         @media (min-width: 992px){
             margin-top: 15px;
             width: 220px;
+        }
+    }
+}
+
+.logoGithub_container{
+    position: fixed;
+    z-index: 3;
+    right: 22px;
+    top: 8px;
+    @media (min-width: 992px){
+        left: 35px;
+        bottom: 25px;
+        right: initial;
+        top: initial;
+    }
+    svg{
+        width: 30px;
+        @include transition(all,.3s, ease-out,0);
+        transform-origin: 50% 50%;
+        &:hover{
+            transform: scale(.9);
+            opacity: .7;
+        }
+        @media (min-width: 728px){
+            width: 38px;
+        }
+        @media (min-width: 992px){
+            width: 44px;
         }
     }
 }

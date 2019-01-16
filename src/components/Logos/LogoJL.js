@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LogoJL = () => (
-  <div className="logoJL_container">
+  <h2 className="logoJL_container">
     <svg
       width="798.941px"
       height="152.105px"
@@ -85,7 +85,7 @@ const LogoJL = () => (
 		c-5.691-0.586-7.494-4.09-8.047-8.531L572.511,33.109z"
       />
     </svg>
-  </div>
+  </h2>
 );
 
 export default LogoJL;

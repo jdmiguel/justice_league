@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react';
 import { hot } from 'react-hot-loader';
 import Router from './router';
-import LogoDC from './components/HeaderLogo/LogoDC';
-import LogoJL from './components/HeaderLogo/LogoJL';
+import LogoDC from './components/Logos/LogoDC';
+import LogoJL from './components/Logos/LogoJL';
+import LogoGithub from './components/Logos/LogoGithub';
 import Lansdcape from './components/Landscape';
 
 const App = () => (
@@ -10,6 +11,7 @@ const App = () => (
     <Lansdcape />
     <LogoDC />
     <LogoJL />
+    <LogoGithub />
     <Router />
   </Fragment>
 );

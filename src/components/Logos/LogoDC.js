@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LogoDC = () => (
-  <div className="logoDC_container">
+  <h1 className="logoDC_container">
     <svg width="50" height="50" viewBox="144 -54.1 130 130" xmlSpace="preserve">
       <path
         fill="#FFFFFF"
@@ -16,7 +16,7 @@ const LogoDC = () => (
 	c0,8.1-1.6,16-4.7,23.4C263.5,36.7,262.3,39,261.1,41.2z"
       />
     </svg>
-  </div>
+  </h1>
 );
 
 export default LogoDC;
