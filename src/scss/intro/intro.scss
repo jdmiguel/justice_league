@@ -3,6 +3,9 @@
     height: 100vh;
     background: $white;
     position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2;
 }
 
 .introLettersJL_container{

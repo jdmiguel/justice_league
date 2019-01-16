@@ -162,10 +162,7 @@ class Letters extends Component {
     setAnimationMenuLettersOutHandler();
   }
 
-  clickHandler() {
-    const { history } = this.props;
-    history.push('/character');
-  }
+  clickHandler() {}
 
   render() {
     const { superheroName, superheroClass, superheroActive } = this.props;
@@ -205,7 +202,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 Letters.propTypes = {
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
   superheroName: PropTypes.string.isRequired,
   superheroClass: PropTypes.string.isRequired,
   superheroActive: PropTypes.bool.isRequired,

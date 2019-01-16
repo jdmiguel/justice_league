@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Letters from '../../../components/menu/Letters';
 
-const LettersWrapper = ({ history, list }) =>
+const LettersWrapper = ({ list }) =>
   list.map(superhero => (
     <Letters
       key={superhero.id}
-      history={history}
       superheroName={superhero.name}
       superheroClass={superhero.class}
       superheroActive={superhero.active}
@@ -15,7 +14,6 @@ const LettersWrapper = ({ history, list }) =>
   ));
 
 LettersWrapper.propTypes = {
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
   list: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
