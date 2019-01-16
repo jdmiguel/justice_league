@@ -13,7 +13,7 @@ const initialState = {
     {
       name: 'Superman',
       class: 'superman',
-      active: true,
+      active: false,
       breakpointCharacter: 4,
       id: '012b',
       counterValue: 0,

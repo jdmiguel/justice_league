@@ -17,9 +17,9 @@ import { introLogoMenu } from '../../../utils/animations';
 class LogoContainer extends Component {
   componentDidMount() {
     const { activeOverMenuLettersHandler } = this.props;
-    const logoPath = document.querySelectorAll('.superheroLogo_path');
+    const logoPath = document.querySelectorAll('.superheroLogo_svg');
 
-    introLogoMenu(logoPath)(activeOverMenuLettersHandler);
+    introLogoMenu(logoPath, activeOverMenuLettersHandler);
   }
 
   render() {

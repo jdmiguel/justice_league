@@ -64,7 +64,6 @@
         }
     }
     .superheroLogo_svg{
-        @include transition(all,.7s, ease-out,0);
         opacity: .5;
         width: 29vw;
         @media (min-width: 768px){

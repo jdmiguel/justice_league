@@ -1,19 +1,28 @@
 // INTRO ANIMATIONS
 
-export const introLogoIntro = firstElementToAnimate => secondElementToAnimate => callback => thirdElementToAnimate => {
+export const introLogoIntro = (
+  firstElementToAnimate,
+  secondElementToAnimate,
+  callback,
+  callbackParam,
+  callback2,
+  callbackParam1,
+  callbackParam2
+) => {
   TweenMax.fromTo(
     firstElementToAnimate,
-    1.9,
+    2.2,
     {
       alpha: 0,
-      rotationY: 180,
+      scale: 2,
       transformOrigin: '50% 50%'
     },
     {
+      delay: 0.5,
       alpha: 1,
-      rotationY: 0,
+      scale: 1,
       transformOrigin: '50% 50%',
-      ease: Back.easeInOut
+      ease: Power1.easeInOut
     }
   );
 
@@ -22,7 +31,10 @@ export const introLogoIntro = firstElementToAnimate => secondElementToAnimate =>
     fillOpacity: 0.3,
     scale: 0.8,
     transformOrigin: '50% 50%',
-    onComplete: () => callback(thirdElementToAnimate),
+    onComplete: () => {
+      callback(callbackParam);
+      setTimeout(() => callback2(callbackParam1, callbackParam2), 500);
+    },
     ease: Cubic.easeOut
   });
 };
@@ -76,7 +88,7 @@ export const introLettersMenu = elementToAnimate => {
       transformOrigin: '50% 50%'
     },
     {
-      delay: 6.5,
+      delay: 6,
       alpha: 1,
       x: 0,
       rotationY: 0,
@@ -169,21 +181,21 @@ export const outLeftLettersMenu = elementToAnimate => {
 
 // MENU LOGO ANIMATIONS
 
-export const introLogoMenu = elementToAnimate => callback => {
+export const introLogoMenu = (elementToAnimate, callback) => {
   TweenMax.fromTo(
     elementToAnimate,
     2.2,
     {
       transformOrigin: '50% 50%',
       alpha: 0,
-      scale: 0.7
+      scale: 0.5
     },
     {
-      delay: 5.8,
+      delay: 4.8,
       transformOrigin: '50% 50%',
       alpha: 1,
       scale: 1,
-      ease: Power1.easeInOut,
+      ease: Power1.easeOut,
       onComplete: () => callback()
     }
   );
