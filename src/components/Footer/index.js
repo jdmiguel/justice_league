@@ -12,7 +12,7 @@ const Footer = () => (
         jdmiguel
       </a>
     </h3>
-    <h4>&copy; 2019 All rights reserved</h4>
+    <h4>© 2019 All rights reserved</h4>
   </div>
 );
 

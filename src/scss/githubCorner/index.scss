@@ -31,6 +31,12 @@
       animation: octocat-wave 560ms ease-in-out
     }
   }
+  @media (max-width:768px) {
+    svg {
+      width: 55px;
+      height: 55px;
+    }
+  }
 }
 
 @keyframes octocat-wave {
