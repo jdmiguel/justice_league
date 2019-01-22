@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import LettersWrapper from './Letters';
 import LogoWrapper from './Logo';
 import BackgroundWrapper from './Background';
-import SideDrawer from './SideDrawer';
+import SideDrawer from './sideDrawer';
 import Footer from '../../components/Footer';
 
 import {
@@ -22,7 +22,9 @@ class Menu extends Component {
     super(props);
     this.state = {
       onMouseWheel: false,
-      delayOnMouseWheel: null
+      onSwipe: false,
+      delayOnMouseWheel: null,
+      delayOnSwipe: null
     };
 
     this.changeMenuBySideDrawer = this.changeMenuBySideDrawer.bind(this);
@@ -45,6 +47,19 @@ class Menu extends Component {
   }
 
   onSwipePress(e) {
+    const { isActiveOverMenuLetters } = this.props;
+    const { onSwipe } = this.state;
+
+    if (onSwipe || !isActiveOverMenuLetters) return;
+
+    this.setState({
+      onSwipe: true,
+      delayOnSwipe: setTimeout(() => this.changeMenuBySwipe(e), 1000)
+    });
+  }
+
+  changeMenuBySwipe(e) {
+    const { delayOnSwipe } = this.state;
     const {
       superheroesList,
       counterActivateSuperhero,
@@ -69,6 +84,12 @@ class Menu extends Component {
       setDirectionOutHandler('right');
       setActiveSuperheroHandler(superheroData, 'next');
     }
+
+    clearTimeout(delayOnSwipe);
+
+    this.setState({
+      onSwipe: false
+    });
   }
 
   changeMenuByMouseWheel(e) {
