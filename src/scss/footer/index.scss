@@ -10,11 +10,17 @@
     }
     h3{
         @include font('Open Sans',1em,400);
-        margin-left: 50px;
+        margin-left: 35px;
+        @media (min-width: 1400px){
+            margin-left: 50px;
+        }
     }
     h4{
         @extend h3;
-        margin-right: 50px;
+        margin-right: 35px;
+        @media (min-width: 1400px){
+            margin-right: 50px;
+        }
     }
     a{
         @include font('Open Sans',.9em,700);
