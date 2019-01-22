@@ -10,8 +10,8 @@ class Character extends Component {
 
   render() {
     return (
-      <div className="character_container">
-        <p>Character</p>
+      <div className="character_container superman">
+        <div className="character_bg superman" />
       </div>
     );
   }

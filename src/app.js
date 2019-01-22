@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react';
 import Lansdcape from './components/Landscape';
-import LogoDC from './components/Logos/LogoDC';
-import LogoJL from './components/Logos/LogoJL';
-import LogoGithub from './components/Logos/LogoGithub';
+import GithubCorner from './components/GithubCorner';
+import LogoJL from './components/LogoJL';
 import Intro from './components/Intro';
 import Menu from './containers/menu';
 import Character from './containers/character';
@@ -10,12 +9,10 @@ import Character from './containers/character';
 const App = () => (
   <Fragment>
     <Lansdcape />
-    <LogoDC />
+    <GithubCorner />
     <LogoJL />
-    <LogoGithub />
     <Intro />
     <Menu />
-    <Character />
   </Fragment>
 );
 
