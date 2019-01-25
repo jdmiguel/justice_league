@@ -13,6 +13,7 @@ const App = () => (
     <LogoJL />
     <Intro />
     <Menu />
+    <Character />
   </Fragment>
 );
 

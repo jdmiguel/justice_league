@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import LettersWrapper from './Letters';
 import LogoWrapper from './Logo';
 import BackgroundWrapper from './Background';
-import SideDrawer from './sideDrawer';
+import SideDrawer from './SideDrawer';
 import Footer from '../../components/Footer';
 
 import {

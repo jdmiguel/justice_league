@@ -1,26 +1,130 @@
 .character_container{
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: 100vh;
     background: $black;
     z-index: 2;
     /*opacity: 0;
     visibility: hidden;*/
-    &.superman{
+    &.superman_int{
         background: $blueSuperman;
     }
 }
 
 .character_bg{
+    position: fixed;
     width: 100%;
     height: 100vh;
     opacity: .15;
-    &.superman{
+    &.superman_int{
         background: $blueSuperman;
         background-image: url(#{$imgPath}/icon_superman.svg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: calc(50% - 500px) 15%;
         background-blend-mode: soft-light;
+    }
+}
+
+.character_content{
+    height: 100vh;
+}
+
+.character_main{
+    height: 100vh;
+    @include flexContainer($rowAlign:flex-start);
+}
+
+.character_block_left{
+    @include flexContainer();
+}
+
+.character_block_right{
+    text-align: right;
+}
+
+.character_image{
+    mix-blend-mode: hard-light;
+    opacity: 0.5;
+    margin-top: 30px;
+    @media (min-width: 992px){
+        margin-top: 0;
+    }
+    img{
+        width: 90%;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+.character_txt{
+    pointer-events: none;
+    h1{
+        @include font('Cinzel',6em,700);
+        line-height: 0;
+        margin-bottom: .7em;
+        text-align: center;
+        @media (min-width: 992px){
+            text-align: initial;
+            margin-top: 0;
+        }
+    }
+    h2{
+        @include font('Cinzel',2.3em,600);
+        line-height: 0;
+        text-align: center;
+        @media (min-width: 992px){
+            text-align: initial;
+            margin-top: 0;
+        }
+    }
+    p{
+        @include font('Cinzel',1.35em,400);
+        line-height: 1.35em;
+        text-align: center;
+        @media (min-width: 992px){
+            text-align: initial;
+            margin-top: 0;
+        }
+    }
+}
+
+.character_txt_header{
+    margin-bottom: 4em;
+}
+
+.character_txt_body{
+    margin-bottom: 4em;
+}
+
+.character_btn_back{
+    width: 100%;
+    text-align: center;
+    text-align: center;
+    @media (min-width: 992px){
+        position: absolute;
+        bottom: 25px;
+        z-index: 1;
+    }
+    button{
+        cursor: pointer;
+        @include font('Cinzel',1.2em,600);
+        position: relative;
+        &::after{
+            content: '';
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: $darkWhite;
+            @include transition(all,.35s, ease-in-out,0);
+            transform: scaleX(0);
+        }
+        &:hover{
+            &::after{
+                transform: scaleX(1);
+            }
+        }
     }
 }
