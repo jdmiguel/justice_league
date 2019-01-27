@@ -12,7 +12,6 @@ const App = () => (
     <GithubCorner />
     <LogoJL />
     <Intro />
-    <Menu />
     <Character />
   </Fragment>
 );

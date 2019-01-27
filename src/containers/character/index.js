@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import cyborgImgPath from '../../../assets/img/character_cyborg.png';
-import cyborgImg1ThumbPath from '../../../assets/img/character_cyborg_thumb_1.jpg';
-import cyborgImg2ThumbPath from '../../../assets/img/character_cyborg_thumb_2.jpg';
-import cyborgImg3ThumbPath from '../../../assets/img/character_cyborg_thumb_3.jpg';
+import supermanImgPath from '../../../assets/img/character_superman.png';
+import supermanImg1ThumbPath from '../../../assets/img/character_superman_thumb_1.jpg';
+import supermanImg2ThumbPath from '../../../assets/img/character_superman_thumb_2.jpg';
+import supermanImg3ThumbPath from '../../../assets/img/character_superman_thumb_3.jpg';
 
 class Character extends Component {
   constructor(props) {
@@ -14,19 +14,19 @@ class Character extends Component {
 
   render() {
     return (
-      <div className="character_container cyborg_int">
-        <div className="character_bg cyborg_int" />
+      <div className="character_container superman_int">
+        <div className="character_bg superman_int" />
         <div className="character_content container-fluid">
           <div className="character_main row">
             <div className="character_block_left col-lg-5 col-md-12">
               <div className="character_image">
-                <img alt="cyborg" src={cyborgImgPath} />
+                <img alt="superman" src={supermanImgPath} />
               </div>
             </div>
             <div className="character_block_right col-lg-6 col-md-12">
               <div className="character_txt">
                 <div className="character_txt_header">
-                  <h1>cyborg</h1>
+                  <h1>superman</h1>
                   <h2>Clark Kent</h2>
                 </div>
                 <div className="character_txt_body">
@@ -37,22 +37,22 @@ class Character extends Component {
                     ullamcoum.
                   </p>
                 </div>
-                <div className="character_txt_footer container">
+                <div className="character_txt_footer">
                   <div className="character_txt_footer_img_container row">
                     <img
-                      className="col-lg-4"
-                      alt="cyborg"
-                      src={cyborgImg1ThumbPath}
+                      className="col-lg-4 col-sm-12"
+                      alt="superman"
+                      src={supermanImg1ThumbPath}
                     />
                     <img
-                      className="col-lg-4"
-                      alt="cyborg"
-                      src={cyborgImg2ThumbPath}
+                      className="col-lg-4 col-sm-12"
+                      alt="superman"
+                      src={supermanImg2ThumbPath}
                     />
                     <img
-                      className="col-lg-4"
-                      alt="cyborg"
-                      src={cyborgImg3ThumbPath}
+                      className="col-lg-4 col-sm-12"
+                      alt="superman"
+                      src={supermanImg3ThumbPath}
                     />
                   </div>
                 </div>

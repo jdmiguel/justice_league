@@ -4,9 +4,9 @@
     height: 100vh;
     background: $black;
     z-index: 2;
-    /*opacity: 0;
-    visibility: hidden;*/
     overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     &.superman_int{
         background: $blueSuperman;
     }
@@ -71,15 +71,17 @@
 
 .character_main{
     height: 100vh;
-    @include flexContainer($rowAlign:flex-start);
+    @include flexContainer($rowAlign:flex-start,$columnAlign:flex-start, $direction:column);
+    @media (min-width: 992px){
+        @include flexContainer($rowAlign:flex-start,$columnAlign:center, $direction:row);
+    }
 }
 
 .character_block_left{
-    @include flexContainer();
-}
-
-.character_block_right{
-    text-align: right;
+    display: none;
+    @media (min-width: 992px){
+        @include flexContainer();
+    }
 }
 
 .character_image{
@@ -90,56 +92,71 @@
         margin-top: 0;
     }
     img{
-        width: 90%;
-        height: auto;
-        margin: 0 auto;
+        @media (min-width: 992px){
+            width: 90%;
+            height: auto;
+            margin: 0 auto;
+        }
     }
 }
 
 .character_txt{
     pointer-events: none;
     h1{
-        @include font('Cinzel',6em,700);
+        @include font('Cinzel',5em,700);
         line-height: 0;
+        margin-top: 1.7em;
         margin-bottom: .7em;
         text-align: center;
         @media (min-width: 992px){
-            text-align: right;
+            @include font('Cinzel',6.2em,700);
+            margin-top: 0;
+            text-align: left;
             margin-top: 0;
         }
     }
     h2{
-        @include font('Cinzel',2.3em,600);
+        @include font('Cinzel',2.1em,600);
         line-height: 0;
         text-align: center;
         @media (min-width: 992px){
-            text-align: right;
+            @include font('Cinzel',2.3em,600);
+            text-align: left;
             margin-top: 0;
         }
     }
     p{
-        @include font('Cinzel',1.35em,400);
+        @include font('Cinzel',1.1em,400);
         line-height: 1.35em;
         text-align: center;
         @media (min-width: 992px){
-            text-align: right;
+            @include font('Cinzel',1.35em,400);
+            text-align: left;
             margin-top: 0;
         }
     }
 }
 
 .character_txt_header{
-    margin-bottom: 4em;
+    margin-bottom: 3em;
+    @media (min-width: 992px){
+        margin-bottom: 4em;
+    }
 }
 
 .character_txt_body{
-    margin-bottom: 4em;
+    margin-bottom: 3em;
+    @media (min-width: 992px){
+        margin-bottom: 4em;
+    }
 }
 
 .character_txt_footer{
     img{
-        width: auto;
-        height: auto;
+        margin-bottom: 2em;
+        @media (min-width: 992px){
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -148,32 +165,44 @@
 }
 
 .character_btn_back{
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    bottom: initial;
     width: 100%;
     text-align: center;
     text-align: center;
     @media (min-width: 992px){
-        position: absolute;
+        top: initial;
         bottom: 25px;
-        z-index: 1;
     }
     button{
         cursor: pointer;
-        @include font('Cinzel',1.2em,600);
+        @include font('Cinzel',1em,600);
         position: relative;
+        text-decoration: underline;
+        @media (min-width: 992px){
+            @include font('Cinzel',1.2em,600);
+            text-decoration: none;
+        }
         &::after{
-            content: '';
-            width: 100%;
-            height: 2px;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            background: $darkWhite;
-            @include transition(all,.35s, ease-in-out,0);
-            transform: scaleX(0);
+            @media (min-width: 992px){
+                content: '';
+                width: 100%;
+                height: 2px;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                background: $darkWhite;
+                @include transition(all,.35s, ease-in-out,0);
+                transform: scaleX(0);
+            }
         }
         &:hover{
             &::after{
-                transform: scaleX(1);
+                @media (min-width: 992px){
+                    transform: scaleX(1);
+                }
             }
         }
     }
