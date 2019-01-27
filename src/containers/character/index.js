@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import supermanImgPath from '../../../assets/img/character_superman.png';
 import supermanImg1ThumbPath from '../../../assets/img/character_superman_thumb_1.jpg';
 import supermanImg2ThumbPath from '../../../assets/img/character_superman_thumb_2.jpg';
@@ -13,46 +15,53 @@ class Character extends Component {
   }
 
   render() {
+    const { characterList } = this.props;
+    const [
+      item0,
+      item1,
+      item2,
+      item3,
+      item4,
+      item,
+      item6,
+      item7
+    ] = characterList;
+
     return (
-      <div className="character_container superman_int">
-        <div className="character_bg superman_int" />
+      <div className={`character_container ${item.class}`}>
+        <div className={`character_bg ${item.class}`} />
         <div className="character_content container-fluid">
           <div className="character_main row">
             <div className="character_block_left col-lg-5 col-md-12">
               <div className="character_image">
-                <img alt="superman" src={supermanImgPath} />
+                <img alt="superman" src={item.imgPath} />
               </div>
             </div>
             <div className="character_block_right col-lg-6 col-md-12">
               <div className="character_txt">
                 <div className="character_txt_header">
-                  <h1>superman</h1>
-                  <h2>Clark Kent</h2>
+                  <h1>{item.alias}</h1>
+                  <h2>{item.name}</h2>
                 </div>
                 <div className="character_txt_body">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamcoum.
-                  </p>
+                  <p>{item.description}</p>
                 </div>
                 <div className="character_txt_footer">
                   <div className="character_txt_footer_img_container row">
                     <img
                       className="col-lg-4 col-sm-12"
                       alt="superman"
-                      src={supermanImg1ThumbPath}
+                      src={item.thumbPath1}
                     />
                     <img
                       className="col-lg-4 col-sm-12"
                       alt="superman"
-                      src={supermanImg2ThumbPath}
+                      src={item.thumbPath2}
                     />
                     <img
                       className="col-lg-4 col-sm-12"
                       alt="superman"
-                      src={supermanImg3ThumbPath}
+                      src={item.thumbPath3}
                     />
                   </div>
                 </div>
@@ -68,4 +77,18 @@ class Character extends Component {
   }
 }
 
-export default Character;
+const mapStateToProps = state => ({
+  characterList: state.characterRdc.characterList
+});
+
+/*
+Character.propTypes = {
+  superheroesList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  counterActivateSuperhero: PropTypes.number.isRequired,
+  isActiveOverMenuLetters: PropTypes.bool.isRequired,
+}; */
+
+export default connect(
+  mapStateToProps,
+  null
+)(Character);

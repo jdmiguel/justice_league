@@ -7,6 +7,11 @@
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+    @media (min-width: 992px){
+        overflow-y: hidden;
+    }
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     &.superman_int{
         background: $blueSuperman;
     }
@@ -153,7 +158,7 @@
 
 .character_txt_footer{
     img{
-        margin-bottom: 2em;
+        margin-bottom: 3em;
         @media (min-width: 992px){
             margin-bottom: 0;
         }
