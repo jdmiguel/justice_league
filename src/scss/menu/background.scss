@@ -37,7 +37,7 @@
         }
     }
     &.wonderwoman{
-        background-image: url(#{$imgPath}/wonder_woman_bg.jpg);
+        background-image: url(#{$imgPath}/wonderwoman_bg.jpg);
         background-color: $orangeWonder;
         &.active{
             opacity: 0.35;
@@ -57,7 +57,7 @@
         }
     }
     &.greenlantern{
-        background-image: url(#{$imgPath}/green_lantern_bg.jpg);
+        background-image: url(#{$imgPath}/greenlantern_bg.jpg);
         background-color: $greenLantern;
         &.active{
             opacity: 0.35;
@@ -67,7 +67,7 @@
         }
     }
     &.greenarrow{
-        background-image: url(#{$imgPath}/green_arrow_bg.jpg);
+        background-image: url(#{$imgPath}/greenarrow_bg.jpg);
         background-color: $greenArrow;
         &.active{
             opacity: 0.35;

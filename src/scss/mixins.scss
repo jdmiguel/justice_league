@@ -82,3 +82,12 @@
         100% { opacity: 0.4;}
       }
 }
+
+@mixin character_bg_superhero($color,$url) {
+    background: $color;
+    background-image: $url;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: calc(50% - 500px) 15%;
+    background-blend-mode: soft-light;
+}
