@@ -17,12 +17,12 @@ class Character extends Component {
   render() {
     const { characterList } = this.props;
     const [
-      item0,
+      item,
       item1,
       item2,
       item3,
       item4,
-      item,
+      item5,
       item6,
       item7
     ] = characterList;

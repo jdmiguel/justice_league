@@ -18,17 +18,25 @@ class App extends Component {
   }
 
   onClickLettersHandler() {
-    console.log('onClickLettersHandler');
+    this.setState({
+      onMenu: false
+    });
   }
 
   render() {
+    const { onMenu } = this.state;
+
     return (
       <Fragment>
         <Lansdcape />
         <GithubCorner />
         <LogoJL />
         <Intro />
-        <Menu onClickLetters={this.onClickLettersHandler} />
+        {onMenu ? (
+          <Menu onClickLetters={this.onClickLettersHandler} />
+        ) : (
+          <Character />
+        )}
       </Fragment>
     );
   }
