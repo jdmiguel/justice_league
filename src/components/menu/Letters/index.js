@@ -60,10 +60,9 @@ class Letters extends Component {
     }
   }
 
-  getDistance(index) {
+  getDistance(index, splitFactor) {
     const { superheroBreakpointCharacter } = this.props;
     const { totalSuperheroCharacters } = this.state;
-    const splitFactor = 0.45;
 
     const distance =
       index < superheroBreakpointCharacter
@@ -135,12 +134,12 @@ class Letters extends Component {
     activedLetters.forEach((letter, i) => {
       if (i < superheroBreakpointCharacter)
         TweenMax.to(letter, 1, {
-          x: `${this.getDistance(i)}`,
+          x: `${this.getDistance(i, 0.45)}`,
           ease: Power1.easeOut
         });
       if (i > superheroBreakpointCharacter)
         TweenMax.to(letter, 1.2, {
-          x: `${this.getDistance(i)}`,
+          x: `${this.getDistance(i, 0.45)}`,
           ease: Power1.easeOut
         });
     });
@@ -149,8 +148,14 @@ class Letters extends Component {
   }
 
   mouseOutHandler() {
+    const {
+      isActiveOverMenuLetters,
+      superheroActive,
+      setAnimationMenuLettersOutHandler
+    } = this.props;
     const { activedLetters } = this.state;
-    const { setAnimationMenuLettersOutHandler } = this.props;
+
+    if (!isActiveOverMenuLetters || !superheroActive) return;
 
     activedLetters.forEach(letter => {
       TweenMax.to(letter, 1, {
@@ -162,7 +167,33 @@ class Letters extends Component {
     setAnimationMenuLettersOutHandler();
   }
 
-  clickHandler() {}
+  clickHandler() {
+    const { activedLetters } = this.state;
+    const { superheroBreakpointCharacter, onClick } = this.props;
+
+    activedLetters.forEach((letter, i) => {
+      if (i < superheroBreakpointCharacter)
+        TweenMax.to(letter, 1, {
+          x: `${this.getDistance(i, 2.45)}`,
+          autoAlpha: 0,
+          ease: Power1.easeOut
+        });
+      if (i === superheroBreakpointCharacter) {
+        TweenMax.to(letter, 1.2, {
+          autoAlpha: 0,
+          ease: Power1.easeOut
+        });
+      }
+      if (i > superheroBreakpointCharacter)
+        TweenMax.to(letter, 1.2, {
+          x: `${this.getDistance(i, 2.45)}`,
+          autoAlpha: 0,
+          ease: Power1.easeOut
+        });
+    });
+
+    onClick();
+  }
 
   render() {
     const { superheroName, superheroClass, superheroActive } = this.props;
@@ -210,7 +241,8 @@ Letters.propTypes = {
   outDirection: PropTypes.string.isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
   setAnimationMenuLettersOverHandler: PropTypes.func.isRequired,
-  setAnimationMenuLettersOutHandler: PropTypes.func.isRequired
+  setAnimationMenuLettersOutHandler: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default connect(

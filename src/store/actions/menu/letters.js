@@ -4,6 +4,10 @@ const activeOverMenuLetters = () => ({
   type: actionTypes.ACTIVE_OVER_MENU_LETTERS
 });
 
+const desactiveOverMenuLetters = () => ({
+  type: actionTypes.DESACTIVE_OVER_MENU_LETTERS
+});
+
 const setAnimationMenuLettersOver = () => ({
   type: actionTypes.ANIMATION_MENU_LETTERS_OVER
 });
@@ -14,6 +18,7 @@ const setAnimationMenuLettersOut = () => ({
 
 export {
   activeOverMenuLetters,
+  desactiveOverMenuLetters,
   setAnimationMenuLettersOver,
   setAnimationMenuLettersOut
 };

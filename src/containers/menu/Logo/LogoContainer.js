@@ -17,9 +17,9 @@ import { introLogoMenu } from '../../../utils/animations';
 class LogoContainer extends Component {
   componentDidMount() {
     const { activeOverMenuLettersHandler } = this.props;
-    const logoPath = document.querySelectorAll('.superheroLogo_svg');
+    const logo = document.querySelectorAll('.superheroLogo_svg');
 
-    introLogoMenu(logoPath, activeOverMenuLettersHandler);
+    introLogoMenu(logo, activeOverMenuLettersHandler);
   }
 
   render() {
@@ -31,9 +31,13 @@ class LogoContainer extends Component {
 
     const listClasses = ['menuCharacters_logo', `${superheroClass}`];
 
-    if (superheroActive) listClasses.push('active');
-    if (superheroActive && isActiveMenuLettersAnimation)
+    if (superheroActive) {
+      listClasses.push('active');
+    }
+
+    if (superheroActive && isActiveMenuLettersAnimation) {
       listClasses.push('highlight');
+    }
 
     switch (superheroClass) {
       case 'superman':

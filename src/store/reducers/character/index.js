@@ -37,7 +37,7 @@ const initialState = {
     {
       class: 'superman_int',
       active: false,
-      id: 'sgre65',
+      id: 'uu7sgre65',
       alias: 'Superman',
       name: 'Clark Kent',
       description:
@@ -63,7 +63,7 @@ const initialState = {
     {
       class: 'wonderwoman_int',
       active: false,
-      id: 'sgre65',
+      id: 's78asdfas',
       alias: 'WonderWoman',
       name: 'Diana Prince',
       description:
@@ -76,7 +76,7 @@ const initialState = {
     {
       class: 'flash_int',
       active: false,
-      id: 'sgre65',
+      id: 'ppd4325fas',
       alias: 'TheFlash',
       name: 'Barry Allen',
       description:
@@ -89,7 +89,7 @@ const initialState = {
     {
       class: 'greenlantern_int',
       active: false,
-      id: 'sgre65',
+      id: 'fghjt567',
       alias: 'GreenLantern',
       name: 'Hal Jordan',
       description:
@@ -102,7 +102,7 @@ const initialState = {
     {
       class: 'greenarrow_int',
       active: false,
-      id: 'sgre65',
+      id: 'vav5563445',
       alias: 'GreenArrow',
       name: 'Oliver Queen',
       description:
@@ -115,7 +115,7 @@ const initialState = {
     {
       class: 'aquaman_int',
       active: false,
-      id: 'sgre65',
+      id: 'kfgu6sdf5',
       alias: 'Aquaman',
       name: 'Arthur Curry',
       description:
@@ -128,7 +128,7 @@ const initialState = {
     {
       class: 'cyborg_int',
       active: false,
-      id: 'sgre65',
+      id: 'sfas845gf',
       alias: 'Cyborg',
       name: 'Victor Stone',
       description:

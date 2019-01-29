@@ -2,6 +2,9 @@
     position: absolute;
     z-index: 3;
     white-space: nowrap;
+    &.disabled{
+        pointer-events: none;
+    }
     &.active{
         z-index: 4;
         button{

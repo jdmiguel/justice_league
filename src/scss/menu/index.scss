@@ -6,3 +6,37 @@
     z-index: 1;
     @include flexContainer();
 }
+
+.menu_cover{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: $blueSuperman;
+    z-index: 4;
+    visibility: hidden;
+    opacity: 0;
+    &.superman{
+        background-color: $blueSuperman;
+    }
+    &.batman{
+        background-color: $greyBatman;
+    }
+    &.wonderwoman{
+        background-color: $orangeWonder;
+    }
+    &.flash{
+        background-color: $redFlash;
+    }
+    &.greenlantern{
+        background-color: $greenLantern;
+    }
+    &.greenarrow{
+        background-color: $greenArrow;
+    }
+    &.aquaman{
+        background-color: $yellowAquaman;
+    }
+    &.cyborg{
+        background-color: $redCyborg;
+    }
+}

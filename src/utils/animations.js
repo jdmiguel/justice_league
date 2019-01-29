@@ -200,3 +200,20 @@ export const introLogoMenu = (elementToAnimate, callback) => {
     }
   );
 };
+
+// MENU ANIMATIONS
+
+export const outMenu = (elementToAnimate, callback) => {
+  TweenMax.fromTo(
+    elementToAnimate,
+    2,
+    {
+      autoAlpha: 0
+    },
+    {
+      autoAlpha: 1,
+      ease: Power1.easeOut,
+      onComplete: () => callback()
+    }
+  );
+};

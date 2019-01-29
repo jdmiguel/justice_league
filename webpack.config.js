@@ -62,7 +62,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'dc_universe',
+      title: 'justice_league',
       template: '../assets/template-app.ejs',
       filename: 'index.html',
       hash: true
