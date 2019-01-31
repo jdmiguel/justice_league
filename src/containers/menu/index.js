@@ -25,6 +25,7 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      menuNode: null,
       onMouseWheel: false,
       onSwipe: false,
       delayOnMouseWheel: null,
@@ -37,18 +38,36 @@ class Menu extends Component {
   }
 
   componentDidMount() {
-    // const { superheroesList, setSuperheroActiveCounterHandler } = this.props;
+    const menuNode = document.querySelector('.menu_container');
 
-    // setSuperheroActiveCounterHandler(superheroesList);
+    this.setState({
+      menuNode
+    });
 
-    document.addEventListener('mousewheel', event =>
+    menuNode.addEventListener('mousewheel', event =>
+      this.mouseWheelHandler(event)
+    );
+    menuNode.addEventListener('DOMMouseScroll', event =>
       this.mouseWheelHandler(event)
     );
 
-    this.swipeManager = new Hammer.Manager(document.body);
+    this.swipeManager = new Hammer.Manager(menuNode);
     this.swipeEvent = new Hammer.Swipe('DIRECTION_ALL');
     this.swipeManager.add(this.swipeEvent);
     this.swipeManager.on('swipe', this.onSwipePress);
+  }
+
+  componentWillUnmount() {
+    const { menuNode } = this.state;
+
+    menuNode.removeEventListener('mousewheel', event =>
+      this.mouseWheelHandler(event)
+    );
+    menuNode.removeEventListener('DOMMouseScroll', event =>
+      this.mouseWheelHandler(event)
+    );
+
+    this.swipeManager.off('swipe', this.onSwipePress);
   }
 
   onClickLettersHandler() {
