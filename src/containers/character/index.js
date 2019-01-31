@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import supermanImgPath from '../../../assets/img/character_superman.png';
-import supermanImg1ThumbPath from '../../../assets/img/character_superman_thumb_1.jpg';
-import supermanImg2ThumbPath from '../../../assets/img/character_superman_thumb_2.jpg';
-import supermanImg3ThumbPath from '../../../assets/img/character_superman_thumb_3.jpg';
 
 class Character extends Component {
   constructor(props) {
@@ -15,53 +11,44 @@ class Character extends Component {
   }
 
   render() {
-    const { characterList } = this.props;
-    const [
-      item,
-      item1,
-      item2,
-      item3,
-      item4,
-      item5,
-      item6,
-      item7
-    ] = characterList;
+    const { characterList, characterActive } = this.props;
+    const character = characterList[characterActive];
 
     return (
-      <div className={`character_container ${item.class}`}>
-        <div className={`character_bg ${item.class}`} />
+      <div className={`character_container ${character.class}`}>
+        <div className={`character_bg ${character.class}`} />
         <div className="character_content container-fluid">
           <div className="character_main row">
             <div className="character_block_left col-lg-5 col-md-12">
               <div className="character_image">
-                <img alt="superman" src={item.imgPath} />
+                <img alt="superman" src={character.imgPath} />
               </div>
             </div>
             <div className="character_block_right col-lg-6 col-md-12">
               <div className="character_txt">
                 <div className="character_txt_header">
-                  <h1>{item.alias}</h1>
-                  <h2>{item.name}</h2>
+                  <h1>{character.alias}</h1>
+                  <h2>{character.name}</h2>
                 </div>
                 <div className="character_txt_body">
-                  <p>{item.description}</p>
+                  <p>{character.description}</p>
                 </div>
                 <div className="character_txt_footer">
                   <div className="character_txt_footer_img_container row">
                     <img
                       className="col-lg-4 col-sm-12"
                       alt="superman"
-                      src={item.thumbPath1}
+                      src={character.thumbPath1}
                     />
                     <img
                       className="col-lg-4 col-sm-12"
                       alt="superman"
-                      src={item.thumbPath2}
+                      src={character.thumbPath2}
                     />
                     <img
                       className="col-lg-4 col-sm-12"
                       alt="superman"
-                      src={item.thumbPath3}
+                      src={character.thumbPath3}
                     />
                   </div>
                 </div>
@@ -81,12 +68,10 @@ const mapStateToProps = state => ({
   characterList: state.characterRdc.characterList
 });
 
-/*
 Character.propTypes = {
-  superheroesList: PropTypes.arrayOf(PropTypes.object).isRequired,
-  counterActivateSuperhero: PropTypes.number.isRequired,
-  isActiveOverMenuLetters: PropTypes.bool.isRequired,
-}; */
+  characterList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  characterActive: PropTypes.number.isRequired
+};
 
 export default connect(
   mapStateToProps,

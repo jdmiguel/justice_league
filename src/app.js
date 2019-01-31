@@ -1,4 +1,7 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import Lansdcape from './components/Landscape';
 import GithubCorner from './components/GithubCorner';
 import LogoJL from './components/LogoJL';
@@ -25,6 +28,7 @@ class App extends Component {
 
   render() {
     const { onMenu } = this.state;
+    const { counterActivateSuperhero } = this.props;
 
     return (
       <Fragment>
@@ -35,11 +39,22 @@ class App extends Component {
         {onMenu ? (
           <Menu onClickLetters={this.onClickLettersHandler} />
         ) : (
-          <Character />
+          <Character characterActive={counterActivateSuperhero} />
         )}
       </Fragment>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  counterActivateSuperhero: state.superheroesMenuRdc.counterActivateSuperhero
+});
+
+App.propTypes = {
+  counterActivateSuperhero: PropTypes.number.isRequired
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(App);

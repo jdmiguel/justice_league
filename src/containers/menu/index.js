@@ -7,10 +7,7 @@ import BackgroundWrapper from './Background';
 import SideDrawer from './SideDrawer';
 import Footer from '../../components/Footer';
 
-import {
-  setActiveSuperhero
-  // setSuperheroActiveCounter
-} from '../../store/actions/menu/superheroes';
+import { setActiveSuperhero } from '../../store/actions/menu/superheroes';
 
 import {
   setDirectionIn,
