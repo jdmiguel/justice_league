@@ -157,6 +157,9 @@
 }
 
 .character_txt_footer{
+    @media (min-width: 992px){
+        min-height: 140px;
+    }
     img{
         margin-bottom: 3em;
         @media (min-width: 992px){

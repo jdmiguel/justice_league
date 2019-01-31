@@ -224,8 +224,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  /* setSuperheroActiveCounterHandler: list =>
-    dispatch(setSuperheroActiveCounter(list)), */
   setActiveSuperheroHandler: (data, selected) =>
     dispatch(setActiveSuperhero(data, selected)),
   setDirectionInHandler: direction => dispatch(setDirectionIn(direction)),
@@ -237,7 +235,6 @@ Menu.propTypes = {
   superheroesList: PropTypes.arrayOf(PropTypes.object).isRequired,
   counterActivateSuperhero: PropTypes.number.isRequired,
   isActiveOverMenuLetters: PropTypes.bool.isRequired,
-  // setSuperheroActiveCounterHandler: PropTypes.func.isRequired,
   setActiveSuperheroHandler: PropTypes.func.isRequired,
   setDirectionInHandler: PropTypes.func.isRequired,
   setDirectionOutHandler: PropTypes.func.isRequired,

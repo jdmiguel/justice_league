@@ -2,17 +2,52 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import {
+  inBgCharacter,
+  inImgCharacter,
+  inAliasCharacter,
+  inNameCharacter,
+  inParagraphCharacter,
+  inThumbsCharacter,
+  inBackBtnCharacter
+} from '../../utils/animations';
+
 class Character extends Component {
   constructor(props) {
     super(props);
+
+    const { characterList, characterActive } = props;
+    const character = characterList[characterActive];
+
     this.state = {
-      onMouseWheel: false
+      character
     };
   }
 
+  componentDidMount() {
+    const bgCharacter = document.querySelector('.character_bg');
+    const imgCharacter = document.querySelector('.character_image');
+    const headerCharacter = document.querySelector('.character_txt_header');
+    const aliasCharacter = headerCharacter.querySelector('h1');
+    const nameCharacter = headerCharacter.querySelector('h2');
+    const paragraphCharacter = document.querySelector('.character_txt_body');
+    const thumbsContainerCharacter = document.querySelector(
+      '.character_txt_footer_img_container'
+    );
+    const thumbsCharacter = thumbsContainerCharacter.querySelectorAll('img');
+    const BackBtnCharacter = document.querySelector('.character_btn_back');
+
+    inBgCharacter(bgCharacter);
+    inImgCharacter(imgCharacter);
+    inAliasCharacter(aliasCharacter);
+    inNameCharacter(nameCharacter);
+    inParagraphCharacter(paragraphCharacter);
+    inThumbsCharacter(thumbsCharacter);
+    inBackBtnCharacter(BackBtnCharacter);
+  }
+
   render() {
-    const { characterList, characterActive } = this.props;
-    const character = characterList[characterActive];
+    const { character } = this.state;
 
     return (
       <div className={`character_container ${character.class}`}>
