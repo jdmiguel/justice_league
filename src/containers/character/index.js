@@ -26,7 +26,6 @@ class Character extends Component {
 
   componentDidMount() {
     const bgCharacter = document.querySelector('.character_bg');
-    const imgCharacter = document.querySelector('.character_image');
     const headerCharacter = document.querySelector('.character_txt_header');
     const aliasCharacter = headerCharacter.querySelector('h1');
     const nameCharacter = headerCharacter.querySelector('h2');
@@ -35,14 +34,15 @@ class Character extends Component {
       '.character_txt_footer_img_container'
     );
     const thumbsCharacter = thumbsContainerCharacter.querySelectorAll('img');
+    const imgCharacter = document.querySelector('.character_image');
     const BackBtnCharacter = document.querySelector('.character_btn_back');
 
     inBgCharacter(bgCharacter);
-    inImgCharacter(imgCharacter);
     inAliasCharacter(aliasCharacter);
     inNameCharacter(nameCharacter);
     inParagraphCharacter(paragraphCharacter);
     inThumbsCharacter(thumbsCharacter);
+    inImgCharacter(imgCharacter);
     inBackBtnCharacter(BackBtnCharacter);
   }
 

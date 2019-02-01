@@ -38,32 +38,40 @@ class Letters extends Component {
 
   shouldComponentUpdate(nextProps) {
     const { superheroActive } = this.props;
-    if (superheroActive !== nextProps.superheroActive) return true;
+
+    if (superheroActive !== nextProps.superheroActive) {
+      return true;
+    }
+
     return false;
   }
 
   componentDidUpdate() {
     const { superheroActive, inDirection, outDirection } = this.props;
+    const { allLetters, activedLetters } = this.state;
 
     this.setActiveLetters();
 
-    const { allLetters, activedLetters } = this.state;
-
     if (superheroActive) {
-      if (inDirection === 'left') inLeftLettersMenu(allLetters);
-      else inRightLettersMenu(allLetters);
+      if (inDirection === 'left') {
+        inLeftLettersMenu(allLetters);
+      } else {
+        inRightLettersMenu(allLetters);
+      }
     }
 
     if (!superheroActive) {
-      if (outDirection === 'left') outLeftLettersMenu(activedLetters);
-      else outRightLettersMenu(activedLetters);
+      if (outDirection === 'left') {
+        outLeftLettersMenu(activedLetters);
+      } else {
+        outRightLettersMenu(activedLetters);
+      }
     }
   }
 
   getDistance(index, splitFactor) {
     const { superheroBreakpointCharacter } = this.props;
     const { totalSuperheroCharacters } = this.state;
-
     const distance =
       index < superheroBreakpointCharacter
         ? (Math.sin(index) - totalSuperheroCharacters) *
@@ -87,7 +95,9 @@ class Letters extends Component {
           totalSuperheroCharacters: superheroName.length
         },
         () => {
-          if (stage === 'intro') this.introSuperheroLetters();
+          if (stage === 'intro') {
+            this.introSuperheroLetters();
+          }
         }
       );
     }
@@ -101,11 +111,9 @@ class Letters extends Component {
 
   createSuperheroLetters() {
     const { superheroClass } = this.props;
-
     const mySplitText = new SplitText(`.${superheroClass}`, {
       type: 'words,chars'
     });
-
     const { chars } = mySplitText;
 
     TweenMax.set(chars, { alpha: 0 });
@@ -129,19 +137,24 @@ class Letters extends Component {
       setAnimationMenuLettersOverHandler
     } = this.props;
 
-    if (!isActiveOverMenuLetters || !superheroActive) return;
+    if (!isActiveOverMenuLetters || !superheroActive) {
+      return;
+    }
 
     activedLetters.forEach((letter, i) => {
-      if (i < superheroBreakpointCharacter)
+      if (i < superheroBreakpointCharacter) {
         TweenMax.to(letter, 1, {
           x: `${this.getDistance(i, 0.45)}`,
           ease: Power1.easeOut
         });
-      if (i > superheroBreakpointCharacter)
+      }
+
+      if (i > superheroBreakpointCharacter) {
         TweenMax.to(letter, 1.2, {
           x: `${this.getDistance(i, 0.45)}`,
           ease: Power1.easeOut
         });
+      }
     });
 
     setAnimationMenuLettersOverHandler();
@@ -155,7 +168,9 @@ class Letters extends Component {
     } = this.props;
     const { activedLetters } = this.state;
 
-    if (!isActiveOverMenuLetters || !superheroActive) return;
+    if (!isActiveOverMenuLetters || !superheroActive) {
+      return;
+    }
 
     activedLetters.forEach(letter => {
       TweenMax.to(letter, 1, {
@@ -172,24 +187,28 @@ class Letters extends Component {
     const { superheroBreakpointCharacter, onClick } = this.props;
 
     activedLetters.forEach((letter, i) => {
-      if (i < superheroBreakpointCharacter)
+      if (i < superheroBreakpointCharacter) {
         TweenMax.to(letter, 1, {
-          x: `${this.getDistance(i, 2.45)}`,
+          x: `${this.getDistance(i, 2)}`,
           autoAlpha: 0,
           ease: Power1.easeOut
         });
+      }
+
       if (i === superheroBreakpointCharacter) {
         TweenMax.to(letter, 1.2, {
           autoAlpha: 0,
           ease: Power1.easeOut
         });
       }
-      if (i > superheroBreakpointCharacter)
+
+      if (i > superheroBreakpointCharacter) {
         TweenMax.to(letter, 1.2, {
-          x: `${this.getDistance(i, 2.45)}`,
+          x: `${this.getDistance(i, 2)}`,
           autoAlpha: 0,
           ease: Power1.easeOut
         });
+      }
     });
 
     onClick();
@@ -197,7 +216,6 @@ class Letters extends Component {
 
   render() {
     const { superheroName, superheroClass, superheroActive } = this.props;
-
     const getLettersContainerClasses = () =>
       !superheroActive ? 'letters_container' : 'letters_container active';
 
