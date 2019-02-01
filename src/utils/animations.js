@@ -225,7 +225,7 @@ export const inBgCharacter = elementToAnimate => {
     1.7,
     {
       autoAlpha: 0,
-      scale: 1.8,
+      scale: 2,
       x: -150,
       transformOrigin: '50% 50%'
     },
@@ -233,7 +233,7 @@ export const inBgCharacter = elementToAnimate => {
       autoAlpha: 0.15,
       scale: 1,
       x: 0,
-      ease: Cubic.easeOut
+      ease: Power1.easeOut
     }
   );
 };
@@ -345,4 +345,133 @@ export const inBackBtnCharacter = elementToAnimate => {
       ease: Power2.easeOut
     }
   );
+};
+
+export const outAliasCharacter = elementToAnimate => {
+  TweenMax.fromTo(
+    elementToAnimate,
+    0.5,
+    {
+      autoAlpha: 1,
+      x: 0
+    },
+    {
+      autoAlpha: 0,
+      x: 200,
+      ease: Power2.easeIn
+    }
+  );
+};
+
+export const outNameCharacter = elementToAnimate => {
+  TweenMax.fromTo(
+    elementToAnimate,
+    0.5,
+    {
+      autoAlpha: 1,
+      x: 0
+    },
+    {
+      autoAlpha: 0,
+      x: 150,
+      ease: Power2.easeIn
+    }
+  );
+};
+
+export const outParagraphCharacter = elementToAnimate => {
+  TweenMax.fromTo(
+    elementToAnimate,
+    0.5,
+    {
+      autoAlpha: 1,
+      x: 0
+    },
+    {
+      autoAlpha: 0,
+      x: 120,
+      ease: Power2.easeIn
+    }
+  );
+};
+
+export const outThumbsCharacter = elementToAnimate => {
+  TweenMax.staggerFromTo(
+    elementToAnimate,
+    0.4,
+    {
+      autoAlpha: 1,
+      x: 0
+    },
+    {
+      delay: 0.1,
+      autoAlpha: 0,
+      cycle: { x: i => 60 + i * 40 },
+      ease: Cubic.easeIn
+    },
+    0.1
+  );
+};
+
+export const outImgCharacter = elementToAnimate => {
+  TweenMax.fromTo(
+    elementToAnimate,
+    0.5,
+    {
+      autoAlpha: 0.5,
+      x: 0
+    },
+    {
+      autoAlpha: 0,
+      x: -150,
+      ease: Power2.easeIn
+    }
+  );
+};
+
+export const outBackBtnCharacter = elementToAnimate => {
+  TweenMax.fromTo(
+    elementToAnimate,
+    0.5,
+    {
+      autoAlpha: 1,
+      y: 0
+    },
+    {
+      delay: 0.2,
+      autoAlpha: 0,
+      y: 30,
+      ease: Power2.easeIn
+    }
+  );
+};
+
+export const outBgCharacter = elementToAnimate => {
+  TweenMax.fromTo(
+    elementToAnimate,
+    1.2,
+    {
+      autoAlpha: 0.15,
+      scale: 1,
+      x: 0,
+      transformOrigin: '50% 50%'
+    },
+    {
+      autoAlpha: 0,
+      scale: 1.8,
+      x: 200,
+      ease: Power1.easeInOut
+    }
+  );
+};
+
+export const outContainerCharacter = (elementToAnimate, callback) => {
+  TweenMax.to(elementToAnimate, 0.8, {
+    delay: 0.7,
+    backgroundColor: '#000000',
+    ease: Power1.easeOut,
+    onComplete: () => {
+      callback();
+    }
+  });
 };

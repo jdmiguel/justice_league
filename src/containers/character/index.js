@@ -9,7 +9,15 @@ import {
   inNameCharacter,
   inParagraphCharacter,
   inThumbsCharacter,
-  inBackBtnCharacter
+  inBackBtnCharacter,
+  outBgCharacter,
+  outImgCharacter,
+  outAliasCharacter,
+  outNameCharacter,
+  outParagraphCharacter,
+  outThumbsCharacter,
+  outBackBtnCharacter,
+  outContainerCharacter
 } from '../../utils/animations';
 
 class Character extends Component {
@@ -20,11 +28,21 @@ class Character extends Component {
     const character = characterList[characterActive];
 
     this.state = {
-      character
+      character,
+      containerCharacter: null,
+      bgCharacter: null,
+      aliasCharacter: null,
+      nameCharacter: null,
+      thumbsCharacter: null,
+      imgCharacter: null,
+      BackBtnCharacter: null
     };
+
+    this.backMenu = this.backMenu.bind(this);
   }
 
   componentDidMount() {
+    const containerCharacter = document.querySelector('.character_container');
     const bgCharacter = document.querySelector('.character_bg');
     const headerCharacter = document.querySelector('.character_txt_header');
     const aliasCharacter = headerCharacter.querySelector('h1');
@@ -37,6 +55,17 @@ class Character extends Component {
     const imgCharacter = document.querySelector('.character_image');
     const BackBtnCharacter = document.querySelector('.character_btn_back');
 
+    this.setState({
+      containerCharacter,
+      bgCharacter,
+      aliasCharacter,
+      nameCharacter,
+      paragraphCharacter,
+      thumbsCharacter,
+      imgCharacter,
+      BackBtnCharacter
+    });
+
     inBgCharacter(bgCharacter);
     inAliasCharacter(aliasCharacter);
     inNameCharacter(nameCharacter);
@@ -44,6 +73,29 @@ class Character extends Component {
     inThumbsCharacter(thumbsCharacter);
     inImgCharacter(imgCharacter);
     inBackBtnCharacter(BackBtnCharacter);
+  }
+
+  backMenu() {
+    const { onClickBackBtn } = this.props;
+    const {
+      containerCharacter,
+      bgCharacter,
+      aliasCharacter,
+      nameCharacter,
+      paragraphCharacter,
+      thumbsCharacter,
+      imgCharacter,
+      BackBtnCharacter
+    } = this.state;
+
+    outAliasCharacter(aliasCharacter);
+    outNameCharacter(nameCharacter);
+    outParagraphCharacter(paragraphCharacter);
+    outThumbsCharacter(thumbsCharacter);
+    outImgCharacter(imgCharacter);
+    outBackBtnCharacter(BackBtnCharacter);
+    outBgCharacter(bgCharacter);
+    outContainerCharacter(containerCharacter, onClickBackBtn);
   }
 
   render() {
@@ -92,7 +144,9 @@ class Character extends Component {
           </div>
         </div>
         <div className="character_btn_back">
-          <button type="button">BACK TO HOME</button>
+          <button type="button" onClick={this.backMenu}>
+            BACK TO HOME
+          </button>
         </div>
       </div>
     );
@@ -105,7 +159,8 @@ const mapStateToProps = state => ({
 
 Character.propTypes = {
   characterList: PropTypes.arrayOf(PropTypes.object).isRequired,
-  characterActive: PropTypes.number.isRequired
+  characterActive: PropTypes.number.isRequired,
+  onClickBackBtn: PropTypes.func.isRequired
 };
 
 export default connect(

@@ -18,11 +18,18 @@ class App extends Component {
     };
 
     this.onClickLettersHandler = this.onClickLettersHandler.bind(this);
+    this.onClickBackBtnHandler = this.onClickBackBtnHandler.bind(this);
   }
 
   onClickLettersHandler() {
     this.setState({
       onMenu: false
+    });
+  }
+
+  onClickBackBtnHandler() {
+    this.setState({
+      onMenu: true
     });
   }
 
@@ -39,7 +46,10 @@ class App extends Component {
         {onMenu ? (
           <Menu onClickLetters={this.onClickLettersHandler} />
         ) : (
-          <Character characterActive={counterActivateSuperhero} />
+          <Character
+            characterActive={counterActivateSuperhero}
+            onClickBackBtn={this.onClickBackBtnHandler}
+          />
         )}
       </Fragment>
     );
