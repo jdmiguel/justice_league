@@ -36,19 +36,25 @@ const updateHandlerCounterActivateSuperheroes = (
   return resetCounter;
 };
 
-const updateHandlerSuperheroesList = (list, updatedCounter) => {
-  const listUpdated = list.map(listElement => {
+const getResetedList = list => {
+  const updatedList = list.map(listElement => {
     const currentListElement = listElement;
     currentListElement.active = false;
     return listElement;
   });
 
-  listUpdated[updatedCounter].active = true;
-
-  return listUpdated;
+  return updatedList;
 };
 
-const setActiveSuperhero = (data, activeElement) => {
+const updateHandlerSuperheroesList = (list, updatedCounter) => {
+  const updatedList = getResetedList(list);
+
+  updatedList[updatedCounter].active = true;
+
+  return updatedList;
+};
+
+export const setActiveSuperhero = (data, activeElement) => {
   const updateCounterActivateSuperheroes = updateHandlerCounterActivateSuperheroes(
     data,
     activeElement
@@ -66,7 +72,7 @@ const setActiveSuperhero = (data, activeElement) => {
   };
 };
 
-const setSuperheroActiveCounter = superheroesList => {
+export const setSuperheroActiveCounter = superheroesList => {
   const counterUpdated = superheroesList.findIndex(item => item.active);
 
   return {
@@ -75,4 +81,11 @@ const setSuperheroActiveCounter = superheroesList => {
   };
 };
 
-export { setActiveSuperhero, setSuperheroActiveCounter };
+export const resetActiveSuperhero = list => {
+  const updatedList = getResetedList(list);
+
+  return {
+    type: actionTypes.RESET_ACTIVE_SUPERHERO_MENU,
+    superheroesList: updatedList
+  };
+};

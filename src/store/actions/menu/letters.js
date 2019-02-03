@@ -1,24 +1,17 @@
 import * as actionTypes from '../../actionTypes';
 
-const activeOverMenuLetters = () => ({
+export const activeOverMenuLetters = () => ({
   type: actionTypes.ACTIVE_OVER_MENU_LETTERS
 });
 
-const desactiveOverMenuLetters = () => ({
+export const desactiveOverMenuLetters = () => ({
   type: actionTypes.DESACTIVE_OVER_MENU_LETTERS
 });
 
-const setAnimationMenuLettersOver = () => ({
+export const setAnimationMenuLettersOver = () => ({
   type: actionTypes.ANIMATION_MENU_LETTERS_OVER
 });
 
-const setAnimationMenuLettersOut = () => ({
+export const setAnimationMenuLettersOut = () => ({
   type: actionTypes.ANIMATION_MENU_LETTERS_OUT
 });
-
-export {
-  activeOverMenuLetters,
-  desactiveOverMenuLetters,
-  setAnimationMenuLettersOver,
-  setAnimationMenuLettersOut
-};

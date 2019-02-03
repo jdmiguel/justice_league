@@ -25,7 +25,6 @@ class Letters extends Component {
     };
 
     this.createSuperheroLetters = this.createSuperheroLetters.bind(this);
-    this.introSuperheroLetters = this.introSuperheroLetters.bind(this);
     this.setActiveLetters = this.setActiveLetters.bind(this);
     this.mouseOverHandler = this.mouseOverHandler.bind(this);
     this.mouseOutHandler = this.mouseOutHandler.bind(this);
@@ -84,29 +83,16 @@ class Letters extends Component {
     return distance;
   }
 
-  setActiveLetters(stage = '') {
+  setActiveLetters() {
     const { superheroName, superheroActive } = this.props;
     const { allLetters } = this.state;
 
     if (superheroActive) {
-      this.setState(
-        {
-          activedLetters: allLetters,
-          totalSuperheroCharacters: superheroName.length
-        },
-        () => {
-          if (stage === 'intro') {
-            this.introSuperheroLetters();
-          }
-        }
-      );
+      this.setState({
+        activedLetters: allLetters,
+        totalSuperheroCharacters: superheroName.length
+      });
     }
-  }
-
-  introSuperheroLetters() {
-    const { activedLetters } = this.state;
-
-    introLettersMenu(activedLetters);
   }
 
   createSuperheroLetters() {
@@ -118,14 +104,9 @@ class Letters extends Component {
 
     TweenMax.set(chars, { alpha: 0 });
 
-    this.setState(
-      {
-        allLetters: chars
-      },
-      () => {
-        this.setActiveLetters('intro');
-      }
-    );
+    this.setState({
+      allLetters: chars
+    });
   }
 
   mouseOverHandler() {

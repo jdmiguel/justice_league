@@ -22,7 +22,6 @@ class Intro extends Component {
     const logoPath = document.querySelector('.introLogoDC_path');
     const introContainer = document.querySelector('.intro_container');
     const letters = document.querySelectorAll('.introLettersJL_path');
-
     const superheroData = {
       superheroesList,
       counterActivateSuperhero
@@ -35,7 +34,7 @@ class Intro extends Component {
       introContainer,
       setActiveSuperheroHandler,
       superheroData,
-      0
+      counterActivateSuperhero
     );
 
     introLettersIntro(letters);

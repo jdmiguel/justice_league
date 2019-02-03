@@ -168,7 +168,6 @@ export const outLeftLettersMenu = elementToAnimate => {
       rotationY: 0
     },
     {
-      delay: 0,
       cycle: { x: i => -200 + i * 20 },
       alpha: 0,
       rotationY: 0,
@@ -180,22 +179,29 @@ export const outLeftLettersMenu = elementToAnimate => {
 
 // MENU LOGO ANIMATIONS
 
-export const introLogoMenu = (elementToAnimate, callback) => {
+export const introLogoMenu = (elementToAnimate, callback, fromIntro) => {
+  const duration = fromIntro ? 2.2 : 1;
+
   TweenMax.fromTo(
     elementToAnimate,
-    2.2,
+    duration,
     {
       transformOrigin: '50% 50%',
       alpha: 0,
       scale: 0.5
     },
     {
-      delay: 4.8,
       transformOrigin: '50% 50%',
       alpha: 1,
       scale: 1,
       ease: Power1.easeOut,
-      onComplete: () => callback()
+      onComplete: () => {
+        if (fromIntro) {
+          setTimeout(() => callback(), 4800);
+        } else {
+          callback();
+        }
+      }
     }
   );
 };
@@ -226,12 +232,14 @@ export const inBgCharacter = elementToAnimate => {
     {
       autoAlpha: 0,
       scale: 2,
+      rotation: 15,
       x: -150,
       transformOrigin: '50% 50%'
     },
     {
       autoAlpha: 0.15,
       scale: 1,
+      rotation: 0,
       x: 0,
       ease: Power1.easeOut
     }
@@ -373,7 +381,7 @@ export const outNameCharacter = elementToAnimate => {
     },
     {
       autoAlpha: 0,
-      x: 150,
+      x: 220,
       ease: Power2.easeIn
     }
   );
@@ -389,14 +397,14 @@ export const outParagraphCharacter = elementToAnimate => {
     },
     {
       autoAlpha: 0,
-      x: 120,
+      x: 250,
       ease: Power2.easeIn
     }
   );
 };
 
 export const outThumbsCharacter = elementToAnimate => {
-  TweenMax.staggerFromTo(
+  TweenMax.fromTo(
     elementToAnimate,
     0.4,
     {
@@ -406,10 +414,9 @@ export const outThumbsCharacter = elementToAnimate => {
     {
       delay: 0.1,
       autoAlpha: 0,
-      cycle: { x: i => 60 + i * 40 },
-      ease: Cubic.easeIn
-    },
-    0.1
+      x: 270,
+      ease: Power2.easeIn
+    }
   );
 };
 
@@ -453,12 +460,14 @@ export const outBgCharacter = elementToAnimate => {
     {
       autoAlpha: 0.15,
       scale: 1,
+      rotation: 0,
       x: 0,
       transformOrigin: '50% 50%'
     },
     {
       autoAlpha: 0,
       scale: 1.8,
+      rotation: 15,
       x: 200,
       ease: Power1.easeInOut
     }

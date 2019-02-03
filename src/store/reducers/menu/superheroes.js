@@ -104,6 +104,13 @@ const reducer = (state = initialState, action) => {
       };
     }
 
+    case actionTypes.RESET_ACTIVE_SUPERHERO_MENU: {
+      return {
+        ...state,
+        superheroesList: action.superheroesList
+      };
+    }
+
     default:
       return state;
   }

@@ -1,0 +1,16 @@
+.rights{
+  display: none;
+  @media (min-width: 1024px){
+    display: block;
+    position: absolute;
+    z-index: 3;
+    right: 35px;
+    bottom: 25px;
+    @media (min-width: 1400px){
+      right: 50px;
+    }
+  }
+  h4{
+    @include font('Open Sans',1em,400);
+  }
+}

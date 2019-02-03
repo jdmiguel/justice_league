@@ -5,7 +5,6 @@ import LettersWrapper from './Letters';
 import LogoWrapper from './Logo';
 import BackgroundWrapper from './Background';
 import SideDrawer from './SideDrawer';
-import Footer from '../../components/Footer';
 
 import { setActiveSuperhero } from '../../store/actions/menu/superheroes';
 
@@ -14,7 +13,10 @@ import {
   setDirectionOut
 } from '../../store/actions/menu/directions';
 
-import { desactiveOverMenuLetters } from '../../store/actions/menu/letters';
+import {
+  desactiveOverMenuLetters,
+  setAnimationMenuLettersOut
+} from '../../store/actions/menu/letters';
 
 import { outMenu } from '../../utils/animations';
 
@@ -68,12 +70,16 @@ class Menu extends Component {
   }
 
   onClickLettersHandler() {
-    const { onClickLetters, desactiveOverMenuLettersHandler } = this.props;
+    const {
+      onClickLetters,
+      desactiveOverMenuLettersHandler,
+      setAnimationMenuLettersOutHandler
+    } = this.props;
+
     const menuCover = document.querySelector('.menu_cover');
-    const menuLogo = document.querySelector('.menuCharacters_logo.active');
 
     desactiveOverMenuLettersHandler();
-    menuLogo.classList.remove('active');
+    setAnimationMenuLettersOutHandler();
 
     outMenu(menuCover, onClickLetters);
   }
@@ -210,7 +216,6 @@ class Menu extends Component {
           list={superheroesList}
           onClickSideDrawerItem={this.changeMenuBySideDrawer}
         />
-        <Footer />
         <div className={menuCoverClasses.join(' ')} />
       </div>
     );
@@ -228,7 +233,9 @@ const mapDispatchToProps = dispatch => ({
     dispatch(setActiveSuperhero(data, selected)),
   setDirectionInHandler: direction => dispatch(setDirectionIn(direction)),
   setDirectionOutHandler: direction => dispatch(setDirectionOut(direction)),
-  desactiveOverMenuLettersHandler: () => dispatch(desactiveOverMenuLetters())
+  desactiveOverMenuLettersHandler: () => dispatch(desactiveOverMenuLetters()),
+  setAnimationMenuLettersOutHandler: () =>
+    dispatch(setAnimationMenuLettersOut())
 });
 
 Menu.propTypes = {
@@ -239,6 +246,7 @@ Menu.propTypes = {
   setDirectionInHandler: PropTypes.func.isRequired,
   setDirectionOutHandler: PropTypes.func.isRequired,
   desactiveOverMenuLettersHandler: PropTypes.func.isRequired,
+  setAnimationMenuLettersOutHandler: PropTypes.func.isRequired,
   onClickLetters: PropTypes.func.isRequired
 };
 

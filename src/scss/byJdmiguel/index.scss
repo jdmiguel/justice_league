@@ -1,0 +1,21 @@
+.byJdmiguel{
+    display: none;
+    @media (min-width: 1024px){
+        display: block;
+        position: absolute;
+        z-index: 3;
+        left: 35px;
+        bottom: 25px;
+        @media (min-width: 1400px){
+            left: 50px;
+        }
+    }
+    h3{
+        @include font('Open Sans',1em,400);
+    }
+    a{
+        @include font('Open Sans',.9em,700);
+        text-decoration: underline;
+    }
+}
+

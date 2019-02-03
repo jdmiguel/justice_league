@@ -8,6 +8,14 @@ import LogoJL from './components/LogoJL';
 import Intro from './components/Intro';
 import Menu from './containers/menu';
 import Character from './containers/character';
+import ByJdmiguel from './components/ByJdmiguel';
+import Rights from './components/Rights';
+
+import setEndFirstUserTime from './store/actions/global';
+import {
+  resetActiveSuperhero,
+  setActiveSuperhero
+} from './store/actions/menu/superheroes';
 
 class App extends Component {
   constructor(props) {
@@ -22,15 +30,39 @@ class App extends Component {
   }
 
   onClickLettersHandler() {
+    const {
+      setEndFirstUserTimeHandler,
+      superheroesList,
+      resetActiveSuperheroHandler
+    } = this.props;
+
+    setEndFirstUserTimeHandler();
+    resetActiveSuperheroHandler(superheroesList);
+
     this.setState({
       onMenu: false
     });
   }
 
   onClickBackBtnHandler() {
-    this.setState({
-      onMenu: true
-    });
+    const {
+      setActiveSuperheroHandler,
+      superheroesList,
+      counterActivateSuperhero
+    } = this.props;
+    const superheroData = {
+      superheroesList,
+      counterActivateSuperhero
+    };
+
+    this.setState(
+      {
+        onMenu: true
+      },
+      () => {
+        setActiveSuperheroHandler(superheroData, counterActivateSuperhero);
+      }
+    );
   }
 
   render() {
@@ -51,20 +83,34 @@ class App extends Component {
             onClickBackBtn={this.onClickBackBtnHandler}
           />
         )}
+        <ByJdmiguel />
+        <Rights />
       </Fragment>
     );
   }
 }
 
 const mapStateToProps = state => ({
+  superheroesList: state.superheroesMenuRdc.superheroesList,
   counterActivateSuperhero: state.superheroesMenuRdc.counterActivateSuperhero
 });
 
+const mapDispatchToProps = dispatch => ({
+  setEndFirstUserTimeHandler: () => dispatch(setEndFirstUserTime()),
+  resetActiveSuperheroHandler: data => dispatch(resetActiveSuperhero(data)),
+  setActiveSuperheroHandler: (data, selected) =>
+    dispatch(setActiveSuperhero(data, selected))
+});
+
 App.propTypes = {
-  counterActivateSuperhero: PropTypes.number.isRequired
+  superheroesList: PropTypes.arrayOf(PropTypes.object).isRequired,
+  counterActivateSuperhero: PropTypes.number.isRequired,
+  setEndFirstUserTimeHandler: PropTypes.func.isRequired,
+  resetActiveSuperheroHandler: PropTypes.func.isRequired,
+  setActiveSuperheroHandler: PropTypes.func.isRequired
 };
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(App);

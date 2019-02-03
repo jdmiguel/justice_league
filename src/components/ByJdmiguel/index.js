@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Footer = () => (
-  <div className="footer">
+const ByJdmiguel = () => (
+  <div className="byJdmiguel">
     <h3>
       Site created by{' '}
       <a
@@ -12,8 +12,7 @@ const Footer = () => (
         jdmiguel
       </a>
     </h3>
-    <h4>© 2019 All rights reserved</h4>
   </div>
 );
 
-export default Footer;
+export default ByJdmiguel;

@@ -16,10 +16,10 @@ import { introLogoMenu } from '../../../utils/animations';
 
 class LogoContainer extends Component {
   componentDidMount() {
-    const { activeOverMenuLettersHandler } = this.props;
+    const { isFirstUserTime, activeOverMenuLettersHandler } = this.props;
     const logo = document.querySelectorAll('.superheroLogo_svg');
 
-    introLogoMenu(logo, activeOverMenuLettersHandler);
+    introLogoMenu(logo, activeOverMenuLettersHandler, isFirstUserTime);
   }
 
   render() {
@@ -28,7 +28,6 @@ class LogoContainer extends Component {
       superheroClass,
       isActiveMenuLettersAnimation
     } = this.props;
-
     const listClasses = ['menuCharacters_logo', `${superheroClass}`];
 
     if (superheroActive) {
@@ -63,6 +62,7 @@ class LogoContainer extends Component {
 }
 
 const mapStateToProps = state => ({
+  isFirstUserTime: state.globalRdc.isFirstUserTime,
   isActiveMenuLettersAnimation:
     state.lettersMenuRdc.isActiveMenuLettersAnimation,
   isActiveOverMenuLetters: state.lettersMenuRdc.isActiveOverMenuLetters,
@@ -75,6 +75,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 LogoContainer.propTypes = {
+  isFirstUserTime: PropTypes.bool.isRequired,
   superheroClass: PropTypes.string.isRequired,
   superheroActive: PropTypes.bool.isRequired,
   isActiveMenuLettersAnimation: PropTypes.bool.isRequired,
