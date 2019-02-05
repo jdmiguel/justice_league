@@ -5,7 +5,8 @@ const ByJdmiguel = () => (
     <h3>
       Site created by{' '}
       <a
-        href="https:jdmiguel.com"
+        href="https://jdmiguel.com"
+        target="_blank"
         rel="noopener noreferrer"
         aria-label="View source on GitHub"
       >
