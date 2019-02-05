@@ -1,3 +1,24 @@
-## JUSTICE LEAGUE ANIMATED WEBSITE
+## ANIMATED WEBSITE BASED ON DC CHARACTERS
 
-### TECHNOLOGIES: REACT, REDUX, GREENSHOCK, HAMMER, SCSS, WEBPACK, BABEL, ESLINT, YARN
+Animated website created with React and Redux which combines javascript animations (with Tweenmax from Greenshock) and css animations (with Sass)
+
+### TECHNOLOGIES
+
+* **REACT**
+* **REDUX**
+* **GREENSHOCK**
+* **SCSS**
+* **WEBPACK 4**
+* **BABEL**
+* **ESLINT**
+* **YARN**
+
+### INSTALATION
+
+* **clone repo**: In your folder, open a new terminal and clone the repo
+* **install dependencies**: In your terminal, execute yarn or yarn install
+
+### DEVELOPMENT AND DEPLOYMENT
+
+* **development**: In your terminal, execute yarn start
+* **deployment**: In your terminal, execute yarn build
