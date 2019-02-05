@@ -9,7 +9,7 @@ import Intro from './components/Intro';
 import Menu from './containers/menu';
 import Character from './containers/character';
 import ByJdmiguel from './components/ByJdmiguel';
-import Rights from './components/Rights';
+import Based from './components/Based';
 
 import setEndFirstUserTime from './store/actions/global';
 import {
@@ -84,7 +84,7 @@ class App extends Component {
           />
         )}
         <ByJdmiguel />
-        <Rights />
+        <Based />
       </Fragment>
     );
   }
