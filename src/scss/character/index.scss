@@ -98,9 +98,12 @@
     }
     img{
         @media (min-width: 992px){
-            width: 90%;
+            width: 80%;
             height: auto;
             margin: 0 auto;
+        }
+        @media (min-width: 1400px){
+            width: 90%;
         }
     }
 }
@@ -114,9 +117,10 @@
         margin-bottom: .7em;
         text-align: center;
         @media (min-width: 992px){
-            @include font('Cinzel',6.2em,700);
-            margin-top: 0;
             text-align: left;
+        }
+        @media (min-width: 1400px){
+            @include font('Cinzel',6.2em,700);
             margin-top: 0;
         }
     }
@@ -125,18 +129,23 @@
         line-height: 0;
         text-align: center;
         @media (min-width: 992px){
-            @include font('Cinzel',2.3em,600);
             text-align: left;
+        }
+        @media (min-width: 1400px){
+            @include font('Cinzel',2.3em,600);
             margin-top: 0;
         }
     }
     p{
-        @include font('Cinzel',1.1em,400);
-        line-height: 1.35em;
+        @include font('Cinzel',1.2em,400);
+        line-height: 1.3em;
         text-align: center;
         @media (min-width: 992px){
-            @include font('Cinzel',1.35em,400);
             text-align: left;
+        }
+        @media (min-width: 1400px){
+            @include font('Cinzel',1.35em,400);
+            line-height: 1.35em;
             margin-top: 0;
         }
     }
@@ -144,14 +153,14 @@
 
 .character_txt_header{
     margin-bottom: 3em;
-    @media (min-width: 992px){
+    @media (min-width: 1400px){
         margin-bottom: 4em;
     }
 }
 
 .character_txt_body{
     margin-bottom: 3em;
-    @media (min-width: 992px){
+    @media (min-width: 1400px){
         margin-bottom: 4em;
     }
 }
@@ -162,7 +171,7 @@
     }
     img{
         margin-bottom: 3em;
-        @media (min-width: 992px){
+        @media (min-width: 1400px){
             margin-bottom: 0;
         }
     }
