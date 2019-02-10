@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import LandscapeImg from '../assets/img/landscape.png';
-import Intro from './components/Intro';
-import Menu from './containers/menu';
-import Character from './containers/character';
+
+import Intro from './components/intro';
+import Menu from './components/menu';
+import Character from './components/character';
 
 import setEndFirstUserTime from './store/actions/global';
 import {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Item from '../../../components/menu/SideDrawer/Item';
+import Item from './Item';
 
 const SideDrawer = ({ list, onClickSideDrawerItem }) => (
   <div className="sidedrawer">

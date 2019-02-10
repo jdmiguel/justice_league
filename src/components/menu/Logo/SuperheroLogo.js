@@ -4,17 +4,17 @@ import { connect } from 'react-redux';
 
 import { activeOverMenuLetters } from '../../../store/actions/menu/letters';
 
-import SupermanLogo from '../../../components/menu/Logo/SupermanLogo';
-import BatmanLogo from '../../../components/menu/Logo/BatmanLogo';
-import WonderWomanLogo from '../../../components/menu/Logo/WonderWomanLogo';
-import FlashLogo from '../../../components/menu/Logo/FlashLogo';
-import GreenLanternLogo from '../../../components/menu/Logo/GreenLanternLogo';
-import GreenArrowLogo from '../../../components/menu/Logo/GreenArrowLogo';
-import AquamanLogo from '../../../components/menu/Logo/AquamanLogo';
-import CyborgLogo from '../../../components/menu/Logo/CyborgLogo';
+import SupermanLogo from './SupermanLogo';
+import BatmanLogo from './BatmanLogo';
+import WonderWomanLogo from './WonderWomanLogo';
+import FlashLogo from './FlashLogo';
+import GreenLanternLogo from './GreenLanternLogo';
+import GreenArrowLogo from './GreenArrowLogo';
+import AquamanLogo from './AquamanLogo';
+import CyborgLogo from './CyborgLogo';
 import { introLogoMenu } from '../../../utils/animations';
 
-class LogoContainer extends Component {
+class SuperheroLogo extends Component {
   componentDidMount() {
     const { isFirstUserTime, activeOverMenuLettersHandler } = this.props;
     const logo = document.querySelectorAll('.superheroLogo_svg');
@@ -74,7 +74,7 @@ const mapDispatchToProps = dispatch => ({
   activeOverMenuLettersHandler: () => dispatch(activeOverMenuLetters())
 });
 
-LogoContainer.propTypes = {
+SuperheroLogo.propTypes = {
   isFirstUserTime: PropTypes.bool.isRequired,
   superheroClass: PropTypes.string.isRequired,
   superheroActive: PropTypes.bool.isRequired,
@@ -85,4 +85,4 @@ LogoContainer.propTypes = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LogoContainer);
+)(SuperheroLogo);
