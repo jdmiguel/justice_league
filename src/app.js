@@ -70,6 +70,7 @@ class App extends Component {
       <Fragment>
         <div className="landscape_container">
           <img alt="landscape forced" src={LandscapeImg} />
+          <p>Coloca tu móvil o tablet en horizontal<br/>para disfrutar de una mejor experiencia.</p>
         </div>
         <a
           href="https://github.com/jdmiguel/website_animated"

@@ -27,12 +27,14 @@
         flex-direction: row;
         justify-content: center;
         align-items: flex-end;
-        margin-bottom: 12px;
+        position: absolute;
+        bottom: 35px;
         @media (min-width: 992px){
+            position: initial;
+            bottom: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 0;
             width: 81px;
         }
         @media (min-width: 1200px){

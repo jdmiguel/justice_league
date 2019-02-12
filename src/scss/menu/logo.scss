@@ -4,9 +4,12 @@
     opacity: 0;
     transform: scale(.5);
     visibility: hidden;
-    max-width: 65vh;
+    max-width: 50vh;
     @include flexContainer();
     @include transition(all,.7s, cubic-bezier(0.215, 0.61, 0.355, 1),0);
+    @media (min-width: 992px){
+        width: 65vw;
+    }
     &.superman{
         &.highlight{
             .superheroLogo_path{

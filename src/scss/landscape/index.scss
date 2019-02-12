@@ -9,7 +9,13 @@
     justify-content: center;
     align-items: center;
     img{
-        width: 70%;
+        width: 55%;
+        margin-bottom: 40px;
+    }
+    p{
+        @include font('Cinzel',0.95em,400);
+        text-align: center;
+        line-height: 1.3em;
     }
     @media (orientation: landscape){
         display: none;
