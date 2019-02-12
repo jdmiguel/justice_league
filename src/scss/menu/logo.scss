@@ -6,7 +6,7 @@
     visibility: hidden;
     max-width: 65vh;
     @include flexContainer();
-    @include transition(all,.7s, ease-out,0);
+    @include transition(all,.7s, cubic-bezier(0.215, 0.61, 0.355, 1),0);
     &.superman{
         &.highlight{
             .superheroLogo_path{
@@ -84,11 +84,12 @@
         @include transition(all,.7s, ease-out,0);
     }
     &.active{
-        opacity: 1;
+        opacity: 0.6;
         visibility: visible;
         transform: scale(1);
     }
     &.highlight{
+        opacity: 0.8;
         transform: scale(1.05);
         .superheroLogo_svg{
             opacity: 1;

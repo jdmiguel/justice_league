@@ -11,38 +11,40 @@ export const introLogoIntro = (
 ) => {
   TweenMax.fromTo(
     firstElementToAnimate,
-    2.2,
+    1.8,
     {
-      alpha: 0,
-      scale: 2,
+      autoAlpha: 0,
+      rotationX: 90,
+      scale: 0.2,
       transformOrigin: '50% 50%'
     },
     {
-      delay: 0.5,
-      alpha: 1,
+      delay: 1,
+      autoAlpha: 1,
+      rotationX: 0,
       scale: 1,
       transformOrigin: '50% 50%',
-      ease: Power1.easeInOut
+      ease: Elastic.easeInOut
     }
   );
 
-  TweenMax.to(secondElementToAnimate, 3.5, {
-    delay: 2.2,
+  TweenMax.to(secondElementToAnimate, 2.2, {
+    delay: 2.65,
     fillOpacity: 0.3,
     scale: 0.8,
     transformOrigin: '50% 50%',
     onComplete: () => {
-      callback(callbackParam);
-      setTimeout(() => callback2(callbackParam1, callbackParam2), 500);
+      setTimeout(() => callback(callbackParam), 500);
+      setTimeout(() => callback2(callbackParam1, callbackParam2), 1000);
     },
-    ease: Cubic.easeOut
+    ease: Power1.easeInOut
   });
 };
 
 export const introLettersIntro = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
-    2.4,
+    3,
     {
       cycle: { y: i => (i % 2 ? 200 * (i / 12) : -100 * (i * 0.05)) },
       alpha: 0,
@@ -50,7 +52,7 @@ export const introLettersIntro = elementToAnimate => {
       transformOrigin: '50% 50%'
     },
     {
-      delay: 2,
+      delay: 2.5,
       y: 0,
       alpha: 1,
       fill: '#282828',
@@ -80,7 +82,7 @@ export const outIntro = elementToAnimate => {
 export const introLettersMenu = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
-    1.1,
+    1.5,
     {
       alpha: 0,
       x: -50,
@@ -88,61 +90,61 @@ export const introLettersMenu = elementToAnimate => {
       transformOrigin: '50% 50%'
     },
     {
-      delay: 6,
+      delay: 5.5,
       alpha: 1,
       x: 0,
       rotationY: 0,
       transformOrigin: '50% 50%',
       ease: Power1.easeOut
     },
-    0.08
+    0.1
   );
 };
 
 export const inRightLettersMenu = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
-    0.55,
+    0.6,
     {
       alpha: 0,
       cycle: { x: i => 50 + i * 40 },
       rotationY: 0
     },
     {
-      delay: 0.35,
+      delay: 0.4,
       x: 0,
       alpha: 1,
       rotationY: 0,
       ease: Power1.easeOut
     },
-    0.01
+    0.015
   );
 };
 
 export const inLeftLettersMenu = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
-    0.55,
+    0.6,
     {
       alpha: 0,
       cycle: { x: i => -200 + i * 20 },
       rotationY: 0
     },
     {
-      delay: 0.35,
+      delay: 0.4,
       x: 0,
       alpha: 1,
       rotationY: 0,
       ease: Power1.easeOut
     },
-    0.01
+    0.015
   );
 };
 
 export const outRightLettersMenu = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
-    0.4,
+    0.47,
     {
       alpha: 1,
       x: 0,
@@ -152,16 +154,16 @@ export const outRightLettersMenu = elementToAnimate => {
       cycle: { x: i => 50 + i * 40 },
       alpha: 0,
       rotationY: 0,
-      ease: Power1.easeIn
+      ease: Power1.easeInOut
     },
-    0.01
+    0.012
   );
 };
 
 export const outLeftLettersMenu = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
-    0.4,
+    0.47,
     {
       alpha: 1,
       x: 0,
@@ -171,9 +173,9 @@ export const outLeftLettersMenu = elementToAnimate => {
       cycle: { x: i => -200 + i * 20 },
       alpha: 0,
       rotationY: 0,
-      ease: Power1.easeIn
+      ease: Power1.easeInOut
     },
-    0.01
+    0.012
   );
 };
 
@@ -228,22 +230,17 @@ export const outMenu = (elementToAnimate, callback) => {
 export const inBgCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
-    1.7,
+    2.5,
     {
       autoAlpha: 0,
-      scale: 2,
-      rotation: 15,
-      x: -150,
-      transformOrigin: '50% 50%'
+      x: -50
     },
     {
-      autoAlpha: 0.15,
-      scale: 1,
-      rotation: 0,
       x: 0,
+      autoAlpha: 0.15,
       ease: Power1.easeOut
     }
-  );
+  )
 };
 
 export const inAliasCharacter = elementToAnimate => {
@@ -258,7 +255,7 @@ export const inAliasCharacter = elementToAnimate => {
       delay: 0.15,
       autoAlpha: 1,
       x: 0,
-      ease: Cubic.easeOut
+      ease: Power2.easeOut
     }
   );
 };
@@ -275,7 +272,7 @@ export const inNameCharacter = elementToAnimate => {
       delay: 0.3,
       autoAlpha: 1,
       x: 0,
-      ease: Cubic.easeOut
+      ease: Power2.easeOut
     }
   );
 };
@@ -292,7 +289,7 @@ export const inParagraphCharacter = elementToAnimate => {
       delay: 0.5,
       autoAlpha: 1,
       x: 0,
-      ease: Power2.easeOut
+      ease: Cubic.easeOut
     }
   );
 };
@@ -319,21 +316,20 @@ export const inThumbsCharacter = elementToAnimate => {
 export const inImgCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
-    1.6,
+    0.8,
     {
       autoAlpha: 0,
-      scale: 1.3,
-      webkitFilter: 'blur(25px)',
-      filter: 'blur(25px)',
-      transformOrigin: '50% 50%'
+      webkitFilter: 'blur(10px)',
+      filter: 'blur(10px)',
+      x: -75
     },
     {
       delay: 0.8,
-      autoAlpha: 0.5,
-      scale: 1,
+      autoAlpha: 0.8,
       webkitFilter: 'blur(0)',
       filter: 'blur(0)',
-      ease: Power1.easeOut
+      x:0,
+      ease: Power2.easeOut
     }
   );
 };
@@ -347,7 +343,7 @@ export const inBackBtnCharacter = elementToAnimate => {
       y: 30
     },
     {
-      delay: 1.5,
+      delay: 1.7,
       autoAlpha: 1,
       y: 0,
       ease: Power2.easeOut
@@ -404,19 +400,19 @@ export const outParagraphCharacter = elementToAnimate => {
 };
 
 export const outThumbsCharacter = elementToAnimate => {
-  TweenMax.fromTo(
+  TweenMax.staggerFromTo(
     elementToAnimate,
-    0.4,
+    0.55,
     {
       autoAlpha: 1,
       x: 0
     },
     {
-      delay: 0.1,
+      delay: 0.05,
       autoAlpha: 0,
       x: 270,
-      ease: Power2.easeIn
-    }
+      ease: Back.easeIn
+    },0.025
   );
 };
 
@@ -425,11 +421,13 @@ export const outImgCharacter = elementToAnimate => {
     elementToAnimate,
     0.5,
     {
-      autoAlpha: 0.5,
+      autoAlpha: 0.8,
       x: 0
     },
     {
       autoAlpha: 0,
+      webkitFilter: 'blur(5px)',
+      filter: 'blur(5px)',
       x: -150,
       ease: Power2.easeIn
     }

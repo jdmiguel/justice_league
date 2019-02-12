@@ -143,7 +143,7 @@
         opacity: 0;
         transform: translateX(15px);
         pointer-events: none;
-        @include transition(all,.5s, ease-out,0);
+        @include transition(all,.5s, cubic-bezier(0.215, 0.61, 0.355, 1),0);
         @include font('Cinzel',1em,700);
         @media (min-width: 992px){
             @include font('Cinzel',.9em,700);
