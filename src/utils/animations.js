@@ -230,7 +230,7 @@ export const outMenu = (elementToAnimate, callback) => {
 export const inBgCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
-    2.5,
+    1.5,
     {
       autoAlpha: 0,
       x: -50
@@ -238,7 +238,7 @@ export const inBgCharacter = elementToAnimate => {
     {
       x: 0,
       autoAlpha: 0.15,
-      ease: Power1.easeOut
+      ease: Power1.easeInOut
     }
   )
 };
@@ -263,7 +263,7 @@ export const inAliasCharacter = elementToAnimate => {
 export const inNameCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
-    0.8,
+    0.7,
     {
       autoAlpha: 0,
       x: 150
@@ -280,7 +280,7 @@ export const inNameCharacter = elementToAnimate => {
 export const inParagraphCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
-    0.8,
+    0.7,
     {
       autoAlpha: 0,
       x: 120
@@ -289,7 +289,7 @@ export const inParagraphCharacter = elementToAnimate => {
       delay: 0.5,
       autoAlpha: 1,
       x: 0,
-      ease: Cubic.easeOut
+      ease: Power2.easeOut
     }
   );
 };
@@ -316,7 +316,7 @@ export const inThumbsCharacter = elementToAnimate => {
 export const inImgCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
-    0.8,
+    0.7,
     {
       autoAlpha: 0,
       webkitFilter: 'blur(10px)',
@@ -324,7 +324,7 @@ export const inImgCharacter = elementToAnimate => {
       x: -75
     },
     {
-      delay: 0.8,
+      delay: 0.85,
       autoAlpha: 0.8,
       webkitFilter: 'blur(0)',
       filter: 'blur(0)',
