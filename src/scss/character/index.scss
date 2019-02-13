@@ -169,7 +169,10 @@
         min-height: 140px;
     }
     img{
-        margin-bottom: 3em;
+        margin-bottom: 2em;
+        @media (min-width: 992px){
+            margin-bottom: 3em;
+        }
         @media (min-width: 1400px){
             margin-bottom: 0;
         }

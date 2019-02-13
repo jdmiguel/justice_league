@@ -344,20 +344,14 @@ export const inBackBtnCharacter = elementToAnimate => {
 export const outBgCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
-    1.1,
+    0.35,
     {
-      autoAlpha: 0.15,
-      scale: 1,
-      rotation: 0,
-      x: 0,
-      transformOrigin: '50% 50%'
+      autoAlpha: 0.15
     },
     {
+      delay: 0.6,
       autoAlpha: 0,
-      scale: 1.8,
-      rotation: 15,
-      x: 200,
-      ease: Power1.easeInOut
+      ease: Power3.easeIn
     }
   );
 };
@@ -365,7 +359,7 @@ export const outBgCharacter = elementToAnimate => {
 export const outImgCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
-    0.5,
+    0.45,
     {
       autoAlpha: 0.7,
       x: 0
@@ -373,7 +367,7 @@ export const outImgCharacter = elementToAnimate => {
     {
       autoAlpha: 0,
       x: -75,
-      ease: Power2.easeIn
+      ease: Power3.easeIn
     }
   );
 };
@@ -430,16 +424,14 @@ export const outParagraphCharacter = elementToAnimate => {
 export const outThumbsCharacter = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
-    0.45,
+    0.4,
     {
-      autoAlpha: 1,
-      y: 0
+      autoAlpha: 1
     },
     {
-      delay: 0.18,
+      delay: 0.15,
       autoAlpha: 0,
-      cycle: { y: i => ((i+1) * 40) },
-      ease: Cubic.easeIn
+      ease: Power1.easeOut
     },0.05
   );
 };

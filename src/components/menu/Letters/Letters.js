@@ -169,22 +169,22 @@ class Letters extends Component {
     activedLetters.forEach((letter, i) => {
       if (i < superheroBreakpointCharacter) {
         TweenMax.to(letter, 1, {
-          x: `${this.getDistance(i, 2)}`,
+          x: `${this.getDistance(i, 1.4)}`,
           autoAlpha: 0,
           ease: Power1.easeOut
         });
       }
 
       if (i === superheroBreakpointCharacter) {
-        TweenMax.to(letter, 1.2, {
+        TweenMax.to(letter, 1, {
           autoAlpha: 0,
           ease: Power1.easeOut
         });
       }
 
       if (i > superheroBreakpointCharacter) {
-        TweenMax.to(letter, 1.2, {
-          x: `${this.getDistance(i, 2)}`,
+        TweenMax.to(letter, 1, {
+          x: `${this.getDistance(i, 1.4)}`,
           autoAlpha: 0,
           ease: Power1.easeOut
         });
