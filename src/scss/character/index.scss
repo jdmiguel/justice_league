@@ -210,7 +210,7 @@
                 left: 0;
                 bottom: 0;
                 background: $darkWhite;
-                @include transition(all,.35s, ease-in-out,0);
+                @include transition(all,.3s, cubic-bezier(0.215, 0.61, 0.355, 1),0);
                 transform: scaleX(0);
             }
         }

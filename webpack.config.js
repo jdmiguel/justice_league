@@ -18,7 +18,6 @@ module.exports = {
     vendor: [
       './vendor/Hammer.min.js',
       './vendor/gsap/TweenMax.min.js',
-      './vendor/gsap/TimelineMax.min.js',
       './vendor/gsap/utils/SplitText.min.js',
       './vendor/gsap/plugins/DrawSVGPlugin.js'
     ],

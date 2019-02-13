@@ -243,15 +243,11 @@ export const inImgCharacter = elementToAnimate => {
     0.6,
     {
       autoAlpha: 0,
-      webkitFilter: 'blur(5px)',
-      filter: 'blur(5px)',
       x: -75
     },
     {
       delay: 0.15,
       autoAlpha: 0.7,
-      webkitFilter: 'blur(1px)',
-      filter: 'blur(1px)',
       x:0,
       ease: Power2.easeOut
     }
@@ -371,7 +367,7 @@ export const outImgCharacter = elementToAnimate => {
     elementToAnimate,
     0.5,
     {
-      autoAlpha: 0.8,
+      autoAlpha: 0.7,
       x: 0
     },
     {

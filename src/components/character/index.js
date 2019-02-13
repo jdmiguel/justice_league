@@ -124,17 +124,21 @@ class Character extends Component {
                 </div>
                 <div className="character_txt_footer">
                   <div className="character_txt_footer_img_container row">
-                    <img className="col-lg-4 col-sm-12"
+                    <img className="col-lg-3 col-sm-12"
                       alt={character.alias}
                       src={character.thumbPath1}
                     />
-                    <img className="col-lg-4 col-sm-12"
+                    <img className="col-lg-3 col-sm-12"
                       alt={character.alias}
                       src={character.thumbPath2}
                     />
-                    <img className="col-lg-4 col-sm-12"
+                    <img className="col-lg-3 col-sm-12"
                       alt={character.alias}
                       src={character.thumbPath3}
+                    />
+                    <img className="col-lg-3 col-sm-12"
+                      alt={character.alias}
+                      src={character.thumbPath4}
                     />
                   </div>
                 </div>
