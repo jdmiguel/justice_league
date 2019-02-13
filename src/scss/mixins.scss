@@ -87,10 +87,10 @@
     background: $color;
     background-image: $url;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 80%;
     background-position: 50%;
     @media (min-width: 992px){
-        background-position: calc(50% - 500px) 15%;
+        background-position: calc(50% + 500px) 15%;
     }
     background-blend-mode: soft-light;
 }

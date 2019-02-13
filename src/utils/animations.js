@@ -228,34 +228,49 @@ export const outMenu = (elementToAnimate, callback) => {
 // CHARACTER ANIMATIONS
 
 export const inBgCharacter = elementToAnimate => {
+  TweenMax.from(elementToAnimate, 
+              2,
+                { 
+                  delay: 0.05,
+                  autoAlpha: 0, 
+                  ease: Elastic.easeOut 
+                });
+};
+
+export const inImgCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
-    1.5,
+    0.6,
     {
       autoAlpha: 0,
-      x: -50
+      webkitFilter: 'blur(5px)',
+      filter: 'blur(5px)',
+      x: -75
     },
     {
-      x: 0,
-      autoAlpha: 0.15,
-      ease: Power1.easeInOut
+      delay: 0.15,
+      autoAlpha: 0.7,
+      webkitFilter: 'blur(1px)',
+      filter: 'blur(1px)',
+      x:0,
+      ease: Power2.easeOut
     }
-  )
+  );
 };
 
 export const inAliasCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
-    0.8,
+    0.5,
     {
       autoAlpha: 0,
       x: 200
     },
     {
-      delay: 0.15,
+      delay: 0.05,
       autoAlpha: 1,
       x: 0,
-      ease: Power2.easeOut
+      ease: Power3.easeOut
     }
   );
 };
@@ -263,16 +278,16 @@ export const inAliasCharacter = elementToAnimate => {
 export const inNameCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
-    0.7,
+    0.62,
     {
       autoAlpha: 0,
       x: 150
     },
     {
-      delay: 0.3,
+      delay: 0.15,
       autoAlpha: 1,
       x: 0,
-      ease: Power2.easeOut
+      ease: Power3.easeOut
     }
   );
 };
@@ -286,7 +301,7 @@ export const inParagraphCharacter = elementToAnimate => {
       x: 120
     },
     {
-      delay: 0.5,
+      delay: 0.22,
       autoAlpha: 1,
       x: 0,
       ease: Power2.easeOut
@@ -297,40 +312,19 @@ export const inParagraphCharacter = elementToAnimate => {
 export const inThumbsCharacter = elementToAnimate => {
   TweenMax.staggerFromTo(
     elementToAnimate,
-    0.7,
+    0.5,
     {
       autoAlpha: 0,
-      scale: 0.7,
-      transformOrigin: '50% 50%'
+      transformOrigin: '50% 50%',
+      cycle: { y: i => ((i+1) % 2 ? 40 : ((i+1) * -40)) },
     },
     {
-      delay: 0.7,
+      delay: 0.32,
       autoAlpha: 1,
-      scale: 1,
+      y: 0,
       ease: Back.easeInOut
     },
-    0.25
-  );
-};
-
-export const inImgCharacter = elementToAnimate => {
-  TweenMax.fromTo(
-    elementToAnimate,
-    0.7,
-    {
-      autoAlpha: 0,
-      webkitFilter: 'blur(10px)',
-      filter: 'blur(10px)',
-      x: -75
-    },
-    {
-      delay: 0.85,
-      autoAlpha: 0.8,
-      webkitFilter: 'blur(0)',
-      filter: 'blur(0)',
-      x:0,
-      ease: Power2.easeOut
-    }
+    0.08
   );
 };
 
@@ -343,7 +337,7 @@ export const inBackBtnCharacter = elementToAnimate => {
       y: 30
     },
     {
-      delay: 1.7,
+      delay: 0.75,
       autoAlpha: 1,
       y: 0,
       ease: Power2.easeOut
@@ -351,68 +345,24 @@ export const inBackBtnCharacter = elementToAnimate => {
   );
 };
 
-export const outAliasCharacter = elementToAnimate => {
+export const outBgCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
-    0.5,
+    1.1,
     {
-      autoAlpha: 1,
-      x: 0
+      autoAlpha: 0.15,
+      scale: 1,
+      rotation: 0,
+      x: 0,
+      transformOrigin: '50% 50%'
     },
     {
       autoAlpha: 0,
+      scale: 1.8,
+      rotation: 15,
       x: 200,
-      ease: Power2.easeIn
+      ease: Power1.easeInOut
     }
-  );
-};
-
-export const outNameCharacter = elementToAnimate => {
-  TweenMax.fromTo(
-    elementToAnimate,
-    0.5,
-    {
-      autoAlpha: 1,
-      x: 0
-    },
-    {
-      autoAlpha: 0,
-      x: 220,
-      ease: Power2.easeIn
-    }
-  );
-};
-
-export const outParagraphCharacter = elementToAnimate => {
-  TweenMax.fromTo(
-    elementToAnimate,
-    0.5,
-    {
-      autoAlpha: 1,
-      x: 0
-    },
-    {
-      autoAlpha: 0,
-      x: 250,
-      ease: Power2.easeIn
-    }
-  );
-};
-
-export const outThumbsCharacter = elementToAnimate => {
-  TweenMax.staggerFromTo(
-    elementToAnimate,
-    0.55,
-    {
-      autoAlpha: 1,
-      x: 0
-    },
-    {
-      delay: 0.05,
-      autoAlpha: 0,
-      x: 270,
-      ease: Back.easeIn
-    },0.025
   );
 };
 
@@ -426,11 +376,75 @@ export const outImgCharacter = elementToAnimate => {
     },
     {
       autoAlpha: 0,
-      webkitFilter: 'blur(5px)',
-      filter: 'blur(5px)',
-      x: -150,
+      x: -75,
       ease: Power2.easeIn
     }
+  );
+};
+
+
+export const outAliasCharacter = elementToAnimate => {
+  TweenMax.fromTo(
+    elementToAnimate,
+    0.4,
+    {
+      autoAlpha: 1,
+    },
+    {
+      delay: 0.05,
+      autoAlpha: 0,
+      x: 50,
+      ease: Cubic.easeIn
+    }
+  );
+};
+
+export const outNameCharacter = elementToAnimate => {
+  TweenMax.fromTo(
+    elementToAnimate,
+    0.4,
+    {
+      autoAlpha: 1
+    },
+    {
+      delay: 0.08,
+      autoAlpha: 0,
+      x: 50,
+      ease: Cubic.easeIn
+    }
+  );
+};
+
+export const outParagraphCharacter = elementToAnimate => {
+  TweenMax.fromTo(
+    elementToAnimate,
+    0.4,
+    {
+      autoAlpha: 1
+    },
+    {
+      delay: 0.12,
+      autoAlpha: 0,
+      x: 50,
+      ease: Cubic.easeIn
+    }
+  );
+};
+
+export const outThumbsCharacter = elementToAnimate => {
+  TweenMax.staggerFromTo(
+    elementToAnimate,
+    0.45,
+    {
+      autoAlpha: 1,
+      y: 0
+    },
+    {
+      delay: 0.18,
+      autoAlpha: 0,
+      cycle: { y: i => ((i+1) * 40) },
+      ease: Cubic.easeIn
+    },0.05
   );
 };
 
@@ -447,27 +461,6 @@ export const outBackBtnCharacter = elementToAnimate => {
       autoAlpha: 0,
       y: 30,
       ease: Power2.easeIn
-    }
-  );
-};
-
-export const outBgCharacter = elementToAnimate => {
-  TweenMax.fromTo(
-    elementToAnimate,
-    1.2,
-    {
-      autoAlpha: 0.15,
-      scale: 1,
-      rotation: 0,
-      x: 0,
-      transformOrigin: '50% 50%'
-    },
-    {
-      autoAlpha: 0,
-      scale: 1.8,
-      rotation: 15,
-      x: 200,
-      ease: Power1.easeInOut
     }
   );
 };

@@ -103,12 +103,14 @@ class Character extends Component {
 
     return (
       <div className={`character_container ${character.class}`}>
-        <div className={`character_bg ${character.class}`} />
+        <div className={`character_bg ${character.class}`}/>
         <div className="character_content container-fluid">
           <div className="character_main row">
             <div className="character_block_left col-lg-5 col-md-12">
               <div className="character_image">
-                <img alt={character.alias} src={character.imgPath} />
+                <img alt={character.alias} 
+                    src={character.imgPath}
+                />
               </div>
             </div>
             <div className="character_block_right col-lg-6 col-md-12">
@@ -122,18 +124,15 @@ class Character extends Component {
                 </div>
                 <div className="character_txt_footer">
                   <div className="character_txt_footer_img_container row">
-                    <img
-                      className="col-lg-4 col-sm-12"
+                    <img className="col-lg-4 col-sm-12"
                       alt={character.alias}
                       src={character.thumbPath1}
                     />
-                    <img
-                      className="col-lg-4 col-sm-12"
+                    <img className="col-lg-4 col-sm-12"
                       alt={character.alias}
                       src={character.thumbPath2}
                     />
-                    <img
-                      className="col-lg-4 col-sm-12"
+                    <img className="col-lg-4 col-sm-12"
                       alt={character.alias}
                       src={character.thumbPath3}
                     />
