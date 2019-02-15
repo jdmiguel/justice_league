@@ -15,7 +15,7 @@ const GreenArrowLogo = ({ classes }) => (
     >
       <path
         stroke="#0d5f0f"
-        strokeWidth="4"
+        strokeWidth="3"
         strokeMiterlimit="10"
         fill="#000000"
         fillOpacity="0.5"

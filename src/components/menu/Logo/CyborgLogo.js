@@ -15,7 +15,7 @@ const CyborgLogo = ({ classes }) => (
     >
       <path
         stroke="#9e0306"
-        strokeWidth="5"
+        strokeWidth="3"
         strokeMiterlimit="10"
         fill="#000000"
         fillOpacity="0.5"

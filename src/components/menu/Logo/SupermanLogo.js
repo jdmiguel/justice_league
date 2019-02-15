@@ -15,7 +15,7 @@ const SupermanLogo = ({ classes }) => (
     >
       <path
         stroke="#10548c"
-        strokeWidth="5"
+        strokeWidth="3"
         strokeMiterlimit="10"
         fill="#000000"
         fillOpacity="0.5"

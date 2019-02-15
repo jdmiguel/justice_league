@@ -15,7 +15,7 @@ const FlashLogo = ({ classes }) => (
     >
       <path
         stroke="#c01518"
-        strokeWidth="5"
+        strokeWidth="3"
         strokeMiterlimit="10"
         fill="#000000"
         fillOpacity="0.5"

@@ -15,7 +15,7 @@ const GreenLanternLogo = ({ classes }) => (
     >
       <path
         stroke="#09a609"
-        strokeWidth="4"
+        strokeWidth="3"
         strokeMiterlimit="10"
         fill="#000000"
         fillOpacity="0.5"

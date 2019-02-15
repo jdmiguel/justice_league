@@ -1,10 +1,7 @@
 .menuCharacters_logo{
     position: absolute;
     z-index: 2;
-    //transform: scale(.2) rotate(90deg);
     @include transition(all,.7s, ease-out,0);
-    
-    //transform-origin: 50%;
     max-width: 50vh;
     @include flexContainer();
     
@@ -32,14 +29,10 @@
         opacity: 0;
         transform-origin: 50%;
         transform: scale(1.2) rotate(120deg);
-        // stroke-dashoffset: 0;
-        // stroke-dasharray: 1000 30;
-        //@include transition(all,0.6s,cubic-bezier(0.95, 0.05, 0.795, 0.035),0);
         @include transition(all,.6s, ease-in,0);
     }
 
     &.active{
-        
         .superheroLogo_path{
             transform: scale(1) rotate(0);
             opacity: 0.8;
@@ -47,15 +40,6 @@
     }
     
      &.superman{
-    //     .superheroLogo_path{
-    //         stroke-dashoffset: 1000;
-    //         stroke-dasharray: 1000 50;
-    //     }
-    //     &.active{
-    //         .superheroLogo_path{
-    //             stroke-dashoffset: 0;
-    //         }
-    //     }
         &.highlight{
             .superheroLogo_path{
                 fill: $blueSuperman;
@@ -64,15 +48,6 @@
     }
    
     &.batman{
-        // .superheroLogo_path{
-        //     stroke-dashoffset: 1000;
-        //     stroke-dasharray: 1000 50;
-        // }
-        // &.active{
-        //     .superheroLogo_path{
-        //         stroke-dashoffset: 0;
-        //     }
-        // }
         &.highlight{
             .superheroLogo_path{
                 fill: $greyBatman;
@@ -81,15 +56,6 @@
     }
     
     &.wonderwoman{
-        // .superheroLogo_path{
-        //     stroke-dashoffset: 1000;
-        //     stroke-dasharray: 1000 50;
-        // }
-        // &.active{
-        //     .superheroLogo_path{
-        //         stroke-dashoffset: 0;
-        //     }
-        // }
         &.highlight{
             .superheroLogo_path{
                 fill: $orangeWonder;
@@ -98,15 +64,6 @@
     }
 
     &.flash{
-        // .superheroLogo_path{
-        //     stroke-dashoffset: 1000;
-        //     stroke-dasharray: 1000 50;
-        // }
-        // &.active{
-        //     .superheroLogo_path{
-        //         stroke-dashoffset: 0;
-        //     }
-        // }
         &.highlight{
             .superheroLogo_path{
                 fill: $redFlash;
@@ -114,15 +71,6 @@
         }
     }
     &.greenlantern{
-        // .superheroLogo_path{
-        //     stroke-dashoffset: 1000;
-        //     stroke-dasharray: 1000 30;
-        // }
-        // &.active{
-        //     .superheroLogo_path{
-        //         stroke-dashoffset: 0;
-        //     }
-        // }
         &.highlight{
             .superheroLogo_path{
                 fill: $greenLantern;
@@ -130,15 +78,6 @@
         }
     }
     &.greenarrow{
-        // .superheroLogo_path{
-        //     stroke-dashoffset: 1000;
-        //     stroke-dasharray: 1000 70;
-        // }
-        // &.active{
-        //     .superheroLogo_path{
-        //         stroke-dashoffset: 0;
-        //     }
-        // }
         &.highlight{
             .superheroLogo_path{
                 fill: $greenArrow;
@@ -146,15 +85,6 @@
         }
     }
     &.aquaman{
-        // .superheroLogo_path{
-        //     stroke-dashoffset: 1000;
-        //     stroke-dasharray: 1000 50;
-        // }
-        // &.active{
-        //     .superheroLogo_path{
-        //         stroke-dashoffset: 0;
-        //     }
-        // }
         &.highlight{
             .superheroLogo_path{
                 fill: $yellowAquaman;
@@ -162,16 +92,6 @@
         }
     }
     &.cyborg{
-        // .superheroLogo_path{
-        //     stroke-dashoffset: 1000;
-        //     stroke-dasharray: 1000 10;
-        // }
-        // &.active{
-        //     .superheroLogo_path{
-        //         stroke-dashoffset: 0;
-        //         opacity: 1;
-        //     }
-        // }
         &.highlight{
             .superheroLogo_path{
                 fill: $redCyborg;
@@ -184,7 +104,6 @@
         .superheroLogo_path{
             fill-opacity: .8;
             stroke-width: 0;
-            // stroke-dashoffset: 1000;
         }
     }
 }

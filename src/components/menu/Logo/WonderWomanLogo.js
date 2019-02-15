@@ -15,7 +15,7 @@ const WonderWomanLogo = ({ classes }) => (
     >
       <path
         stroke="#c06711"
-        strokeWidth="5"
+        strokeWidth="3"
         strokeMiterlimit="10"
         fill="#000000"
         fillOpacity="0.5"

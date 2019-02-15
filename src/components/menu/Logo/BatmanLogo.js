@@ -18,7 +18,7 @@ const BatmanLogo = ({ classes }) => (
     >
       <path
         stroke="#404040"
-        strokeWidth="5"
+        strokeWidth="3"
         strokeMiterlimit="10"
         fill="#000000"
         fillOpacity="0.5"
