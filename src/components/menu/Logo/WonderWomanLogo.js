@@ -14,7 +14,10 @@ const WonderWomanLogo = ({ classes }) => (
       xmlSpace="preserve"
     >
       <path
-        fill="#b4b4b4"
+        stroke="#c06711"
+        strokeWidth="5"
+        strokeMiterlimit="10"
+        fill="#000000"
         fillOpacity="0.5"
         className="superheroLogo_path"
         d="M85.562,94c0,0,36.672-2.375,59.695,40.858l41.106,74.835L249.824,94.1l63.451,115.592l41.11-74.835

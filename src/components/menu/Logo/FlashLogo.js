@@ -14,7 +14,10 @@ const FlashLogo = ({ classes }) => (
       xmlSpace="preserve"
     >
       <path
-        fill="#b4b4b4"
+        stroke="#c01518"
+        strokeWidth="5"
+        strokeMiterlimit="10"
+        fill="#000000"
         fillOpacity="0.5"
         className="superheroLogo_path"
         d="M-0.899,250c0-138.076,111.927-250.002,249.996-250.002c25.711,0,50.514,3.887,73.859,11.096

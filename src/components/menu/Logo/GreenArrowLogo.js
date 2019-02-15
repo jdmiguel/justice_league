@@ -14,7 +14,10 @@ const GreenArrowLogo = ({ classes }) => (
       xmlSpace="preserve"
     >
       <path
-        fill="#b4b4b4"
+        stroke="#0d5f0f"
+        strokeWidth="4"
+        strokeMiterlimit="10"
+        fill="#000000"
         fillOpacity="0.5"
         className="superheroLogo_path"
         d="M402.469,317.87c14.103,29.534,28.221,59.06,42.33,88.589c-4.359,5.409-8.927,10.643-13.714,15.667

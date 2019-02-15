@@ -14,7 +14,10 @@ const AquamanLogo = ({ classes }) => (
       xmlSpace="preserve"
     >
       <path
-        fill="#b4b4b4"
+        stroke="#d6ab1c"
+        strokeWidth="5"
+        strokeMiterlimit="10"
+        fill="#000000"
         fillOpacity="0.5"
         className="superheroLogo_path"
         d="M307.453,6.315c31.71,50.747,62.858,101.841,93.464,153.272c29.776,50.037,59.015,100.383,87.555,151.135
