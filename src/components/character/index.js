@@ -28,74 +28,62 @@ class Character extends Component {
     const character = characterList[characterActive];
 
     this.state = {
-      character,
-      containerCharacter: null,
-      bgCharacter: null,
-      aliasCharacter: null,
-      nameCharacter: null,
-      thumbsCharacter: null,
-      imgCharacter: null,
-      BackBtnCharacter: null
+      character
     };
+
+    this.containerCharacter = null;
+    this.blockLeft = null;
+    this.blockRight = null;
+    this.bgCharacter = null;
+    this.headerCharacter = null;
+    this.aliasCharacter = null;
+    this.nameCharacter = null;
+    this.paragraphCharacter = null;
+    this.thumbsContainerCharacter = null;
+    this.thumbsCharacter = null;
+    this.imgCharacter = null;
+    this.BackBtnCharacter = null;
 
     this.backMenu = this.backMenu.bind(this);
   }
 
   componentDidMount() {
-    const containerCharacter = document.querySelector('.character_container');
-    const bgCharacter = document.querySelector('.character_bg');
-    const headerCharacter = document.querySelector('.character_txt_header');
-    const aliasCharacter = headerCharacter.querySelector('h1');
-    const nameCharacter = headerCharacter.querySelector('h2');
-    const paragraphCharacter = document.querySelector('.character_txt_body');
-    const thumbsContainerCharacter = document.querySelector(
+    this.containerCharacter = document.querySelector('.character_container');
+    this.blockLeft = document.querySelector('.character_block_left');
+    this.blockRight = document.querySelector('.character_block_right');
+    this.bgCharacter = document.querySelector('.character_bg');
+    this.headerCharacter = document.querySelector('.character_txt_header');
+    this.aliasCharacter = this.headerCharacter.querySelector('h1');
+    this.nameCharacter = this.headerCharacter.querySelector('h2');
+    this.paragraphCharacter = document.querySelector('.character_txt_body');
+    this.thumbsContainerCharacter = document.querySelector(
       '.character_txt_footer_img_container'
     );
-    const thumbsCharacter = thumbsContainerCharacter.querySelectorAll('img');
-    const imgCharacter = document.querySelector('.character_image');
-    const BackBtnCharacter = document.querySelector('.character_btn_back');
+    this.thumbsCharacter = this.thumbsContainerCharacter.querySelectorAll('img');
+    this.imgCharacter = document.querySelector('.character_image');
+    this.BackBtnCharacter = document.querySelector('.character_btn_back');
 
-    this.setState({
-      containerCharacter,
-      bgCharacter,
-      aliasCharacter,
-      nameCharacter,
-      paragraphCharacter,
-      thumbsCharacter,
-      imgCharacter,
-      BackBtnCharacter
-    });
-
-    inBgCharacter(bgCharacter);
-    inAliasCharacter(aliasCharacter);
-    inNameCharacter(nameCharacter);
-    inParagraphCharacter(paragraphCharacter);
-    inThumbsCharacter(thumbsCharacter);
-    inImgCharacter(imgCharacter);
-    inBackBtnCharacter(BackBtnCharacter);
+    inBgCharacter(this.bgCharacter);
+    inAliasCharacter(this.aliasCharacter);
+    inNameCharacter(this.nameCharacter);
+    inParagraphCharacter(this.paragraphCharacter);
+    inThumbsCharacter(this.thumbsCharacter);
+    inImgCharacter(this.imgCharacter);
+    inBackBtnCharacter(this.BackBtnCharacter);
   }
+  
 
   backMenu() {
     const { onClickBackBtn } = this.props;
-    const {
-      containerCharacter,
-      bgCharacter,
-      aliasCharacter,
-      nameCharacter,
-      paragraphCharacter,
-      thumbsCharacter,
-      imgCharacter,
-      BackBtnCharacter
-    } = this.state;
 
-    outAliasCharacter(aliasCharacter);
-    outNameCharacter(nameCharacter);
-    outParagraphCharacter(paragraphCharacter);
-    outThumbsCharacter(thumbsCharacter);
-    outImgCharacter(imgCharacter);
-    outBackBtnCharacter(BackBtnCharacter);
-    outBgCharacter(bgCharacter);
-    outContainerCharacter(containerCharacter, onClickBackBtn);
+    outAliasCharacter(this.aliasCharacter);
+    outNameCharacter(this.nameCharacter);
+    outParagraphCharacter(this.paragraphCharacter);
+    outThumbsCharacter(this.thumbsCharacter);
+    outImgCharacter(this.imgCharacter);
+    outBackBtnCharacter(this.BackBtnCharacter);
+    outBgCharacter(this.bgCharacter);
+    outContainerCharacter(this.containerCharacter, onClickBackBtn);
   }
 
   render() {

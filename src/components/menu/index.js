@@ -23,13 +23,15 @@ import { outMenu } from '../../utils/animations';
 class Menu extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      menuNode: null,
       onMouseWheel: false,
       onSwipe: false,
       delayOnMouseWheel: null,
       delayOnSwipe: null
     };
+
+    this.menuNode = null;
 
     this.onClickLettersHandler = this.onClickLettersHandler.bind(this);
     this.changeMenuBySideDrawer = this.changeMenuBySideDrawer.bind(this);
@@ -37,32 +39,26 @@ class Menu extends Component {
   }
 
   componentDidMount() {
-    const menuNode = document.querySelector('.menu_container');
+    this.menuNode = document.querySelector('.menu_container');
 
-    this.setState({
-      menuNode
-    });
-
-    menuNode.addEventListener('mousewheel', event =>
+    this.menuNode.addEventListener('mousewheel', event =>
       this.mouseWheelHandler(event)
     );
-    menuNode.addEventListener('DOMMouseScroll', event =>
+    this.menuNode.addEventListener('DOMMouseScroll', event =>
       this.mouseWheelHandler(event)
     );
 
-    this.swipeManager = new Hammer.Manager(menuNode);
+    this.swipeManager = new Hammer.Manager(this.menuNode);
     this.swipeEvent = new Hammer.Swipe('DIRECTION_ALL');
     this.swipeManager.add(this.swipeEvent);
     this.swipeManager.on('swipe', this.onSwipePress);
   }
 
   componentWillUnmount() {
-    const { menuNode } = this.state;
-
-    menuNode.removeEventListener('mousewheel', event =>
+    this.menuNode.removeEventListener('mousewheel', event =>
       this.mouseWheelHandler(event)
     );
-    menuNode.removeEventListener('DOMMouseScroll', event =>
+    this.menuNode.removeEventListener('DOMMouseScroll', event =>
       this.mouseWheelHandler(event)
     );
 
