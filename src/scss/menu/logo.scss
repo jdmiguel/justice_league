@@ -12,6 +12,7 @@
     .superheroLogo_svg{
         width: 29vw;
         overflow: visible;
+        @include transition(all,.7s, ease-out,0);
         @media (min-width: 768px){
             width: 33vw;
         }
@@ -31,6 +32,12 @@
         transform-origin: 50%;
         transform: scale(1.5) rotate(120deg);
         @include transition(all,.6s, ease-in,0);
+    }
+    &.move {
+        .superheroLogo_svg{
+            animation: menuLogoAnim 10s linear 3s infinite alternate;
+        }
+        
     }
 
     &.active{
@@ -102,9 +109,18 @@
     
     &.highlight{
         transform: scale(1.15);
+        animation: none;
         .superheroLogo_path{
             fill-opacity: .8;
             stroke-width: 0;
         }
     }
+}
+
+@keyframes menuLogoAnim {
+    0%   {transform: translateX(0) translateY(0) scale(1)}
+    25%   {transform: translateX(-4px) translateY(-3px) scale(1.04)}
+    50%  {transform: translateX(0) translateY(2px) scale(0.98)}
+    75%  {transform: translateX(2px) translateY(-2px) scale(0.99)}
+    100%  {transform: translateX(-2px) translateY(2px) scale(0.96)}
 }

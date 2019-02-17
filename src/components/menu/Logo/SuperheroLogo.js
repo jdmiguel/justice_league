@@ -32,9 +32,12 @@ class SuperheroLogo extends Component {
 
     if (superheroActive) {
       listClasses.push('active');
+      listClasses.push('move');
     }
 
     if (superheroActive && isActiveMenuLettersAnimation) {
+      const moveIndex = listClasses.findIndex( item => item === 'move' );
+      listClasses.splice(moveIndex,1);
       listClasses.push('highlight');
     }
 
