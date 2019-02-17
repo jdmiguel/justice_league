@@ -311,7 +311,6 @@ export const inThumbsCharacter = elementToAnimate => {
     0.5,
     {
       autoAlpha: 0,
-      transformOrigin: '50% 50%',
       cycle: { x: i => ((i+1) * 30) },
     },
     {
@@ -344,15 +343,16 @@ export const inBackBtnCharacter = elementToAnimate => {
 export const outBackBtnCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
-    0.5,
+    0.35,
     {
       autoAlpha: 1,
-      y: 0
+      transformOrigin: '50% 50%',
+      scale: 1
     },
     {
       autoAlpha: 0,
-      y: 30,
-      ease: Power2.easeIn
+      scale: 0.5,
+      ease: Back.easeIn
     }
   );
 };
