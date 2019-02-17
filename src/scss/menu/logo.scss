@@ -29,7 +29,7 @@
     .superheroLogo_path{
         opacity: 0;
         transform-origin: 50%;
-        transform: scale(1.15) rotate(120deg);
+        transform: scale(1.5) rotate(120deg);
         @include transition(all,.6s, ease-in,0);
     }
 

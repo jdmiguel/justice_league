@@ -9,27 +9,39 @@ export const introLogoIntro = (
   callbackParam1,
   callbackParam2
 ) => {
+
   TweenMax.fromTo(
     firstElementToAnimate,
-    1.8,
+    0.8,
     {
-      autoAlpha: 0,
-      rotationX: 90,
-      scale: 0.2,
+      y: '-130%',
       transformOrigin: '50% 50%'
     },
     {
-      delay: 1,
-      autoAlpha: 1,
-      rotationX: 0,
-      scale: 1,
+      delay: 0.8,
+      y: '130%',
+      transformOrigin: '50% 50%',
+      ease: Power2.easeIn
+    }
+  );
+
+  TweenMax.fromTo(
+    firstElementToAnimate,
+    1,
+    {
+      y: '-130%',
+      transformOrigin: '50% 50%'
+    },
+    {
+      delay: 1.8,
+      y: '0%',
       transformOrigin: '50% 50%',
       ease: Elastic.easeInOut
     }
   );
 
   TweenMax.to(secondElementToAnimate, 2.2, {
-    delay: 2.65,
+    delay: 3.7,
     fillOpacity: 0.3,
     scale: 0.8,
     transformOrigin: '50% 50%',
@@ -52,7 +64,7 @@ export const introLettersIntro = elementToAnimate => {
       transformOrigin: '50% 50%'
     },
     {
-      delay: 2.5,
+      delay: 3.5,
       y: 0,
       alpha: 1,
       fill: '#282828',
@@ -64,7 +76,7 @@ export const introLettersIntro = elementToAnimate => {
   TweenMax.to(elementToAnimate, 2, {
     delay: 2.8,
     drawSVG: 0,
-    stroke: '#757575',
+    stroke: '#FFFFFF',
     ease: Power1.easeInOut
   });
 };
