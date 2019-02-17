@@ -312,13 +312,13 @@ export const inThumbsCharacter = elementToAnimate => {
     {
       autoAlpha: 0,
       transformOrigin: '50% 50%',
-      cycle: { y: i => ((i+1) % 2 ? 40 : ((i+1) * -40)) },
+      cycle: { x: i => ((i+1) * 30) },
     },
     {
       delay: 0.32,
       autoAlpha: 1,
-      y: 0,
-      ease: Back.easeInOut
+      x: 0,
+      ease: Power3.easeOut
     },
     0.08
   );
@@ -341,17 +341,18 @@ export const inBackBtnCharacter = elementToAnimate => {
   );
 };
 
-export const outBgCharacter = elementToAnimate => {
+export const outBackBtnCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
-    0.35,
+    0.5,
     {
-      autoAlpha: 0.15
+      autoAlpha: 1,
+      y: 0
     },
     {
-      delay: 0.6,
       autoAlpha: 0,
-      ease: Power3.easeIn
+      y: 30,
+      ease: Power2.easeIn
     }
   );
 };
@@ -365,6 +366,7 @@ export const outImgCharacter = elementToAnimate => {
       x: 0
     },
     {
+      delay: 0.1,
       autoAlpha: 0,
       x: -75,
       ease: Power3.easeIn
@@ -381,7 +383,7 @@ export const outAliasCharacter = elementToAnimate => {
       autoAlpha: 1,
     },
     {
-      delay: 0.05,
+      delay: 0.1,
       autoAlpha: 0,
       x: 50,
       ease: Cubic.easeIn
@@ -397,7 +399,7 @@ export const outNameCharacter = elementToAnimate => {
       autoAlpha: 1
     },
     {
-      delay: 0.08,
+      delay: 0.12,
       autoAlpha: 0,
       x: 50,
       ease: Cubic.easeIn
@@ -413,7 +415,7 @@ export const outParagraphCharacter = elementToAnimate => {
       autoAlpha: 1
     },
     {
-      delay: 0.12,
+      delay: 0.15,
       autoAlpha: 0,
       x: 50,
       ease: Cubic.easeIn
@@ -429,26 +431,24 @@ export const outThumbsCharacter = elementToAnimate => {
       autoAlpha: 1
     },
     {
-      delay: 0.15,
+      delay: 0.18,
       autoAlpha: 0,
       ease: Power1.easeOut
     },0.05
   );
 };
 
-export const outBackBtnCharacter = elementToAnimate => {
+export const outBgCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
-    0.5,
+    0.35,
     {
-      autoAlpha: 1,
-      y: 0
+      autoAlpha: 0.30
     },
     {
-      delay: 0.2,
+      delay: 0.3,
       autoAlpha: 0,
-      y: 30,
-      ease: Power2.easeIn
+      ease: Power3.easeIn
     }
   );
 };
@@ -463,3 +463,4 @@ export const outContainerCharacter = (elementToAnimate, callback) => {
     }
   });
 };
+

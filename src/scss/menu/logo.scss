@@ -11,6 +11,7 @@
 
     .superheroLogo_svg{
         width: 29vw;
+        overflow: visible;
         @media (min-width: 768px){
             width: 33vw;
         }
@@ -18,17 +19,17 @@
             width: 34vw;
         }
         @media (min-width: 1200px){
-            width: 28vw;
+            width: 26vw;
         }
         @media (min-width: 1400px){
-            width: 25vw;
+            width: 23vw;
         }
     }
 
     .superheroLogo_path{
         opacity: 0;
         transform-origin: 50%;
-        transform: scale(1.2) rotate(120deg);
+        transform: scale(1.15) rotate(120deg);
         @include transition(all,.6s, ease-in,0);
     }
 
