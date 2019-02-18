@@ -8,21 +8,23 @@ module.exports = {
   plugins: ['react', 'prettier'],
 
   globals: {
-    "PLATFORM": true,
-    "MODE": true,
-    "window": true,
-    "document": true,
-    "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__":true,
-    "__REDUX_DEVTOOLS_EXTENSION__":true,
-    "TweenMax": true,
-    "SplitText": true,
-    "Hammer": true,
-    "Back": true,
-    "Power1": true,
-    "Power2": true,
-    "Cubic": true,
-    "Linear": true,
-    "Bounce": true
+    PLATFORM: true,
+    MODE: true,
+    window: true,
+    document: true,
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: true,
+    __REDUX_DEVTOOLS_EXTENSION__: true,
+    TweenMax: true,
+    SplitText: true,
+    Hammer: true,
+    Back: true,
+    Power1: true,
+    Power2: true,
+    Power3: true,
+    Cubic: true,
+    Elastic: true,
+    Linear: true,
+    Bounce: true
   },
 
   parserOptions: {
@@ -52,9 +54,9 @@ module.exports = {
         singleQuote: true,
 
         // Controls the printing of trailing commas wherever possible. Valid options:
-        // "none" - No trailing commas
-        // "es5"  - Trailing commas where valid in ES5 (objects, arrays, etc)
-        // "all"  - Trailing commas wherever possible (function arguments)
+        // 'none' - No trailing commas
+        // 'es5'  - Trailing commas where valid in ES5 (objects, arrays, etc)
+        // 'all'  - Trailing commas wherever possible (function arguments)
         trailingComma: 'none',
 
         // If true, puts the `>` of a multi-line jsx element at the end of

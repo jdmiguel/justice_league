@@ -9,7 +9,6 @@ export const introLogoIntro = (
   callbackParam1,
   callbackParam2
 ) => {
-
   TweenMax.fromTo(
     firstElementToAnimate,
     0.8,
@@ -240,13 +239,11 @@ export const outMenu = (elementToAnimate, callback) => {
 // CHARACTER ANIMATIONS
 
 export const inBgCharacter = elementToAnimate => {
-  TweenMax.from(elementToAnimate, 
-              2,
-                { 
-                  delay: 0.05,
-                  autoAlpha: 0, 
-                  ease: Elastic.easeOut 
-                });
+  TweenMax.from(elementToAnimate, 2, {
+    delay: 0.05,
+    autoAlpha: 0,
+    ease: Elastic.easeOut
+  });
 };
 
 export const inImgCharacter = elementToAnimate => {
@@ -260,7 +257,7 @@ export const inImgCharacter = elementToAnimate => {
     {
       delay: 0.15,
       autoAlpha: 0.7,
-      x:0,
+      x: 0,
       ease: Power2.easeOut
     }
   );
@@ -323,7 +320,7 @@ export const inThumbsCharacter = elementToAnimate => {
     0.5,
     {
       autoAlpha: 0,
-      cycle: { x: i => ((i+1) * 30) },
+      cycle: { x: i => (i + 1) * 30 }
     },
     {
       delay: 0.32,
@@ -386,13 +383,12 @@ export const outImgCharacter = elementToAnimate => {
   );
 };
 
-
 export const outAliasCharacter = elementToAnimate => {
   TweenMax.fromTo(
     elementToAnimate,
     0.4,
     {
-      autoAlpha: 1,
+      autoAlpha: 1
     },
     {
       delay: 0.1,
@@ -446,7 +442,8 @@ export const outThumbsCharacter = elementToAnimate => {
       delay: 0.18,
       autoAlpha: 0,
       ease: Power1.easeOut
-    },0.05
+    },
+    0.05
   );
 };
 
@@ -455,7 +452,7 @@ export const outBgCharacter = elementToAnimate => {
     elementToAnimate,
     0.35,
     {
-      autoAlpha: 0.30
+      autoAlpha: 0.3
     },
     {
       delay: 0.3,
@@ -475,4 +472,3 @@ export const outContainerCharacter = (elementToAnimate, callback) => {
     }
   });
 };
-
