@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import LandscapeImg from '../assets/img/landscape.png';
 
 import LogoJL from './components/LogoJL';
-import Intro from './components/intro';
+import GithubCorner from './components/GithubCorner';
+import Intro from './components/Intro';
 import Menu from './components/menu';
 import Character from './components/character';
-import GithubCorner from './components/githubCorner';
 
 import setEndFirstUserTime from './store/actions/global';
 import {
@@ -72,7 +72,11 @@ class App extends Component {
       <Fragment>
         <div className="landscape_container">
           <img alt="landscape forced" src={LandscapeImg} />
-          <p>Coloca tu móvil o tablet en horizontal<br/>para disfrutar de una mejor experiencia.</p>
+          <p>
+            Coloca tu móvil o tablet en horizontal
+            <br />
+            para disfrutar de una mejor experiencia.
+          </p>
         </div>
         <GithubCorner />
         <LogoJL />
