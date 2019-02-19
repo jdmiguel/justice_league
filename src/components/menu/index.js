@@ -32,6 +32,7 @@ class Menu extends Component {
     };
 
     this.menuNode = null;
+    this.imgArray = [];
 
     this.onClickLettersHandler = this.onClickLettersHandler.bind(this);
     this.changeMenuBySideDrawer = this.changeMenuBySideDrawer.bind(this);
@@ -84,7 +85,9 @@ class Menu extends Component {
     const { isActiveOverMenuLetters } = this.props;
     const { onSwipe } = this.state;
 
-    if (onSwipe || !isActiveOverMenuLetters) return;
+    if (onSwipe || !isActiveOverMenuLetters) {
+      return;
+    }
 
     this.setState({
       onSwipe: true,
@@ -162,7 +165,9 @@ class Menu extends Component {
     const { isActiveOverMenuLetters } = this.props;
     const { onMouseWheel } = this.state;
 
-    if (onMouseWheel || !isActiveOverMenuLetters) return;
+    if (onMouseWheel || !isActiveOverMenuLetters) {
+      return;
+    }
 
     this.setState({
       onMouseWheel: true,

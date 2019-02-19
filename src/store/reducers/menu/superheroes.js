@@ -1,12 +1,14 @@
 import * as actionTypes from '../../actionTypes';
-import supermanIconPath from '../../../../assets/img/icon_superman.svg';
-import batmanIconPath from '../../../../assets/img/icon_batman.svg';
-import wonderWomanIconPath from '../../../../assets/img/icon_wonderwoman.svg';
-import flashIconPath from '../../../../assets/img/icon_flash.svg';
-import greenLanternIconPath from '../../../../assets/img/icon_greenlantern.svg';
-import greenArrowIconPath from '../../../../assets/img/icon_greenarrow.svg';
-import aquamanIconPath from '../../../../assets/img/icon_aquaman.svg';
-import cyborgIconPath from '../../../../assets/img/icon_cyborg.svg';
+import {
+  supermanIconPath,
+  batmanIconPath,
+  wonderWomanIconPath,
+  flashIconPath,
+  greenLanternIconPath,
+  greenArrowIconPath,
+  aquamanIconPath,
+  cyborgIconPath
+} from '../../../utils/imgPaths';
 
 const initialState = {
   superheroesList: [
