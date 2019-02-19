@@ -9,9 +9,12 @@ const Background = ({
 }) => {
   const listClasses = ['menuCharacters_background', `${superheroClass}`];
 
-  if (superheroActive) listClasses.push('active');
-  if (superheroActive && isActiveMenuLettersAnimation)
+  if (superheroActive) {
+    listClasses.push('active');
+  }
+  if (superheroActive && isActiveMenuLettersAnimation) {
     listClasses.push('highlight');
+  }
 
   return <div className={listClasses.join(' ')} />;
 };
