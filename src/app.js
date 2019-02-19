@@ -2,11 +2,13 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import characterImgPreload from './utils/preloadImgCharacters';
+
 import LandscapeImg from '../assets/img/landscape.png';
 
-import LogoJL from './components/LogoJL';
-import GithubCorner from './components/GithubCorner';
-import Intro from './components/Intro';
+import LogoJL from './components/logoJL';
+import GithubCorner from './components/githubCorner';
+import Intro from './components/intro';
 import Menu from './components/menu';
 import Character from './components/character';
 
@@ -26,6 +28,10 @@ class App extends Component {
 
     this.onClickLettersHandler = this.onClickLettersHandler.bind(this);
     this.onClickBackBtnHandler = this.onClickBackBtnHandler.bind(this);
+  }
+
+  componentDidMount() {
+    characterImgPreload();
   }
 
   onClickLettersHandler() {
