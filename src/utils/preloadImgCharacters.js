@@ -47,7 +47,6 @@ const preload = (imageArray, index) => {
     img.src = imageArray[index];
     img.onload = () => {
       preload(imageArray, index + 1);
-      console.log('onload');
     };
   }
 };
