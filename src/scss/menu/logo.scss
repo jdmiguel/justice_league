@@ -38,7 +38,7 @@
     &.move {
         .superheroLogo_svg{
             animation: menuLogoAnim 20s ease-in-out 3s infinite;
-            will-change: transform; 
+            will-change: transform, opacity;
         }
         
     }
