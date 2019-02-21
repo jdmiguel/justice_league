@@ -15,10 +15,10 @@ const GreenLanternLogo = ({ classes }) => (
     >
       <path
         stroke="#09a609"
-        strokeWidth="3"
+        strokeWidth="2"
         strokeMiterlimit="10"
         fill="#000000"
-        fillOpacity="0.5"
+        fillOpacity="0.7"
         className="superheroLogo_path"
         d="M245.892,144.247c55.575,0,100.622,45.049,100.622,100.621c0,55.576-45.053,100.623-100.622,100.623
         c-55.57,0-100.622-45.047-100.624-100.623C145.272,189.296,190.323,144.247,245.892,144.247z M363.501,27.195

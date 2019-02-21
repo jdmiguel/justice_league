@@ -15,10 +15,10 @@ const AquamanLogo = ({ classes }) => (
     >
       <path
         stroke="#d6ab1c"
-        strokeWidth="3"
+        strokeWidth="2"
         strokeMiterlimit="10"
         fill="#000000"
-        fillOpacity="0.5"
+        fillOpacity="0.7"
         className="superheroLogo_path"
         d="M307.453,6.315c31.71,50.747,62.858,101.841,93.464,153.272c29.776,50.037,59.015,100.383,87.555,151.135
         c1.143,2.032,1.442,3.267-0.488,5.146c-55.578,54.073-113.485,105.513-173.807,154.238c-3.921,3.166-6.896,3.697-9.149,1.771

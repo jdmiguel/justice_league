@@ -18,10 +18,10 @@ const BatmanLogo = ({ classes }) => (
     >
       <path
         stroke="#404040"
-        strokeWidth="3"
+        strokeWidth="2"
         strokeMiterlimit="10"
         fill="#000000"
-        fillOpacity="0.5"
+        fillOpacity="0.7"
         className="superheroLogo_path"
         d="M489.229,176.678c7.043,23.098,10.844,47.609,10.844,73.011c0,138.071-111.929,250-250,250
         s-250-111.929-250-250c0-24.563,3.559-48.292,10.161-70.717c6.769,4.433,13.144,9.373,18.86,15.127

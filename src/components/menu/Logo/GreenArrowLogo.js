@@ -15,10 +15,10 @@ const GreenArrowLogo = ({ classes }) => (
     >
       <path
         stroke="#0d5f0f"
-        strokeWidth="3"
+        strokeWidth="2"
         strokeMiterlimit="10"
         fill="#000000"
-        fillOpacity="0.5"
+        fillOpacity="0.7"
         className="superheroLogo_path"
         d="M402.469,317.87c14.103,29.534,28.221,59.06,42.33,88.589c-4.359,5.409-8.927,10.643-13.714,15.667
 				c-138.244-57.54-276.487-115.081-414.729-172.62c-0.049-0.435-0.097-0.867-0.146-1.302

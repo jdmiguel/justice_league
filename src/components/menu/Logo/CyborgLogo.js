@@ -15,10 +15,10 @@ const CyborgLogo = ({ classes }) => (
     >
       <path
         stroke="#9e0306"
-        strokeWidth="3"
+        strokeWidth="2"
         strokeMiterlimit="10"
         fill="#000000"
-        fillOpacity="0.5"
+        fillOpacity="0.7"
         className="superheroLogo_path"
         d="M250.073-0.311c-138.07,0-250,111.929-250,250c0,138.071,111.93,250,250,250c138.071,0,250-111.93,250-250
         C500.073,111.618,388.144-0.311,250.073-0.311z M449.947,274.65c-2.25,15.94-6.042,31.476-11.91,46.476
