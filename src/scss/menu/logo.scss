@@ -43,6 +43,9 @@
         
     }
     &.active{
+        .superheroLogo_svg{
+            transform: rotate(0);
+        }
         .superheroLogo_path{
             transform: scale(1) rotate(0);
             opacity: 0.8;
@@ -116,9 +119,9 @@
 }
 
 @keyframes menuLogoAnim {
-    0%    {transform: scale(1); opacity:1}
-    25%   {transform: scale(0.9); opacity:0.5}
-    50%   {transform: scale(1); opacity:1}
-    75%   {transform: scale(0.9); opacity:0.5}
+    0%    {transform: scale(1) rotate(0deg); opacity:1}
+    25%   {transform: scale(0.9) rotate(7deg); opacity:0.7}
+    50%   {transform: scale(1) rotate(0deg); opacity:1}
+    75%   {transform: scale(0.9) rotate(-7deg); opacity:0.7}
     100%   {transform: scale(1); opacity:1}
 }
