@@ -18,26 +18,22 @@ class Intro extends Component {
       superheroesList,
       counterActivateSuperhero
     } = this.props;
-    const logoSvg = document.querySelector('.introLogoDC_svg');
-    const logoPath = document.querySelector('.introLogoDC_path');
-    const introContainer = document.querySelector('.intro_container');
-    const letters = document.querySelectorAll('.introLettersJL_path');
     const superheroData = {
       superheroesList,
       counterActivateSuperhero
     };
 
     introLogoIntro(
-      logoSvg,
-      logoPath,
+      '.introLogoDC_svg',
+      '.introLogoDC_path',
       outIntro,
-      introContainer,
+      '.intro_container',
       setActiveSuperheroHandler,
       superheroData,
       counterActivateSuperhero
     );
 
-    introLettersIntro(letters);
+    introLettersIntro('.introLettersJL_path');
   }
 
   render() {

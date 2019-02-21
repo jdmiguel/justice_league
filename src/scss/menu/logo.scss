@@ -34,20 +34,19 @@
         transform: scale(1.5) rotate(120deg);
         @include transition(all,.6s, ease-in,0);
     }
+
     &.move {
         .superheroLogo_svg{
             animation: menuLogoAnim 15s linear 3s infinite alternate;
         }
         
     }
-
     &.active{
         .superheroLogo_path{
             transform: scale(1) rotate(0);
             opacity: 0.8;
         }
     }
-    
      &.superman{
         &.highlight{
             .superheroLogo_path{
@@ -55,7 +54,6 @@
             }
         }
     }
-   
     &.batman{
         &.highlight{
             .superheroLogo_path{
@@ -63,7 +61,6 @@
             }
         }
     }
-    
     &.wonderwoman{
         &.highlight{
             .superheroLogo_path{
@@ -71,7 +68,6 @@
             }
         }
     }
-
     &.flash{
         &.highlight{
             .superheroLogo_path{

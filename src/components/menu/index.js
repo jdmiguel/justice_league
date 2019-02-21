@@ -73,12 +73,12 @@ class Menu extends Component {
       setAnimationMenuLettersOutHandler
     } = this.props;
 
-    const menuCover = document.querySelector('.menu_cover');
+    const menuCoverRef = '.menu_cover';
 
     desactiveOverMenuLettersHandler();
     setAnimationMenuLettersOutHandler();
 
-    outMenu(menuCover, onClickLetters);
+    outMenu(menuCoverRef, onClickLetters);
   }
 
   onSwipePress(e) {

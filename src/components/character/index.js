@@ -31,40 +31,21 @@ class Character extends Component {
       character
     };
 
-    this.containerCharacter = null;
-    this.blockLeft = null;
-    this.blockRight = null;
-    this.bgCharacter = null;
-    this.headerCharacter = null;
-    this.aliasCharacter = null;
-    this.nameCharacter = null;
-    this.paragraphCharacter = null;
-    this.thumbsContainerCharacter = null;
-    this.thumbsCharacter = null;
-    this.imgCharacter = null;
-    this.BackBtnCharacter = null;
+    this.containerCharacter = '.character_container';
+    this.blockLeft = '.character_block_left';
+    this.blockRight = '.character_block_right';
+    this.bgCharacter = '.character_bg';
+    this.aliasCharacter = '.character_txt_header h1';
+    this.nameCharacter = '.character_txt_header h2';
+    this.paragraphCharacter = '.character_txt_body';
+    this.thumbsCharacter = '.character_txt_footer_img_container img';
+    this.imgCharacter = '.character_image';
+    this.BackBtnCharacter = '.character_btn_back';
 
     this.backMenu = this.backMenu.bind(this);
   }
 
   componentDidMount() {
-    this.containerCharacter = document.querySelector('.character_container');
-    this.blockLeft = document.querySelector('.character_block_left');
-    this.blockRight = document.querySelector('.character_block_right');
-    this.bgCharacter = document.querySelector('.character_bg');
-    this.headerCharacter = document.querySelector('.character_txt_header');
-    this.aliasCharacter = this.headerCharacter.querySelector('h1');
-    this.nameCharacter = this.headerCharacter.querySelector('h2');
-    this.paragraphCharacter = document.querySelector('.character_txt_body');
-    this.thumbsContainerCharacter = document.querySelector(
-      '.character_txt_footer_img_container'
-    );
-    this.thumbsCharacter = this.thumbsContainerCharacter.querySelectorAll(
-      'img'
-    );
-    this.imgCharacter = document.querySelector('.character_image');
-    this.BackBtnCharacter = document.querySelector('.character_btn_back');
-
     inBgCharacter(this.bgCharacter);
     inAliasCharacter(this.aliasCharacter);
     inNameCharacter(this.nameCharacter);
