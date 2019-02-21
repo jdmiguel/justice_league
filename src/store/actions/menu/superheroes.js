@@ -5,8 +5,12 @@ const getTotalSuperheroes = list => list.length - 1;
 const resetHandlerCounterActivateSuperheroes = (counter, limitMax) => {
   let counterValue = counter;
 
-  if (counterValue < 0) counterValue = limitMax;
-  if (counterValue > limitMax) counterValue = 0;
+  if (counterValue < 0) {
+    counterValue = limitMax;
+  }
+  if (counterValue > limitMax) {
+    counterValue = 0;
+  }
 
   return counterValue;
 };

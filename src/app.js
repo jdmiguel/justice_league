@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import characterImgPreload from './utils/preloadImgCharacters';
 
-import LandscapeImg from '../assets/img/landscape.png';
+import { landscapeImgPath } from './utils/imgPaths';
 
 import LogoJL from './components/logoJL';
 import GithubCorner from './components/githubCorner';
@@ -77,7 +77,7 @@ class App extends Component {
     return (
       <Fragment>
         <div className="landscape_container">
-          <img alt="landscape forced" src={LandscapeImg} />
+          <img alt="landscape forced" src={landscapeImgPath} />
           <p>
             Coloca tu móvil o tablet en horizontal
             <br />

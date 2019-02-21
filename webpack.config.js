@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -54,7 +53,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'assets/[name].[ext]'
+              name: 'img/[name].[ext]'
             }
           }
         ]
@@ -72,10 +71,6 @@ module.exports = {
 
     new MiniCssExtractPlugin({
       filename: '[name]-styles.css'
-    }),
-
-    new webpack.DefinePlugin({
-      MODE: JSON.stringify(MODE_ENV)
     })
   ]
 };
