@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+/** Utils */
+import { introLogoMenu } from '../../../utils/animations';
+import { svgLogoRef } from '../../../utils/literals';
+
+/** Actions */
 import { activeOverMenuLetters } from '../../../store/actions/menu/letters';
 
+/** Logos */
 import SupermanLogo from './SupermanLogo';
 import BatmanLogo from './BatmanLogo';
 import WonderWomanLogo from './WonderWomanLogo';
@@ -12,14 +18,12 @@ import GreenLanternLogo from './GreenLanternLogo';
 import GreenArrowLogo from './GreenArrowLogo';
 import AquamanLogo from './AquamanLogo';
 import CyborgLogo from './CyborgLogo';
-import { introLogoMenu } from '../../../utils/animations';
 
 class SuperheroLogo extends Component {
   componentDidMount() {
     const { isFirstUserTime, activeOverMenuLettersHandler } = this.props;
-    const logo = document.querySelectorAll('.superheroLogo_svg');
 
-    introLogoMenu(logo, activeOverMenuLettersHandler, isFirstUserTime);
+    introLogoMenu(svgLogoRef, activeOverMenuLettersHandler, isFirstUserTime);
   }
 
   render() {

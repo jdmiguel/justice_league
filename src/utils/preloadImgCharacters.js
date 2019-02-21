@@ -1,3 +1,4 @@
+/** Utils */
 import {
   supermanImgPath,
   supermanThumb1Path,

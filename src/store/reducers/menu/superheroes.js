@@ -1,4 +1,6 @@
 import * as actionTypes from '../../actionTypes';
+
+/** Utils */
 import {
   supermanIconPath,
   batmanIconPath,

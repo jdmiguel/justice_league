@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+/** Components */
 import Item from './Item';
 
 const SideDrawer = ({ list, onClickSideDrawerItem }) => (

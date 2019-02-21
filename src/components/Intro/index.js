@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
+/** Components */
 import Logo from './IntroLogoDC';
 import Letters from './IntroLettersJL';
+
+/** Utils */
 import {
   introLogoIntro,
   introLettersIntro,
   outIntro
 } from '../../utils/animations';
+import {
+  svgLogoDcRef,
+  pathLogoDcRef,
+  introContainerRef,
+  pathsJLRef
+} from '../../utils/literals';
 
+/** Actions */
 import { setActiveSuperhero } from '../../store/actions/menu/superheroes';
 
 class Intro extends Component {
@@ -24,16 +35,16 @@ class Intro extends Component {
     };
 
     introLogoIntro(
-      '.introLogoDC_svg',
-      '.introLogoDC_path',
+      svgLogoDcRef,
+      pathLogoDcRef,
       outIntro,
-      '.intro_container',
+      introContainerRef,
       setActiveSuperheroHandler,
       superheroData,
       counterActivateSuperhero
     );
 
-    introLettersIntro('.introLettersJL_path');
+    introLettersIntro(pathsJLRef);
   }
 
   render() {

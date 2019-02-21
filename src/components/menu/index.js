@@ -1,24 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
+/** Components */
 import LettersWrapper from './Letters';
 import LogoWrapper from './Logo';
 import BackgroundWrapper from './Background';
 import SideDrawer from './SideDrawer';
 
+/** Utils */
+import { outMenu } from '../../utils/animations';
+
+/** Actions */
 import { setActiveSuperhero } from '../../store/actions/menu/superheroes';
-
-import {
-  setDirectionIn,
-  setDirectionOut
-} from '../../store/actions/menu/directions';
-
 import {
   desactiveOverMenuLetters,
   setAnimationMenuLettersOut
 } from '../../store/actions/menu/letters';
-
-import { outMenu } from '../../utils/animations';
+import {
+  setDirectionIn,
+  setDirectionOut
+} from '../../store/actions/menu/directions';
 
 class Menu extends Component {
   constructor(props) {
@@ -31,7 +33,6 @@ class Menu extends Component {
       delayOnSwipe: null
     };
 
-    this.menuNode = null;
     this.imgArray = [];
 
     this.onClickLettersHandler = this.onClickLettersHandler.bind(this);
@@ -40,8 +41,6 @@ class Menu extends Component {
   }
 
   componentDidMount() {
-    this.menuNode = document.querySelector('.menu_container');
-
     this.menuNode.addEventListener('mousewheel', event =>
       this.mouseWheelHandler(event)
     );
@@ -206,7 +205,13 @@ class Menu extends Component {
     const menuCoverClasses = ['menu_cover', `${superheroClass}`];
 
     return (
-      <div className="menu_container">
+      <div
+        className="menu_container"
+        ref={currentRef => {
+          this.menuNode = currentRef;
+          return this.menuNode;
+        }}
+      >
         <LettersWrapper
           list={superheroesList}
           onClick={this.onClickLettersHandler}

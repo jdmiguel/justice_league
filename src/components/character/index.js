@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+/** Utils */
 import {
   inBgCharacter,
   inImgCharacter,
@@ -19,6 +20,16 @@ import {
   outBackBtnCharacter,
   outContainerCharacter
 } from '../../utils/animations';
+import {
+  containerCharacter,
+  bgCharacter,
+  aliasCharacter,
+  nameCharacter,
+  paragraphCharacter,
+  thumbsCharacter,
+  imgCharacter,
+  backBtnCharacter
+} from '../../utils/literals';
 
 class Character extends Component {
   constructor(props) {
@@ -31,41 +42,30 @@ class Character extends Component {
       character
     };
 
-    this.containerCharacter = '.character_container';
-    this.blockLeft = '.character_block_left';
-    this.blockRight = '.character_block_right';
-    this.bgCharacter = '.character_bg';
-    this.aliasCharacter = '.character_txt_header h1';
-    this.nameCharacter = '.character_txt_header h2';
-    this.paragraphCharacter = '.character_txt_body';
-    this.thumbsCharacter = '.character_txt_footer_img_container img';
-    this.imgCharacter = '.character_image';
-    this.BackBtnCharacter = '.character_btn_back';
-
     this.backMenu = this.backMenu.bind(this);
   }
 
   componentDidMount() {
-    inBgCharacter(this.bgCharacter);
-    inAliasCharacter(this.aliasCharacter);
-    inNameCharacter(this.nameCharacter);
-    inParagraphCharacter(this.paragraphCharacter);
-    inThumbsCharacter(this.thumbsCharacter);
-    inImgCharacter(this.imgCharacter);
-    inBackBtnCharacter(this.BackBtnCharacter);
+    inBgCharacter(bgCharacter);
+    inAliasCharacter(aliasCharacter);
+    inNameCharacter(nameCharacter);
+    inParagraphCharacter(paragraphCharacter);
+    inThumbsCharacter(thumbsCharacter);
+    inImgCharacter(imgCharacter);
+    inBackBtnCharacter(backBtnCharacter);
   }
 
   backMenu() {
     const { onClickBackBtn } = this.props;
 
-    outAliasCharacter(this.aliasCharacter);
-    outNameCharacter(this.nameCharacter);
-    outParagraphCharacter(this.paragraphCharacter);
-    outThumbsCharacter(this.thumbsCharacter);
-    outImgCharacter(this.imgCharacter);
-    outBackBtnCharacter(this.BackBtnCharacter);
-    outBgCharacter(this.bgCharacter);
-    outContainerCharacter(this.containerCharacter, onClickBackBtn);
+    outAliasCharacter(aliasCharacter);
+    outNameCharacter(nameCharacter);
+    outParagraphCharacter(paragraphCharacter);
+    outThumbsCharacter(thumbsCharacter);
+    outImgCharacter(imgCharacter);
+    outBackBtnCharacter(backBtnCharacter);
+    outBgCharacter(bgCharacter);
+    outContainerCharacter(containerCharacter, onClickBackBtn);
   }
 
   render() {

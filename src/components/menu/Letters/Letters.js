@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import {
-  setAnimationMenuLettersOver,
-  setAnimationMenuLettersOut
-} from '../../../store/actions/menu/letters';
-
+/** Utils */
 import {
   inRightLettersMenu,
   inLeftLettersMenu,
   outRightLettersMenu,
   outLeftLettersMenu
 } from '../../../utils/animations';
+
+/** Actions */
+import {
+  setAnimationMenuLettersOver,
+  setAnimationMenuLettersOut
+} from '../../../store/actions/menu/letters';
 
 class Letters extends Component {
   constructor(props) {

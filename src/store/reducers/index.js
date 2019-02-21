@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 import globalReducer from './global';
+
+/** Reducers */
 import directionsMenuReducer from './menu/directions';
 import lettersMenuReducer from './menu/letters';
 import superheroesMenuReducer from './menu/superheroes';
