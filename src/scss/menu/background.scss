@@ -10,6 +10,7 @@
     visibility: hidden;
     opacity: 0;
     transform: scale(1.3);
+    will-change: transform, opacity;
     @include transition(all,.9s, cubic-bezier(0.39, 0.575, 0.565, 1),0);
     &.active{
         visibility: visible;

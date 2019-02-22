@@ -13,6 +13,7 @@
         width: 29vw;
         overflow: visible;
         transform-origin: 50%;
+        will-change: transform, opacity;
         @include transition(all,.7s, ease-out,0);
         @media (min-width: 768px){
             width: 33vw;
@@ -33,12 +34,12 @@
         transform-origin: 50%;
         transform: scale(1.5) rotate(120deg);
         @include transition(all,.6s, ease-in,0);
+        will-change: transform, opacity;
     }
 
     &.move {
         .superheroLogo_svg{
             animation: menuLogoAnim 20s ease-in-out 3s infinite;
-            will-change: transform, opacity;
         }
         
     }

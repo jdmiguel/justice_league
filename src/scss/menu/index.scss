@@ -16,6 +16,7 @@
     z-index: 4;
     visibility: hidden;
     opacity: 0;
+    will-change: opacity;
     &.superman{
         background-color: $blueSuperman;
     }
