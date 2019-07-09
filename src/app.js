@@ -99,12 +99,12 @@ class App extends Component {
           <h3>
             Site created by{' '}
             <a
-              href="https://jdmiguel.com"
+              href="https://jcoder.eu"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="View source on GitHub"
             >
-              jdmiguel
+              jcoder
             </a>
           </h3>
         </div>
