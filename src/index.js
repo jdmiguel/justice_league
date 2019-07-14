@@ -7,6 +7,10 @@ import './scss/styles.scss';
 
 import App from './app';
 
+const { registerObserver } = require('react-perf-devtool');
+
+registerObserver();
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

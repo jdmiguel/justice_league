@@ -95,9 +95,9 @@ class App extends Component {
             onClickBackBtn={this.onClickBackBtnHandler}
           />
         )}
-        <div className="byJdmiguel">
+        <div className="created">
           <h3>
-            Site created by{' '}
+            Created by{' '}
             <a
               href="https://jcoder.eu"
               target="_blank"
