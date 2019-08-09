@@ -1,4 +1,4 @@
-.menu_container{
+.menu-container{
     position: fixed;
     overflow: hidden;
     width: 100%;
@@ -8,7 +8,7 @@
     @include flexContainer();
 }
 
-.menu_cover{
+.menu-cover{
     position: absolute;
     width: 100%;
     height: 100vh;

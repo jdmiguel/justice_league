@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GihubCorner = () => (
+export default () => (
   <a
     href="https://github.com/jdmiguel/website_animated"
     target="_blank"
@@ -21,5 +21,3 @@ const GihubCorner = () => (
     </svg>
   </a>
 );
-
-export default GihubCorner;
