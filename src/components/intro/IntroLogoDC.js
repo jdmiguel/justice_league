@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IntroLogoDC = () => (
+export default () => (
   <div className="introLogoDC_container">
     <svg
       width="900"
@@ -32,5 +32,3 @@ C827.343,628.75,819.421,644.592,810.533,659.841z"
     </svg>
   </div>
 );
-
-export default IntroLogoDC;

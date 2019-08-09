@@ -1,6 +1,6 @@
 import React from 'react';
 
-const IntroLettersJL = () => (
+export default () => (
   <div className="introLettersJL_container">
     <svg
       width="700"
@@ -142,5 +142,3 @@ const IntroLettersJL = () => (
     </svg>
   </div>
 );
-
-export default IntroLettersJL;
