@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default () => (
-  <div className="introLettersJL_container">
+  <div className="intro-letters-logo">
     <svg
       width="700"
       height="563.287"

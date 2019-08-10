@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default () => (
-  <div className="introLogoDC_container">
+  <div className="intro-logo-container">
     <svg
       width="900"
       height="900"
