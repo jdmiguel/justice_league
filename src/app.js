@@ -10,7 +10,7 @@ import Character from './components/character/index';
 
 const App = () => {
   // State
-  const [introStatus, setIntroStatus] = useState(false);
+  const [introStatus, setIntroStatus] = useState(true);
 
   return (
     <Router>

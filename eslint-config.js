@@ -15,6 +15,7 @@ module.exports = {
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: true,
     __REDUX_DEVTOOLS_EXTENSION__: true,
     TweenMax: true,
+    TimelineMax: true,
     SplitText: true,
     Hammer: true,
     Back: true,
