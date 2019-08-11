@@ -1,5 +1,8 @@
 import React from 'react';
 
+/* Colors */
+import { grey } from '../../utils/colors';
+
 export default () => {
   const logoWrapperRef = React.useRef(null);
   const logoSvgRef = React.useRef(null);
@@ -7,26 +10,35 @@ export default () => {
   const animationRef = React.useRef(null);
 
   React.useEffect(() => {
-    animationRef.current = new TimelineMax();
+    animationRef.current = new TimelineMax({
+      onComplete: () => {}
+    });
 
     animationRef.current
       .set(logoWrapperRef.current, { autoAlpha: 1 })
-      .from(logoSvgRef.current, 1.2, {
-        delay: 0.8,
-        autoAlpha: 0,
-        scaleX: 3,
-        scaleY: 0.3,
-        transformOrigin: '50% 50%',
-        ease: Elastic.easeInOut
-      })
-      .to(logoPathRef.current, 2.2, {
-        delay: 2.4,
-        fillOpacity: 0.3,
-        scale: 0.8,
-        transformOrigin: '50% 50%',
-        onComplete: () => {},
-        ease: Power1.easeInOut
-      });
+      .from(
+        logoSvgRef.current,
+        1.2,
+        {
+          autoAlpha: 0,
+          scaleX: 3,
+          scaleY: 0.3,
+          transformOrigin: '50% 50%',
+          ease: Elastic.easeInOut
+        },
+        '+= .8'
+      )
+      .to(
+        logoPathRef.current,
+        2.2,
+        {
+          fillOpacity: 0.3,
+          scale: 0.8,
+          transformOrigin: '50% 50%',
+          ease: Power1.easeInOut
+        },
+        '+= 2.4'
+      );
 
     return () => {
       animationRef.current.kill();
@@ -34,7 +46,7 @@ export default () => {
   }, []);
 
   return (
-    <div className="intro-logo-container" ref={logoWrapperRef}>
+    <div className="logo" ref={logoWrapperRef}>
       <svg
         ref={logoSvgRef}
         width="900"
@@ -45,7 +57,7 @@ export default () => {
       >
         <path
           ref={logoPathRef}
-          fill="#757575"
+          fill={grey}
           d="M450.069,0C201.503,0,0,201.503,0,450.071c0,248.567,201.503,450.069,450.069,450.069
   c248.568,0,450.071-201.503,450.071-450.069C900.14,201.504,698.637,0,450.069,0z M33.109,450.071
   c0-48.352,8.128-95.443,24.204-140.321l43.292,30.07v337.863c-13.458-20.62-25.058-42.438-34.743-65.327

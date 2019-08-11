@@ -5,7 +5,7 @@ import Logo from './logo';
 import Letters from './letters';
 
 export default () => (
-  <div className="intro-container">
+  <div className="intro-wrapper">
     <Logo />
     <Letters />
   </div>

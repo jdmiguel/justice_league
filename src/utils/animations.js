@@ -60,12 +60,17 @@ export const introLettersIntro = elementToAnimate => {
     0.02
   );
 
-  TweenMax.to(elementToAnimate, 2, {
-    delay: 2.8,
-    drawSVG: 0,
-    stroke: '#FFFFFF',
-    ease: Power1.easeInOut
-  });
+  TweenMax.to(
+    elementToAnimate,
+    2,
+    {
+      delay: 2.8,
+      drawSVG: 0,
+      stroke: '#FFFFFF',
+      ease: Power1.easeInOut
+    },
+    '-=3'
+  );
 };
 
 export const outIntro = elementToAnimate => {

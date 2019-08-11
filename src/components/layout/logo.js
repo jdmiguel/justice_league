@@ -4,7 +4,7 @@ import React from 'react';
 import { white } from '../../utils/colors';
 
 export default () => (
-  <h2 className="logoJL_container">
+  <h2 className="logo">
     <svg
       width="798.941px"
       height="152.105px"
