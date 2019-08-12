@@ -5,7 +5,7 @@ export default () => (
     href="https://github.com/jdmiguel/website_animated"
     target="_blank"
     rel="noopener noreferrer"
-    className="github-corner"
+    className="corner"
     aria-label="View source on GitHub"
   >
     <svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true">

@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /* Colors */
 import { grey } from '../../utils/colors';
 
-export default () => {
+const Logo = ({ onEndedLogoAnimation }) => {
   const logoWrapperRef = React.useRef(null);
   const logoSvgRef = React.useRef(null);
   const logoPathRef = React.useRef(null);
@@ -11,7 +12,7 @@ export default () => {
 
   React.useEffect(() => {
     animationRef.current = new TimelineMax({
-      onComplete: () => {}
+      onComplete: () => onEndedLogoAnimation()
     });
 
     animationRef.current
@@ -77,3 +78,9 @@ export default () => {
     </div>
   );
 };
+
+Logo.propTypes = {
+  onEndedLogoAnimation: PropTypes.func
+};
+
+export default Logo;

@@ -21,5 +21,98 @@
         }
     } 
   }
+  .corner {
+    svg {
+      position: absolute;
+      top: 0;
+      border: 0;
+      right: 0;
+      z-index: 3;
+      fill: $white;
+      opacity: .6;
+    }
+    .octo-arm {
+      fill: $black;
+      transform-origin: 130px 106px;
+    }
+    .octo-body {
+      fill: $black;
+      transform-origin: 130px 106px;
+    }
+    &:hover {
+      .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+      }
+    }
+    @media (max-width:500px) {
+      &:hover {
+        .octo-arm {
+          animation: none
+        }
+      }
+      .octo-arm {
+        animation: octocat-wave 560ms ease-in-out
+      }
+    }
+    @media (max-width:768px) {
+      svg {
+        width: 55px;
+        height: 55px;
+      }
+    }
+  }
+  
+  @keyframes octocat-wave {
+    0%,
+    100% {
+      transform: rotate(0)
+    }
+    20%,
+    60% {
+      transform: rotate(-25deg)
+    }
+    40%,
+    80% {
+      transform: rotate(10deg)
+    }
+  }
+  .created{
+    display: none;
+    @media (min-width: 1024px){
+        display: block;
+        position: absolute;
+        z-index: 3;
+        left: 35px;
+        bottom: 25px;
+    }
+    @media (min-width: 1400px){
+        left: 50px;
+    }
+    h3{
+        @include font('Open Sans',1em,400);
+    }
+    a{
+        @include font('Open Sans',.9em,700);
+        text-decoration: underline;
+    }
+  }
+
+  .based{
+    display: none;
+    @media (min-width: 1024px){
+      display: block;
+      position: absolute;
+      z-index: 3;
+      right: 35px;
+      bottom: 25px;
+    }
+    @media (min-width: 1400px){
+        right: 50px;
+    }
+    h4{
+      @include font('Open Sans',1em,400);
+    }
+  }
+
 }
 

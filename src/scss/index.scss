@@ -1,55 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Cinzel:400,700,900');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import 'vars';
+@import 'mixins';
+@import 'reset';
+@import 'general';
+@import 'layout';
+@import 'intro';
+@import 'sidedrawer';
+@import 'landscape';
+@import './menu/index';
+@import './menu/background';
+@import './menu/letters';
+@import './menu/logo';
+@import './character/index';
+@import './bootstrap/bootstrap-grid';
 
-body{
-    background: $white;
-    font-size: 15px;
-}
-
-#app{
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background: $black;
-    @media (min-width: 992px){
-        overflow: hidden;
-    }
-}
-
-.created{
-    display: none;
-    @media (min-width: 1024px){
-        display: block;
-        position: absolute;
-        z-index: 3;
-        left: 35px;
-        bottom: 25px;
-    }
-    @media (min-width: 1400px){
-        left: 50px;
-    }
-    h3{
-        @include font('Open Sans',1em,400);
-    }
-    a{
-        @include font('Open Sans',.9em,700);
-        text-decoration: underline;
-    }
-}
-
-.based{
-    display: none;
-    @media (min-width: 1024px){
-      display: block;
-      position: absolute;
-      z-index: 3;
-      right: 35px;
-      bottom: 25px;
-    }
-    @media (min-width: 1400px){
-        right: 50px;
-    }
-    h4{
-      @include font('Open Sans',1em,400);
-    }
-  }

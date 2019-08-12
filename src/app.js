@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ import Character from './components/character/index';
 
 const App = () => {
   // State
-  const [introStatus, setIntroStatus] = useState(true);
+  const [introStatus, setIntroStatus] = React.useState(true);
 
   return (
     <Router>
