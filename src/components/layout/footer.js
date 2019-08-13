@@ -1,11 +1,7 @@
 import React from 'react';
 
-import Icon from '../core/icon';
-import { BatmanIcon } from '../../utils/svgs';
-
 export default () => (
   <footer>
-    <Icon svg={BatmanIcon} width="50px" height="50px" />
     <div className="created">
       <h3>
         Created by{' '}
