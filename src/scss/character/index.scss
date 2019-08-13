@@ -44,28 +44,28 @@
     height: 100vh;
     opacity: 0.3;
     &.superman_int{
-        @include character_bg_superhero($blueSuperman,url(#{$imgPath}/icon_superman.svg));
+        @include character_bg_superhero($blueSuperman,url(#{$iconImgPath}/icon_superman.svg));
     }
     &.batman_int{
-        @include character_bg_superhero($greyBatman,url(#{$imgPath}/icon_batman.svg));
+        @include character_bg_superhero($greyBatman,url(#{$iconImgPath}/icon_batman.svg));
     }
     &.wonderwoman_int{
-        @include character_bg_superhero($orangeWonder,url(#{$imgPath}/icon_wonderwoman.svg));
+        @include character_bg_superhero($orangeWonder,url(#{$iconImgPath}/icon_wonderwoman.svg));
     }
     &.flash_int{
-        @include character_bg_superhero($redFlash,url(#{$imgPath}/icon_flash.svg));
+        @include character_bg_superhero($redFlash,url(#{$iconImgPath}/icon_flash.svg));
     }
     &.greenlantern_int{
-        @include character_bg_superhero($greenLantern,url(#{$imgPath}/icon_greenlantern.svg));
+        @include character_bg_superhero($greenLantern,url(#{$iconImgPath}/icon_greenlantern.svg));
     }
     &.greenarrow_int{
-        @include character_bg_superhero($greenArrow,url(#{$imgPath}/icon_greenarrow.svg));
+        @include character_bg_superhero($greenArrow,url(#{$iconImgPath}/icon_greenarrow.svg));
     }
     &.aquaman_int{
-        @include character_bg_superhero($yellowAquaman,url(#{$imgPath}/icon_aquaman.svg));
+        @include character_bg_superhero($yellowAquaman,url(#{$iconImgPath}/icon_aquaman.svg));
     }
     &.cyborg_int{
-        @include character_bg_superhero($redCyborg,url(#{$imgPath}/icon_cyborg.svg));
+        @include character_bg_superhero($redCyborg,url(#{$iconImgPath}/icon_cyborg.svg));
     }
     
 }

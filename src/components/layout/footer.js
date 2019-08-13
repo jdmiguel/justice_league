@@ -1,7 +1,11 @@
 import React from 'react';
 
+import Icon from '../core/icon';
+import { BatmanIcon } from '../../utils/svgs';
+
 export default () => (
-  <>
+  <footer>
+    <Icon svg={BatmanIcon} width="50px" height="50px" />
     <div className="created">
       <h3>
         Created by{' '}
@@ -18,5 +22,5 @@ export default () => (
     <div className="based">
       <h4>Based on DC characters</h4>
     </div>
-  </>
+  </footer>
 );

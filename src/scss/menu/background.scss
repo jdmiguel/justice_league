@@ -17,7 +17,7 @@
         transform: scale(1);
     }
     &.superman{
-        background-image: url(#{$imgPath}/superman_bg.jpg);
+        background-image: url(#{$bgImgPath}/superman_bg.jpg);
         background-color: $blueSuperman;
         &.active{
             opacity: 0.3;
@@ -27,7 +27,7 @@
         }
     }
     &.batman{
-        background-image: url(#{$imgPath}/batman_bg.jpg);
+        background-image: url(#{$bgImgPath}/batman_bg.jpg);
         background-color: $greyBatman;
         &.active{
             opacity: 0.3;
@@ -37,7 +37,7 @@
         }
     }
     &.wonderwoman{
-        background-image: url(#{$imgPath}/wonderwoman_bg.jpg);
+        background-image: url(#{$bgImgPath}/wonderwoman_bg.jpg);
         background-color: $orangeWonder;
         &.active{
             opacity: 0.3;
@@ -47,7 +47,7 @@
         }
     }
     &.flash{
-        background-image: url(#{$imgPath}/flash_bg.jpg);
+        background-image: url(#{$bgImgPath}/flash_bg.jpg);
         background-color: $redFlash;
         &.active{
             opacity: 0.3;
@@ -57,7 +57,7 @@
         }
     }
     &.greenlantern{
-        background-image: url(#{$imgPath}/greenlantern_bg.jpg);
+        background-image: url(#{$bgImgPath}/greenlantern_bg.jpg);
         background-color: $greenLantern;
         &.active{
             opacity: 0.3;
@@ -67,7 +67,7 @@
         }
     }
     &.greenarrow{
-        background-image: url(#{$imgPath}/greenarrow_bg.jpg);
+        background-image: url(#{$bgImgPath}/greenarrow_bg.jpg);
         background-color: $greenArrow;
         &.active{
             opacity: 0.3;
@@ -77,7 +77,7 @@
         }
     }
     &.aquaman{
-        background-image: url(#{$imgPath}/aquaman_bg.jpg);
+        background-image: url(#{$bgImgPath}/aquaman_bg.jpg);
         background-color: $yellowAquaman;
         &.active{
             opacity: 0.3;
@@ -87,7 +87,7 @@
         }
     }
     &.cyborg{
-        background-image: url(#{$imgPath}/cyborg_bg.jpg);
+        background-image: url(#{$bgImgPath}/cyborg_bg.jpg);
         background-color: $redCyborg;
         &.active{
             opacity: 0.3;
