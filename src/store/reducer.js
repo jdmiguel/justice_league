@@ -19,7 +19,7 @@ export const superheroesState = [
     description:
       'Faster than a speeding bullet, more powerful than a locomotive… The Man of Steel fights a never-ending battle for truth, justice, and the American way.',
     class: 'superman',
-    active: false,
+    active: true,
     breakpointCharacter: 4,
     index: 0,
     icon: SupermanIcon,
@@ -137,11 +137,8 @@ export const superheroesState = [
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case actionTypes.RESET_ACTIVE_SUPERHERO_MENU: {
-      return {
-        ...state,
-        superheroes: action.superheroes
-      };
+    case actionTypes.SET_ACTIVE_SUPERHERO: {
+      return action.superheroes;
     }
     default:
       return state;

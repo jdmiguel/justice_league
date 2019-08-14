@@ -7,7 +7,7 @@ import Item from './Item';
 /** Models */
 import { sidedrawerListModel } from '../../../utils/models';
 
-const Sidedrawer = ({ list, onClickSidedrawerItem }) => (
+const Sidedrawer = ({ list, onClickItem }) => (
   <div className="sidedrawer">
     <nav>
       <ul>
@@ -20,7 +20,7 @@ const Sidedrawer = ({ list, onClickSidedrawerItem }) => (
             superheroIndex={superhero.index}
             superheroIcon={superhero.icon}
             superheroIconMeasures={superhero.iconMeasures}
-            onClickItem={onClickSidedrawerItem}
+            onClickItem={onClickItem}
           />
         ))}
       </ul>
@@ -30,7 +30,7 @@ const Sidedrawer = ({ list, onClickSidedrawerItem }) => (
 
 Sidedrawer.propTypes = {
   list: sidedrawerListModel,
-  onClickSidedrawerItem: PropTypes.func
+  onClickItem: PropTypes.func
 };
 
 export default Sidedrawer;

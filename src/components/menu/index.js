@@ -1,30 +1,34 @@
 import React from 'react';
 
+/** Components */
+import Sidedrawer from './Sidedrawer';
+
 /* Reducer */
 import { reducer, superheroesState } from '../../store/reducer';
 
-/** Components */
-import Sidedrawer from './Sidedrawer';
-import Item from './Sidedrawer/Item';
+/* Actions */
+import { setActiveSuperhero } from '../../store/actions';
 
 const Menu = () => {
   const [superheroes, dispatch] = React.useReducer(reducer, superheroesState);
-  const [sidedrawerList, setSidedrawerList] = React.useState(
-    superheroes.map(item => ({
-      alias: item.alias,
-      class: item.class,
-      active: item.active,
-      index: item.index,
-      icon: item.icon,
-      iconMeasures: item.iconMeasures
-    }))
-  );
+  const sidedrawerList = React.useRef(null);
+
+  sidedrawerList.current = superheroes.map(item => ({
+    alias: item.alias,
+    class: item.class,
+    active: item.active,
+    index: item.index,
+    icon: item.icon,
+    iconMeasures: item.iconMeasures
+  }));
 
   return (
     <div className="menu">
       <Sidedrawer
-        list={sidedrawerList}
-        onClickItem={() => console.log('on click item')}
+        list={sidedrawerList.current}
+        onClickItem={indexItem =>
+          setActiveSuperhero(dispatch, superheroes, indexItem)
+        }
       />
     </div>
   );

@@ -11,13 +11,12 @@ const Item = ({
   superheroIndex,
   superheroIcon,
   superheroIconMeasures,
-  onClickIcon
+  onClickItem
 }) => {
-  const getActiveClass = () => (superheroActive ? 'active' : null);
   const { width, height } = superheroIconMeasures;
 
   return (
-    <li className={getActiveClass()}>
+    <li className={superheroActive ? 'active' : null}>
       <Icon
         className={`sidedrawer_${superheroClass}`}
         svg={superheroIcon}
@@ -30,7 +29,7 @@ const Item = ({
         onKeyDown={e => e.preventDefault}
         onFocus={e => e.preventDefault}
         onBlur={e => e.preventDefault}
-        onClick={() => onClickIcon(superheroIndex)}
+        onClick={() => onClickItem(superheroIndex)}
       />
     </li>
   );
@@ -42,7 +41,7 @@ Item.propTypes = {
   superheroActive: PropTypes.bool,
   superheroIndex: PropTypes.number,
   superheroIcon: PropTypes.func,
-  onClickIcon: PropTypes.func
+  onClickItem: PropTypes.func
 };
 
 export default Item;
