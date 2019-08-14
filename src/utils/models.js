@@ -16,7 +16,17 @@ export const sidedrawerListModel = PropTypes.arrayOf(
 
 export const bgListModel = PropTypes.arrayOf(
   PropTypes.shape({
+    alias: PropTypes.string,
     class: PropTypes.string,
     active: PropTypes.bool
+  })
+);
+
+export const lettersListModel = PropTypes.arrayOf(
+  PropTypes.shape({
+    alias: PropTypes.string,
+    class: PropTypes.string,
+    active: PropTypes.bool,
+    breakpoint: PropTypes.number
   })
 );

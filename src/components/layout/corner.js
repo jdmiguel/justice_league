@@ -2,7 +2,7 @@ import React from 'react';
 
 const Corner = () => (
   <a
-    href="https://github.com/jdmiguel/website_animated"
+    href="https://github.com/jdmiguel/justice_league"
     target="_blank"
     rel="noopener noreferrer"
     className="corner"

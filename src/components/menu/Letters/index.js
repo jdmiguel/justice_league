@@ -2,21 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Letters from './Letters';
 
+/** Models */
+import { lettersListModel } from '../../../utils/models';
+
 const LettersWrapper = ({ list, onClick }) =>
   list.map(superhero => (
     <Letters
-      key={superhero.id}
-      superheroName={superhero.name}
+      key={superhero.alias}
+      superheroAlias={superhero.alias}
       superheroClass={superhero.class}
       superheroActive={superhero.active}
-      superheroBreakpointCharacter={superhero.breakpointCharacter}
+      superheroBreakpoint={superhero.breakpoint}
       onClick={onClick}
     />
   ));
 
 LettersWrapper.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onClick: PropTypes.func.isRequired
+  list: lettersListModel,
+  onClick: PropTypes.func
 };
 
 export default LettersWrapper;

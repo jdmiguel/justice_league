@@ -24,13 +24,7 @@ const Item = ({
         height={height}
       />
       <span className={`sidedrawer_${superheroClass}`}>{superheroAlias}</span>
-      <button
-        type="button"
-        onKeyDown={e => e.preventDefault}
-        onFocus={e => e.preventDefault}
-        onBlur={e => e.preventDefault}
-        onClick={() => onClickItem(superheroIndex)}
-      />
+      <button type="button" onClick={() => onClickItem(superheroIndex)} />
     </li>
   );
 };

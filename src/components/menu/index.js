@@ -3,6 +3,7 @@ import React from 'react';
 /** Components */
 import Sidedrawer from './Sidedrawer';
 import Bg from './Bg';
+import Letters from './Letters';
 
 /* Reducer */
 import { reducer, superheroesState } from '../../store/reducer';
@@ -14,6 +15,7 @@ const Menu = () => {
   const [superheroes, dispatch] = React.useReducer(reducer, superheroesState);
   const sidedrawerList = React.useRef(null);
   const bgList = React.useRef(null);
+  const lettersList = React.useRef(null);
 
   sidedrawerList.current = superheroes.map(item => ({
     alias: item.alias,
@@ -30,6 +32,13 @@ const Menu = () => {
     active: item.active
   }));
 
+  lettersList.current = superheroes.map(item => ({
+    alias: item.alias,
+    class: item.class,
+    active: item.active,
+    breakpoint: item.breakpoint
+  }));
+
   return (
     <div className="menu">
       <Sidedrawer
@@ -39,6 +48,7 @@ const Menu = () => {
         }
       />
       <Bg list={bgList.current} />
+      <Letters list={lettersList.current} />
     </div>
   );
 };
