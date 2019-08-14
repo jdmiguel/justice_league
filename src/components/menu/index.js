@@ -2,6 +2,7 @@ import React from 'react';
 
 /** Components */
 import Sidedrawer from './Sidedrawer';
+import Bg from './Bg';
 
 /* Reducer */
 import { reducer, superheroesState } from '../../store/reducer';
@@ -12,6 +13,7 @@ import { setActiveSuperhero } from '../../store/actions';
 const Menu = () => {
   const [superheroes, dispatch] = React.useReducer(reducer, superheroesState);
   const sidedrawerList = React.useRef(null);
+  const bgList = React.useRef(null);
 
   sidedrawerList.current = superheroes.map(item => ({
     alias: item.alias,
@@ -22,6 +24,12 @@ const Menu = () => {
     iconMeasures: item.iconMeasures
   }));
 
+  bgList.current = superheroes.map(item => ({
+    alias: item.alias,
+    class: item.class,
+    active: item.active
+  }));
+
   return (
     <div className="menu">
       <Sidedrawer
@@ -30,6 +38,7 @@ const Menu = () => {
           setActiveSuperhero(dispatch, superheroes, indexItem)
         }
       />
+      <Bg list={bgList.current} />
     </div>
   );
 };

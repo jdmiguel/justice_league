@@ -38,7 +38,7 @@ const Logo = ({ onEndedLogoAnimation }) => {
           transformOrigin: '50% 50%',
           ease: Power1.easeInOut
         },
-        '+= 2.4'
+        '+=1'
       );
 
     return () => {

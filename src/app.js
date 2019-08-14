@@ -10,7 +10,7 @@ import Character from './components/character';
 
 const App = () => {
   // State
-  const [introStatus, setIntroStatus] = React.useState(false);
+  const [introStatus, setIntroStatus] = React.useState(true);
 
   return (
     <Router>
@@ -22,7 +22,7 @@ const App = () => {
             exact
             path="/"
             render={() => (
-              <Layout>
+              <Layout show={introStatus}>
                 <Menu />
               </Layout>
             )}
@@ -30,7 +30,7 @@ const App = () => {
           <Route
             path="/:character"
             render={props => (
-              <Layout>
+              <Layout show={introStatus}>
                 <Character {...props} />
               </Layout>
             )}

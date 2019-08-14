@@ -13,3 +13,10 @@ export const sidedrawerListModel = PropTypes.arrayOf(
     })
   })
 );
+
+export const bgListModel = PropTypes.arrayOf(
+  PropTypes.shape({
+    class: PropTypes.string,
+    active: PropTypes.bool
+  })
+);

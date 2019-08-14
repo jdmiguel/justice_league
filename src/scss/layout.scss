@@ -1,4 +1,5 @@
 .layout{
+  animation: layout-showed 1s ease-out;
   .logo{
     position: fixed;
     z-index: 4;
@@ -41,7 +42,7 @@
     }
     &:hover {
       .octo-arm {
-        animation: octocat-wave 560ms ease-in-out
+        animation: octocat-wave 0.5s ease-in-out
       }
     }
     @media (max-width:500px) {
@@ -51,7 +52,7 @@
         }
       }
       .octo-arm {
-        animation: octocat-wave 560ms ease-in-out
+        animation: octocat-wave 0.5s ease-in-out
       }
     }
     @media (max-width:768px) {
@@ -61,21 +62,7 @@
       }
     }
   }
-  
-  @keyframes octocat-wave {
-    0%,
-    100% {
-      transform: rotate(0)
-    }
-    20%,
-    60% {
-      transform: rotate(-25deg)
-    }
-    40%,
-    80% {
-      transform: rotate(10deg)
-    }
-  }
+
   .created{
     display: none;
     @media (min-width: 1024px){
@@ -113,6 +100,29 @@
       @include font('Open Sans',1em,400);
     }
   }
+}
 
+@keyframes layout-showed {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0)
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg)
+  }
+  40%,
+  80% {
+    transform: rotate(10deg)
+  }
 }
 
