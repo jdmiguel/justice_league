@@ -4,19 +4,23 @@ import PropTypes from 'prop-types';
 /** Components */
 import Item from './Item';
 
-const SideDrawer = ({ list, onClickSideDrawerItem }) => (
+/** Models */
+import { sidedrawerListModel } from '../../../utils/models';
+
+const Sidedrawer = ({ list, onClickSidedrawerItem }) => (
   <div className="sidedrawer">
     <nav>
       <ul>
         {list.map(superhero => (
           <Item
-            key={superhero.id}
-            superheroName={superhero.name}
+            key={superhero.alias}
+            superheroAlias={superhero.alias}
             superheroClass={superhero.class}
             superheroActive={superhero.active}
-            iconPath={superhero.sideDrawerIconPath}
-            counterValue={superhero.counterValue}
-            onClickIcon={onClickSideDrawerItem}
+            superheroIndex={superhero.index}
+            superheroIcon={superhero.icon}
+            superheroIconMeasures={superhero.iconMeasures}
+            onClickItem={onClickSidedrawerItem}
           />
         ))}
       </ul>
@@ -24,9 +28,9 @@ const SideDrawer = ({ list, onClickSideDrawerItem }) => (
   </div>
 );
 
-SideDrawer.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onClickSideDrawerItem: PropTypes.func.isRequired
+Sidedrawer.propTypes = {
+  list: sidedrawerListModel,
+  onClickSidedrawerItem: PropTypes.func
 };
 
-export default SideDrawer;
+export default Sidedrawer;

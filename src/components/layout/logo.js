@@ -3,7 +3,7 @@ import React from 'react';
 /* Colors */
 import { white } from '../../utils/colors';
 
-export default () => (
+const Logo = () => (
   <h2 className="logo">
     <svg
       width="798.941px"
@@ -90,3 +90,5 @@ export default () => (
     </svg>
   </h2>
 );
+
+export default Logo;

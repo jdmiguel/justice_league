@@ -4,7 +4,13 @@ import PropTypes from 'prop-types';
 /* Colors */
 import { white } from '../../utils/colors';
 
-const Icon = ({ className, svg: SVGR, width, height, fill = { white } }) => (
+const Icon = ({
+  className,
+  svg: SVGR,
+  width = '30px',
+  height = '30px',
+  fill = { white }
+}) => (
   <React.Fragment>
     {SVGR && (
       <SVGR className={className} width={width} height={height} fill={fill} />

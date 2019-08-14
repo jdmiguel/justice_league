@@ -4,9 +4,7 @@
     position: absolute;
     z-index: 2;
     nav{
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
+        @include flexContainer();
         height: 100%;
         @media (min-width: 992px){
             display: flex;
@@ -24,9 +22,7 @@
     ul{
         width: 100%;
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-end;
+        @include flexContainer($columnAlign: flex-end);
         position: absolute;
         bottom: 35px;
         @media (min-width: 992px){
@@ -51,7 +47,7 @@
             margin: 0;
         }
         height: 27px;
-        display: flex;
+        @include flexContainer();
         button{
             width: 100%;
             height: 100%;
@@ -62,8 +58,19 @@
             cursor: pointer;
         }
         &.active{
-            img{
+            pointer-events: none;
+            svg{
                 opacity: 1;
+            }
+            span{
+                opacity: 1;
+                transform: translateX(-4px);
+                @media (min-width: 1200px){
+                    transform: translateX(-5px);
+                }
+                @media (min-width: 1400px){
+                    transform: translateX(-2px);
+                }
             }
         }
         @media (min-width: 992px){
@@ -71,7 +78,7 @@
             height: auto;
             display: inline-block;
             &:hover{
-                img{
+                svg{
                     opacity: 1;
                 }
                 span{
@@ -85,58 +92,17 @@
                     }
                 }
             }
-            &.active{
-                pointer-events: none;
-                img{
-                    opacity: 1;
-                }
-                span{
-                    opacity: 1;
-                    transform: translateX(-4px);
-                    @media (min-width: 1200px){
-                        transform: translateX(-5px);
-                    }
-                    @media (min-width: 1400px){
-                        transform: translateX(-2px);
-                    }
-                }
-            }
         }
         @media (min-width: 1400px){
             margin: 0 0 2.2vw 0;
         }
     }
-    img{
+    svg{
         opacity: .35;
         @media (min-width: 992px){
             cursor: pointer;
-            opacity: .35;
         }
         @include transition(all,.5s, ease-out,0);
-        &.sidedrawer_superman{
-            width: 32px;
-        }
-        &.sidedrawer_batman{
-            width: 40px;
-        }
-        &.sidedrawer_wonderwoman{
-            width: 40px;
-        }
-        &.sidedrawer_flash{
-            width: 24px;
-        }
-        &.sidedrawer_greenlantern{
-            width: 26px;
-        }
-        &.sidedrawer_greenarrow{
-            width: 26px;
-        }
-        &.sidedrawer_aquaman{
-            width: 24px;
-        }
-        &.sidedrawer_cyborg{
-            width: 26px;
-        }
     }
     span{
         text-align: center;

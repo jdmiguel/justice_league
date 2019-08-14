@@ -1,42 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/** Components */
+import Icon from '../../core/icon';
+
 const Item = ({
-  superheroName,
+  superheroAlias,
   superheroClass,
   superheroActive,
-  iconPath,
-  counterValue,
+  superheroIndex,
+  superheroIcon,
+  superheroIconMeasures,
   onClickIcon
 }) => {
   const getActiveClass = () => (superheroActive ? 'active' : null);
+  const { width, height } = superheroIconMeasures;
 
   return (
     <li className={getActiveClass()}>
-      <img
-        alt={superheroName}
+      <Icon
         className={`sidedrawer_${superheroClass}`}
-        src={iconPath}
+        svg={superheroIcon}
+        width={width}
+        height={height}
       />
-      <span className={`sidedrawer_${superheroClass}`}>{superheroName}</span>
+      <span className={`sidedrawer_${superheroClass}`}>{superheroAlias}</span>
       <button
         type="button"
         onKeyDown={e => e.preventDefault}
         onFocus={e => e.preventDefault}
         onBlur={e => e.preventDefault}
-        onClick={() => onClickIcon(counterValue)}
+        onClick={() => onClickIcon(superheroIndex)}
       />
     </li>
   );
 };
 
 Item.propTypes = {
-  superheroName: PropTypes.string.isRequired,
-  superheroClass: PropTypes.string.isRequired,
-  superheroActive: PropTypes.bool.isRequired,
-  iconPath: PropTypes.string.isRequired,
-  counterValue: PropTypes.number.isRequired,
-  onClickIcon: PropTypes.func.isRequired
+  superheroAlias: PropTypes.string,
+  superheroClass: PropTypes.string,
+  superheroActive: PropTypes.bool,
+  superheroIndex: PropTypes.number,
+  superheroIcon: PropTypes.func,
+  onClickIcon: PropTypes.func
 };
 
 export default Item;

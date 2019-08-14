@@ -3,7 +3,7 @@ import React from 'react';
 /* Colors */
 import { white } from '../../utils/colors';
 
-export default () => {
+const Letters = () => {
   const firstLetterRef = React.useRef(null);
   const secondLetterRef = React.useRef(null);
   const thirdLetterRef = React.useRef(null);
@@ -204,3 +204,5 @@ export default () => {
     </div>
   );
 };
+
+export default Letters;

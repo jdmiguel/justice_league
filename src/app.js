@@ -5,12 +5,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 /* Components */
 import Layout from './components/layout';
 import Intro from './components/intro';
-import Menu from './components/menu/index';
-import Character from './components/character/index';
+import Menu from './components/menu';
+import Character from './components/character';
 
 const App = () => {
   // State
-  const [introStatus, setIntroStatus] = React.useState(true);
+  const [introStatus, setIntroStatus] = React.useState(false);
 
   return (
     <Router>
@@ -28,7 +28,6 @@ const App = () => {
             )}
           />
           <Route
-            exact
             path="/:character"
             render={props => (
               <Layout>
