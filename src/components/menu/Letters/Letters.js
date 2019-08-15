@@ -10,11 +10,13 @@ const Letters = ({
   onClick
 }) => {
   const [classes, setClasses] = React.useState(['letters-wrapper']);
-  const [superheroIndexState, setIndexSuperheroState] = React.useState(3);
+  // const [superheroIndexState, setSuperheroIndexState] = React.useState(0);
+  const superheroIndexRef = React.useRef(null);
   const letters = React.useRef(null);
   const animationRef = React.useRef(null);
 
   React.useEffect(() => {
+    // setSuperheroIndexState(superheroIndex);
     // Chars
     const mySplitText = new SplitText(`.${superheroClass}`, {
       type: 'chars'
@@ -36,8 +38,8 @@ const Letters = ({
           alpha: 0,
           cycle: {
             x:
-              superheroIndex <= superheroIndexState
-                ? i => -200 + i * 20
+              superheroIndex < superheroIndexRef.current
+                ? i => -250 + i * 20
                 : i => 50 + i * 40
           }
         },
@@ -46,9 +48,12 @@ const Letters = ({
           alpha: 1,
           ease: Power1.easeOut
         },
-        0.014,
+        0.012,
         '+=.35'
       )
+      .add(() => {
+        superheroIndexRef.current = superheroIndex;
+      })
       .addPause()
       .addLabel('out')
       .staggerFromTo(
@@ -61,25 +66,29 @@ const Letters = ({
         {
           cycle: {
             x:
-              superheroIndex <= superheroIndexState
+              superheroIndex < superheroIndexRef.current
                 ? i => 50 + i * 40
-                : i => -200 + i * 20
+                : i => -250 + i * 20
           },
           alpha: 0,
-          ease: Power1.easeOut
+          ease: Power1.easeInOut
         },
-        0.014
+        0.015
       )
       .add(() => setClasses(classes.filter(item => item !== 'active')));
   }, []);
 
   React.useEffect(() => {
+    console.log('superheroIndex: ', superheroIndex);
+    console.log('superheroIndexState: ', superheroIndexRef.current);
     if (superheroActive) {
       setClasses([...classes, 'active']);
       animationRef.current.play('in');
     } else {
       animationRef.current.play('out');
     }
+
+    // setSuperheroIndexState(superheroIndex);
 
     return () => {
       animationRef.current.kill();
