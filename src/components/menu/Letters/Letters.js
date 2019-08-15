@@ -5,56 +5,85 @@ const Letters = ({
   superheroAlias,
   superheroClass,
   superheroActive,
+  superheroIndex,
   superheroBreakpoint,
   onClick
 }) => {
   const [classes, setClasses] = React.useState(['letters-wrapper']);
-  const [letters, setLetters] = React.useState(null);
+  const [superheroIndexState, setIndexSuperheroState] = React.useState(3);
+  const letters = React.useRef(null);
   const animationRef = React.useRef(null);
 
   React.useEffect(() => {
     // Chars
     const mySplitText = new SplitText(`.${superheroClass}`, {
-      type: 'words,chars'
+      type: 'chars'
     });
     const { chars } = mySplitText;
 
-    TweenMax.set(chars, { alpha: 0 });
-    setLetters(chars);
+    letters.current = chars;
 
     // Animation
 
     animationRef.current = new TimelineMax({ paused: true });
-    animationRef.current.staggerFromTo(
-      chars,
-      0.6,
-      {
-        alpha: 0,
-        cycle: { x: i => -200 + i * 20 },
-        rotationY: 0
-      },
-      {
-        delay: 0.4,
-        x: 0,
-        alpha: 1,
-        rotationY: 0,
-        ease: Power1.easeOut
-      },
-      0.015
-    );
-
-    return () => {
-      animationRef.current.kill();
-    };
+    animationRef.current
+      .set(letters.current, { alpha: 0 })
+      .addLabel('in')
+      .staggerFromTo(
+        letters.current,
+        0.6,
+        {
+          alpha: 0,
+          cycle: {
+            x:
+              superheroIndex <= superheroIndexState
+                ? i => -200 + i * 20
+                : i => 50 + i * 40
+          }
+        },
+        {
+          x: 0,
+          alpha: 1,
+          ease: Power1.easeOut
+        },
+        0.014,
+        '+=.35'
+      )
+      .addPause()
+      .addLabel('out')
+      .staggerFromTo(
+        letters.current,
+        0.47,
+        {
+          alpha: 1,
+          x: 0
+        },
+        {
+          cycle: {
+            x:
+              superheroIndex <= superheroIndexState
+                ? i => 50 + i * 40
+                : i => -200 + i * 20
+          },
+          alpha: 0,
+          ease: Power1.easeOut
+        },
+        0.014
+      )
+      .add(() => setClasses(classes.filter(item => item !== 'active')));
   }, []);
 
   React.useEffect(() => {
     if (superheroActive) {
       setClasses([...classes, 'active']);
-      animationRef.current.restart();
+      animationRef.current.play('in');
     } else {
-      setClasses(classes.filter(item => item !== 'active'));
+      animationRef.current.play('out');
     }
+
+    return () => {
+      animationRef.current.kill();
+    };
   }, [superheroActive]);
 
   return (

@@ -36,6 +36,7 @@ const Menu = () => {
     alias: item.alias,
     class: item.class,
     active: item.active,
+    index: item.index,
     breakpoint: item.breakpoint
   }));
 

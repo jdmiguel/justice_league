@@ -12,6 +12,7 @@ const LettersWrapper = ({ list, onClick }) =>
       superheroAlias={superhero.alias}
       superheroClass={superhero.class}
       superheroActive={superhero.active}
+      superheroIndex={superhero.index}
       superheroBreakpoint={superhero.breakpoint}
       onClick={onClick}
     />
