@@ -5,100 +5,137 @@ const Letters = ({
   superheroAlias,
   superheroClass,
   superheroActive,
-  superheroIndex,
   superheroBreakpoint,
+  menuDirection,
   onClick
 }) => {
+  const { inHero, outHero } = menuDirection;
+
   const [classes, setClasses] = React.useState(['letters-wrapper']);
-  // const [superheroIndexState, setSuperheroIndexState] = React.useState(0);
-  const superheroIndexRef = React.useRef(null);
-  const letters = React.useRef(null);
-  const animationRef = React.useRef(null);
+  const lettersRef = React.useRef(null);
+  const charsRef = React.useRef(null);
+
+  const inLeftAnimation = React.useCallback(() => {
+    setClasses([...classes, 'active']);
+
+    TweenMax.staggerFromTo(
+      charsRef.current,
+      0.6,
+      {
+        alpha: 0,
+        cycle: {
+          x: i => -250 + i * 20
+        }
+      },
+      {
+        delay: 0.35,
+        x: 0,
+        alpha: 1,
+        ease: Power1.easeOut
+      },
+      0.012
+    );
+  });
+
+  const inRightAnimation = React.useCallback(() => {
+    setClasses([...classes, 'active']);
+
+    TweenMax.staggerFromTo(
+      charsRef.current,
+      0.6,
+      {
+        alpha: 0,
+        cycle: {
+          x: i => 50 + i * 40
+        }
+      },
+      {
+        delay: 0.35,
+        x: 0,
+        alpha: 1,
+        ease: Power1.easeOut
+      },
+      0.012
+    );
+  });
+
+  const outLeftAnimation = React.useCallback(() => {
+    setClasses(classes.filter(item => item !== 'active'));
+
+    TweenMax.staggerFromTo(
+      charsRef.current,
+      0.47,
+      {
+        alpha: 1,
+        x: 0
+      },
+      {
+        cycle: {
+          x: i => -250 + i * 20
+        },
+        alpha: 0,
+        ease: Power1.easeInOut
+      },
+      0.015
+    );
+  });
+
+  const outRightAnimation = React.useCallback(() => {
+    setClasses(classes.filter(item => item !== 'active'));
+
+    TweenMax.staggerFromTo(
+      charsRef.current,
+      0.47,
+      {
+        alpha: 1,
+        x: 0
+      },
+      {
+        cycle: {
+          x: i => 50 + i * 40
+        },
+        alpha: 0,
+        ease: Power1.easeInOut
+      },
+      0.015
+    );
+  });
 
   React.useEffect(() => {
-    // setSuperheroIndexState(superheroIndex);
-    // Chars
-    const mySplitText = new SplitText(`.${superheroClass}`, {
+    const mySplitText = new SplitText(lettersRef.current, {
       type: 'chars'
     });
     const { chars } = mySplitText;
 
-    letters.current = chars;
+    charsRef.current = chars;
 
-    // Animation
-
-    animationRef.current = new TimelineMax({ paused: true });
-    animationRef.current
-      .set(letters.current, { alpha: 0 })
-      .addLabel('in')
-      .staggerFromTo(
-        letters.current,
-        0.6,
-        {
-          alpha: 0,
-          cycle: {
-            x:
-              superheroIndex < superheroIndexRef.current
-                ? i => -250 + i * 20
-                : i => 50 + i * 40
-          }
-        },
-        {
-          x: 0,
-          alpha: 1,
-          ease: Power1.easeOut
-        },
-        0.012,
-        '+=.35'
-      )
-      .add(() => {
-        superheroIndexRef.current = superheroIndex;
-      })
-      .addPause()
-      .addLabel('out')
-      .staggerFromTo(
-        letters.current,
-        0.47,
-        {
-          alpha: 1,
-          x: 0
-        },
-        {
-          cycle: {
-            x:
-              superheroIndex < superheroIndexRef.current
-                ? i => 50 + i * 40
-                : i => -250 + i * 20
-          },
-          alpha: 0,
-          ease: Power1.easeInOut
-        },
-        0.015
-      )
-      .add(() => setClasses(classes.filter(item => item !== 'active')));
+    TweenMax.set(charsRef.current, {
+      alpha: 0
+    });
   }, []);
 
   React.useEffect(() => {
-    console.log('superheroIndex: ', superheroIndex);
-    console.log('superheroIndexState: ', superheroIndexRef.current);
     if (superheroActive) {
-      setClasses([...classes, 'active']);
-      animationRef.current.play('in');
-    } else {
-      animationRef.current.play('out');
+      if (inHero) {
+        const inAnimation =
+          inHero === 'left' ? inLeftAnimation : inRightAnimation;
+        inAnimation();
+      } else {
+        inLeftAnimation();
+      }
+    } else if (outHero) {
+      const outAnimation =
+        outHero === 'left' ? outLeftAnimation : outRightAnimation;
+      outAnimation();
     }
-
-    // setSuperheroIndexState(superheroIndex);
-
-    return () => {
-      animationRef.current.kill();
-    };
   }, [superheroActive]);
 
   return (
     <div className={classes.join(' ')}>
       <button type="button" />
-      <h2 className={`letters ${superheroClass}`}>{superheroAlias}</h2>
+      <h2 ref={lettersRef} className={`letters ${superheroClass}`}>
+        {superheroAlias}
+      </h2>
     </div>
   );
 };

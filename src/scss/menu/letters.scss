@@ -2,14 +2,10 @@
     position: absolute;
     z-index: 3;
     white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
     &.disabled{
         pointer-events: none;
     }
     &.active{
-        opacity: 1;
-        visibility: visible;
         z-index: 4;
         button{
             display: block;

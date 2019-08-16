@@ -6,13 +6,14 @@ import Bg from './Bg';
 import Letters from './Letters';
 
 /* Reducer */
-import { reducer, superheroesState } from '../../store/reducer';
+import { reducer, initialState } from '../../store/reducer';
 
 /* Actions */
 import { setActiveSuperhero } from '../../store/actions';
 
 const Menu = () => {
-  const [superheroes, dispatch] = React.useReducer(reducer, superheroesState);
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+  const { superheroes, menuDirection } = state;
   const sidedrawerList = React.useRef(null);
   const bgList = React.useRef(null);
   const lettersList = React.useRef(null);
@@ -36,7 +37,6 @@ const Menu = () => {
     alias: item.alias,
     class: item.class,
     active: item.active,
-    index: item.index,
     breakpoint: item.breakpoint
   }));
 
@@ -44,12 +44,12 @@ const Menu = () => {
     <div className="menu">
       <Sidedrawer
         list={sidedrawerList.current}
-        onClickItem={indexItem =>
-          setActiveSuperhero(dispatch, superheroes, indexItem)
-        }
+        onClickItem={indexItem => {
+          setActiveSuperhero(dispatch, superheroes, indexItem);
+        }}
       />
       <Bg list={bgList.current} />
-      <Letters list={lettersList.current} />
+      <Letters list={lettersList.current} menuDirection={menuDirection} />
     </div>
   );
 };

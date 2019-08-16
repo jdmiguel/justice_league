@@ -5,15 +5,15 @@ import Letters from './Letters';
 /** Models */
 import { lettersListModel } from '../../../utils/models';
 
-const LettersWrapper = ({ list, onClick }) =>
+const LettersWrapper = ({ list, onClick, menuDirection }) =>
   list.map(superhero => (
     <Letters
       key={superhero.alias}
       superheroAlias={superhero.alias}
       superheroClass={superhero.class}
       superheroActive={superhero.active}
-      superheroIndex={superhero.index}
       superheroBreakpoint={superhero.breakpoint}
+      menuDirection={menuDirection}
       onClick={onClick}
     />
   ));
