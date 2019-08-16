@@ -7,8 +7,6 @@ export const setActiveSuperhero = (dispatch, superheroes, index) => {
       ? { inHero: 'left', outHero: 'right' }
       : { inHero: 'right', outHero: 'left' };
 
-  console.log('menuDirection: ', menuDirection);
-
   dispatch({
     type: actionTypes.SET_MENU_DIRECTION,
     menuDirection

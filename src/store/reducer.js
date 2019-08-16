@@ -157,7 +157,6 @@ export const reducer = (state, action) => {
         superheroeCounter
       };
     case actionTypes.SET_MENU_DIRECTION:
-      console.log('menuDirection_reducer: ', menuDirection);
       return {
         ...state,
         menuDirection
