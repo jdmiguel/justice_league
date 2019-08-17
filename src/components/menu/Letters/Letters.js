@@ -15,6 +15,30 @@ const Letters = ({
   const lettersRef = React.useRef(null);
   const charsRef = React.useRef(null);
 
+  const entryAnimation = React.useCallback(() => {
+    setClasses([...classes, 'active']);
+
+    TweenMax.staggerFromTo(
+      charsRef.current,
+      0.75,
+      {
+        alpha: 0,
+        rotationY: -120,
+        x: -50,
+        scaleX: 0
+      },
+      {
+        delay: 0.4,
+        alpha: 1,
+        rotationY: 0,
+        x: 0,
+        scaleX: 1,
+        ease: Power1.easeOut
+      },
+      0.08
+    );
+  });
+
   const inLeftAnimation = React.useCallback(() => {
     setClasses([...classes, 'active']);
 
@@ -121,7 +145,7 @@ const Letters = ({
           inHero === 'left' ? inLeftAnimation : inRightAnimation;
         inAnimation();
       } else {
-        inLeftAnimation();
+        entryAnimation();
       }
     } else if (outHero) {
       const outAnimation =
