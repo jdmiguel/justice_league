@@ -12,6 +12,7 @@ const Letters = ({
   const { inHero, outHero } = menuDirection;
 
   const [classes, setClasses] = React.useState(['letters-wrapper']);
+  const [allowOver, setAllowOver] = React.useState(false);
   const lettersRef = React.useRef(null);
   const charsRef = React.useRef(null);
 
@@ -35,7 +36,8 @@ const Letters = ({
         scaleX: 1,
         ease: Power1.easeOut
       },
-      0.08
+      0.08,
+      () => setAllowOver(true)
     );
   });
 
@@ -57,7 +59,8 @@ const Letters = ({
         alpha: 1,
         ease: Power1.easeOut
       },
-      0.012
+      0.012,
+      () => setAllowOver(true)
     );
   });
 
@@ -79,7 +82,8 @@ const Letters = ({
         alpha: 1,
         ease: Power1.easeOut
       },
-      0.012
+      0.012,
+      () => setAllowOver(true)
     );
   });
 
@@ -140,19 +144,23 @@ const Letters = ({
   };
 
   const mouseOverHandler = () => {
-    TweenMax.staggerTo(charsRef.current, 1, {
-      cycle: {
-        x: i => getDistance(i, 0.45)
-      },
-      ease: Power1.easeOut
-    });
+    if (allowOver) {
+      TweenMax.staggerTo(charsRef.current, 1, {
+        cycle: {
+          x: i => getDistance(i, 0.45)
+        },
+        ease: Power1.easeOut
+      });
+    }
   };
 
   const mouseOutHandler = () => {
-    TweenMax.to(charsRef.current, 1, {
-      x: 0,
-      ease: Power1.easeOut
-    });
+    if (allowOver) {
+      TweenMax.to(charsRef.current, 1, {
+        x: 0,
+        ease: Power1.easeOut
+      });
+    }
   };
 
   React.useEffect(() => {
@@ -178,6 +186,7 @@ const Letters = ({
         entryAnimation();
       }
     } else if (outHero) {
+      setAllowOver(false);
       const outAnimation =
         outHero === 'left' ? outLeftAnimation : outRightAnimation;
       outAnimation();
