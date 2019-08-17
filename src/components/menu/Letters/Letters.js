@@ -125,6 +125,36 @@ const Letters = ({
     );
   });
 
+  const getDistance = (index, splitFactor) => {
+    const totalChars = superheroAlias.length;
+    const distance =
+      index < superheroBreakpoint
+        ? (Math.asinh(index) - totalChars) *
+          (superheroBreakpoint - index) *
+          splitFactor
+        : (Math.asinh(index) + totalChars) *
+          (index - superheroBreakpoint) *
+          splitFactor;
+
+    return distance;
+  };
+
+  const mouseOverHandler = () => {
+    TweenMax.staggerTo(charsRef.current, 1, {
+      cycle: {
+        x: i => getDistance(i, 0.45)
+      },
+      ease: Power1.easeOut
+    });
+  };
+
+  const mouseOutHandler = () => {
+    TweenMax.to(charsRef.current, 1, {
+      x: 0,
+      ease: Power1.easeOut
+    });
+  };
+
   React.useEffect(() => {
     const mySplitText = new SplitText(lettersRef.current, {
       type: 'chars'
@@ -156,7 +186,14 @@ const Letters = ({
 
   return (
     <div className={classes.join(' ')}>
-      <button type="button" />
+      <button
+        type="button"
+        onMouseOver={mouseOverHandler}
+        onMouseOut={mouseOutHandler}
+        onKeyDown={e => e.preventDefault}
+        onFocus={e => e.preventDefault}
+        onBlur={e => e.preventDefault}
+      />
       <h2 ref={lettersRef} className={`letters ${superheroClass}`}>
         {superheroAlias}
       </h2>
