@@ -14,12 +14,17 @@ import { setActiveSuperhero } from '../../store/actions';
 const Menu = () => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   const { superheroes, menuDirection } = state;
-  const sidedrawerList = React.useRef(null);
-  const bgList = React.useRef(null);
-  const lettersList = React.useRef(null);
+
+  const menuRef = React.useRef(null);
+  const sidedrawerListRef = React.useRef(null);
+  const bgListRef = React.useRef(null);
+  const lettersListRef = React.useRef(null);
+  const swipeManagerRef = React.useRef(null);
+  const swipeEventRef = React.useRef(null);
+
   const [highlightBg, setHighlightBg] = React.useState(false);
 
-  sidedrawerList.current = superheroes.map(item => ({
+  sidedrawerListRef.current = superheroes.map(item => ({
     alias: item.alias,
     class: item.class,
     active: item.active,
@@ -28,30 +33,85 @@ const Menu = () => {
     iconMeasures: item.iconMeasures
   }));
 
-  bgList.current = superheroes.map(item => ({
+  bgListRef.current = superheroes.map(item => ({
     alias: item.alias,
     class: item.class,
     active: item.active
   }));
 
-  lettersList.current = superheroes.map(item => ({
+  lettersListRef.current = superheroes.map(item => ({
     alias: item.alias,
     class: item.class,
     active: item.active,
     breakpoint: item.breakpoint
   }));
 
+  const getIndex = React.useCallback(factor => {
+    const activeIndex = superheroes.findIndex(item => item.active);
+    const maxIndex = superheroes.lenght - 1;
+
+    if (activeIndex < 0) {
+      return maxIndex;
+    }
+    if (activeIndex > maxIndex) {
+      return 0;
+    }
+    return activeIndex + factor;
+  });
+
+  const mouseWheelHandler = React.useCallback(e => {
+    if (e.deltaY > 0) {
+      setActiveSuperhero(dispatch, superheroes, getIndex(-1));
+    } else {
+      setActiveSuperhero(dispatch, superheroes, getIndex(1));
+    }
+  });
+
+  const onSwipePress = React.useCallback(e => {
+    if (e.direction === 2) {
+      console.log('prev');
+      setActiveSuperhero(dispatch, superheroes, getIndex(-1));
+    }
+
+    if (e.direction === 4) {
+      console.log('next');
+      setActiveSuperhero(dispatch, superheroes, getIndex(1));
+    }
+  });
+
+  React.useEffect(() => {
+    menuRef.current.addEventListener('mousewheel', e => mouseWheelHandler(e));
+    menuRef.current.addEventListener('DOMMouseScroll', e =>
+      mouseWheelHandler(e)
+    );
+
+    swipeManagerRef.current = new Hammer.Manager(menuRef.current);
+    swipeEventRef.current = new Hammer.Swipe('DIRECTION_ALL');
+    swipeManagerRef.current.add(swipeEventRef.current);
+    swipeManagerRef.current.on('swipe', onSwipePress);
+
+    return () => {
+      menuRef.current.removeEventListener('mousewheel', event =>
+        mouseWheelHandler(event)
+      );
+      menuRef.current.removeEventListener('DOMMouseScroll', event =>
+        mouseWheelHandler(event)
+      );
+      swipeManagerRef.current.off('swipe', onSwipePress);
+    };
+  }, []);
+
   return (
-    <div className="menu">
+    <div ref={menuRef} className="menu">
       <Sidedrawer
-        list={sidedrawerList.current}
-        onClickItem={indexItem => {
-          setActiveSuperhero(dispatch, superheroes, indexItem);
-        }}
+        list={sidedrawerListRef.current}
+        onClickItem={indexItem =>
+          setActiveSuperhero(dispatch, superheroes, indexItem)
+        }
       />
-      <Bg list={bgList.current} highlightBg={highlightBg} />
+      <Bg list={bgListRef.current} highlightBg={highlightBg} />
       <Letters
-        list={lettersList.current}
+        list={lettersListRef.current}
         menuDirection={menuDirection}
         overLetters={isOver => setHighlightBg(isOver)}
       />
