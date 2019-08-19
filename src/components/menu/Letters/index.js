@@ -5,7 +5,7 @@ import Letters from './Letters';
 /** Models */
 import { lettersListModel } from '../../../utils/models';
 
-const LettersWrapper = ({ list, onClick, menuDirection }) =>
+const LettersWrapper = ({ list, menuDirection, overLetters, onClick }) =>
   list.map(superhero => (
     <Letters
       key={superhero.alias}
@@ -14,12 +14,14 @@ const LettersWrapper = ({ list, onClick, menuDirection }) =>
       superheroActive={superhero.active}
       superheroBreakpoint={superhero.breakpoint}
       menuDirection={menuDirection}
+      overLetters={overLetters}
       onClick={onClick}
     />
   ));
 
 LettersWrapper.propTypes = {
   list: lettersListModel,
+  overLetters: PropTypes.func,
   onClick: PropTypes.func
 };
 

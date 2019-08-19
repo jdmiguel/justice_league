@@ -17,6 +17,7 @@ const Menu = () => {
   const sidedrawerList = React.useRef(null);
   const bgList = React.useRef(null);
   const lettersList = React.useRef(null);
+  const [highlightBg, setHighlightBg] = React.useState(false);
 
   sidedrawerList.current = superheroes.map(item => ({
     alias: item.alias,
@@ -48,8 +49,12 @@ const Menu = () => {
           setActiveSuperhero(dispatch, superheroes, indexItem);
         }}
       />
-      <Bg list={bgList.current} />
-      <Letters list={lettersList.current} menuDirection={menuDirection} />
+      <Bg list={bgList.current} highlightBg={highlightBg} />
+      <Letters
+        list={lettersList.current}
+        menuDirection={menuDirection}
+        overLetters={isOver => setHighlightBg(isOver)}
+      />
     </div>
   );
 };

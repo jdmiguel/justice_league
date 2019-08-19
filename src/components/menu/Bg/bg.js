@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Bg = ({ superheroClass, superheroActive }) => {
+const Bg = ({ superheroClass, superheroActive, highlightBg }) => {
   const [classes, setClasses] = React.useState([
     'menu-bg',
     `${superheroClass}`
   ]);
+  const [isFirstBg, setIsFirstBg] = React.useState(true);
 
   React.useEffect(() => {
     if (superheroActive) {
@@ -15,16 +16,22 @@ const Bg = ({ superheroClass, superheroActive }) => {
     }
   }, [superheroActive]);
 
-  // if (superheroActive && isActiveMenuLettersAnimation) {
-  // listClasses.push('highlight');
-  // }
+  React.useEffect(() => {
+    if (highlightBg && superheroActive) {
+      setClasses([...classes, 'highlight']);
+      setIsFirstBg(false);
+    } else if (!isFirstBg) {
+      setClasses(classes.filter(item => item !== 'highlight'));
+    }
+  }, [highlightBg]);
 
   return <div className={classes.join(' ')} />;
 };
 
 Bg.propTypes = {
   superheroClass: PropTypes.string,
-  superheroActive: PropTypes.bool
+  superheroActive: PropTypes.bool,
+  highlightBg: PropTypes.bool
 };
 
 export default Bg;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /* Components */
 import Bg from './bg';
@@ -6,18 +7,20 @@ import Bg from './bg';
 /** Models */
 import { bgListModel } from '../../../utils/models';
 
-const BgWrapper = ({ list }) =>
+const BgWrapper = ({ list, highlightBg }) =>
   list.map(superhero => (
     <Bg
       key={superhero.alias}
       superheroAlias={superhero.alias}
       superheroClass={superhero.class}
       superheroActive={superhero.active}
+      highlightBg={highlightBg}
     />
   ));
 
 BgWrapper.propTypes = {
-  list: bgListModel
+  list: bgListModel,
+  highlightBg: PropTypes.bool
 };
 
 export default BgWrapper;

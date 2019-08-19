@@ -7,6 +7,7 @@ const Letters = ({
   superheroActive,
   superheroBreakpoint,
   menuDirection,
+  overLetters,
   onClick
 }) => {
   const { inHero, outHero } = menuDirection;
@@ -145,6 +146,7 @@ const Letters = ({
 
   const mouseOverHandler = () => {
     if (allowOver) {
+      overLetters(true);
       TweenMax.staggerTo(charsRef.current, 1, {
         cycle: {
           x: i => getDistance(i, 0.45)
@@ -156,6 +158,7 @@ const Letters = ({
 
   const mouseOutHandler = () => {
     if (allowOver) {
+      overLetters(false);
       TweenMax.to(charsRef.current, 1, {
         x: 0,
         ease: Power1.easeOut
@@ -215,6 +218,7 @@ Letters.propTypes = {
   superheroClass: PropTypes.string,
   superheroActive: PropTypes.bool,
   superheroBreakpoint: PropTypes.number,
+  overLetters: PropTypes.func,
   onClick: PropTypes.func
 };
 
