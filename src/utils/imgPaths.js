@@ -2,95 +2,73 @@
 
 import LandscapeImg from '../../assets/img/landscape.png';
 
-/* ICONS */
-
-import SupermanIconImg from '../../assets/img/icon_superman.svg';
-import BatmanIconImg from '../../assets/img/icon_batman.svg';
-import WonderWomanIconImg from '../../assets/img/icon_wonderwoman.svg';
-import FlashIconImg from '../../assets/img/icon_flash.svg';
-import GreenLanternIconImg from '../../assets/img/icon_greenlantern.svg';
-import GreenArrowIconImg from '../../assets/img/icon_greenarrow.svg';
-import AquamanIconImg from '../../assets/img/icon_aquaman.svg';
-import CyborgIconImg from '../../assets/img/icon_cyborg.svg';
-
 /* SUPERMAN CHARACTER */
 
-import SupermanImgCharacter from '../../assets/img/character_superman.png';
-import SupermanThumb1Character from '../../assets/img/character_superman_thumb_1.jpg';
-import SupermanThumb2Character from '../../assets/img/character_superman_thumb_2.jpg';
-import SupermanThumb3Character from '../../assets/img/character_superman_thumb_3.jpg';
-import SupermanThumb4Character from '../../assets/img/character_superman_thumb_4.jpg';
+import SupermanImgCharacter from '../../assets/img/character/character_superman.png';
+import SupermanThumb1Character from '../../assets/img/thumbs/character_superman_thumb_1.jpg';
+import SupermanThumb2Character from '../../assets/img/thumbs/character_superman_thumb_2.jpg';
+import SupermanThumb3Character from '../../assets/img/thumbs/character_superman_thumb_3.jpg';
+import SupermanThumb4Character from '../../assets/img/thumbs/character_superman_thumb_4.jpg';
 
 /* BATMAN CHARACTER */
 
-import BatmanImgCharacter from '../../assets/img/character_batman.png';
-import BatmanThumb1Character from '../../assets/img/character_batman_thumb_1.jpg';
-import BatmanThumb2Character from '../../assets/img/character_batman_thumb_2.jpg';
-import BatmanThumb3Character from '../../assets/img/character_batman_thumb_3.jpg';
-import BatmanThumb4Character from '../../assets/img/character_batman_thumb_4.jpg';
+import BatmanImgCharacter from '../../assets/img/character/character_batman.png';
+import BatmanThumb1Character from '../../assets/img/thumbs/character_batman_thumb_1.jpg';
+import BatmanThumb2Character from '../../assets/img/thumbs/character_batman_thumb_2.jpg';
+import BatmanThumb3Character from '../../assets/img/thumbs/character_batman_thumb_3.jpg';
+import BatmanThumb4Character from '../../assets/img/thumbs/character_batman_thumb_4.jpg';
 
 /* WONDER_WOMAN CHARACTER */
 
-import WonderWomanImgCharacter from '../../assets/img/character_wonderwoman.png';
-import WonderWomanThumb1Character from '../../assets/img/character_wonderwoman_thumb_1.jpg';
-import WonderWomanThumb2Character from '../../assets/img/character_wonderwoman_thumb_2.jpg';
-import WonderWomanThumb3Character from '../../assets/img/character_wonderwoman_thumb_3.jpg';
-import WonderWomanThumb4Character from '../../assets/img/character_wonderwoman_thumb_4.jpg';
+import WonderWomanImgCharacter from '../../assets/img/character/character_wonderwoman.png';
+import WonderWomanThumb1Character from '../../assets/img/thumbs/character_wonderwoman_thumb_1.jpg';
+import WonderWomanThumb2Character from '../../assets/img/thumbs/character_wonderwoman_thumb_2.jpg';
+import WonderWomanThumb3Character from '../../assets/img/thumbs/character_wonderwoman_thumb_3.jpg';
+import WonderWomanThumb4Character from '../../assets/img/thumbs/character_wonderwoman_thumb_4.jpg';
 
 /* FLASH CHARACTER */
 
-import FlashImgCharacter from '../../assets/img/character_flash.png';
-import FlashThumb1Character from '../../assets/img/character_flash_thumb_1.jpg';
-import FlashThumb2Character from '../../assets/img/character_flash_thumb_2.jpg';
-import FlashThumb3Character from '../../assets/img/character_flash_thumb_3.jpg';
-import FlashThumb4Character from '../../assets/img/character_flash_thumb_4.jpg';
+import FlashImgCharacter from '../../assets/img/character/character_flash.png';
+import FlashThumb1Character from '../../assets/img/thumbs/character_flash_thumb_1.jpg';
+import FlashThumb2Character from '../../assets/img/thumbs/character_flash_thumb_2.jpg';
+import FlashThumb3Character from '../../assets/img/thumbs/character_flash_thumb_3.jpg';
+import FlashThumb4Character from '../../assets/img/thumbs/character_flash_thumb_4.jpg';
 
 /* GREEN_LANTERN CHARACTER */
 
-import GreenLanternImgCharacter from '../../assets/img/character_greenlantern.png';
-import GreenLanternThumb1Character from '../../assets/img/character_greenlantern_thumb_1.jpg';
-import GreenLanternThumb2Character from '../../assets/img/character_greenlantern_thumb_2.jpg';
-import GreenLanternThumb3Character from '../../assets/img/character_greenlantern_thumb_3.jpg';
-import GreenLanternThumb4Character from '../../assets/img/character_greenlantern_thumb_4.jpg';
+import GreenLanternImgCharacter from '../../assets/img/character/character_greenlantern.png';
+import GreenLanternThumb1Character from '../../assets/img/thumbs/character_greenlantern_thumb_1.jpg';
+import GreenLanternThumb2Character from '../../assets/img/thumbs/character_greenlantern_thumb_2.jpg';
+import GreenLanternThumb3Character from '../../assets/img/thumbs/character_greenlantern_thumb_3.jpg';
+import GreenLanternThumb4Character from '../../assets/img/thumbs/character_greenlantern_thumb_4.jpg';
 
 /* GREEN_ARROW CHARACTER */
 
-import GreenArrowImgCharacter from '../../assets/img/character_greenarrow.png';
-import GreenArrowThumb1Character from '../../assets/img/character_greenarrow_thumb_1.jpg';
-import GreenArrowThumb2Character from '../../assets/img/character_greenarrow_thumb_2.jpg';
-import GreenArrowThumb3Character from '../../assets/img/character_greenarrow_thumb_3.jpg';
-import GreenArrowThumb4Character from '../../assets/img/character_greenarrow_thumb_4.jpg';
+import GreenArrowImgCharacter from '../../assets/img/character/character_greenarrow.png';
+import GreenArrowThumb1Character from '../../assets/img/thumbs/character_greenarrow_thumb_1.jpg';
+import GreenArrowThumb2Character from '../../assets/img/thumbs/character_greenarrow_thumb_2.jpg';
+import GreenArrowThumb3Character from '../../assets/img/thumbs/character_greenarrow_thumb_3.jpg';
+import GreenArrowThumb4Character from '../../assets/img/thumbs/character_greenarrow_thumb_4.jpg';
 
 /* AQUAMAN CHARACTER */
 
-import AquamanImgCharacter from '../../assets/img/character_aquaman.png';
-import AquamanThumb1Character from '../../assets/img/character_aquaman_thumb_1.jpg';
-import AquamanThumb2Character from '../../assets/img/character_aquaman_thumb_2.jpg';
-import AquamanThumb3Character from '../../assets/img/character_aquaman_thumb_3.jpg';
-import AquamanThumb4Character from '../../assets/img/character_aquaman_thumb_4.jpg';
+import AquamanImgCharacter from '../../assets/img/character/character_aquaman.png';
+import AquamanThumb1Character from '../../assets/img/thumbs/character_aquaman_thumb_1.jpg';
+import AquamanThumb2Character from '../../assets/img/thumbs/character_aquaman_thumb_2.jpg';
+import AquamanThumb3Character from '../../assets/img/thumbs/character_aquaman_thumb_3.jpg';
+import AquamanThumb4Character from '../../assets/img/thumbs/character_aquaman_thumb_4.jpg';
 
 /* CYBORG CHARACTER */
 
-import CyborgImgCharacter from '../../assets/img/character_cyborg.png';
-import CyborgThumb1Character from '../../assets/img/character_cyborg_thumb_1.jpg';
-import CyborgThumb2Character from '../../assets/img/character_cyborg_thumb_2.jpg';
-import CyborgThumb3Character from '../../assets/img/character_cyborg_thumb_3.jpg';
-import CyborgThumb4Character from '../../assets/img/character_cyborg_thumb_4.jpg';
+import CyborgImgCharacter from '../../assets/img/character/character_cyborg.png';
+import CyborgThumb1Character from '../../assets/img/thumbs/character_cyborg_thumb_1.jpg';
+import CyborgThumb2Character from '../../assets/img/thumbs/character_cyborg_thumb_2.jpg';
+import CyborgThumb3Character from '../../assets/img/thumbs/character_cyborg_thumb_3.jpg';
+import CyborgThumb4Character from '../../assets/img/thumbs/character_cyborg_thumb_4.jpg';
 
 /* LANDSCAPE */
 
 export const landscapeImgPath = LandscapeImg;
-
-/* ICONS */
-
-export const supermanIconPath = SupermanIconImg;
-export const batmanIconPath = BatmanIconImg;
-export const wonderWomanIconPath = WonderWomanIconImg;
-export const flashIconPath = FlashIconImg;
-export const greenLanternIconPath = GreenLanternIconImg;
-export const greenArrowIconPath = GreenArrowIconImg;
-export const aquamanIconPath = AquamanIconImg;
-export const cyborgIconPath = CyborgIconImg;
 
 /* SUPERMAN CHARACTER */
 

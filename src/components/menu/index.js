@@ -92,11 +92,13 @@ const Menu = () => {
       if (e.deltaY > 0) {
         setMenuDirection(dispatch, { inHero: 'right', outHero: 'left' });
         setActiveSuperhero(dispatch, superheroes, getNextIndex(-1));
-      } else {
+        allowWheelRef.current = false;
+      }
+      if (e.deltaY < 0) {
         setMenuDirection(dispatch, { inHero: 'left', outHero: 'right' });
         setActiveSuperhero(dispatch, superheroes, getNextIndex(1));
+        allowWheelRef.current = false;
       }
-      allowWheelRef.current = false;
     }
   });
 

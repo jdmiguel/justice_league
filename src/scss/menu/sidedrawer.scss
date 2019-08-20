@@ -22,12 +22,13 @@
     ul{
         width: 100%;
         display: flex;
-        @include flexContainer($columnAlign: flex-end);
+        @include flexContainer();
         position: absolute;
         bottom: 35px;
         @media (min-width: 992px){
             position: initial;
             bottom: 0;
+            @include flexContainer($direction: column);
             display: flex;
             flex-direction: column;
             align-items: center;

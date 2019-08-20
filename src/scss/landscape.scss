@@ -16,6 +16,7 @@
         @include font('Cinzel',0.95em,400);
         text-align: center;
         line-height: 1.3em;
+        max-width: 90%;
     }
     @media (orientation: landscape){
         display: none;
