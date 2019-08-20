@@ -7,7 +7,7 @@ module.exports = {
   ...devConfig,
   mode: 'production',
   output: {
-    filename: 'bundle.js',
+    filename: '[name]-bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   optimization: {
