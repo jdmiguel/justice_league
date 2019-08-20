@@ -1,17 +1,6 @@
 import * as actionTypes from './actionTypes';
 
 export const setActiveSuperhero = (dispatch, superheroes, index) => {
-  const currentIndex = superheroes.find(item => item.active).index;
-  const menuDirection =
-    index > currentIndex
-      ? { inHero: 'left', outHero: 'right' }
-      : { inHero: 'right', outHero: 'left' };
-
-  dispatch({
-    type: actionTypes.SET_MENU_DIRECTION,
-    menuDirection
-  });
-
   const superheroesUpdated = superheroes.map(item => ({
     ...item,
     active: index === item.index
@@ -23,9 +12,9 @@ export const setActiveSuperhero = (dispatch, superheroes, index) => {
   });
 };
 
-export const setCurrentSuperheroCounter = (dispatch, superheroeCounter) => {
+export const setMenuDirection = (dispatch, menuDirection) => {
   dispatch({
-    type: actionTypes.SET_CURRENT_SUPERHERO_COUNTER,
-    superheroeCounter
+    type: actionTypes.SET_MENU_DIRECTION,
+    menuDirection
   });
 };

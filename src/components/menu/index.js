@@ -9,20 +9,50 @@ import Letters from './Letters';
 import { reducer, initialState } from '../../store/reducer';
 
 /* Actions */
-import { setActiveSuperhero } from '../../store/actions';
+import { setActiveSuperhero, setMenuDirection } from '../../store/actions';
 
 const Menu = () => {
+  // Reducers
   const [state, dispatch] = React.useReducer(reducer, initialState);
   const { superheroes, menuDirection } = state;
 
+  // Refs
   const menuRef = React.useRef(null);
+  const menuDirectionRef = React.useRef(null);
   const sidedrawerListRef = React.useRef(null);
   const bgListRef = React.useRef(null);
   const lettersListRef = React.useRef(null);
   const swipeManagerRef = React.useRef(null);
   const swipeEventRef = React.useRef(null);
+  const activeIndexRef = React.useRef(null);
+  const allowWheelRef = React.useRef(null);
+  const allowSwipeRef = React.useRef(null);
 
+  // States
   const [highlightBg, setHighlightBg] = React.useState(false);
+
+  // Utils
+  const maxIndex = superheroes.length - 1;
+
+  const getActiveIndex = React.useCallback(() =>
+    superheroes.findIndex(item => item.active)
+  );
+
+  const getNextIndex = React.useCallback(factor => {
+    const indexSelected = activeIndexRef.current + factor;
+
+    if (indexSelected < 0) {
+      return maxIndex;
+    }
+    if (indexSelected > maxIndex) {
+      return 0;
+    }
+    return indexSelected;
+  });
+
+  // Refs settings
+  menuDirectionRef.current = menuDirection;
+  activeIndexRef.current = getActiveIndex();
 
   sidedrawerListRef.current = superheroes.map(item => ({
     alias: item.alias,
@@ -46,39 +76,46 @@ const Menu = () => {
     breakpoint: item.breakpoint
   }));
 
-  const getIndex = React.useCallback(factor => {
-    const activeIndex = superheroes.findIndex(item => item.active);
-    const maxIndex = superheroes.lenght - 1;
+  // Handlers
+  const setMenuDirectionHandler = React.useCallback(index => {
+    const currentIndex = superheroes.find(item => item.active).index;
+    const menuDirection =
+      index > currentIndex
+        ? { inHero: 'left', outHero: 'right' }
+        : { inHero: 'right', outHero: 'left' };
 
-    if (activeIndex < 0) {
-      return maxIndex;
-    }
-    if (activeIndex > maxIndex) {
-      return 0;
-    }
-    return activeIndex + factor;
+    setMenuDirection(dispatch, menuDirection);
   });
 
   const mouseWheelHandler = React.useCallback(e => {
-    if (e.deltaY > 0) {
-      setActiveSuperhero(dispatch, superheroes, getIndex(-1));
-    } else {
-      setActiveSuperhero(dispatch, superheroes, getIndex(1));
+    if (allowWheelRef.current) {
+      if (e.deltaY > 0) {
+        setMenuDirection(dispatch, { inHero: 'right', outHero: 'left' });
+        setActiveSuperhero(dispatch, superheroes, getNextIndex(-1));
+      } else {
+        setMenuDirection(dispatch, { inHero: 'left', outHero: 'right' });
+        setActiveSuperhero(dispatch, superheroes, getNextIndex(1));
+      }
+      allowWheelRef.current = false;
     }
   });
 
   const onSwipePress = React.useCallback(e => {
-    if (e.direction === 2) {
-      console.log('prev');
-      setActiveSuperhero(dispatch, superheroes, getIndex(-1));
-    }
-
-    if (e.direction === 4) {
-      console.log('next');
-      setActiveSuperhero(dispatch, superheroes, getIndex(1));
+    if (allowSwipeRef.current) {
+      if (e.direction === 2) {
+        setMenuDirection(dispatch, { inHero: 'right', outHero: 'left' });
+        setActiveSuperhero(dispatch, superheroes, getNextIndex(-1));
+        allowSwipeRef.current = false;
+      }
+      if (e.direction === 4) {
+        setMenuDirection(dispatch, { inHero: 'left', outHero: 'right' });
+        setActiveSuperhero(dispatch, superheroes, getNextIndex(1));
+        allowSwipeRef.current = false;
+      }
     }
   });
 
+  // UseEffects
   React.useEffect(() => {
     menuRef.current.addEventListener('mousewheel', e => mouseWheelHandler(e));
     menuRef.current.addEventListener('DOMMouseScroll', e =>
@@ -101,19 +138,32 @@ const Menu = () => {
     };
   }, []);
 
+  React.useEffect(() => {
+    activeIndexRef.current = superheroes.findIndex(item => item.active);
+  }, [superheroes]);
+
+  React.useEffect(() => {
+    menuDirectionRef.current = menuDirection;
+  }, [menuDirection]);
+
   return (
     <div ref={menuRef} className="menu">
       <Sidedrawer
         list={sidedrawerListRef.current}
-        onClickItem={indexItem =>
-          setActiveSuperhero(dispatch, superheroes, indexItem)
-        }
+        onClickItem={indexItem => {
+          setMenuDirectionHandler(indexItem);
+          setActiveSuperhero(dispatch, superheroes, indexItem);
+        }}
       />
       <Bg list={bgListRef.current} highlightBg={highlightBg} />
       <Letters
         list={lettersListRef.current}
-        menuDirection={menuDirection}
+        menuDirection={menuDirectionRef.current}
         overLetters={isOver => setHighlightBg(isOver)}
+        endLettersAnimation={() => {
+          allowWheelRef.current = true;
+          allowSwipeRef.current = true;
+        }}
       />
     </div>
   );

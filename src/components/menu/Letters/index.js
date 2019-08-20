@@ -1,11 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+/** Components */
 import Letters from './Letters';
 
 /** Models */
 import { lettersListModel } from '../../../utils/models';
 
-const LettersWrapper = ({ list, menuDirection, overLetters, onClick }) =>
+const LettersWrapper = ({
+  list,
+  menuDirection,
+  overLetters,
+  endLettersAnimation,
+  onClick
+}) =>
   list.map(superhero => (
     <Letters
       key={superhero.alias}
@@ -15,6 +23,7 @@ const LettersWrapper = ({ list, menuDirection, overLetters, onClick }) =>
       superheroBreakpoint={superhero.breakpoint}
       menuDirection={menuDirection}
       overLetters={overLetters}
+      endLettersAnimation={endLettersAnimation}
       onClick={onClick}
     />
   ));
@@ -22,6 +31,7 @@ const LettersWrapper = ({ list, menuDirection, overLetters, onClick }) =>
 LettersWrapper.propTypes = {
   list: lettersListModel,
   overLetters: PropTypes.func,
+  endLettersAnimation: PropTypes.func,
   onClick: PropTypes.func
 };
 

@@ -8,25 +8,46 @@ const Letters = ({
   superheroBreakpoint,
   menuDirection,
   overLetters,
+  endLettersAnimation,
   onClick
 }) => {
+  // Props
   const { inHero, outHero } = menuDirection;
 
-  const [classes, setClasses] = React.useState(['letters-wrapper']);
-  const [allowOver, setAllowOver] = React.useState(false);
+  // Refs
   const lettersRef = React.useRef(null);
   const charsRef = React.useRef(null);
 
+  // States
+  const [classes, setClasses] = React.useState(['letters-wrapper']);
+  const [allowOver, setAllowOver] = React.useState(false);
+
+  // Utils
+  const getDistance = (index, splitFactor) => {
+    const totalChars = superheroAlias.length;
+    const distance =
+      index < superheroBreakpoint
+        ? (Math.asinh(index) - totalChars) *
+          (superheroBreakpoint - index) *
+          splitFactor
+        : (Math.asinh(index) + totalChars) *
+          (index - superheroBreakpoint) *
+          splitFactor;
+
+    return distance;
+  };
+
+  // Animations
   const entryAnimation = React.useCallback(() => {
     setClasses([...classes, 'active']);
 
     TweenMax.staggerFromTo(
       charsRef.current,
-      0.75,
+      0.7,
       {
         alpha: 0,
         rotationY: -120,
-        x: -50,
+        x: -75,
         scaleX: 0
       },
       {
@@ -37,8 +58,11 @@ const Letters = ({
         scaleX: 1,
         ease: Power1.easeOut
       },
-      0.08,
-      () => setAllowOver(true)
+      0.05,
+      () => {
+        setAllowOver(true);
+        endLettersAnimation();
+      }
     );
   });
 
@@ -61,7 +85,10 @@ const Letters = ({
         ease: Power1.easeOut
       },
       0.012,
-      () => setAllowOver(true)
+      () => {
+        setAllowOver(true);
+        endLettersAnimation();
+      }
     );
   });
 
@@ -84,7 +111,10 @@ const Letters = ({
         ease: Power1.easeOut
       },
       0.012,
-      () => setAllowOver(true)
+      () => {
+        setAllowOver(true);
+        endLettersAnimation();
+      }
     );
   });
 
@@ -130,20 +160,7 @@ const Letters = ({
     );
   });
 
-  const getDistance = (index, splitFactor) => {
-    const totalChars = superheroAlias.length;
-    const distance =
-      index < superheroBreakpoint
-        ? (Math.asinh(index) - totalChars) *
-          (superheroBreakpoint - index) *
-          splitFactor
-        : (Math.asinh(index) + totalChars) *
-          (index - superheroBreakpoint) *
-          splitFactor;
-
-    return distance;
-  };
-
+  // Handlers
   const mouseOverHandler = () => {
     if (allowOver) {
       overLetters(true);
@@ -166,6 +183,7 @@ const Letters = ({
     }
   };
 
+  // UseEffects
   React.useEffect(() => {
     const mySplitText = new SplitText(lettersRef.current, {
       type: 'chars'
@@ -219,6 +237,7 @@ Letters.propTypes = {
   superheroActive: PropTypes.bool,
   superheroBreakpoint: PropTypes.number,
   overLetters: PropTypes.func,
+  endLettersAnimation: PropTypes.func,
   onClick: PropTypes.func
 };
 

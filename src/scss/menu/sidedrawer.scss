@@ -42,11 +42,9 @@
     }
     li{
         position: relative;
-        margin: 0 6vw 0 0;
         &:last-of-type{
             margin: 0;
         }
-        height: 27px;
         @include flexContainer();
         button{
             width: 100%;
@@ -94,7 +92,7 @@
             }
         }
         @media (min-width: 1400px){
-            margin: 0 0 2.2vw 0;
+            margin: 0 0 2vw 0;
         }
     }
     svg{
