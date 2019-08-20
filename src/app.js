@@ -1,43 +1,35 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-/* Components */
+/** Components */
 import Layout from './components/layout';
 import Intro from './components/intro';
 import Menu from './components/menu';
 import Character from './components/character';
 
 const App = () => {
-  // State
+  // States
   const [introStatus, setIntroStatus] = React.useState(true);
+  const [menuStatus, setMenutatus] = React.useState(true);
 
   return (
-    <Router>
+    <>
+      <div className="landscape">
+        <img alt="landscape forced" src="../assets/img/landscape.png" />
+        <p>
+          Coloca tu móvil o tablet en horizontal
+          <br />
+          para disfrutar de una mejor experiencia.
+        </p>
+      </div>
       {introStatus ? (
         <Intro endIntro={() => setIntroStatus(false)} />
       ) : (
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <Layout show={introStatus}>
-                <Menu />
-              </Layout>
-            )}
-          />
-          <Route
-            path="/:character"
-            render={props => (
-              <Layout show={introStatus}>
-                <Character {...props} />
-              </Layout>
-            )}
-          />
-        </Switch>
+        <Layout show={introStatus}>
+          {menuStatus ? <Menu /> : <Character />}
+        </Layout>
       )}
-    </Router>
+    </>
   );
 };
 

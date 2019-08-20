@@ -7,7 +7,7 @@ module.exports = {
   ...devConfig,
   mode: 'production',
   output: {
-    filename: '[name]-bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
   optimization: {
@@ -18,7 +18,7 @@ module.exports = {
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true
+        sourceMap: false
       }),
       new OptimizeCSSAssetsPlugin({})
     ]

@@ -1,13 +1,13 @@
 {
-  "name": "justice_league_website",
+  "name": "justice_league_microsite",
   "version": "1.0.0",
-  "description": "Animated website created with React which combines javascript animations (with Tweenmax from Greenshock) and css animations (with Sass)",
+  "description": "Animated microsite created with React (and its new features as hooks) which combines javascript animations (with Tweenmax from Greenshock) and css animations (with Sass)",
   "main": "index.js",
   "scripts": {
     "start": "cross-env MODE='development' webpack-dev-server --hot",
     "build": "rimraf ./dist && cross-env MODE='production' webpack --config webpack.prod.config.js"
   },
-  "author": "jcoder",
+  "author": "jdmiguel",
   "license": "ISC",
   "dependencies": {
     "optimize-css-assets-webpack-plugin": "^5.0.0",
@@ -15,8 +15,6 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-hot-loader": "^4.3.4",
-    "react-router": "^5.0.1",
-    "react-router-dom": "^5.0.1",
     "uglifyjs-webpack-plugin": "^1.2.7"
   },
   "devDependencies": {

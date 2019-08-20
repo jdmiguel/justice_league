@@ -42,6 +42,7 @@
     }
     li{
         position: relative;
+        margin: 0 6vw 0 0;
         &:last-of-type{
             margin: 0;
         }
@@ -75,6 +76,10 @@
             margin: 0 0 1.7vw 0;
             height: auto;
             display: inline-block;
+            span{
+                display: inline-block;
+                opacity: 0;
+            }
             &:hover{
                 svg{
                     opacity: 1;
@@ -106,7 +111,7 @@
         text-align: center;
         color: $darkWhite;
         position: absolute;
-        opacity: 0;
+        display: none;
         transform: translateX(15px);
         pointer-events: none;
         @include transition(all,.5s, cubic-bezier(0.215, 0.61, 0.355, 1),0);

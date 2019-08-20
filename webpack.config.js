@@ -14,18 +14,17 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
 
   entry: {
-    vendor: [
+    bundle: [
       './vendor/Hammer.min.js',
       './vendor/gsap/TweenMax.min.js',
       './vendor/gsap/utils/SplitText.min.js',
-      './vendor/gsap/plugins/DrawSVGPlugin.js'
-    ],
-    app: './index.js'
+      './vendor/gsap/plugins/DrawSVGPlugin.js',
+      './index.js'
+    ]
   },
 
   devServer: {
-    port: 9000,
-    historyApiFallback: true
+    port: 9000
   },
 
   module: {
@@ -83,11 +82,11 @@ module.exports = {
       title: 'justice_league',
       template: '../assets/template-app.ejs',
       filename: 'index.html',
-      hash: true
+      hash: false
     }),
 
     new MiniCssExtractPlugin({
-      filename: '[name]-styles.css'
+      filename: '[name].css'
     })
   ]
 };
