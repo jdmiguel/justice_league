@@ -20,7 +20,8 @@ const Letters = ({
 
   // States
   const [classes, setClasses] = React.useState(['letters-wrapper']);
-  const [allowOver, setAllowOver] = React.useState(false);
+  const [allowMouseOver, setAllowMouseOver] = React.useState(false);
+  const [allowMouseMove, setAllowMouseMove] = React.useState(false);
 
   // Utils
   const getDistance = (index, splitFactor) => {
@@ -60,7 +61,7 @@ const Letters = ({
       },
       0.05,
       () => {
-        setAllowOver(true);
+        setAllowMouseOver(true);
         endLettersAnimation();
       }
     );
@@ -86,7 +87,9 @@ const Letters = ({
       },
       0.012,
       () => {
-        setAllowOver(true);
+        setAllowMouseOver(true);
+        setAllowMouseMove(true);
+        overLetters(false);
         endLettersAnimation();
       }
     );
@@ -112,7 +115,9 @@ const Letters = ({
       },
       0.012,
       () => {
-        setAllowOver(true);
+        setAllowMouseOver(true);
+        setAllowMouseMove(true);
+        overLetters(false);
         endLettersAnimation();
       }
     );
@@ -162,7 +167,7 @@ const Letters = ({
 
   // Handlers
   const mouseOverHandler = () => {
-    if (allowOver) {
+    if (allowMouseOver) {
       overLetters(true);
       TweenMax.staggerTo(charsRef.current, 1, {
         cycle: {
@@ -174,12 +179,25 @@ const Letters = ({
   };
 
   const mouseOutHandler = () => {
-    if (allowOver) {
+    if (allowMouseOver) {
       overLetters(false);
       TweenMax.to(charsRef.current, 1, {
         x: 0,
         ease: Power1.easeOut
       });
+    }
+  };
+
+  const mouseMoveHandler = () => {
+    if (allowMouseOver && allowMouseMove) {
+      overLetters(true);
+      TweenMax.staggerTo(charsRef.current, 1, {
+        cycle: {
+          x: i => getDistance(i, 0.45)
+        },
+        ease: Power1.easeOut
+      });
+      setAllowMouseMove(false);
     }
   };
 
@@ -209,7 +227,7 @@ const Letters = ({
         entryAnimation();
       }
     } else if (outHero) {
-      setAllowOver(false);
+      setAllowMouseOver(false);
       const outAnimation =
         outHero === 'left' ? outLeftAnimation : outRightAnimation;
       outAnimation();
@@ -222,6 +240,7 @@ const Letters = ({
         type="button"
         onMouseOver={mouseOverHandler}
         onMouseOut={mouseOutHandler}
+        onMouseMove={mouseMoveHandler}
         onKeyDown={e => e.preventDefault}
         onFocus={e => e.preventDefault}
         onBlur={e => e.preventDefault}
