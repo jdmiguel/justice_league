@@ -77,10 +77,6 @@
             margin: 0 0 1.7vw 0;
             height: auto;
             display: inline-block;
-            span{
-                display: inline-block;
-                opacity: 0;
-            }
             &:hover{
                 svg{
                     opacity: 1;
@@ -117,43 +113,48 @@
         pointer-events: none;
         @include transition(all,.5s, cubic-bezier(0.215, 0.61, 0.355, 1),0);
         @include font('Cinzel',1em,700);
+        &.sidedrawer_superman{
+            left: 53px;
+            top: 3px;
+        }
+        &.sidedrawer_batman{
+            left: 57px;
+            top: -3px;
+        }
+        &.sidedrawer_wonderwoman{
+            left: 58px;
+            top: 0;
+        }
+        &.sidedrawer_flash{
+            left: 51px;
+            top: 8px;
+        }
+        &.sidedrawer_greenlantern{
+            left: 53px;
+            top: 3px;
+        }
+        &.sidedrawer_greenarrow{
+            left: 53px;
+            top: 3px;
+        }
+        &.sidedrawer_aquaman{
+            left: 52px;
+            top: 3px;
+        }
+        &.sidedrawer_cyborg{
+            left: 53px;
+            top: 3px;
+        }
         @media (min-width: 992px){
             @include font('Cinzel',.9em,700);
+            display: inline-block;
+            opacity: 0;
         }
         @media (min-width: 1200px){
             @include font('Cinzel',1em,700);
         }
-        &.sidedrawer_superman{
-            left: 60px;
-            top: 3px;
-        }
-        &.sidedrawer_batman{
-            left: 64px;
-            top: -3px;
-        }
-        &.sidedrawer_wonderwoman{
-            left: 65px;
-            top: 0;
-        }
-        &.sidedrawer_flash{
-            left: 58px;
-            top: 8px;
-        }
-        &.sidedrawer_greenlantern{
-            left: 60px;
-            top: 3px;
-        }
-        &.sidedrawer_greenarrow{
-            left: 60px;
-            top: 3px;
-        }
-        &.sidedrawer_aquaman{
-            left: 59px;
-            top: 3px;
-        }
-        &.sidedrawer_cyborg{
-            left: 60px;
-            top: 3px;
+        @media (min-width: 1400px){
+            @include font('Cinzel',1em,700);
         }
     }
 }
