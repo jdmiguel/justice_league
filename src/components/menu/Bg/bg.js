@@ -12,7 +12,9 @@ const Bg = ({ superheroClass, superheroActive, highlightBg }) => {
     if (superheroActive) {
       setClasses([...classes, 'active']);
     } else {
-      setClasses(classes.filter(item => item !== 'active'));
+      setClasses(
+        classes.filter(item => item !== 'active' && item !== 'highlight')
+      );
     }
   }, [superheroActive]);
 

@@ -39,7 +39,7 @@ const Letters = ({
 
   // Animations
   const entryAnimation = React.useCallback(() => {
-    setClasses([...classes, 'active']);
+    setClasses([...classes, 'active', 'visible']);
 
     TweenMax.staggerFromTo(
       charsRef.current,
@@ -195,6 +195,8 @@ const Letters = ({
     TweenMax.set(charsRef.current, {
       alpha: 0
     });
+
+    setClasses([...classes, 'visible']);
   }, []);
 
   React.useEffect(() => {
