@@ -76,11 +76,17 @@
         left: 50px;
     }
     h3{
-        @include font('Open Sans',1em,400);
+      @include font('Open Sans',0.9em,400);
+      @media (min-width: 1400px){
+        font-size: 1em;
+      }
     }
     a{
-        @include font('Open Sans',.9em,700);
-        text-decoration: underline;
+      @include font('Open Sans',0.9em,400);
+      text-decoration: underline;
+      @media (min-width: 1400px){
+        font-size: 1em;
+      }
     }
   }
 
@@ -97,7 +103,10 @@
         right: 50px;
     }
     h4{
-      @include font('Open Sans',1em,400);
+      @include font('Open Sans',0.9em,400);
+      @media (min-width: 1400px){
+        font-size: 1em;
+      }
     }
   }
 }

@@ -114,47 +114,68 @@
         @include transition(all,.5s, cubic-bezier(0.215, 0.61, 0.355, 1),0);
         @include font('Cinzel',1em,700);
         &.sidedrawer_superman{
-            left: 53px;
+            left: 50px;
             top: 3px;
         }
         &.sidedrawer_batman{
-            left: 57px;
-            top: -3px;
+            left: 54px;
+            top: -2px;
         }
         &.sidedrawer_wonderwoman{
-            left: 58px;
-            top: 0;
+            left: 55px;
+            top: 1px;
         }
         &.sidedrawer_flash{
-            left: 51px;
+            left: 48px;
             top: 8px;
         }
         &.sidedrawer_greenlantern{
-            left: 53px;
-            top: 3px;
+            left: 50px;
+            top: 4px;
         }
         &.sidedrawer_greenarrow{
-            left: 53px;
-            top: 3px;
+            left: 50px;
+            top: 4px;
         }
         &.sidedrawer_aquaman{
-            left: 52px;
-            top: 3px;
+            left: 49px;
+            top: 4px;
         }
         &.sidedrawer_cyborg{
-            left: 53px;
-            top: 3px;
+            left: 50px;
+            top: 4px;
         }
         @media (min-width: 992px){
             @include font('Cinzel',.9em,700);
             display: inline-block;
             opacity: 0;
         }
-        @media (min-width: 1200px){
-            @include font('Cinzel',1em,700);
-        }
         @media (min-width: 1400px){
             @include font('Cinzel',1em,700);
+            &.sidedrawer_superman{
+                left: 53px;
+            }
+            &.sidedrawer_batman{
+                left: 57px;
+            }
+            &.sidedrawer_wonderwoman{
+                left: 58px;
+            }
+            &.sidedrawer_flash{
+                left: 51px;
+            }
+            &.sidedrawer_greenlantern{
+                left: 53px;
+            }
+            &.sidedrawer_greenarrow{
+                left: 53px;
+            }
+            &.sidedrawer_aquaman{
+                left: 52px;
+            }
+            &.sidedrawer_cyborg{
+                left: 53px;
+            }
         }
     }
 }
