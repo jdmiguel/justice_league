@@ -27,6 +27,7 @@ const Menu = () => {
   const activeIndexRef = React.useRef(null);
   const allowWheelRef = React.useRef(null);
   const allowSwipeRef = React.useRef(null);
+  const allowSidedrawerItemClickRef = React.useRef(null);
 
   // States
   const [highlightBg, setHighlightBg] = React.useState(false);
@@ -90,19 +91,19 @@ const Menu = () => {
   const mouseWheelHandler = React.useCallback(e => {
     if (allowWheelRef.current) {
       if (e.deltaY > 0) {
-        setMenuDirection(dispatch, { inHero: 'right', outHero: 'left' });
-        setActiveSuperhero(dispatch, superheroes, getNextIndex(-1));
+        setMenuDirection(dispatch, { inHero: 'left', outHero: 'right' });
+        setActiveSuperhero(dispatch, superheroes, getNextIndex(1));
         allowWheelRef.current = false;
       }
       if (e.deltaY < 0) {
-        setMenuDirection(dispatch, { inHero: 'left', outHero: 'right' });
-        setActiveSuperhero(dispatch, superheroes, getNextIndex(1));
+        setMenuDirection(dispatch, { inHero: 'right', outHero: 'left' });
+        setActiveSuperhero(dispatch, superheroes, getNextIndex(-1));
         allowWheelRef.current = false;
       }
     }
   });
 
-  const onSwipePress = React.useCallback(e => {
+  const swipeHandler = React.useCallback(e => {
     if (allowSwipeRef.current) {
       if (e.direction === 2) {
         setMenuDirection(dispatch, { inHero: 'right', outHero: 'left' });
@@ -117,6 +118,14 @@ const Menu = () => {
     }
   });
 
+  const sidedrawerItemClickHandler = React.useCallback(index => {
+    if (allowSidedrawerItemClickRef.current) {
+      setMenuDirectionHandler(index);
+      setActiveSuperhero(dispatch, superheroes, index);
+      allowSidedrawerItemClickRef.current = false;
+    }
+  });
+
   // UseEffects
   React.useEffect(() => {
     menuRef.current.addEventListener('mousewheel', e => mouseWheelHandler(e));
@@ -127,7 +136,7 @@ const Menu = () => {
     swipeManagerRef.current = new Hammer.Manager(menuRef.current);
     swipeEventRef.current = new Hammer.Swipe('DIRECTION_ALL');
     swipeManagerRef.current.add(swipeEventRef.current);
-    swipeManagerRef.current.on('swipe', onSwipePress);
+    swipeManagerRef.current.on('swipe', swipeHandler);
 
     return () => {
       menuRef.current.removeEventListener('mousewheel', event =>
@@ -136,7 +145,7 @@ const Menu = () => {
       menuRef.current.removeEventListener('DOMMouseScroll', event =>
         mouseWheelHandler(event)
       );
-      swipeManagerRef.current.off('swipe', onSwipePress);
+      swipeManagerRef.current.off('swipe', swipeHandler);
     };
   }, []);
 
@@ -152,10 +161,7 @@ const Menu = () => {
     <div ref={menuRef} className="menu">
       <Sidedrawer
         list={sidedrawerListRef.current}
-        onClickItem={indexItem => {
-          setMenuDirectionHandler(indexItem);
-          setActiveSuperhero(dispatch, superheroes, indexItem);
-        }}
+        onClickItem={indexItem => sidedrawerItemClickHandler(indexItem)}
       />
       <Bg list={bgListRef.current} highlightBg={highlightBg} />
       <Letters
@@ -165,6 +171,7 @@ const Menu = () => {
         endLettersAnimation={() => {
           allowWheelRef.current = true;
           allowSwipeRef.current = true;
+          allowSidedrawerItemClickRef.current = true;
         }}
       />
     </div>
