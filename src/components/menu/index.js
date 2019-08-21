@@ -31,6 +31,7 @@ const Menu = () => {
 
   // States
   const [highlightBg, setHighlightBg] = React.useState(false);
+  // const [mousePosX, setMousePosX] = React.useState(0);
 
   // Utils
   const maxIndex = superheroes.length - 1;
@@ -125,6 +126,10 @@ const Menu = () => {
       allowSidedrawerItemClickRef.current = false;
     }
   });
+
+  // const mouseMoveHandler = event => {
+  // setMousePosX(event.pageX - window.innerWidth / 2);
+  // };
 
   // UseEffects
   React.useEffect(() => {
