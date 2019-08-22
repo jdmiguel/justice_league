@@ -2,8 +2,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-blend-mode: luminosity;
-  filter: grayscale(100%);
+  background-blend-mode: darken;
   width: 100%;
   height: 100vh;
   position: absolute;
@@ -20,7 +19,7 @@
     transform: scale(1);
     opacity: 0.25;
     @media (min-width: 992px) {
-      animation: bg-grey 6s linear 2s forwards;
+      animation: bg-grey 5s linear 2s forwards;
     }
   }
   &.highlight {
@@ -28,43 +27,35 @@
   }
   &.superman {
     background-image: url(#{$bgImgPath}/superman_bg.jpg);
-    background-color: $blueSuperman;
   }
   &.batman {
     background-image: url(#{$bgImgPath}/batman_bg.jpg);
-    background-color: $greyBatman;
   }
   &.wonderwoman {
     background-image: url(#{$bgImgPath}/wonderwoman_bg.jpg);
-    background-color: $orangeWonder;
   }
   &.flash {
     background-image: url(#{$bgImgPath}/flash_bg.jpg);
-    background-color: $redFlash;
   }
   &.greenlantern {
     background-image: url(#{$bgImgPath}/greenlantern_bg.jpg);
-    background-color: $greenLantern;
   }
   &.greenarrow {
     background-image: url(#{$bgImgPath}/greenarrow_bg.jpg);
-    background-color: $greenArrow;
   }
   &.aquaman {
     background-image: url(#{$bgImgPath}/aquaman_bg.jpg);
-    background-color: $yellowAquaman;
   }
   &.cyborg {
     background-image: url(#{$bgImgPath}/cyborg_bg.jpg);
-    background-color: $redCyborg;
   }
 }
 
 @keyframes bg-grey {
   0% {
-    filter: grayscale(100%);
+    filter: grayscale(0) contrast(100%);
     }
-    100% {
-    filter: grayscale(50%);
+  100% {
+    filter: grayscale(100%) contrast(170%);
   }
 }
