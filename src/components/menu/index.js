@@ -55,8 +55,19 @@ const Menu = () => {
     return indexSelected;
   });
 
-  const setMenuAuto = React.useCallback(() => {
+  const setMenuDirectionFromSidedrawer = React.useCallback(index => {
+    const currentIndex = superheroes.find(item => item.active).index;
+    const menuDirection =
+      index > currentIndex
+        ? { inHero: 'left', outHero: 'right' }
+        : { inHero: 'right', outHero: 'left' };
+
+    setMenuDirection(dispatch, menuDirection);
+  });
+
+  const activeMenuAuto = React.useCallback(() => {
     clearInterval(timerAutoMenuRef.current);
+
     timerAutoMenuRef.current = setInterval(() => {
       setMenuDirection(dispatch, { inHero: 'left', outHero: 'right' });
       setActiveSuperhero(dispatch, superheroes, getNextIndex(1));
@@ -95,17 +106,9 @@ const Menu = () => {
   }));
 
   // Handlers
-  const setMenuDirectionHandler = React.useCallback(index => {
-    const currentIndex = superheroes.find(item => item.active).index;
-    const menuDirection =
-      index > currentIndex
-        ? { inHero: 'left', outHero: 'right' }
-        : { inHero: 'right', outHero: 'left' };
-
-    setMenuDirection(dispatch, menuDirection);
-  });
-
   const mouseWheelHandler = React.useCallback(e => {
+    activeMenuAuto();
+
     if (allowWheelRef.current) {
       if (e.deltaY > 0) {
         setMenuDirection(dispatch, { inHero: 'left', outHero: 'right' });
@@ -121,6 +124,8 @@ const Menu = () => {
   });
 
   const swipeHandler = React.useCallback(e => {
+    activeMenuAuto();
+
     if (allowSwipeRef.current) {
       if (e.direction === 2) {
         setMenuDirection(dispatch, { inHero: 'right', outHero: 'left' });
@@ -136,16 +141,17 @@ const Menu = () => {
   });
 
   const sidedrawerItemClickHandler = React.useCallback(index => {
+    activeMenuAuto();
+
     if (allowSidedrawerItemClickRef.current) {
-      setMenuDirectionHandler(index);
+      setMenuDirectionFromSidedrawer(index);
       setActiveSuperhero(dispatch, superheroes, index);
       allowSidedrawerItemClickRef.current = false;
     }
   });
 
   const mouseMoveHandler = React.useCallback(() => {
-    clearInterval(timerAutoMenuRef.current);
-    setMenuAuto();
+    activeMenuAuto();
   });
 
   // UseEffects
@@ -160,7 +166,7 @@ const Menu = () => {
     swipeManagerRef.current.add(swipeEventRef.current);
     swipeManagerRef.current.on('swipe', swipeHandler);
 
-    setMenuAuto();
+    activeMenuAuto();
 
     return () => {
       menuRef.current.removeEventListener('mousewheel', event =>
