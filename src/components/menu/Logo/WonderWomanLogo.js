@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* Colors */
+import { black, orangeWonder } from '../../../utils/colors';
+
 const WonderWomanLogo = ({ classes }) => (
   <div className={classes}>
     <svg
@@ -10,16 +13,13 @@ const WonderWomanLogo = ({ classes }) => (
       height="500px"
       viewBox="0 0 500 500"
       enableBackground="new 0 0 500 500"
-      className="superheroLogo_svg"
       xmlSpace="preserve"
     >
       <path
-        stroke="#c06711"
+        stroke={orangeWonder}
         strokeWidth="2"
         strokeMiterlimit="10"
-        fill="#000000"
-        fillOpacity="0.7"
-        className="superheroLogo_path"
+        fill={black}
         d="M85.562,94c0,0,36.672-2.375,59.695,40.858l41.106,74.835L249.824,94.1l63.451,115.592l41.11-74.835
         c23.02-43.232,59.69-40.858,59.69-40.858V94h31.591C399.862,37,329.274-0.307,250.073-0.307S100.284,37,54.479,94H85.562z
         M438.874,253c0,0-24.446-0.225-37.764,25.16l-59.679,108.91l-27.709,50.562l-27.766-50.614l-36.133-65.847l-36.141,65.825
@@ -37,7 +37,7 @@ const WonderWomanLogo = ({ classes }) => (
 );
 
 WonderWomanLogo.propTypes = {
-  classes: PropTypes.string.isRequired
+  classes: PropTypes.string
 };
 
 export default WonderWomanLogo;

@@ -17,11 +17,11 @@
     transform: scale(1);
     opacity: 0.4;
     @media (min-width: 992px) {
-      animation: bg-grey 5s linear 2s forwards;
+      //animation: bg-grey 5s linear 2s forwards;
     }
   }
   &.highlight {
-    opacity: 0.2;
+    opacity: 0.15;
   }
   &.superman {
     background-image: url(#{$bgImgPath}/superman_bg.jpg);

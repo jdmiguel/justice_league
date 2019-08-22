@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* Colors */
+import { black, greenLantern } from '../../../utils/colors';
+
 const GreenLanternLogo = ({ classes }) => (
   <div className={classes}>
     <svg
@@ -10,16 +13,13 @@ const GreenLanternLogo = ({ classes }) => (
       height="500px"
       viewBox="0 0 500 500"
       enableBackground="new 0 0 500 500"
-      className="superheroLogo_svg"
       xmlSpace="preserve"
     >
       <path
-        stroke="#09a609"
+        stroke={greenLantern}
         strokeWidth="2"
         strokeMiterlimit="10"
-        fill="#000000"
-        fillOpacity="0.7"
-        className="superheroLogo_path"
+        fill={black}
         d="M245.892,144.247c55.575,0,100.622,45.049,100.622,100.621c0,55.576-45.053,100.623-100.622,100.623
         c-55.57,0-100.622-45.047-100.624-100.623C145.272,189.296,190.323,144.247,245.892,144.247z M363.501,27.195
         C329.44,9.809,290.866,0,250,0c-40.866,0-79.439,9.809-113.5,27.195H363.501z M136.499,472.805C170.561,490.191,209.135,500,250,500
@@ -34,7 +34,7 @@ const GreenLanternLogo = ({ classes }) => (
 );
 
 GreenLanternLogo.propTypes = {
-  classes: PropTypes.string.isRequired
+  classes: PropTypes.string
 };
 
 export default GreenLanternLogo;

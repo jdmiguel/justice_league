@@ -4,6 +4,7 @@ import React from 'react';
 import Sidedrawer from './Sidedrawer';
 import Bg from './Bg';
 import Letters from './Letters';
+import Logo from './Logo';
 
 /* Reducer */
 import { reducer, initialState } from '../../store/reducer';
@@ -22,6 +23,7 @@ const Menu = () => {
   const sidedrawerListRef = React.useRef(null);
   const bgListRef = React.useRef(null);
   const lettersListRef = React.useRef(null);
+  const logoListRef = React.useRef(null);
   const swipeManagerRef = React.useRef(null);
   const swipeEventRef = React.useRef(null);
   const activeIndexRef = React.useRef(null);
@@ -76,6 +78,11 @@ const Menu = () => {
     class: item.class,
     active: item.active,
     breakpoint: item.breakpoint
+  }));
+
+  logoListRef.current = superheroes.map(item => ({
+    class: item.class,
+    active: item.active
   }));
 
   // Handlers
@@ -179,6 +186,7 @@ const Menu = () => {
           allowSidedrawerItemClickRef.current = true;
         }}
       />
+      <Logo list={logoListRef.current} highlightBg={highlightBg} />
     </div>
   );
 };

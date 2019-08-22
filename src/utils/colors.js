@@ -1,7 +1,12 @@
 export const white = '#FFFFFF';
-export const softGrey = '#E5E4E9';
-export const orange = '#EF5000';
+export const darkWhite = '#eeffee';
 export const grey = '#757575';
-export const red = '#c6331f';
-export const green = '#1fc6b0';
-export const black = '#221E1F';
+export const black = '#000000';
+export const blueSuperman = '#10548c';
+export const greyBatman = '#404040';
+export const orangeWonder = '#c06711';
+export const redFlash = '#c01518';
+export const greenLantern = '#09a609';
+export const greenArrow = '#0d5f0f';
+export const yellowAquaman = '#d6ab1c';
+export const redCyborg = '#9e0306';

@@ -2,20 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /** Components */
-import Logo from './SuperheroLogo';
+import Logo from './Logo';
 
-const LogoWrapper = ({ list }) =>
+/** Models */
+import { logoListModel } from '../../../utils/models';
+
+const LogoWrapper = ({ list, highlightBg }) =>
   list.map(superhero => (
     <Logo
-      key={superhero.id}
-      superheroName={superhero.name}
+      key={superhero.class}
       superheroClass={superhero.class}
       superheroActive={superhero.active}
+      highlightBg={highlightBg}
     />
   ));
 
 LogoWrapper.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.object).isRequired
+  list: logoListModel,
+  highlightBg: PropTypes.bool
 };
 
 export default LogoWrapper;

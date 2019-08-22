@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* Colors */
+import { black, redCyborg } from '../../../utils/colors';
+
 const CyborgLogo = ({ classes }) => (
   <div className={classes}>
     <svg
@@ -10,16 +13,13 @@ const CyborgLogo = ({ classes }) => (
       height="500px"
       viewBox="0 0 500 500"
       enableBackground="new 0 0 500 500"
-      className="superheroLogo_svg"
       xmlSpace="preserve"
     >
       <path
-        stroke="#9e0306"
+        stroke={redCyborg}
         strokeWidth="2"
         strokeMiterlimit="10"
-        fill="#000000"
-        fillOpacity="0.7"
-        className="superheroLogo_path"
+        fill={black}
         d="M250.073-0.311c-138.07,0-250,111.929-250,250c0,138.071,111.93,250,250,250c138.071,0,250-111.93,250-250
         C500.073,111.618,388.144-0.311,250.073-0.311z M449.947,274.65c-2.25,15.94-6.042,31.476-11.91,46.476
         c-12.291,31.406-31.268,58.054-56.909,79.872c-24.128,20.532-51.613,34.573-82.355,42.136c-17.518,4.31-35.32,6.399-53.34,5.749
@@ -41,7 +41,7 @@ const CyborgLogo = ({ classes }) => (
 );
 
 CyborgLogo.propTypes = {
-  classes: PropTypes.string.isRequired
+  classes: PropTypes.string
 };
 
 export default CyborgLogo;

@@ -31,3 +31,10 @@ export const lettersListModel = PropTypes.arrayOf(
     breakpoint: PropTypes.number
   })
 );
+
+export const logoListModel = PropTypes.arrayOf(
+  PropTypes.shape({
+    class: PropTypes.string,
+    active: PropTypes.bool
+  })
+);

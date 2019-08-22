@@ -1,15 +1,13 @@
-.menuCharacters_logo{
+.menu-logo{
     position: absolute;
     z-index: 2;
     @include transition(all,.7s, ease-out,0);
     max-width: 50vh;
     @include flexContainer();
-    
     @media (min-width: 992px){
         width: 65vw;
     }
-
-    .superheroLogo_svg{
+    svg{
         width: 29vw;
         overflow: visible;
         transform-origin: 50%;
@@ -28,101 +26,83 @@
             width: 23vw;
         }
     }
-
-    .superheroLogo_path{
-        opacity: 0;
+    path{
+        fill-opacity: 0;
+        stroke-opacity: 0;
         transform-origin: 50%;
-        transform: scale(1.5) rotate(120deg);
-        @include transition(all,.6s, ease-in,0);
+        transform: scale(1.5) rotate(-90deg);
+        @include transition(all,.7s, cubic-bezier(0.39, 0.575, 0.565, 1),0);
         will-change: transform, opacity;
     }
-
-    &.move {
-        .superheroLogo_svg{
-            animation: menuLogoAnim 20s ease-in-out 3s infinite;
-        }
-        
-    }
     &.active{
-        .superheroLogo_svg{
-            transform: rotate(0);
-        }
-        .superheroLogo_path{
+        path{
+            fill-opacity: 0.8;
+            stroke-opacity: 1;
             transform: scale(1) rotate(0);
-            opacity: 0.8;
         }
     }
      &.superman{
         &.highlight{
-            .superheroLogo_path{
+            path{
                 fill: $blueSuperman;
             }
         }
     }
     &.batman{
         &.highlight{
-            .superheroLogo_path{
+            path{
                 fill: $greyBatman;
             }
         }
     }
     &.wonderwoman{
         &.highlight{
-            .superheroLogo_path{
+            path{
                 fill: $orangeWonder;
             }
         }
     }
     &.flash{
         &.highlight{
-            .superheroLogo_path{
+            path{
                 fill: $redFlash;
             }
         }
     }
     &.greenlantern{
         &.highlight{
-            .superheroLogo_path{
+            path{
                 fill: $greenLantern;
             }
         }
     }
     &.greenarrow{
         &.highlight{
-            .superheroLogo_path{
+            path{
                 fill: $greenArrow;
             }
         }
     }
     &.aquaman{
         &.highlight{
-            .superheroLogo_path{
+            path{
                 fill: $yellowAquaman;
             }
         }
     }
     &.cyborg{
         &.highlight{
-            .superheroLogo_path{
+            path{
                 fill: $redCyborg;
             }
         }
     }
-    
     &.highlight{
         transform: scale(1.2);
         animation: none;
-        .superheroLogo_path{
+        path{
             fill-opacity: .8;
-            stroke-width: 0;
+            stroke-opacity: 0;
         }
     }
-}
-
-@keyframes menuLogoAnim {
-    0%    {transform: scale(1); opacity:1}
-    25%   {transform: scale(0.9); opacity:0.7}
-    50%   {transform: scale(1); opacity:1}
-    75%   {transform: scale(0.9); opacity:0.7}
-    100%   {transform: scale(1); opacity:1}
 }

@@ -1,28 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* Colors */
+import { black, greyBatman } from '../../../utils/colors';
+
 const BatmanLogo = ({ classes }) => (
   <div className={classes}>
     <svg
       x="0px"
       y="0px"
-      stroke="#DEDEDE"
+      stroke={greyBatman}
       strokeWidth="7"
       fill="none"
       width="500px"
       height="500px"
       viewBox="0 0 500 500"
       enableBackground="new 0 0 500 500"
-      className="superheroLogo_svg"
       xmlSpace="preserve"
     >
       <path
-        stroke="#404040"
+        stroke={greyBatman}
         strokeWidth="2"
         strokeMiterlimit="10"
-        fill="#000000"
-        fillOpacity="0.7"
-        className="superheroLogo_path"
+        fill={black}
         d="M489.229,176.678c7.043,23.098,10.844,47.609,10.844,73.011c0,138.071-111.929,250-250,250
         s-250-111.929-250-250c0-24.563,3.559-48.292,10.161-70.717c6.769,4.433,13.144,9.373,18.86,15.127
         c15.34,15.44,21.73,34.081,19.505,55.617c-0.579,5.596-2.113,11.093-3.234,16.742c-0.037,0.003-0.074,0.005-0.111,0.008
@@ -47,7 +47,7 @@ const BatmanLogo = ({ classes }) => (
 );
 
 BatmanLogo.propTypes = {
-  classes: PropTypes.string.isRequired
+  classes: PropTypes.string
 };
 
 export default BatmanLogo;

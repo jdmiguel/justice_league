@@ -44,22 +44,20 @@ const Letters = ({
 
     TweenMax.staggerFromTo(
       charsRef.current,
-      0.7,
+      0.8,
       {
         alpha: 0,
         rotationY: -120,
-        x: -75,
         scaleX: 0
       },
       {
-        delay: 0.4,
+        delay: 0.25,
         alpha: 1,
         rotationY: 0,
-        x: 0,
         scaleX: 1,
         ease: Power1.easeOut
       },
-      0.05,
+      0.06,
       () => {
         setAllowMouseOver(true);
         endLettersAnimation();

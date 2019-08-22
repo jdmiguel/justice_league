@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* Colors */
+import { black, greenArrow } from '../../../utils/colors';
+
 const GreenArrowLogo = ({ classes }) => (
   <div className={classes}>
     <svg
@@ -10,16 +13,13 @@ const GreenArrowLogo = ({ classes }) => (
       height="500px"
       viewBox="0 0 500 500"
       enableBackground="new 0 0 500 500"
-      className="superheroLogo_svg"
       xmlSpace="preserve"
     >
       <path
-        stroke="#0d5f0f"
+        stroke={greenArrow}
         strokeWidth="2"
         strokeMiterlimit="10"
-        fill="#000000"
-        fillOpacity="0.7"
-        className="superheroLogo_path"
+        fill={black}
         d="M402.469,317.87c14.103,29.534,28.221,59.06,42.33,88.589c-4.359,5.409-8.927,10.643-13.714,15.667
 				c-138.244-57.54-276.487-115.081-414.729-172.62c-0.049-0.435-0.097-0.867-0.146-1.302
 				C154.084,190.792,291.959,133.38,429.833,75.968c3.828,3.96,7.523,8.048,11.086,12.254c-19.635,41.682-39.271,83.363-58.904,125.045
@@ -43,7 +43,7 @@ const GreenArrowLogo = ({ classes }) => (
 );
 
 GreenArrowLogo.propTypes = {
-  classes: PropTypes.string.isRequired
+  classes: PropTypes.string
 };
 
 export default GreenArrowLogo;

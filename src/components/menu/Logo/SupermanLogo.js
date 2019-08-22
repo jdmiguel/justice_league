@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* Colors */
+import { black, blueSuperman } from '../../../utils/colors';
+
 const SupermanLogo = ({ classes }) => (
   <div className={classes}>
     <svg
@@ -10,16 +13,13 @@ const SupermanLogo = ({ classes }) => (
       height="500px"
       viewBox="0 0 500 500"
       enableBackground="new 0 0 500 500"
-      className="superheroLogo_svg"
       xmlSpace="preserve"
     >
       <path
-        stroke="#10548c"
+        stroke={blueSuperman}
         strokeWidth="2"
         strokeMiterlimit="10"
-        fill="#000000"
-        fillOpacity="0.7"
-        className="superheroLogo_path"
+        fill={black}
         d="M23.035,215.585L5.974,195.771C15.941,150.645,38.088,110,68.81,78h32.491
         C19.482,117,18.296,184.122,23.035,215.585z M355.843,292.967c-26.194-11.388-103.541-17.049-205.963-20.471
         c-48.185-1.646-75.961-9.282-91.892-16.918l63.06,72.803c6.846-8.359,22.25-18.3,57.268-18.3c60.297,0,64.837,29.557,64.837,29.557
@@ -38,7 +38,7 @@ const SupermanLogo = ({ classes }) => (
 );
 
 SupermanLogo.propTypes = {
-  classes: PropTypes.string.isRequired
+  classes: PropTypes.string
 };
 
 export default SupermanLogo;
