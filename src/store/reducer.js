@@ -90,21 +90,6 @@ export const initialState = {
       }
     },
     {
-      alias: 'GreenArrow',
-      name: 'Oliver Queen',
-      description:
-        'What was the last thing you took home from an island getaway? A tacky souvenir? A great tan? More boring slideshows than you have friends to show?',
-      class: 'greenarrow',
-      active: false,
-      breakpoint: 5,
-      index: 5,
-      icon: GreenArrowIcon,
-      iconMeasures: {
-        width: '26px',
-        height: '26px'
-      }
-    },
-    {
       alias: 'Aquaman',
       name: 'Arthur Curry',
       description:
@@ -112,11 +97,26 @@ export const initialState = {
       class: 'aquaman',
       active: false,
       breakpoint: 3,
-      index: 6,
+      index: 5,
       icon: AquamanIcon,
       iconMeasures: {
         width: '24px',
         height: '28px'
+      }
+    },
+    {
+      alias: 'GreenArrow',
+      name: 'Oliver Queen',
+      description:
+        'What was the last thing you took home from an island getaway? A tacky souvenir? A great tan? More boring slideshows than you have friends to show?',
+      class: 'greenarrow',
+      active: false,
+      breakpoint: 5,
+      index: 6,
+      icon: GreenArrowIcon,
+      iconMeasures: {
+        width: '26px',
+        height: '26px'
       }
     },
     {
@@ -135,7 +135,6 @@ export const initialState = {
       }
     }
   ],
-  superheroeCounter: 0,
   menuDirection: {
     inHero: '',
     outHero: ''
@@ -143,18 +142,13 @@ export const initialState = {
 };
 
 export const reducer = (state, action) => {
-  const { superheroes, superheroeCounter, menuDirection } = action;
+  const { superheroes, menuDirection } = action;
 
   switch (action.type) {
     case actionTypes.SET_ACTIVE_SUPERHERO:
       return {
         ...state,
         superheroes
-      };
-    case actionTypes.SET_CURRENT_SUPERHERO_COUNTER:
-      return {
-        ...state,
-        superheroeCounter
       };
     case actionTypes.SET_MENU_DIRECTION:
       return {
