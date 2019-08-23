@@ -171,9 +171,6 @@ const Menu = () => {
         list={sidedrawerListRef.current}
         onClickItem={indexItem => sidedrawerItemClickHandler(indexItem)}
       />
-      <div className="noise">
-        <div />
-      </div>
       <Bg list={bgListRef.current} highlightBg={highlightBg} />
       <Letters
         list={lettersListRef.current}
