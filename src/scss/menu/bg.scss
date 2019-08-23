@@ -1,3 +1,29 @@
+.noise{
+  z-index: 2;
+  backface-visibility: hidden;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  div{
+    background-image: url(#{$imgPath}/noise.png);
+    left: -100%;
+    position: relative;
+    top: -100%;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+    height: 300%;
+    width: 300%;
+    -webkit-animation: grained 5s infinite;
+    animation: grained 5s infinite;
+    -webkit-animation-timing-function: steps(10);
+    animation-timing-function: steps(10);
+  }
+}
+
+@keyframes grained{0%{transform:translate(-10%,10%)}10%{transform:translate(-25%)}20%{transform:translate(-30%,10%)}30%{transform:translate(-30%,30%)}40%{transform:translate()}50%{transform:translate(-15%,10%)}60%{transform:translate(-20%,20%)}70%{transform:translate(-5%,20%)}80%{transform:translate(-25%,5%)}90%{transform:translate(-30%,25%)}to{transform:translate(-10%,10%)}}
+
 .menu-bg {
   background-position: center;
   background-repeat: no-repeat;
