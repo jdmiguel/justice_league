@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import Logo from './Logo';
 
 /** Models */
-import { logoListModel } from '../../../utils/models';
+import { superheroesModel } from '../../../utils/models';
 
-const LogoWrapper = ({ list, highlightBg }) =>
-  list.map(superhero => (
+const LogoWrapper = ({ superheroes, highlightBg }) =>
+  superheroes.map(superhero => (
     <Logo
       key={superhero.class}
       superheroClass={superhero.class}
@@ -18,7 +18,7 @@ const LogoWrapper = ({ list, highlightBg }) =>
   ));
 
 LogoWrapper.propTypes = {
-  list: logoListModel,
+  superheroes: superheroesModel,
   highlightBg: PropTypes.bool
 };
 

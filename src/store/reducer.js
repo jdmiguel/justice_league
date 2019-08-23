@@ -138,11 +138,12 @@ export const initialState = {
   menuDirection: {
     inHero: '',
     outHero: ''
-  }
+  },
+  menuState: true
 };
 
-export const reducer = (state, action) => {
-  const { superheroes, menuDirection } = action;
+export const reducer = (state = initialState, action) => {
+  const { superheroes, menuDirection, menuState } = action;
 
   switch (action.type) {
     case actionTypes.SET_ACTIVE_SUPERHERO:
@@ -154,6 +155,11 @@ export const reducer = (state, action) => {
       return {
         ...state,
         menuDirection
+      };
+    case actionTypes.SET_MENU_STATE:
+      return {
+        ...state,
+        menuState
       };
     default:
       return state;

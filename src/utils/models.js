@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const sidedrawerListModel = PropTypes.arrayOf(
+export const superheroesModel = PropTypes.arrayOf(
   PropTypes.shape({
     alias: PropTypes.string,
     class: PropTypes.string,
@@ -11,30 +11,5 @@ export const sidedrawerListModel = PropTypes.arrayOf(
       width: PropTypes.string,
       height: PropTypes.string
     })
-  })
-);
-
-export const bgListModel = PropTypes.arrayOf(
-  PropTypes.shape({
-    alias: PropTypes.string,
-    class: PropTypes.string,
-    active: PropTypes.bool
-  })
-);
-
-export const lettersListModel = PropTypes.arrayOf(
-  PropTypes.shape({
-    alias: PropTypes.string,
-    class: PropTypes.string,
-    active: PropTypes.bool,
-    index: PropTypes.number,
-    breakpoint: PropTypes.number
-  })
-);
-
-export const logoListModel = PropTypes.arrayOf(
-  PropTypes.shape({
-    class: PropTypes.string,
-    active: PropTypes.bool
   })
 );

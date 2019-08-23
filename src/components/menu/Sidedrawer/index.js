@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 import Item from './Item';
 
 /** Models */
-import { sidedrawerListModel } from '../../../utils/models';
+import { superheroesModel } from '../../../utils/models';
 
-const Sidedrawer = ({ list, onClickItem }) => (
+const Sidedrawer = ({ superheroes, onClickItem }) => (
   <div className="sidedrawer">
     <nav>
       <ul>
-        {list.map(superhero => (
+        {superheroes.map(superhero => (
           <Item
             key={superhero.alias}
             superheroAlias={superhero.alias}
@@ -29,7 +29,7 @@ const Sidedrawer = ({ list, onClickItem }) => (
 );
 
 Sidedrawer.propTypes = {
-  list: sidedrawerListModel,
+  superheroes: superheroesModel,
   onClickItem: PropTypes.func
 };
 

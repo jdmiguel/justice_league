@@ -16,7 +16,7 @@ const App = () => {
   const [menuStatus, setMenutatus] = React.useState(true);
 
   return (
-    <>
+    <React.Fragment>
       <div className="landscape">
         <img alt="landscape forced" src={landscapeImgPath} />
         <p>
@@ -31,7 +31,7 @@ const App = () => {
           {menuStatus ? <Menu /> : <Character />}
         </Layout>
       )}
-    </>
+    </React.Fragment>
   );
 };
 

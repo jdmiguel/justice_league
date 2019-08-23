@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* Reducer */
+import { reducer, initialState } from '../../../store/reducer';
+
+/* Actions */
+import { setMenuState } from '../../../store/actions';
+
 const Letters = ({
   superheroAlias,
   superheroClass,
@@ -8,9 +14,11 @@ const Letters = ({
   superheroBreakpoint,
   menuDirection,
   overLetters,
-  endLettersAnimation,
-  onClick
+  endLettersAnimation
 }) => {
+  // Reducers
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+  const { menuState } = state;
   // Props
   const { inHero, outHero } = menuDirection;
 
@@ -24,7 +32,7 @@ const Letters = ({
   const [allowMouseMove, setAllowMouseMove] = React.useState(false);
 
   // Utils
-  const getDistance = (index, splitFactor) => {
+  const getDistance = React.useCallback((index, splitFactor) => {
     const totalChars = superheroAlias.length;
     const distance =
       index < superheroBreakpoint
@@ -36,7 +44,27 @@ const Letters = ({
           splitFactor;
 
     return distance;
-  };
+  });
+
+  const separatingAnimation = React.useCallback((factor, callback = false) => {
+    TweenMax.staggerTo(
+      charsRef.current,
+      1,
+      {
+        cycle: {
+          x: i => getDistance(i, factor)
+        },
+        ease: Power1.easeOut
+      },
+      0,
+      () => {
+        if (callback) {
+          console.log('is callback');
+          setMenuState(dispatch, false);
+        }
+      }
+    );
+  });
 
   // Animations
   const entryAnimation = React.useCallback(() => {
@@ -44,20 +72,19 @@ const Letters = ({
 
     TweenMax.staggerFromTo(
       charsRef.current,
-      0.8,
+      0.7,
       {
         alpha: 0,
         rotationY: -120,
         scaleX: 0
       },
       {
-        delay: 0.25,
         alpha: 1,
         rotationY: 0,
         scaleX: 1,
         ease: Power1.easeOut
       },
-      0.06,
+      0.05,
       () => {
         setAllowMouseOver(true);
         endLettersAnimation();
@@ -167,19 +194,14 @@ const Letters = ({
   const mouseOverHandler = () => {
     if (allowMouseOver) {
       overLetters(true);
-      TweenMax.staggerTo(charsRef.current, 1, {
-        cycle: {
-          x: i => getDistance(i, 0.45)
-        },
-        ease: Power1.easeOut
-      });
+      separatingAnimation(0.45);
     }
   };
 
   const mouseOutHandler = () => {
     if (allowMouseOver) {
       overLetters(false);
-      TweenMax.to(charsRef.current, 1, {
+      TweenMax.staggerTo(charsRef.current, 1, {
         x: 0,
         ease: Power1.easeOut
       });
@@ -189,13 +211,14 @@ const Letters = ({
   const mouseMoveHandler = () => {
     if (allowMouseOver && allowMouseMove) {
       overLetters(true);
-      TweenMax.staggerTo(charsRef.current, 1, {
-        cycle: {
-          x: i => getDistance(i, 0.45)
-        },
-        ease: Power1.easeOut
-      });
+      separatingAnimation(0.45);
       setAllowMouseMove(false);
+    }
+  };
+
+  const clickHandler = () => {
+    if (superheroActive) {
+      separatingAnimation(1.4, true);
     }
   };
 
@@ -242,6 +265,7 @@ const Letters = ({
         onKeyDown={e => e.preventDefault}
         onFocus={e => e.preventDefault}
         onBlur={e => e.preventDefault}
+        onClick={clickHandler}
       />
       <h2 ref={lettersRef} className={`letters ${superheroClass}`}>
         {superheroAlias}
@@ -256,8 +280,7 @@ Letters.propTypes = {
   superheroActive: PropTypes.bool,
   superheroBreakpoint: PropTypes.number,
   overLetters: PropTypes.func,
-  endLettersAnimation: PropTypes.func,
-  onClick: PropTypes.func
+  endLettersAnimation: PropTypes.func
 };
 
 export default Letters;

@@ -19,15 +19,15 @@ const Logo = ({ onEndedLogoAnimation }) => {
       .set(logoWrapperRef.current, { autoAlpha: 1 })
       .from(
         logoSvgRef.current,
-        1.2,
+        1.5,
         {
-          autoAlpha: 0,
-          scaleX: 3,
-          scaleY: 0.3,
+          rotation: -720,
+          alpha: 0,
+          scale: 0.2,
           transformOrigin: '50% 50%',
-          ease: Elastic.easeInOut
+          ease: Bounce.easeIn
         },
-        '+= .8'
+        '+= .2'
       )
       .to(
         logoPathRef.current,
@@ -38,7 +38,7 @@ const Logo = ({ onEndedLogoAnimation }) => {
           transformOrigin: '50% 50%',
           ease: Power1.easeInOut
         },
-        '+=1'
+        '+=0.5'
       );
 
     return () => {

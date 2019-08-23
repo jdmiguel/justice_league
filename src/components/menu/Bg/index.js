@@ -5,14 +5,14 @@ import PropTypes from 'prop-types';
 import Bg from './bg';
 
 /** Models */
-import { bgListModel } from '../../../utils/models';
+import { superheroesModel } from '../../../utils/models';
 
-const BgWrapper = ({ list, highlightBg }) => (
-  <>
+const BgWrapper = ({ superheroes, highlightBg }) => (
+  <React.Fragment>
     <div className="bg-texture">
       <div />
     </div>
-    {list.map(superhero => (
+    {superheroes.map(superhero => (
       <Bg
         key={superhero.alias}
         superheroAlias={superhero.alias}
@@ -22,10 +22,10 @@ const BgWrapper = ({ list, highlightBg }) => (
       />
     ))}
     ;
-  </>
+  </React.Fragment>
 );
 BgWrapper.propTypes = {
-  list: bgListModel,
+  superheroes: superheroesModel,
   highlightBg: PropTypes.bool
 };
 

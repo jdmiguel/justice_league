@@ -5,16 +5,16 @@ import PropTypes from 'prop-types';
 import Letters from './Letters';
 
 /** Models */
-import { lettersListModel } from '../../../utils/models';
+import { superheroesModel } from '../../../utils/models';
 
 const LettersWrapper = ({
-  list,
+  superheroes,
   menuDirection,
   overLetters,
   endLettersAnimation,
   onClick
 }) =>
-  list.map(superhero => (
+  superheroes.map(superhero => (
     <Letters
       key={superhero.alias}
       superheroAlias={superhero.alias}
@@ -29,7 +29,7 @@ const LettersWrapper = ({
   ));
 
 LettersWrapper.propTypes = {
-  list: lettersListModel,
+  superheroes: superheroesModel,
   overLetters: PropTypes.func,
   endLettersAnimation: PropTypes.func,
   onClick: PropTypes.func

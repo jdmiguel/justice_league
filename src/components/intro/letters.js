@@ -49,7 +49,7 @@ const Letters = () => {
           transformOrigin: '50% 50%'
         },
         {
-          delay: 2.4,
+          delay: 1.9,
           y: 0,
           alpha: 1,
           fill: '#282828',

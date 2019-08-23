@@ -18,3 +18,11 @@ export const setMenuDirection = (dispatch, menuDirection) => {
     menuDirection
   });
 };
+
+export const setMenuState = (dispatch, menuState) => {
+  console.log('setMenuState action: ', menuState);
+  dispatch({
+    type: actionTypes.SET_MENU_STATE,
+    menuState
+  });
+};

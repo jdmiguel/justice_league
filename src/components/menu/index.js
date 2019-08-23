@@ -20,10 +20,6 @@ const Menu = () => {
   // Refs
   const menuRef = React.useRef(null);
   const menuDirectionRef = React.useRef(null);
-  const sidedrawerListRef = React.useRef(null);
-  const bgListRef = React.useRef(null);
-  const lettersListRef = React.useRef(null);
-  const logoListRef = React.useRef(null);
   const swipeManagerRef = React.useRef(null);
   const swipeEventRef = React.useRef(null);
   const activeIndexRef = React.useRef(null);
@@ -33,7 +29,6 @@ const Menu = () => {
 
   // States
   const [highlightBg, setHighlightBg] = React.useState(false);
-  // const [mousePosX, setMousePosX] = React.useState(0);
 
   // Utils
   const maxIndex = superheroes.length - 1;
@@ -67,33 +62,6 @@ const Menu = () => {
   // Refs settings
   menuDirectionRef.current = menuDirection;
   activeIndexRef.current = getActiveIndex();
-
-  sidedrawerListRef.current = superheroes.map(item => ({
-    alias: item.alias,
-    class: item.class,
-    active: item.active,
-    index: item.index,
-    icon: item.icon,
-    iconMeasures: item.iconMeasures
-  }));
-
-  bgListRef.current = superheroes.map(item => ({
-    alias: item.alias,
-    class: item.class,
-    active: item.active
-  }));
-
-  lettersListRef.current = superheroes.map(item => ({
-    alias: item.alias,
-    class: item.class,
-    active: item.active,
-    breakpoint: item.breakpoint
-  }));
-
-  logoListRef.current = superheroes.map(item => ({
-    class: item.class,
-    active: item.active
-  }));
 
   // Handlers
   const mouseWheelHandler = React.useCallback(e => {
@@ -168,12 +136,12 @@ const Menu = () => {
   return (
     <div ref={menuRef} className="menu">
       <Sidedrawer
-        list={sidedrawerListRef.current}
+        superheroes={superheroes}
         onClickItem={indexItem => sidedrawerItemClickHandler(indexItem)}
       />
-      <Bg list={bgListRef.current} highlightBg={highlightBg} />
+      <Bg superheroes={superheroes} highlightBg={highlightBg} />
       <Letters
-        list={lettersListRef.current}
+        superheroes={superheroes}
         menuDirection={menuDirectionRef.current}
         overLetters={isOver => setHighlightBg(isOver)}
         endLettersAnimation={() => {
@@ -182,7 +150,7 @@ const Menu = () => {
           allowSidedrawerItemClickRef.current = true;
         }}
       />
-      <Logo list={logoListRef.current} highlightBg={highlightBg} />
+      <Logo superheroes={superheroes} highlightBg={highlightBg} />
     </div>
   );
 };

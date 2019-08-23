@@ -12,7 +12,6 @@
         overflow: visible;
         transform-origin: 50%;
         will-change: transform, opacity;
-        @include transition(all,.7s, ease-out,0);
         @media (min-width: 768px){
             width: 33vw;
         }
