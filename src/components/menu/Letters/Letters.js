@@ -204,7 +204,9 @@ const Letters = ({
 
   const clickHandler = () => {
     if (superheroActive) {
-      separatingAnimation(1.4);
+      setAllowMouseMove(false);
+      setAllowMouseOver(false);
+      separatingAnimation(2.5);
       onClick(superheroClass);
     }
   };

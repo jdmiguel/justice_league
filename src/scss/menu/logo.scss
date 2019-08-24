@@ -12,6 +12,7 @@
         overflow: visible;
         transform-origin: 50%;
         will-change: transform, opacity;
+        @include transition(all, 1s, ease-out ,0);
         @media (min-width: 768px){
             width: 33vw;
         }
@@ -38,6 +39,12 @@
             fill-opacity: 0.8;
             stroke-opacity: 1;
             transform: scale(1) rotate(0);
+        }
+    }
+    &.out{
+        svg{
+             transform: scale(1.25);
+             fill: $white;
         }
     }
      &.superman{

@@ -11,7 +11,7 @@ import GreenArrowLogo from './GreenArrowLogo';
 import AquamanLogo from './AquamanLogo';
 import CyborgLogo from './CyborgLogo';
 
-const Logo = ({ superheroActive, superheroClass, highlightBg }) => {
+const Logo = ({ superheroActive, superheroClass, highlightBg, outLogo }) => {
   // States
   const [classes, setClasses] = React.useState([
     'menu-logo',
@@ -38,6 +38,13 @@ const Logo = ({ superheroActive, superheroClass, highlightBg }) => {
       setClasses(classes.filter(item => item !== 'highlight'));
     }
   }, [highlightBg]);
+
+  React.useEffect(() => {
+    console.log('outLogo: ', outLogo);
+    if (outLogo && superheroActive) {
+      setClasses([...classes, 'out']);
+    }
+  }, [outLogo]);
 
   const getLogo = () => {
     switch (superheroClass) {
@@ -68,7 +75,8 @@ const Logo = ({ superheroActive, superheroClass, highlightBg }) => {
 Logo.propTypes = {
   superheroActive: PropTypes.bool,
   superheroClass: PropTypes.string,
-  highlightBg: PropTypes.bool
+  highlightBg: PropTypes.bool,
+  outLogo: PropTypes.bool
 };
 
 export default Logo;

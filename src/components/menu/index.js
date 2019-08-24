@@ -31,6 +31,7 @@ const Menu = ({ goCharacter }) => {
   // States
   const [highlightBg, setHighlightBg] = React.useState(false);
   const [coverClasses, setCoverClasses] = React.useState(['cover']);
+  const [outLogo, setOutLogo] = React.useState(false);
 
   // Utils
   const maxIndex = superheroes.length - 1;
@@ -153,12 +154,17 @@ const Menu = ({ goCharacter }) => {
         }}
         onClick={superheroClass => {
           setCoverClasses([...coverClasses, superheroClass]);
+          setOutLogo(true);
           setTimeout(() => {
             goCharacter(superheroClass);
           }, 1000);
         }}
       />
-      <Logo superheroes={superheroes} highlightBg={highlightBg} />
+      <Logo
+        superheroes={superheroes}
+        highlightBg={highlightBg}
+        outLogo={outLogo}
+      />
       <div className={coverClasses.join(' ')} />
     </div>
   );
