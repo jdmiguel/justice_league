@@ -18,14 +18,10 @@ module.exports = {
     TimelineMax: true,
     SplitText: true,
     Hammer: true,
-    Back: true,
     Power1: true,
     Power2: true,
     Power3: true,
-    Cubic: true,
-    Elastic: true,
-    Linear: true,
-    Bounce: true
+    Quad: true
   },
 
   parserOptions: {

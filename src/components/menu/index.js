@@ -159,7 +159,7 @@ const Menu = ({ goCharacter }) => {
           setCoverClasses([...coverClasses, superheroClass]);
           setOutLogo(true);
           setTimeout(() => {
-            goCharacter(superheroClass);
+            goCharacter(superheroes[getActiveIndex()]);
           }, 1000);
         }}
       />

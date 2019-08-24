@@ -1,5 +1,17 @@
 import * as actionTypes from './actionTypes';
 
+/** Assets */
+import {
+  supermanImgPath,
+  batmanImgPath,
+  wonderWomanImgPath,
+  flashImgPath,
+  greenLanternImgPath,
+  aquamanImgPath,
+  greenArrowImgPath,
+  cyborgImgPath
+} from '../utils/imgPaths';
+
 /** Utils */
 import {
   SupermanIcon,
@@ -7,8 +19,8 @@ import {
   WonderWomanIcon,
   FlashIcon,
   GreenLanternIcon,
-  GreenArrowIcon,
   AquamanIcon,
+  GreenArrowIcon,
   CyborgIcon
 } from '../utils/svgs';
 
@@ -24,6 +36,7 @@ export const initialState = {
       breakpoint: 4,
       index: 0,
       icon: SupermanIcon,
+      characterImg: supermanImgPath,
       iconMeasures: {
         width: '32px',
         height: '24px'
@@ -39,6 +52,7 @@ export const initialState = {
       breakpoint: 2,
       index: 1,
       icon: BatmanIcon,
+      characterImg: batmanImgPath,
       iconMeasures: {
         width: '40px',
         height: '14px'
@@ -54,6 +68,7 @@ export const initialState = {
       breakpoint: 5,
       index: 2,
       icon: WonderWomanIcon,
+      characterImg: wonderWomanImgPath,
       iconMeasures: {
         width: '40px',
         height: '19px'
@@ -69,6 +84,7 @@ export const initialState = {
       breakpoint: 3,
       index: 3,
       icon: FlashIcon,
+      characterImg: flashImgPath,
       iconMeasures: {
         width: '24px',
         height: '33px'
@@ -84,6 +100,7 @@ export const initialState = {
       breakpoint: 5,
       index: 4,
       icon: GreenLanternIcon,
+      characterImg: greenLanternImgPath,
       iconMeasures: {
         width: '26px',
         height: '26px'
@@ -99,6 +116,7 @@ export const initialState = {
       breakpoint: 3,
       index: 5,
       icon: AquamanIcon,
+      characterImg: aquamanImgPath,
       iconMeasures: {
         width: '24px',
         height: '28px'
@@ -114,6 +132,7 @@ export const initialState = {
       breakpoint: 5,
       index: 6,
       icon: GreenArrowIcon,
+      characterImg: greenArrowImgPath,
       iconMeasures: {
         width: '26px',
         height: '26px'
@@ -129,6 +148,7 @@ export const initialState = {
       breakpoint: 2,
       index: 7,
       icon: CyborgIcon,
+      characterImg: cyborgImgPath,
       iconMeasures: {
         width: '26px',
         height: '26px'

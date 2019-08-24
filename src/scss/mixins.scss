@@ -89,7 +89,7 @@
       }
 }
 
-@mixin character_bg_superhero($color,$url) {
+@mixin character-bg-superhero($color,$url) {
     background: $color;
     background-image: $url;
     background-repeat: no-repeat;

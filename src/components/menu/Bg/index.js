@@ -21,6 +21,7 @@ const BgWrapper = ({ superheroes, highlightBg }) => (
     ;
   </React.Fragment>
 );
+
 BgWrapper.propTypes = {
   superheroes: superheroesModel,
   highlightBg: PropTypes.bool

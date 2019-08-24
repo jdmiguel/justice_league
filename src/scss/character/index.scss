@@ -1,8 +1,7 @@
-.character-container{
+.character-wrapper{
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: $black;
     z-index: 2;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -10,8 +9,6 @@
     @media (min-width: 992px){
         overflow-y: hidden;
     }
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
     &.superman{
         background: $blueSuperman;
     }
@@ -27,87 +24,46 @@
     &.greenlantern{
         background: $greenLantern;
     }
-    &.greenarrow{
-        background: $greenArrow;
-    }
     &.aquaman{
         background: $yellowAquaman;
+    }
+    &.greenarrow{
+        background: $greenArrow;
     }
     &.cyborg{
         background: $redCyborg;
     }
 }
-
-.character_bg{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    opacity: 0.3;
-    &.superman_int{
-        @include character_bg_superhero($blueSuperman,url(#{$iconImgPath}/icon_superman.svg));
-    }
-    &.batman_int{
-        @include character_bg_superhero($greyBatman,url(#{$iconImgPath}/icon_batman.svg));
-    }
-    &.wonderwoman_int{
-        @include character_bg_superhero($orangeWonder,url(#{$iconImgPath}/icon_wonderwoman.svg));
-    }
-    &.flash_int{
-        @include character_bg_superhero($redFlash,url(#{$iconImgPath}/icon_flash.svg));
-    }
-    &.greenlantern_int{
-        @include character_bg_superhero($greenLantern,url(#{$iconImgPath}/icon_greenlantern.svg));
-    }
-    &.greenarrow_int{
-        @include character_bg_superhero($greenArrow,url(#{$iconImgPath}/icon_greenarrow.svg));
-    }
-    &.aquaman_int{
-        @include character_bg_superhero($yellowAquaman,url(#{$iconImgPath}/icon_aquaman.svg));
-    }
-    &.cyborg_int{
-        @include character_bg_superhero($redCyborg,url(#{$iconImgPath}/icon_cyborg.svg));
-    }
-    
-}
-
-.character_content{
+.character-content{
     height: 100vh;
 }
-
-.character_main{
+.character-main{
     height: 100vh;
     @include flexContainer($rowAlign:flex-start,$columnAlign:flex-start, $direction:column);
     @media (min-width: 992px){
         @include flexContainer($rowAlign:flex-start,$columnAlign:center, $direction:row);
     }
 }
-
-.character_block_left{
+.character-block-left{
     display: none;
     @media (min-width: 992px){
         @include flexContainer();
     }
 }
-
-.character_image{
-    opacity: 0.5;
+.character-image{
+    opacity: 0.7;
     margin-top: 30px;
     @media (min-width: 992px){
         margin-top: 0;
     }
     img{
         @media (min-width: 992px){
-            width: 80%;
             height: auto;
             margin: 0 auto;
         }
-        @media (min-width: 1400px){
-            width: 90%;
-        }
     }
 }
-
-.character_txt{
+.character-txt{
     pointer-events: none;
     h1{
         @include font('Cinzel',5em,700);
@@ -150,22 +106,19 @@
         }
     }
 }
-
-.character_txt_header{
+.character-txt-header{
     margin-bottom: 3em;
     @media (min-width: 1400px){
         margin-bottom: 4em;
     }
 }
-
-.character_txt_body{
+.character-txt-body{
     margin-bottom: 3em;
     @media (min-width: 1400px){
         margin-bottom: 4em;
     }
 }
-
-.character_txt_footer{
+.character-txt-footer{
     @media (min-width: 992px){
         min-height: 140px;
     }
@@ -179,12 +132,10 @@
         }
     }
 }
-
-.character_txt_footer_img_container{
+.character-txt-footer-img-container{
     align-items: center;
 }
-
-.character_btn_back{
+.character-btn-back{
     position: absolute;
     z-index: 1;
     top: 50px;

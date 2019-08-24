@@ -22,9 +22,9 @@ const Logo = ({ onEndLogoAnimation, onMiddleLogoAnimation }) => {
         1,
         {
           alpha: 0,
-          scale: 0.5,
-          y: 500,
-          ease: Back.easeInOut
+          scale: 0.2,
+          rotation: -720,
+          ease: Quad.easeInOut
         },
         '+= .2'
       )
