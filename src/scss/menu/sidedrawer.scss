@@ -6,16 +6,14 @@
     nav{
         @include flexContainer();
         height: 100%;
-        @media (min-width: 992px){
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-left: 8px;
-        }
         @media (min-width: 1200px){
             margin-left: 0;
         }
         @media (min-width: 1400px){
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 8px;
             margin-left: 8px;
         }
     }
@@ -25,7 +23,10 @@
         @include flexContainer();
         position: absolute;
         bottom: 35px;
-        @media (min-width: 992px){
+        @media (min-width: 1200px){
+            width: 90px;
+        }
+        @media (min-width: 1400px){
             position: initial;
             bottom: 0;
             @include flexContainer($direction: column);
@@ -33,11 +34,6 @@
             flex-direction: column;
             align-items: center;
             width: 81px;
-        }
-        @media (min-width: 1200px){
-            width: 90px;
-        }
-        @media (min-width: 1400px){
             width: 100px;
         }
     }
@@ -63,45 +59,44 @@
                 opacity: 1;
             }
             span{
-                opacity: 1;
                 transform: translateX(-4px);
                 @media (min-width: 1200px){
                     transform: translateX(-5px);
                 }
                 @media (min-width: 1400px){
+                    opacity: 1;
                     transform: translateX(-2px);
                 }
             }
         }
         @media (min-width: 992px){
-            margin: 0 0 1.7vw 0;
-            height: auto;
-            display: inline-block;
             &:hover{
                 svg{
                     opacity: 1;
                 }
                 span{
-                    opacity: 1;
                     transform: translateX(-3px);
                     @media (min-width: 1200px){
                         transform: translateX(-5px);
+                        margin: 0 0 1.7vw 0;
+                        height: auto;
                     }
                     @media (min-width: 1400px){
+                        opacity: 1;
                         transform: translateX(-2px);
                     }
                 }
             }
+        }
+        @media (min-width: 1200px){
+            margin: 0 4vw 0 0;
         }
         @media (min-width: 1400px){
             margin: 0 0 2vw 0;
         }
     }
     svg{
-        opacity: .35;
-        @media (min-width: 992px){
-            cursor: pointer;
-        }
+        opacity: .5;
         @include transition(all,.5s, ease-out,0);
     }
     span{
@@ -147,11 +142,11 @@
         }
         @media (min-width: 992px){
             @include font('Cinzel',.9em,700);
-            display: inline-block;
-            opacity: 0;
         }
         @media (min-width: 1400px){
             @include font('Cinzel',1em,700);
+            display: inline-block;
+            opacity: 0;
             &.sidedrawer_superman{
                 left: 53px;
             }

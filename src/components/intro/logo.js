@@ -19,13 +19,12 @@ const Logo = ({ onEndLogoAnimation, onMiddleLogoAnimation }) => {
       .set(logoWrapperRef.current, { autoAlpha: 1 })
       .from(
         logoSvgRef.current,
-        1.5,
+        1,
         {
-          rotation: -720,
           alpha: 0,
-          scale: 0.2,
-          transformOrigin: '50% 50%',
-          ease: Bounce.easeIn
+          scale: 0.5,
+          y: 500,
+          ease: Back.easeInOut
         },
         '+= .2'
       )

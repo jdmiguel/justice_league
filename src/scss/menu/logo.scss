@@ -2,28 +2,24 @@
     position: absolute;
     z-index: 2;
     @include transition(all,.7s, ease-out,0);
-    max-width: 50vh;
     @include flexContainer();
-    @media (min-width: 992px){
-        width: 65vw;
-    }
     svg{
-        width: 29vw;
+        width: 25vw;
         overflow: visible;
         transform-origin: 50%;
         will-change: transform, opacity;
         @include transition(all, 1s, ease-out ,0);
         @media (min-width: 768px){
-            width: 33vw;
+            width: 30vw;
         }
         @media (min-width: 992px){
-            width: 34vw;
+            width: 32vw;
         }
         @media (min-width: 1200px){
-            width: 26vw;
+            width: 24vw;
         }
         @media (min-width: 1400px){
-            width: 23vw;
+            width: 21vw;
         }
     }
     path{
