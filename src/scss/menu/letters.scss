@@ -45,6 +45,9 @@
             @include font('Cinzel',6.5em,700);
         }
         @media (min-width: 1400px){
+            @include font('Cinzel',7em,700);
+        }
+        @media (min-width: 1600px){
             @include font('Cinzel',8em,700);
         }
     }
