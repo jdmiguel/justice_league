@@ -40,7 +40,6 @@ const Logo = ({ superheroActive, superheroClass, highlightBg, outLogo }) => {
   }, [highlightBg]);
 
   React.useEffect(() => {
-    console.log('outLogo: ', outLogo);
     if (outLogo && superheroActive) {
       setClasses([...classes, 'out']);
     }

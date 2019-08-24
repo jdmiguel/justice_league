@@ -14,10 +14,11 @@ const App = () => {
   // States
   const [introStatus, setIntroStatus] = React.useState(true);
   const [menuStatus, setMenuStatus] = React.useState(true);
-  const [superheroClass, setSuperheroClass] = React.useState('true');
+  const [superheroClass, setSuperheroClass] = React.useState('');
+  const [wrapperClasses, setWrapperClasses] = React.useState(['app-wrapper']);
 
   return (
-    <React.Fragment>
+    <div className={wrapperClasses.join(' ')}>
       <div className="landscape">
         <img alt="landscape forced" src={landscapeImgPath} />
         <p>
@@ -26,7 +27,10 @@ const App = () => {
         </p>
       </div>
       {introStatus ? (
-        <Intro endIntro={() => setIntroStatus(false)} />
+        <Intro
+          middleIntro={() => setWrapperClasses([...wrapperClasses, 'black'])}
+          endIntro={() => setIntroStatus(false)}
+        />
       ) : (
         <Layout show={introStatus}>
           {menuStatus ? (
@@ -41,7 +45,7 @@ const App = () => {
           )}
         </Layout>
       )}
-    </React.Fragment>
+    </div>
   );
 };
 

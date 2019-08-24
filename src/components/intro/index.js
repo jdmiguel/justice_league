@@ -5,41 +5,37 @@ import PropTypes from 'prop-types';
 import Logo from './logo';
 import Letters from './letters';
 
-const Intro = ({ endIntro }) => {
+const Intro = ({ middleIntro, endIntro }) => {
   // Refs
   const introRef = React.useRef(null);
   const animationRef = React.useRef(null);
-
-  // State
-  const [endedIntro, setEndedIntro] = React.useState(false);
 
   React.useEffect(() => {
     animationRef.current = TweenMax.to(introRef.current, 0.5, {
       onComplete: () => endIntro(),
       paused: true,
-      delay: 0,
-      y: '-100%',
-      ease: Cubic.easeIn
+      y: '-120%',
+      ease: Power1.easeIn
     });
-
-    if (endedIntro) {
-      animationRef.current.restart();
-    }
 
     return () => {
       animationRef.current.kill();
     };
-  }, [endedIntro]);
+  }, []);
 
   return (
     <div ref={introRef} className="intro">
-      <Logo onEndedLogoAnimation={() => setEndedIntro(true)} />
+      <Logo
+        onMiddleLogoAnimation={() => middleIntro()}
+        onEndLogoAnimation={() => animationRef.current.restart()}
+      />
       <Letters />
     </div>
   );
 };
 
 Intro.propTypes = {
+  middleIntro: PropTypes.func,
   endIntro: PropTypes.func
 };
 
