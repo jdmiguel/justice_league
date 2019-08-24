@@ -9,9 +9,6 @@ import { superheroesModel } from '../../../utils/models';
 
 const BgWrapper = ({ superheroes, highlightBg }) => (
   <React.Fragment>
-    <div className="bg-texture">
-      <div />
-    </div>
     {superheroes.map(superhero => (
       <Bg
         key={superhero.alias}

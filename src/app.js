@@ -7,18 +7,52 @@ import Intro from './components/intro';
 import Menu from './components/menu';
 import Character from './components/character';
 
+/* Hooks */
+import useWindowResize from './hooks/useWindowResize';
+
+/** Utils */
+import { isMobileOrTablet } from './utils';
+
 /** Assets */
 import { landscapeImgPath } from './utils/imgPaths';
 
+const addFullScreen = element => {
+  if (isMobileOrTablet) {
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+    }
+  }
+};
+
 const App = () => {
+  // Measures
+  const { width, height } = useWindowResize();
+
+  // Refs
+  const appWrapperRef = React.useRef(null);
+
   // States
+  const [fullScreenState, setFullScreenState] = React.useState(false);
   const [introStatus, setIntroStatus] = React.useState(true);
   const [menuStatus, setMenuStatus] = React.useState(true);
   const [superheroClass, setSuperheroClass] = React.useState('');
   const [wrapperClasses, setWrapperClasses] = React.useState(['app-wrapper']);
 
+  React.useEffect(() => {
+    if (width > height && isMobileOrTablet() && !fullScreenState) {
+      addFullScreen(appWrapperRef.current);
+      setFullScreenState(true);
+    }
+  }, [width]);
+
   return (
-    <div className={wrapperClasses.join(' ')}>
+    <div ref={appWrapperRef} className={wrapperClasses.join(' ')}>
       <div className="landscape">
         <img alt="landscape forced" src={landscapeImgPath} />
         <p>

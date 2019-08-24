@@ -143,6 +143,9 @@ const Menu = ({ goCharacter }) => {
         onClickItem={indexItem => sidedrawerItemClickHandler(indexItem)}
       />
       <Bg superheroes={superheroes} highlightBg={highlightBg} />
+      <div className="menu-texture">
+        <div />
+      </div>
       <Letters
         superheroes={superheroes}
         menuDirection={menuDirectionRef.current}

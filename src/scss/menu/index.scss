@@ -7,3 +7,24 @@
     z-index: 1;
     @include flexContainer();
 }
+
+.menu-texture{
+    z-index: 2;
+    backface-visibility: hidden;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    div{
+      background-image: url(#{$imgPath}/noise.png);
+      position: relative;
+      left: -100%;
+      top: -100%;
+      transform: translateZ(0);
+      will-change: transform;
+      height: 300%;
+      width: 300%;
+      animation: grained 5s infinite;
+      animation-timing-function: steps(10);
+    }
+  }
