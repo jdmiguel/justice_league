@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /** Components */
 import Sidedrawer from './Sidedrawer';
@@ -12,7 +13,7 @@ import { reducer, initialState } from '../../store/reducer';
 /* Actions */
 import { setActiveSuperhero, setMenuDirection } from '../../store/actions';
 
-const Menu = () => {
+const Menu = ({ goCharacter }) => {
   // Reducers
   const [state, dispatch] = React.useReducer(reducer, initialState);
   const { superheroes, menuDirection } = state;
@@ -29,6 +30,7 @@ const Menu = () => {
 
   // States
   const [highlightBg, setHighlightBg] = React.useState(false);
+  const [coverClasses, setCoverClasses] = React.useState(['cover']);
 
   // Utils
   const maxIndex = superheroes.length - 1;
@@ -149,10 +151,21 @@ const Menu = () => {
           allowSwipeRef.current = true;
           allowSidedrawerItemClickRef.current = true;
         }}
+        onClick={superheroClass => {
+          setCoverClasses([...coverClasses, superheroClass]);
+          setTimeout(() => {
+            goCharacter(superheroClass);
+          }, 1000);
+        }}
       />
       <Logo superheroes={superheroes} highlightBg={highlightBg} />
+      <div className={coverClasses.join(' ')} />
     </div>
   );
+};
+
+Menu.propTypes = {
+  goCharacter: PropTypes.func
 };
 
 export default Menu;

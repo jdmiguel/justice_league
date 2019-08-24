@@ -1,12 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/* Reducer */
-import { reducer, initialState } from '../../../store/reducer';
-
-/* Actions */
-import { setMenuState } from '../../../store/actions';
-
 const Letters = ({
   superheroAlias,
   superheroClass,
@@ -14,11 +8,9 @@ const Letters = ({
   superheroBreakpoint,
   menuDirection,
   overLetters,
-  endLettersAnimation
+  endLettersAnimation,
+  onClick
 }) => {
-  // Reducers
-  const [state, dispatch] = React.useReducer(reducer, initialState);
-  const { menuState } = state;
   // Props
   const { inHero, outHero } = menuDirection;
 
@@ -46,7 +38,7 @@ const Letters = ({
     return distance;
   });
 
-  const separatingAnimation = React.useCallback((factor, callback = false) => {
+  const separatingAnimation = React.useCallback(factor => {
     TweenMax.staggerTo(
       charsRef.current,
       1,
@@ -56,13 +48,7 @@ const Letters = ({
         },
         ease: Power1.easeOut
       },
-      0,
-      () => {
-        if (callback) {
-          console.log('is callback');
-          setMenuState(dispatch, false);
-        }
-      }
+      0
     );
   });
 
@@ -218,7 +204,8 @@ const Letters = ({
 
   const clickHandler = () => {
     if (superheroActive) {
-      separatingAnimation(1.4, true);
+      separatingAnimation(1.4);
+      onClick(superheroClass);
     }
   };
 
@@ -280,7 +267,8 @@ Letters.propTypes = {
   superheroActive: PropTypes.bool,
   superheroBreakpoint: PropTypes.number,
   overLetters: PropTypes.func,
-  endLettersAnimation: PropTypes.func
+  endLettersAnimation: PropTypes.func,
+  onClick: PropTypes.func
 };
 
 export default Letters;

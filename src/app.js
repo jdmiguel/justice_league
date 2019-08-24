@@ -13,7 +13,8 @@ import { landscapeImgPath } from './utils/imgPaths';
 const App = () => {
   // States
   const [introStatus, setIntroStatus] = React.useState(true);
-  const [menuStatus, setMenutatus] = React.useState(true);
+  const [menuStatus, setMenuStatus] = React.useState(true);
+  const [superheroClass, setSuperheroClass] = React.useState('true');
 
   return (
     <React.Fragment>
@@ -28,7 +29,16 @@ const App = () => {
         <Intro endIntro={() => setIntroStatus(false)} />
       ) : (
         <Layout show={introStatus}>
-          {menuStatus ? <Menu /> : <Character />}
+          {menuStatus ? (
+            <Menu
+              goCharacter={superheroClass => {
+                setSuperheroClass(superheroClass);
+                setMenuStatus(false);
+              }}
+            />
+          ) : (
+            <Character superheroClass={superheroClass} />
+          )}
         </Layout>
       )}
     </React.Fragment>

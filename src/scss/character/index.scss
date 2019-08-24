@@ -12,28 +12,28 @@
     }
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    &.superman_int{
+    &.superman{
         background: $blueSuperman;
     }
-    &.batman_int{
+    &.batman{
         background: $greyBatman;
     }
-    &.wonderwoman_int{
+    &.wonderwoman{
         background: $orangeWonder;
     }
-    &.flash_int{
+    &.flash{
         background: $redFlash;
     }
-    &.greenlantern_int{
+    &.greenlantern{
         background: $greenLantern;
     }
-    &.greenarrow_int{
+    &.greenarrow{
         background: $greenArrow;
     }
-    &.aquaman_int{
+    &.aquaman{
         background: $yellowAquaman;
     }
-    &.cyborg_int{
+    &.cyborg{
         background: $redCyborg;
     }
 }

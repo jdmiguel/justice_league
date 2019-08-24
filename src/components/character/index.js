@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default ({
-  math: {
-    params: { id }
-  }
-}) => (
-  <div className="character-container">
-    <p>ESTE ES EL CHARACTER: {id}</p>
+const Character = ({ superheroClass }) => (
+  <div className={`character-container ${superheroClass}`}>
+    <p>ESTE ES EL CHARACTER</p>
   </div>
 );
+
+Character.propTypes = {
+  superheroClass: PropTypes.string
+};
+
+export default Character;

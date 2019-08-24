@@ -138,8 +138,7 @@ export const initialState = {
   menuDirection: {
     inHero: '',
     outHero: ''
-  },
-  menuState: true
+  }
 };
 
 export const reducer = (state = initialState, action) => {
