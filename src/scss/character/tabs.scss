@@ -1,0 +1,9 @@
+.tabs{
+  button{
+    cursor: pointer;
+    background: $white;
+    border-radius: 10px; 
+    @include font('Cinzel',1em,600);
+    color: $blueSuperman;
+  }
+}

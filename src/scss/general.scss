@@ -4,6 +4,7 @@
 body{
     background: $white;
     font-size: 15px;
+    @include font('Cinzel',15px,400);
 }
 
 .app-wrapper{

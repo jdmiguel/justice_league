@@ -33,12 +33,78 @@
     &.cyborg{
         background: $redCyborg;
     }
+    h1{
+        @include font('Cinzel',5em,700);
+        line-height: 0;
+        margin-top: 1.7em;
+        margin-bottom: .7em;
+        text-align: center;
+        line-height: 12px;
+        @media (min-width: 992px){
+            text-align: left;
+        }
+        @media (min-width: 1400px){
+            @include font('Cinzel',6.2em,700);
+            margin-top: 0;
+        }
+    }
+    h2{
+        @include font('Cinzel',2.1em,600);
+        line-height: 0;
+        text-align: center;
+        @media (min-width: 992px){
+            text-align: left;
+        }
+        @media (min-width: 1400px){
+            @include font('Cinzel',2.3em,600);
+            margin-top: 0;
+        }
+    }
 }
 .character-logo{
     position: absolute;
     left: 0;
     top: 0;
     opacity: 0.2;
+    &.superman{
+        background: $blueSuperman;
+        width: 116%;
+        height: 116%;
+        left: 16%;
+        top: -2%;
+    }
+    &.batman{
+        background: $greyBatman;
+    }
+    &.wonderwoman{
+        background: $orangeWonder;
+    }
+    &.flash{
+        path{
+            &:first-of-type {
+                fill:$black;
+            }
+            &:last-of-type {
+                fill:none;
+                stroke: $black;
+            }
+        }
+    }
+    &.greenlantern{
+        background: $greenLantern;
+    }
+    &.aquaman{
+        background: $yellowAquaman;
+    }
+    &.greenarrow{
+        background: $greenArrow;
+    }
+    &.cyborg{
+        background: $redCyborg;
+    }
+    path{
+        fill:$black;
+    }
 }
 .character-content{
     height: 100vh;
@@ -69,49 +135,7 @@
         }
     }
 }
-.character-txt{
-    pointer-events: none;
-    h1{
-        @include font('Cinzel',5em,700);
-        line-height: 0;
-        margin-top: 1.7em;
-        margin-bottom: .7em;
-        text-align: center;
-        line-height: 12px;
-        @media (min-width: 992px){
-            text-align: left;
-        }
-        @media (min-width: 1400px){
-            @include font('Cinzel',6.2em,700);
-            margin-top: 0;
-        }
-    }
-    h2{
-        @include font('Cinzel',2.1em,600);
-        line-height: 0;
-        text-align: center;
-        @media (min-width: 992px){
-            text-align: left;
-        }
-        @media (min-width: 1400px){
-            @include font('Cinzel',2.3em,600);
-            margin-top: 0;
-        }
-    }
-    p{
-        @include font('Cinzel',1.2em,400);
-        line-height: 1.3em;
-        text-align: center;
-        @media (min-width: 992px){
-            text-align: left;
-        }
-        @media (min-width: 1400px){
-            @include font('Cinzel',1.35em,400);
-            line-height: 1.35em;
-            margin-top: 0;
-        }
-    }
-}
+
 .character-txt-header{
     margin-bottom: 3em;
     @media (min-width: 1400px){
@@ -172,13 +196,13 @@
                 bottom: 0;
                 background: $darkWhite;
                 @include transition(all,.3s, cubic-bezier(0.215, 0.61, 0.355, 1),0);
-                transform: scaleX(0);
+                transform: scaleX(1);
             }
         }
         &:hover{
             &::after{
                 @media (min-width: 992px){
-                    transform: scaleX(1);
+                    transform: scaleX(0);
                 }
             }
         }

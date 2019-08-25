@@ -75,14 +75,38 @@
         left: 50px;
     }
     h3{
-      @include font('Open Sans',0.9em,400);
+      @include font('Cinzel',0.9em,400);
       @media (min-width: 1400px){
         font-size: 1em;
       }
     }
     a{
-      @include font('Open Sans',0.9em,400);
+      @include font('Cinzel',0.9em,600);
       text-decoration: underline;
+      &::after{
+        @media (min-width: 992px){
+            content: '';
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: $darkWhite;
+            @include transition(all,.3s, cubic-bezier(0.215, 0.61, 0.355, 1),0);
+            transform: scaleX(1);
+        }
+      }
+      &:hover{
+          &::after{
+              @media (min-width: 992px){
+                  transform: scaleX(0);
+              }
+          }
+      }
+      @media (min-width: 992px){
+        text-decoration: none;
+        position: relative;
+      }
       @media (min-width: 1400px){
         font-size: 1em;
       }
@@ -101,7 +125,7 @@
         right: 50px;
     }
     h4{
-      @include font('Open Sans',0.9em,400);
+      @include font('Cinzel',0.9em,400);
       @media (min-width: 1400px){
         font-size: 1em;
       }
