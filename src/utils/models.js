@@ -33,3 +33,11 @@ export const superheroModel = PropTypes.shape({
     height: PropTypes.string
   })
 });
+
+export const tabsModel = PropTypes.arrayOf(
+  PropTypes.shape({
+    txt: PropTypes.string,
+    id: PropTypes.string,
+    activ: PropTypes.bool
+  })
+);

@@ -129,6 +129,15 @@
         margin-top: 0;
     }
     img{
+        &.introTab{
+            filter: none;
+        }
+        &.dataTab{
+            filter: grayscale(100%);
+        }
+        &.powersTab{
+            filter: sepia(100%) brightness(87%);
+        }
         @media (min-width: 992px){
             height: auto;
             margin: 0 auto;

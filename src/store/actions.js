@@ -18,3 +18,15 @@ export const setMenuDirection = (dispatch, menuDirection) => {
     menuDirection
   });
 };
+
+export const setActiveTab = (dispatch, tabs, id) => {
+  const tabsUpdated = tabs.map(item => ({
+    ...item,
+    active: id === item.id
+  }));
+
+  dispatch({
+    type: actionTypes.SET_ACTIVE_TAB,
+    tabs: tabsUpdated
+  });
+};

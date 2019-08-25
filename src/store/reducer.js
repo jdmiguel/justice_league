@@ -158,11 +158,16 @@ export const initialState = {
   menuDirection: {
     inHero: '',
     outHero: ''
-  }
+  },
+  tabs: [
+    { txt: 'Intro', id: 'introTab', active: true },
+    { txt: 'Data sheet', id: 'dataTab', active: false },
+    { txt: 'Powers', id: 'powersTab', active: false }
+  ]
 };
 
 export const reducer = (state = initialState, action) => {
-  const { superheroes, menuDirection } = action;
+  const { superheroes, menuDirection, tabs } = action;
 
   switch (action.type) {
     case actionTypes.SET_ACTIVE_SUPERHERO:
@@ -174,6 +179,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         menuDirection
+      };
+    case actionTypes.SET_ACTIVE_TAB:
+      return {
+        ...state,
+        tabs
       };
     default:
       return state;

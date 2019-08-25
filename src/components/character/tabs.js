@@ -1,14 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/** Literals */
-import { tabs } from '../../utils/literals';
+/** Models */
+import { tabsModel } from '../../utils/models';
 
-const Tabs = ({ onClick }) => (
+const Tabs = ({ data, onClick }) => (
   <ul className="tabs">
-    {tabs.map(item => (
+    {data.map(item => (
       <li key={item.id}>
-        <button type="button" onClick={onClick}>
+        <button
+          className={item.active ? 'active' : null}
+          type="button"
+          onClick={() => onClick(item.id)}
+        >
           {item.txt}
         </button>
       </li>
@@ -17,6 +21,7 @@ const Tabs = ({ onClick }) => (
 );
 
 Tabs.propTypes = {
+  data: tabsModel,
   onClick: PropTypes.func
 };
 
