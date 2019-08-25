@@ -2,18 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /* Colors */
-import { white } from '../../utils/colors';
+import { white, black } from '../../utils/colors';
 
 const Icon = ({
   className,
   svg: SVGR,
   width = '30px',
   height = '30px',
-  fill = { white }
+  fill = { black }
 }) => (
   <React.Fragment>
     {SVGR && (
-      <SVGR className={className} width={width} height={height} fill={fill} />
+      <SVGR
+        className={className}
+        width={width}
+        height={height}
+        fill="#FFFFFF"
+      />
     )}
   </React.Fragment>
 );

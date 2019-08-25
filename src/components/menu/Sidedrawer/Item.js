@@ -17,13 +17,8 @@ const Item = ({
 
   return (
     <li className={superheroActive ? 'active' : null}>
-      <Icon
-        className={`sidedrawer_${superheroClass}`}
-        svg={superheroIcon}
-        width={width}
-        height={height}
-      />
-      <span className={`sidedrawer_${superheroClass}`}>{superheroAlias}</span>
+      <Icon svg={superheroIcon} width={width} height={height} />
+      <span className={`${superheroClass}`}>{superheroAlias}</span>
       <button type="button" onClick={() => onClickItem(superheroIndex)} />
     </li>
   );

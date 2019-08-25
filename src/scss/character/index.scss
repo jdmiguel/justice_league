@@ -34,6 +34,12 @@
         background: $redCyborg;
     }
 }
+.character-logo{
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.2;
+}
 .character-content{
     height: 100vh;
 }

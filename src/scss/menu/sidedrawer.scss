@@ -108,35 +108,35 @@
         pointer-events: none;
         @include transition(all,.5s, cubic-bezier(0.215, 0.61, 0.355, 1),0);
         @include font('Cinzel',1em,700);
-        &.sidedrawer_superman{
+        &.superman{
             left: 50px;
             top: 3px;
         }
-        &.sidedrawer_batman{
+        &.batman{
             left: 54px;
             top: -2px;
         }
-        &.sidedrawer_wonderwoman{
+        &.wonderwoman{
             left: 55px;
             top: 1px;
         }
-        &.sidedrawer_flash{
+        &.flash{
             left: 48px;
             top: 8px;
         }
-        &.sidedrawer_greenlantern{
+        &.greenlantern{
             left: 50px;
             top: 4px;
         }
-        &.sidedrawer_greenarrow{
-            left: 50px;
-            top: 4px;
-        }
-        &.sidedrawer_aquaman{
+        &.aquaman{
             left: 49px;
             top: 4px;
         }
-        &.sidedrawer_cyborg{
+        &.greenarrow{
+            left: 50px;
+            top: 4px;
+        }
+        &.cyborg{
             left: 50px;
             top: 4px;
         }
@@ -147,28 +147,28 @@
             @include font('Cinzel',1em,700);
             display: inline-block;
             opacity: 0;
-            &.sidedrawer_superman{
+            &.superman{
                 left: 53px;
             }
-            &.sidedrawer_batman{
+            &.batman{
                 left: 57px;
             }
-            &.sidedrawer_wonderwoman{
+            &.wonderwoman{
                 left: 58px;
             }
-            &.sidedrawer_flash{
+            &.flash{
                 left: 51px;
             }
-            &.sidedrawer_greenlantern{
+            &.greenlantern{
                 left: 53px;
             }
-            &.sidedrawer_greenarrow{
-                left: 53px;
-            }
-            &.sidedrawer_aquaman{
+            &.aquaman{
                 left: 52px;
             }
-            &.sidedrawer_cyborg{
+            &.greenarrow{
+                left: 53px;
+            }
+            &.cyborg{
                 left: 53px;
             }
         }

@@ -1,14 +1,8 @@
-<svg version="1.1"
-	 id="svg4305" xmlns:svg="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" sodipodi:docname="The Flash Print.svg" inkscape:version="0.91 r13725"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="430.934px" height="600px"
-	 viewBox="0 0 430.934 600" enable-background="new 0 0 430.934 600" xml:space="preserve">
-<sodipodi:namedview  units="px" id="base" borderopacity="1.0" pagecolor="#ffffff" bordercolor="#666666" showgrid="false" inkscape:zoom="0.49497475" inkscape:cx="240.50993" inkscape:cy="475.23566" inkscape:window-x="-8" inkscape:current-layer="layer1" inkscape:window-height="705" inkscape:window-maximized="1" inkscape:window-width="1366" inkscape:window-y="-8" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:document-units="px">
-	</sodipodi:namedview>
-<g id="layer1" transform="translate(0,-52.36214)" inkscape:label="Layer 1" inkscape:groupmode="layer">
-	<path id="path14" inkscape:connector-curvature="0" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-miterlimit="10" d="
-		M424.934,352.362c0,115.018-93.247,208.257-208.264,208.257S8.413,467.38,8.413,352.362c0-115.021,93.24-208.26,208.257-208.26
-		S424.934,237.342,424.934,352.362"/>
-	<path id="path18" inkscape:connector-curvature="0" fill="#FFFFFF" d="M381.09,52.362L149.001,311.959l53.293-6.875L97.424,452.94
-		l53.292-6.883L13.181,652.362L310.61,346.347l-60.178,10.315l89.402-132.376l-58.456,6.875L381.09,52.362"/>
-</g>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="704.602px" viewBox="0 0 500 704.602" enable-background="new 0 0 500 704.602" xml:space="preserve">
+	<path fill="#FFFFFF" d="M443.408,0.626L171.102,305.208l62.528-8.064L110.587,470.622
+		l62.525-8.076L11.744,704.602l348.97-359.047l-70.605,12.103l104.894-155.314l-68.583,8.066L443.408,0.626"/>
+	<path fill="none" stroke="#FFFFFF" stroke-width="25" stroke-miterlimit="25" d="
+		M491,352.613c0,132.82-107.687,240.497-240.504,240.497C117.676,593.11,10,485.434,10,352.613
+		c0-132.825,107.676-240.499,240.496-240.499C383.313,112.114,491,219.789,491,352.613"/>
 </svg>
