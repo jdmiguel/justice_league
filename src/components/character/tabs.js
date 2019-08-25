@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 /** Models */
 import { tabsModel } from '../../utils/models';
 
-const Tabs = ({ data, onClick }) => (
-  <ul className="tabs">
+const Tabs = ({ data, onClick }, ref) => (
+  <ul ref={ref} className="tabs">
     {data.map(item => (
       <li key={item.id}>
         <button
@@ -25,4 +25,4 @@ Tabs.propTypes = {
   onClick: PropTypes.func
 };
 
-export default Tabs;
+export default React.forwardRef(Tabs);

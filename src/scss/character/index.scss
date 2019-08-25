@@ -62,39 +62,41 @@
     }
 }
 .character-logo{
-    position: absolute;
-    left: -23%;
-    top: -28%;
-    width: 168%;
-    height: 168%;
-    opacity: 0.1;
     &.superman{
-        background: $blueSuperman;
-        left: -5%;
-        top: 10%;
-        width: 135%;
-        height: 135%;
+        svg{
+            background: $blueSuperman;
+            left: -5%;
+            top: 10%;
+            width: 135%;
+            height: 135%;
+        }
     }
     &.batman{
-        background: $greyBatman;
-        left: -6%;
-        top: -8%;
-        width: 140%;
-        height: 140%;
+        svg{
+            background: $greyBatman;
+            left: -6%;
+            top: -8%;
+            width: 140%;
+            height: 140%;
+        }
     }
     &.wonderwoman{
-        left: 4%;
-        top: 7%;
-        width: 116%;
-        height: 116%;
-        background: $orangeWonder;
+        svg{
+            left: 4%;
+            top: 7%;
+            width: 116%;
+            height: 116%;
+            background: $orangeWonder;
+        }
     }
     &.flash{
-        left: -22%;
-        top: -37%;
-        width: 177%;
-        height: 177%;
-        background: $redFlash;
+        svg{
+            left: -22%;
+            top: -37%;
+            width: 177%;
+            height: 177%;
+            background: $redFlash;
+        }
         path{
             &:first-of-type {
                 fill:$black;
@@ -105,24 +107,40 @@
             }
         }
     }
-    &.greenlantern{  
-        background: $greenLantern;
+    &.greenlantern{
+        svg{
+            width: 168%;
+            height: 168%;
+            background: $greenLantern;
+        }  
     }
     &.aquaman{
-        left: -47%;
-        top: -75%;
-        width: 212%;
-        height: 212%;
-        background: $yellowAquaman;
+        svg{
+            left: -47%;
+            top: -75%;
+            width: 212%;
+            height: 212%;
+            background: $yellowAquaman;
+        }
     }
     &.greenarrow{
-        background: $greenArrow;
+        svg{
+            width: 168%;
+            height: 168%;
+            background: $greenArrow;
+        }
     }
     &.cyborg{
-        left: -22%;
-        width: 165%;
-        height: 165%;
-        background: $redCyborg;
+        svg{
+            left: -22%;
+            width: 165%;
+            height: 165%;
+            background: $redCyborg;
+        }
+    }
+    svg{
+        position: absolute;
+        opacity: 0.1;
     }
     path{
         fill:$black;
