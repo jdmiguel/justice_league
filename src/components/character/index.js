@@ -12,10 +12,17 @@ import { reducer, initialState } from '../../store/reducer';
 /* Actions */
 import { setActiveTab } from '../../store/actions';
 
+/* Hooks */
+import useWindowResize from '../../hooks/useWindowResize';
+
 /** Models */
 import { superheroModel } from '../../utils/models';
 
 const Character = ({ superhero }) => {
+  // Measures
+  const { width } = useWindowResize();
+  const isBigLaptopOrDekstop = width > 1400;
+
   // Reducers
   const [state, dispatch] = React.useReducer(reducer, initialState);
   const { tabs } = state;
@@ -26,12 +33,13 @@ const Character = ({ superhero }) => {
   const characterTitleRef = React.useRef(null);
   const characterSubTitleRef = React.useRef(null);
   const characterTabsRef = React.useRef(null);
-  const animationRef = React.useRef(null);
+  const animationWithImgRef = React.useRef(null);
+  const animationWithoutImgRef = React.useRef(null);
 
   // States
   const [imgClass, setImgClass] = React.useState('introTab');
   const [contentClasses, setContentClasses] = React.useState([
-    'character-content container-fluid'
+    'character-content'
   ]);
 
   // Handlers
@@ -42,58 +50,110 @@ const Character = ({ superhero }) => {
   });
 
   // UseEffects
-
   React.useEffect(() => {
-    animationRef.current = new TimelineMax();
+    if (isBigLaptopOrDekstop) {
+      setContentClasses([...contentClasses, 'visible']);
 
-    setContentClasses([...contentClasses, 'visible']);
+      animationWithImgRef.current = new TimelineMax();
+      animationWithImgRef.current
+        .from(characterImgRef.current, 0.6, {
+          autoAlpha: 0,
+          x: -75,
+          ease: Power2.easeOut
+        })
+        .from(
+          characterTitleRef.current,
+          0.5,
+          {
+            autoAlpha: 0,
+            x: 200,
+            ease: Power2.easeOut
+          },
+          '-=0.6'
+        )
+        .from(
+          characterSubTitleRef.current,
+          0.5,
+          {
+            autoAlpha: 0,
+            x: 150,
+            ease: Power2.easeOut
+          },
+          '-=0.4'
+        )
+        .from(
+          characterIntroRef.current,
+          0.5,
+          {
+            autoAlpha: 0,
+            x: 120,
+            ease: Power2.easeOut
+          },
+          '-=0.4'
+        )
+        .from(
+          characterTabsRef.current,
+          0.5,
+          {
+            autoAlpha: 0,
+            x: 120,
+            ease: Power2.easeOut
+          },
+          '-=0.4'
+        );
+    } else {
+      setContentClasses([...contentClasses, 'visible']);
 
-    animationRef.current
-      .from(characterImgRef.current, 0.6, {
-        autoAlpha: 0,
-        x: -75,
-        ease: Power2.easeOut
-      })
-      .from(
-        characterTitleRef.current,
-        0.5,
-        {
-          autoAlpha: 0,
-          x: 200,
-          ease: Power2.easeOut
-        },
-        '-=0.6'
-      )
-      .from(
-        characterSubTitleRef.current,
-        0.5,
-        {
-          autoAlpha: 0,
-          x: 150,
-          ease: Power2.easeOut
-        },
-        '-=0.4'
-      )
-      .from(
-        characterIntroRef.current,
-        0.5,
-        {
-          autoAlpha: 0,
-          x: 120,
-          ease: Power2.easeOut
-        },
-        '-=0.4'
-      )
-      .from(
-        characterTabsRef.current,
-        0.5,
-        {
-          autoAlpha: 0,
-          x: 120,
-          ease: Power2.easeOut
-        },
-        '-=0.4'
-      );
+      animationWithoutImgRef.current = new TimelineMax();
+      animationWithoutImgRef.current
+        .from(
+          characterTitleRef.current,
+          0.5,
+          {
+            autoAlpha: 0,
+            y: 30,
+            ease: Power2.easeOut
+          },
+          '-=0.6'
+        )
+        .from(
+          characterSubTitleRef.current,
+          0.5,
+          {
+            autoAlpha: 0,
+            y: 30,
+            ease: Power2.easeOut
+          },
+          '-=0.4'
+        )
+        .from(
+          characterIntroRef.current,
+          0.5,
+          {
+            autoAlpha: 0,
+            y: 30,
+            ease: Power2.easeOut
+          },
+          '-=0.4'
+        )
+        .from(
+          characterTabsRef.current,
+          0.5,
+          {
+            autoAlpha: 0,
+            y: 30,
+            ease: Power2.easeOut
+          },
+          '-=0.4'
+        );
+    }
+    return () => {
+      if (isBigLaptopOrDekstop) {
+        animationWithImgRef.current.kill();
+      } else {
+        animationWithoutImgRef.current.kill();
+      }
+    };
   }, []);
 
   return (
@@ -102,17 +162,19 @@ const Character = ({ superhero }) => {
         <Icon svg={superhero.icon} />
       </div>
       <div className={contentClasses.join(' ')}>
-        <div className="character-main row">
-          <div className="character-block-left col-lg-5 col-md-12">
-            <div ref={characterImgRef} className="character-image">
-              <img
-                className={imgClass}
-                alt={superhero.name}
-                src={superhero.characterImg}
-              />
+        <div className="character-main">
+          {isBigLaptopOrDekstop && (
+            <div className="character-block-left">
+              <div ref={characterImgRef} className="character-image">
+                <img
+                  className={imgClass}
+                  alt={superhero.name}
+                  src={superhero.characterImg}
+                />
+              </div>
             </div>
-          </div>
-          <div className="character-block-right col-lg-6 col-md-12">
+          )}
+          <div className="character-block-right">
             <h1 ref={characterTitleRef}>{superhero.name}</h1>
             <h2 ref={characterSubTitleRef}>{superhero.alias}</h2>
             <Intro ref={characterIntroRef} txt={superhero.intro} />
