@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Letters = ({
-  superheroAlias,
+  superheroName,
   superheroClass,
   superheroActive,
   superheroBreakpoint,
@@ -25,7 +25,7 @@ const Letters = ({
 
   // Utils
   const getDistance = React.useCallback((index, splitFactor) => {
-    const totalChars = superheroAlias.length;
+    const totalChars = superheroName.length;
     const distance =
       index < superheroBreakpoint
         ? (Math.asinh(index) - totalChars) *
@@ -257,14 +257,14 @@ const Letters = ({
         onClick={clickHandler}
       />
       <h2 ref={lettersRef} className={`letters ${superheroClass}`}>
-        {superheroAlias}
+        {superheroName}
       </h2>
     </div>
   );
 };
 
 Letters.propTypes = {
-  superheroAlias: PropTypes.string,
+  superheroName: PropTypes.string,
   superheroClass: PropTypes.string,
   superheroActive: PropTypes.bool,
   superheroBreakpoint: PropTypes.number,

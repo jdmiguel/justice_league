@@ -11,8 +11,7 @@ const BgWrapper = ({ superheroes, highlightBg }) => (
   <React.Fragment>
     {superheroes.map(superhero => (
       <Bg
-        key={superhero.alias}
-        superheroAlias={superhero.alias}
+        key={superhero.name}
         superheroClass={superhero.class}
         superheroActive={superhero.active}
         highlightBg={highlightBg}

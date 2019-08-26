@@ -25,11 +25,13 @@ const Character = ({ superhero }) => {
   const characterTitleRef = React.useRef(null);
   const characterSubTitleRef = React.useRef(null);
   const characterTabsRef = React.useRef(null);
-  const characterIconRef = React.useRef(null);
   const animationRef = React.useRef(null);
 
   // States
   const [imgClass, setImgClass] = React.useState('introTab');
+  const [contentClasses, setContentClasses] = React.useState([
+    'character-content container-fluid'
+  ]);
 
   // Handlers
   const onClickTabHandler = React.useCallback(id => {
@@ -43,54 +45,75 @@ const Character = ({ superhero }) => {
   React.useEffect(() => {
     animationRef.current = new TimelineMax();
 
+    setContentClasses([...contentClasses, 'visible']);
+
     animationRef.current
       .from(characterImgRef.current, 0.6, {
         autoAlpha: 0,
-        x: -75
+        x: -75,
+        ease: Power2.easeOut
       })
-      .from(characterTitleRef.current, 0.5, {
-        autoAlpha: 0,
-        x: 200
-      })
-      .from(characterSubTitleRef.current, 0.62, {
-        autoAlpha: 0,
-        x: 150
-      })
-      .from(characterIntroRef.current, 0.7, {
-        autoAlpha: 0,
-        x: 120
-      })
-      .from(characterTabsRef.current, 0.7, {
-        autoAlpha: 0,
-        x: 120
-      })
-      .from(characterIconRef.current, 0.5, {
-        autoAlpha: 0
-      });
+      .from(
+        characterTitleRef.current,
+        0.5,
+        {
+          autoAlpha: 0,
+          x: 200,
+          ease: Power2.easeOut
+        },
+        '-=0.6'
+      )
+      .from(
+        characterSubTitleRef.current,
+        0.5,
+        {
+          autoAlpha: 0,
+          x: 150,
+          ease: Power2.easeOut
+        },
+        '-=0.4'
+      )
+      .from(
+        characterIntroRef.current,
+        0.5,
+        {
+          autoAlpha: 0,
+          x: 120,
+          ease: Power2.easeOut
+        },
+        '-=0.4'
+      )
+      .from(
+        characterTabsRef.current,
+        0.5,
+        {
+          autoAlpha: 0,
+          x: 120,
+          ease: Power2.easeOut
+        },
+        '-=0.4'
+      );
   }, []);
 
   return (
     <div className={`character-wrapper ${superhero.class}`}>
-      <div
-        ref={characterIconRef}
-        className={`character-logo ${superhero.class}`}
-      >
+      <div className={`character-logo ${superhero.class}`}>
         <Icon svg={superhero.icon} />
       </div>
-      <div className="character-content container-fluid">
+      <div className={contentClasses.join(' ')}>
         <div className="character-main row">
           <div className="character-block-left col-lg-5 col-md-12">
             <div ref={characterImgRef} className="character-image">
               <img
                 className={imgClass}
-                alt={superhero.alias}
+                alt={superhero.name}
                 src={superhero.characterImg}
               />
             </div>
           </div>
           <div className="character-block-right col-lg-6 col-md-12">
-            <h1 ref={characterTitleRef}>{superhero.alias}</h1>
-            <h2 ref={characterSubTitleRef}>{superhero.name}</h2>
+            <h1 ref={characterTitleRef}>{superhero.name}</h1>
+            <h2 ref={characterSubTitleRef}>{superhero.alias}</h2>
             <Intro ref={characterIntroRef} txt={superhero.intro} />
             <Tabs
               ref={characterTabsRef}

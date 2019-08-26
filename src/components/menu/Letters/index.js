@@ -16,8 +16,8 @@ const LettersWrapper = ({
 }) =>
   superheroes.map(superhero => (
     <Letters
-      key={superhero.alias}
-      superheroAlias={superhero.alias}
+      key={superhero.name}
+      superheroName={superhero.name}
       superheroClass={superhero.class}
       superheroActive={superhero.active}
       superheroBreakpoint={superhero.breakpoint}

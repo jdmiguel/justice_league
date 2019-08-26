@@ -61,7 +61,17 @@
         }
     }
 }
+.character-content{
+    opacity: 0;
+    visibility: hidden;
+    &.visible{
+        opacity: 1;
+        visibility: visible;
+    }
+}
 .character-logo{
+    opacity: 0;
+    animation: character-logo-showed 1s ease-out 0.6s forwards;
     &.superman{
         svg{
             background: $blueSuperman;
@@ -91,10 +101,10 @@
     }
     &.flash{
         svg{
-            left: -22%;
-            top: -37%;
-            width: 177%;
-            height: 177%;
+            left: -58%;
+            top: -51%;
+            width: 232%;
+            height: 232%;
             background: $redFlash;
         }
         path{
@@ -109,8 +119,6 @@
     }
     &.greenlantern{
         svg{
-            width: 168%;
-            height: 168%;
             background: $greenLantern;
         }  
     }
@@ -125,21 +133,20 @@
     }
     &.greenarrow{
         svg{
-            width: 168%;
-            height: 168%;
             background: $greenArrow;
         }
     }
     &.cyborg{
         svg{
-            left: -22%;
-            width: 165%;
-            height: 165%;
             background: $redCyborg;
         }
     }
     svg{
         position: absolute;
+        left: -30%;
+        top: -31%;
+        width: 170%;
+        height: 170%;
         opacity: 0.1;
     }
     path{
@@ -257,3 +264,12 @@
         }
     }
 }
+
+@keyframes character-logo-showed {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
