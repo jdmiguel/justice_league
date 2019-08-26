@@ -33,15 +33,29 @@ export const initialState = {
       intro:
         'Faster than a speeding bullet, more powerful than a locomotive… Rocketed to Earth as an infant from the doomed planet Krypton, Kal-El was adopted by the loving Kent family and raised in America´s heartland as Clark Kent. Using his immense solar-fueled powers, he became Superman to defend mankind against all manner of threats while championing truth, justice and freedom.',
       dataSheet: [
-        { data: 'Full alias', value: 'Clark Joseph Kent (Kal-El)' },
-        { data: 'Place of birth', value: 'Krypton' },
         {
-          data: 'Occupation',
-          value: 'Reporter for the Daily Planet and novelist'
+          section: 'Origin / connections',
+          data: [
+            { title: 'Full alias', text: 'Clark Joseph Kent (Kal-El)' },
+            { title: 'Place of birth', text: 'Krypton' },
+            {
+              title: 'Occupation',
+              text: 'Reporter for the Daily Planet and novelist'
+            },
+            { title: 'Base', text: 'Metropolis' },
+            { title: 'First appearance', text: 'ACTION COMICS #1' }
+          ]
         },
-        { data: 'Base', value: 'Metropolis' },
-        { data: 'First appearance', value: 'ACTION COMICS #1' },
-        { data: 'Place of birth', value: 'Krypton' }
+        {
+          section: 'Appearance',
+          data: [
+            { title: 'Type / Race', text: 'Kryptonian' },
+            { title: 'Height', text: '6.3 / 191 cm' },
+            { title: 'Weight', text: '225 lb / 101 kg' },
+            { title: 'Eye color', text: 'Blue' },
+            { title: 'Hair color', text: 'Black' }
+          ]
+        }
       ],
       active: true,
       breakpoint: 4,

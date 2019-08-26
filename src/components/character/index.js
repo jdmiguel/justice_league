@@ -3,6 +3,7 @@ import React from 'react';
 /** Components */
 import Icon from '../core/icon';
 import Intro from './Intro';
+import DataSheet from './DataSheet';
 import Tabs from './Tabs';
 
 /* Reducer */
@@ -115,6 +116,7 @@ const Character = ({ superhero }) => {
             <h1 ref={characterTitleRef}>{superhero.name}</h1>
             <h2 ref={characterSubTitleRef}>{superhero.alias}</h2>
             <Intro ref={characterIntroRef} txt={superhero.intro} />
+            <DataSheet data={superhero.dataSheet} />
             <Tabs
               ref={characterTabsRef}
               data={tabs}

@@ -41,3 +41,15 @@ export const tabsModel = PropTypes.arrayOf(
     activ: PropTypes.bool
   })
 );
+
+export const dataSheetModel = PropTypes.arrayOf(
+  PropTypes.shape({
+    section: PropTypes.string,
+    data: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string,
+        text: PropTypes.string
+      })
+    )
+  })
+);
