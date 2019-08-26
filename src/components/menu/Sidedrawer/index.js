@@ -13,8 +13,8 @@ const Sidedrawer = ({ superheroes, onClickItem }) => (
       <ul>
         {superheroes.map(superhero => (
           <Item
-            key={superhero.alias}
-            superheroAlias={superhero.alias}
+            key={superhero.name}
+            superheroName={superhero.name}
             superheroClass={superhero.class}
             superheroActive={superhero.active}
             superheroIndex={superhero.index}

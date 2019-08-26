@@ -29,9 +29,9 @@ const Character = ({ superhero }) => {
 
   // Refs
   const characterImgRef = React.useRef(null);
-  const characterIntroRef = React.useRef(null);
   const characterTitleRef = React.useRef(null);
   const characterSubTitleRef = React.useRef(null);
+  const characterDataRef = React.useRef(null);
   const characterTabsRef = React.useRef(null);
   const animationWithImgRef = React.useRef(null);
   const animationWithoutImgRef = React.useRef(null);
@@ -82,7 +82,7 @@ const Character = ({ superhero }) => {
           '-=0.4'
         )
         .from(
-          characterIntroRef.current,
+          characterDataRef.current,
           0.5,
           {
             autoAlpha: 0,
@@ -106,45 +106,39 @@ const Character = ({ superhero }) => {
 
       animationWithoutImgRef.current = new TimelineMax();
       animationWithoutImgRef.current
-        .from(
-          characterTitleRef.current,
-          0.5,
-          {
-            autoAlpha: 0,
-            y: 30,
-            ease: Power2.easeOut
-          },
-          '-=0.6'
-        )
+        .from(characterTitleRef.current, 0.5, {
+          autoAlpha: 0,
+          x: 50,
+          ease: Power2.easeOut
+        })
         .from(
           characterSubTitleRef.current,
           0.5,
           {
             autoAlpha: 0,
-            y: 30,
+            x: -50,
             ease: Power2.easeOut
           },
-          '-=0.4'
+          '-=0.3'
         )
         .from(
-          characterIntroRef.current,
+          characterDataRef.current,
           0.5,
           {
             autoAlpha: 0,
             y: 30,
             ease: Power2.easeOut
           },
-          '-=0.4'
+          '-=0.3'
         )
         .from(
           characterTabsRef.current,
           0.5,
           {
             autoAlpha: 0,
-            y: 30,
             ease: Power2.easeOut
           },
-          '-=0.4'
+          '-=0.3'
         );
     }
     return () => {
@@ -157,7 +151,7 @@ const Character = ({ superhero }) => {
   }, []);
 
   return (
-    <div className={`character-wrapper ${superhero.class}`}>
+    <div className={`character ${superhero.class}`}>
       <div className={`character-logo ${superhero.class}`}>
         <Icon svg={superhero.icon} />
       </div>
@@ -177,8 +171,10 @@ const Character = ({ superhero }) => {
           <div className="character-block-right">
             <h1 ref={characterTitleRef}>{superhero.name}</h1>
             <h2 ref={characterSubTitleRef}>{superhero.alias}</h2>
-            <Intro ref={characterIntroRef} txt={superhero.intro} />
-            <DataSheet data={superhero.dataSheet} />
+            <div ref={characterDataRef} className="character-data">
+              <Intro txt={superhero.intro} />
+              {/* <DataSheet data={superhero.dataSheet} /> */}
+            </div>
             <Tabs
               ref={characterTabsRef}
               data={tabs}

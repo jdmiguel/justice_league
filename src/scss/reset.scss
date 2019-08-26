@@ -6,6 +6,11 @@ html, body, h1, h2, h3, h4, h5, h6, span, dt, p, section, figure, div, header, u
   html, body {
     background: $white;
   }
+
+  html {
+    -webkit-text-size-adjust: none;
+    touch-action: manipulation;
+}
   
   li{
     list-style: none;

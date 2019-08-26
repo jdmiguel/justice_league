@@ -20,9 +20,11 @@ const Tabs = ({ data, onClick }, ref) => (
   </ul>
 );
 
+const forwardedTabs = React.forwardRef(Tabs);
+
 Tabs.propTypes = {
   data: tabsModel,
   onClick: PropTypes.func
 };
 
-export default React.forwardRef(Tabs);
+export default forwardedTabs;

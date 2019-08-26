@@ -28,4 +28,4 @@ DataSheet.propTypes = {
   data: dataSheetModel
 };
 
-export default React.forwardRef(DataSheet);
+export default DataSheet;

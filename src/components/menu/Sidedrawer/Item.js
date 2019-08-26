@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Icon from '../../core/icon';
 
 const Item = ({
-  superheroAlias,
+  superheroName,
   superheroClass,
   superheroActive,
   superheroIndex,
@@ -18,14 +18,14 @@ const Item = ({
   return (
     <li className={superheroActive ? 'active' : null}>
       <Icon svg={superheroIcon} width={width} height={height} />
-      <span className={`${superheroClass}`}>{superheroAlias}</span>
+      <span className={`${superheroClass}`}>{superheroName}</span>
       <button type="button" onClick={() => onClickItem(superheroIndex)} />
     </li>
   );
 };
 
 Item.propTypes = {
-  superheroAlias: PropTypes.string,
+  superheroName: PropTypes.string,
   superheroClass: PropTypes.string,
   superheroActive: PropTypes.bool,
   superheroIndex: PropTypes.number,
