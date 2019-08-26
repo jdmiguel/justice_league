@@ -73,6 +73,7 @@ const Letters = ({
       0.05,
       () => {
         setAllowMouseOver(true);
+        setAllowMouseMove(true);
         endLettersAnimation();
       }
     );
@@ -206,7 +207,7 @@ const Letters = ({
     if (superheroActive) {
       setAllowMouseMove(false);
       setAllowMouseOver(false);
-      separatingAnimation(2.5);
+      separatingAnimation(1.8);
       onClick(superheroClass);
     }
   };
