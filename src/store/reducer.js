@@ -36,20 +36,20 @@ export const initialState = {
         {
           section: 'Origin / connections',
           data: [
-            { title: 'Full alias', text: 'Clark Joseph Kent (Kal-El)' },
+            { title: 'Full name', text: 'Clark Joseph Kent' },
             { title: 'Place of birth', text: 'Krypton' },
             {
               title: 'Occupation',
-              text: 'Reporter for the Daily Planet and novelist'
+              text: 'Reporter / Novelist'
             },
             { title: 'Base', text: 'Metropolis' },
-            { title: 'First appearance', text: 'ACTION COMICS #1' }
+            { title: 'First appearance', text: 'Action Comics #1' }
           ]
         },
         {
           section: 'Appearance',
           data: [
-            { title: 'Type / Race', text: 'Kryptonian' },
+            { title: 'Race', text: 'Kryptonian' },
             { title: 'Height', text: '6.3 / 191 cm' },
             { title: 'Weight', text: '225 lb / 101 kg' },
             { title: 'Eye color', text: 'Blue' },

@@ -3,13 +3,16 @@ import React from 'react';
 /** Models */
 import { dataSheetModel } from '../../utils/models';
 
-const DataSheet = ({ data }, ref) => (
-  <div ref={ref} className="character-data-sheet">
+const DataSheet = ({ data }) => (
+  <div className="character-data-sheet">
     <div className="character-origin-connections">
       <h3>{data[0].section}</h3>
       <ul>
         {data[0].data.map(item => (
-          <li>{`${item.title} : ${item.text}`}</li>
+          <li key={item.text}>
+            <strong>{`${item.title}: `}</strong>
+            <span>{`${item.text}`}</span>
+          </li>
         ))}
       </ul>
     </div>
@@ -17,7 +20,10 @@ const DataSheet = ({ data }, ref) => (
       <h3>{data[1].section}</h3>
       <ul>
         {data[1].data.map(item => (
-          <li>{`${item.title} : ${item.text}`}</li>
+          <li key={item.text}>
+            <strong>{`${item.title}: `}</strong>
+            <span>{`${item.text}`}</span>
+          </li>
         ))}
       </ul>
     </div>

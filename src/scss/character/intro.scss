@@ -1,0 +1,9 @@
+.character-intro{
+  padding: 0 4em;
+  @media (min-width: 768px){
+    padding: 0 3em;
+  }
+  @media (min-width: 992px){
+    padding: 0;
+  }
+}

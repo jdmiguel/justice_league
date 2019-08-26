@@ -4,14 +4,11 @@
     @include transition(all,.7s, ease-out,0);
     @include flexContainer();
     svg{
-        width: 25vw;
+        width: 24vw;
         overflow: visible;
         transform-origin: 50%;
         will-change: transform, opacity;
         @include transition(all, 1s, ease-out ,0);
-        @media (min-width: 768px){
-            width: 30vw;
-        }
         @media (min-width: 992px){
             width: 32vw;
         }

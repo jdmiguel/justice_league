@@ -172,8 +172,8 @@ const Character = ({ superhero }) => {
             <h1 ref={characterTitleRef}>{superhero.name}</h1>
             <h2 ref={characterSubTitleRef}>{superhero.alias}</h2>
             <div ref={characterDataRef} className="character-data">
-              <Intro txt={superhero.intro} />
-              {/* <DataSheet data={superhero.dataSheet} /> */}
+              {/* <Intro txt={superhero.intro} /> */}
+              <DataSheet data={superhero.dataSheet} />
             </div>
             <Tabs
               ref={characterTabsRef}
