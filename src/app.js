@@ -20,6 +20,15 @@ const App = () => {
   const [superhero, setSuperhero] = React.useState(null);
   const [wrapperClasses, setWrapperClasses] = React.useState(['app-wrapper']);
 
+  const preloadCharacter = React.useCallback(superhero => {
+    const img = new Image();
+    img.src = superhero.characterImg;
+    img.onload = () => {
+      setSuperhero(superhero);
+      setMenuStatus(false);
+    };
+  });
+
   return (
     <div ref={appWrapperRef} className={wrapperClasses.join(' ')}>
       <div className="landscape">
@@ -37,12 +46,7 @@ const App = () => {
       ) : (
         <Layout show={introStatus}>
           {menuStatus ? (
-            <Menu
-              goCharacter={superhero => {
-                setSuperhero(superhero);
-                setMenuStatus(false);
-              }}
-            />
+            <Menu goCharacter={superhero => preloadCharacter(superhero)} />
           ) : (
             <Character superhero={superhero} />
           )}
