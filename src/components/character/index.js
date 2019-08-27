@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /** Components */
 import Icon from '../core/icon';
@@ -18,7 +19,7 @@ import useWindowResize from '../../hooks/useWindowResize';
 /** Models */
 import { superheroModel } from '../../utils/models';
 
-const Character = ({ superhero }) => {
+const Character = ({ superhero, goMenu }) => {
   // Measures
   const { width } = useWindowResize();
   const isBigLaptopOrDekstop = width > 1400;
@@ -184,14 +185,17 @@ const Character = ({ superhero }) => {
         </div>
       </div>
       <div className="character-btn-back">
-        <button type="button">BACK TO HOME</button>
+        <button type="button" onClick={goMenu}>
+          BACK TO HOME
+        </button>
       </div>
     </div>
   );
 };
 
 Character.propTypes = {
-  superhero: superheroModel
+  superhero: superheroModel,
+  goMenu: PropTypes.func
 };
 
 export default Character;

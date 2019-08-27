@@ -48,7 +48,10 @@ const App = () => {
           {menuStatus ? (
             <Menu goCharacter={superhero => preloadCharacter(superhero)} />
           ) : (
-            <Character superhero={superhero} />
+            <Character
+              superhero={superhero}
+              goMenu={() => setMenuStatus(true)}
+            />
           )}
         </Layout>
       )}
