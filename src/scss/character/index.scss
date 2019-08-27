@@ -176,7 +176,7 @@
         width: 170%;
         height: 170%;
         opacity: 0;
-        transform: scale(1.5) rotate(15deg);
+        transform: scale(1.5);
         transform-origin: 50% 50%;
         animation: character-logo-in 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s forwards;
     }
@@ -334,10 +334,10 @@
 @keyframes character-logo-in {
     0% {
         opacity: 0;
-        transform: scale(1.5) rotate(15deg);
+        transform: scale(1.5);
     }
     100% {
         opacity: 0.1;
-        transform: scale(1) rotate(0);
+        transform: scale(1);
     }
   }

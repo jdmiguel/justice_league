@@ -1,14 +1,14 @@
 import React from 'react';
 
 /** Models */
-import { dataSheetModel } from '../../utils/models';
+import { skillsModel } from '../../utils/models';
 
-const DataSheet = ({ data: { originConnections, appearance } }) => (
+const Skills = ({ data }) => (
   <div className="character-data-sheet">
     <div className="character-origin-connections">
-      <h3>{originConnections.section}</h3>
+      <h3>{data[0].section}</h3>
       <ul>
-        {originConnections.data.map(item => (
+        {data[0].data.map(item => (
           <li key={item.text}>
             <strong>{`${item.title}: `}</strong>
             <span>{`${item.text}`}</span>
@@ -17,9 +17,9 @@ const DataSheet = ({ data: { originConnections, appearance } }) => (
       </ul>
     </div>
     <div className="character-appearance">
-      <h3>{appearance.section}</h3>
+      <h3>{data[1].section}</h3>
       <ul>
-        {appearance.data.map(item => (
+        {data[1].data.map(item => (
           <li key={item.text}>
             <strong>{`${item.title}: `}</strong>
             <span>{`${item.text}`}</span>
@@ -30,8 +30,8 @@ const DataSheet = ({ data: { originConnections, appearance } }) => (
   </div>
 );
 
-DataSheet.propTypes = {
-  data: dataSheetModel
+Skills.propTypes = {
+  data: skillsModel
 };
 
-export default DataSheet;
+export default Skills;

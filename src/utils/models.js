@@ -42,8 +42,17 @@ export const tabsModel = PropTypes.arrayOf(
   })
 );
 
-export const dataSheetModel = PropTypes.arrayOf(
-  PropTypes.shape({
+export const dataSheetModel = PropTypes.shape({
+  originConnections: PropTypes.shape({
+    section: PropTypes.string,
+    data: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string,
+        text: PropTypes.string
+      })
+    )
+  }),
+  appearance: PropTypes.shape({
     section: PropTypes.string,
     data: PropTypes.arrayOf(
       PropTypes.shape({
@@ -52,4 +61,20 @@ export const dataSheetModel = PropTypes.arrayOf(
       })
     )
   })
-);
+});
+
+export const skillsModel = PropTypes.shape({
+  stats: PropTypes.shape({
+    title: PropTypes.string,
+    data: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string,
+        value: PropTypes.string
+      })
+    )
+  }),
+  powers: PropTypes.shape({
+    title: PropTypes.string,
+    data: PropTypes.arrayOf(PropTypes.string)
+  })
+});
