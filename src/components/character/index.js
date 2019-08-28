@@ -42,12 +42,28 @@ const Character = ({ superhero, goMenu }) => {
   const [contentClasses, setContentClasses] = React.useState([
     'character-content'
   ]);
+  const [logoClasses, setLogoClasses] = React.useState([
+    'character-logo',
+    superhero.class
+  ]);
 
   // Handlers
   const onClickTabHandler = React.useCallback(id => {
     console.log('id: ', id);
     setImgClass(id);
     setActiveTab(dispatch, tabs, id);
+  });
+
+  const onClickBackHandler = React.useCallback(() => {
+    const tlSelected = isBigLaptopOrDekstop
+      ? animationWithImgRef.current
+      : animationWithoutImgRef.current;
+
+    setLogoClasses(['character-logo']);
+    tlSelected.timeScale(1.7);
+    tlSelected.reverse();
+
+    // goMenu();
   });
 
   // UseEffects
@@ -153,7 +169,7 @@ const Character = ({ superhero, goMenu }) => {
 
   return (
     <div className={`character ${superhero.class}`}>
-      <div className={`character-logo ${superhero.class}`}>
+      <div className={logoClasses.join(' ')}>
         <Icon svg={superhero.icon} />
       </div>
       <div className={contentClasses.join(' ')}>
@@ -185,7 +201,7 @@ const Character = ({ superhero, goMenu }) => {
         </div>
       </div>
       <div className="character-btn-back">
-        <button type="button" onClick={goMenu}>
+        <button type="button" onClick={onClickBackHandler}>
           BACK TO HOME
         </button>
       </div>

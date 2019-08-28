@@ -7,17 +7,16 @@ import Bg from './Bg';
 import Letters from './Letters';
 import Logo from './Logo';
 
-/* Reducer */
-import { reducer, initialState } from '../../store/reducer';
+/** Models */
+import { superheroesModel, menuDirectionModel } from '../../utils/models';
 
-/* Actions */
-import { setActiveSuperhero, setMenuDirection } from '../../store/actions';
-
-const Menu = ({ goCharacter }) => {
-  // Reducers
-  const [state, dispatch] = React.useReducer(reducer, initialState);
-  const { superheroes, menuDirection } = state;
-
+const Menu = ({
+  superheroes,
+  setActiveSuperhero,
+  menuDirection,
+  setMenuDirection,
+  goCharacter
+}) => {
   // Refs
   const menuRef = React.useRef(null);
   const menuDirectionRef = React.useRef(null);
@@ -59,7 +58,7 @@ const Menu = ({ goCharacter }) => {
         ? { inHero: 'left', outHero: 'right' }
         : { inHero: 'right', outHero: 'left' };
 
-    setMenuDirection(dispatch, menuDirection);
+    setMenuDirection(menuDirection);
   });
 
   // Refs settings
@@ -70,14 +69,14 @@ const Menu = ({ goCharacter }) => {
   const mouseWheelHandler = React.useCallback(e => {
     if (allowWheelRef.current) {
       if (e.deltaY > 0) {
-        setMenuDirection(dispatch, { inHero: 'left', outHero: 'right' });
-        setActiveSuperhero(dispatch, superheroes, getNextIndex(1));
         allowWheelRef.current = false;
+        setMenuDirection({ inHero: 'left', outHero: 'right' });
+        setActiveSuperhero(getNextIndex(1));
       }
       if (e.deltaY < 0) {
-        setMenuDirection(dispatch, { inHero: 'right', outHero: 'left' });
-        setActiveSuperhero(dispatch, superheroes, getNextIndex(-1));
         allowWheelRef.current = false;
+        setMenuDirection({ inHero: 'right', outHero: 'left' });
+        setActiveSuperhero(getNextIndex(-1));
       }
     }
   });
@@ -85,33 +84,35 @@ const Menu = ({ goCharacter }) => {
   const swipeHandler = React.useCallback(e => {
     if (allowSwipeRef.current) {
       if (e.direction === 2) {
-        setMenuDirection(dispatch, { inHero: 'right', outHero: 'left' });
-        setActiveSuperhero(dispatch, superheroes, getNextIndex(-1));
         allowSwipeRef.current = false;
+        setMenuDirection({ inHero: 'right', outHero: 'left' });
+        setActiveSuperhero(getNextIndex(-1));
       }
       if (e.direction === 4) {
-        setMenuDirection(dispatch, { inHero: 'left', outHero: 'right' });
-        setActiveSuperhero(dispatch, superheroes, getNextIndex(1));
         allowSwipeRef.current = false;
+        setMenuDirection({ inHero: 'left', outHero: 'right' });
+        setActiveSuperhero(getNextIndex(1));
       }
     }
   });
 
   const sidedrawerItemClickHandler = React.useCallback(index => {
     if (allowSidedrawerItemClickRef.current) {
-      setMenuDirectionFromSidedrawer(index);
-      setActiveSuperhero(dispatch, superheroes, index);
       allowSidedrawerItemClickRef.current = false;
+      setMenuDirectionFromSidedrawer(index);
+      setActiveSuperhero(index);
     }
   });
 
   // UseEffects
   React.useEffect(() => {
+    // MouseWheel Event
     menuRef.current.addEventListener('mousewheel', e => mouseWheelHandler(e));
     menuRef.current.addEventListener('DOMMouseScroll', e =>
       mouseWheelHandler(e)
     );
 
+    // Swipe Event
     swipeManagerRef.current = new Hammer.Manager(menuRef.current);
     swipeEventRef.current = new Hammer.Swipe('DIRECTION_ALL');
     swipeManagerRef.current.add(swipeEventRef.current);
@@ -172,8 +173,11 @@ const Menu = ({ goCharacter }) => {
     </div>
   );
 };
-
 Menu.propTypes = {
+  superheroes: superheroesModel,
+  setActiveSuperhero: PropTypes.func,
+  menuDirection: menuDirectionModel,
+  setMenuDirection: PropTypes.func,
   goCharacter: PropTypes.func
 };
 

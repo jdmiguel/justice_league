@@ -18,6 +18,11 @@ export const superheroesModel = PropTypes.arrayOf(
   })
 );
 
+export const menuDirectionModel = PropTypes.shape({
+  inHero: PropTypes.string,
+  outHero: PropTypes.string
+});
+
 export const superheroModel = PropTypes.shape({
   alias: PropTypes.string,
   name: PropTypes.string,

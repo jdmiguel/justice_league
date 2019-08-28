@@ -7,10 +7,20 @@ import Intro from './components/intro';
 import Menu from './components/menu';
 import Character from './components/character';
 
+/* Reducer */
+import { reducer, initialState } from './store/reducer';
+
+/* Actions */
+import { setActiveSuperhero, setMenuDirection } from './store/actions';
+
 /** Assets */
 import { landscapeImgPath } from './utils/imgPaths';
 
 const App = () => {
+  // Reducers
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+  const { superheroes, menuDirection } = state;
+
   // Refs
   const appWrapperRef = React.useRef(null);
 
@@ -46,7 +56,23 @@ const App = () => {
       ) : (
         <Layout show={introStatus}>
           {menuStatus ? (
-            <Menu goCharacter={superhero => preloadCharacter(superhero)} />
+            <Menu
+              superheroes={superheroes}
+              setActiveSuperhero={index =>
+                setActiveSuperhero(dispatch, superheroes, index)
+              }
+              menuDirection={menuDirection}
+              setMenuDirection={directions =>
+                setMenuDirection(dispatch, directions)
+              }
+              goCharacter={superhero => {
+                preloadCharacter(superhero);
+                setMenuDirection(dispatch, {
+                  inHero: '',
+                  outHero: ''
+                });
+              }}
+            />
           ) : (
             <Character
               superhero={superhero}
