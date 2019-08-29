@@ -61,9 +61,8 @@ export const initialState = {
             { title: 'Intelligence', value: 60 },
             { title: 'Strength', value: 100 },
             { title: 'Speed', value: 95 },
-            { title: 'Durability', value: 100 },
             { title: 'Power', value: 100 },
-            { title: 'Combat', value: 60 }
+            { title: 'Combat', value: 50 }
           ]
         },
         powers: {
@@ -125,7 +124,6 @@ export const initialState = {
             { title: 'Intelligence', value: 100 },
             { title: 'Strength', value: 10 },
             { title: 'Speed', value: 10 },
-            { title: 'Durability', value: 20 },
             { title: 'Power', value: 30 },
             { title: 'Combat', value: 100 }
           ]
@@ -159,7 +157,7 @@ export const initialState = {
       class: 'wonderwoman',
       dataSheet: {
         originConnections: {
-          section: 'Origin / connections',
+          title: 'Origin / connections',
           data: [
             { title: 'Full name', text: 'Diana Prince' },
             { title: 'Place of birth', text: 'Themyscira' },
@@ -172,7 +170,7 @@ export const initialState = {
           ]
         },
         appearance: {
-          section: 'Appearance',
+          title: 'Appearance',
           data: [
             { title: 'Race', text: 'Amazon' },
             { title: 'Height', text: '6.0 / 183 cm' },
@@ -189,9 +187,8 @@ export const initialState = {
             { title: 'Intelligence', value: 70 },
             { title: 'Strength', value: 95 },
             { title: 'Speed', value: 90 },
-            { title: 'Durability', value: 100 },
             { title: 'Power', value: 95 },
-            { title: 'Combat', value: 68 }
+            { title: 'Combat', value: 70 }
           ]
         },
         powers: {
@@ -223,7 +220,7 @@ export const initialState = {
       class: 'flash',
       dataSheet: {
         originConnections: {
-          section: 'Origin / connections',
+          title: 'Origin / connections',
           data: [
             { title: 'Full name', text: '	Barry Allen' },
             { title: 'Place of birth', text: 'Fallville, Iowa' },
@@ -236,7 +233,7 @@ export const initialState = {
           ]
         },
         appearance: {
-          section: 'Appearance',
+          title: 'Appearance',
           data: [
             { title: 'Race', text: 'Human' },
             { title: 'Height', text: '6.0 / 183 cm' },
@@ -253,9 +250,8 @@ export const initialState = {
             { title: 'Intelligence', value: 75 },
             { title: 'Strength', value: 35 },
             { title: 'Speed', value: 100 },
-            { title: 'Durability', value: 15 },
             { title: 'Power', value: 85 },
-            { title: 'Combat', value: 45 }
+            { title: 'Combat', value: 50 }
           ]
         },
         powers: {
@@ -287,7 +283,7 @@ export const initialState = {
       class: 'greenlantern',
       dataSheet: {
         originConnections: {
-          section: 'Origin / connections',
+          title: 'Origin / connections',
           data: [
             { title: 'Full name', text: 'Hal Jordan' },
             { title: 'Place of birth', text: 'Coast City, California' },
@@ -300,7 +296,7 @@ export const initialState = {
           ]
         },
         appearance: {
-          section: 'Appearance',
+          title: 'Appearance',
           data: [
             { title: 'Race', text: 'Human' },
             { title: 'Height', text: '6.2 / 188 cm' },
@@ -317,9 +313,8 @@ export const initialState = {
             { title: 'Intelligence', value: 55 },
             { title: 'Strength', value: 40 },
             { title: 'Speed', value: 50 },
-            { title: 'Durability', value: 50 },
             { title: 'Power', value: 100 },
-            { title: 'Combat', value: 35 }
+            { title: 'Combat', value: 55 }
           ]
         },
         powers: {
@@ -351,7 +346,7 @@ export const initialState = {
       class: 'aquaman',
       dataSheet: {
         originConnections: {
-          section: 'Origin / connections',
+          title: 'Origin / connections',
           data: [
             { title: 'Full name', text: 'Arthur Curry' },
             { title: 'Place of birth', text: 'Amnesty Bay, Massachusetts' },
@@ -364,7 +359,7 @@ export const initialState = {
           ]
         },
         appearance: {
-          section: 'Appearance',
+          title: 'Appearance',
           data: [
             { title: 'Race', text: 'Atlantean' },
             { title: 'Height', text: '6.1 / 185 cm' },
@@ -381,9 +376,8 @@ export const initialState = {
             { title: 'Intelligence', value: 60 },
             { title: 'Strength', value: 85 },
             { title: 'Speed', value: 65 },
-            { title: 'Durability', value: 60 },
             { title: 'Power', value: 75 },
-            { title: 'Combat', value: 50 }
+            { title: 'Combat', value: 55 }
           ]
         },
         powers: {
@@ -415,7 +409,7 @@ export const initialState = {
       class: 'greenarrow',
       dataSheet: {
         originConnections: {
-          section: 'Origin / connections',
+          title: 'Origin / connections',
           data: [
             { title: 'Full name', text: 'Oliver Queen' },
             { title: 'Place of birth', text: 'Starling City' },
@@ -428,7 +422,7 @@ export const initialState = {
           ]
         },
         appearance: {
-          section: 'Appearance',
+          title: 'Appearance',
           data: [
             { title: 'Race', text: 'Human' },
             { title: 'Height', text: '6.1 / 185 cm' },
@@ -445,7 +439,6 @@ export const initialState = {
             { title: 'Intelligence', value: 70 },
             { title: 'Strength', value: 8 },
             { title: 'Speed', value: 12 },
-            { title: 'Durability', value: 18 },
             { title: 'Power', value: 32 },
             { title: 'Combat', value: 95 }
           ]
@@ -473,7 +466,7 @@ export const initialState = {
       class: 'cyborg',
       dataSheet: {
         originConnections: {
-          section: 'Origin / connections',
+          title: 'Origin / connections',
           data: [
             { title: 'Full name', text: 'Victor Stone' },
             { title: 'Place of birth', text: 'New York City, New York' },
@@ -486,7 +479,7 @@ export const initialState = {
           ]
         },
         appearance: {
-          section: 'Appearance',
+          title: 'Appearance',
           data: [
             { title: 'Race', text: 'Cyborg' },
             { title: 'Height', text: '6.6 / 198 cm' },
@@ -503,9 +496,8 @@ export const initialState = {
             { title: 'Intelligence', value: 55 },
             { title: 'Strength', value: 85 },
             { title: 'Speed', value: 30 },
-            { title: 'Durability', value: 90 },
             { title: 'Power', value: 60 },
-            { title: 'Combat', value: 55 }
+            { title: 'Combat', value: 60 }
           ]
         },
         powers: {
@@ -537,7 +529,7 @@ export const initialState = {
   tabs: [
     { txt: 'Intro', id: 'introTab', active: true },
     { txt: 'Data sheet', id: 'dataTab', active: false },
-    { txt: 'Powers', id: 'powersTab', active: false }
+    { txt: 'Skills', id: 'skillsTab', active: false }
   ]
 };
 

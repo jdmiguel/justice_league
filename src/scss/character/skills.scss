@@ -1,0 +1,44 @@
+.character-skills{
+  @include flexContainer();
+  @media (min-width: 1400px){
+    justify-content: flex-start;
+  }
+  h3{
+    @include font('Cinzel',1.5em,400);
+    margin-bottom: 0.7em;
+    display: none;
+    @media (min-width: 992px){
+      display: block;
+      justify-content: flex-start;
+    }
+  }
+  li{
+    font-size: 0.9em;
+    list-style: disc;
+    list-style-position: inside;
+    @media (min-width: 768px){
+      margin-bottom: 0.3em;
+    }
+    @media (min-width: 992px){
+      font-size: 1.1em;
+    }
+  }
+  strong{
+    margin-left: 0.5em;
+  }
+  span{
+    margin-left: 0.5em;
+  }
+}
+.character-stats{
+  margin-right: 4em;
+  @media (min-width: 1400px){
+    margin-right: 0;
+    width: 53%;
+  }
+}
+.character-powers{
+  @media (min-width: 1400px){
+    width: 47%;
+  }
+}

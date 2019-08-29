@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Icon from '../core/icon';
 import Intro from './Intro';
 import DataSheet from './DataSheet';
+import Skills from './Skills';
 import Tabs from './Tabs';
 
 /* Reducer */
@@ -279,8 +280,9 @@ const Character = ({ superhero, goMenu }) => {
             <h1 ref={characterTitleRef}>{superhero.name}</h1>
             <h2 ref={characterSubTitleRef}>{superhero.alias}</h2>
             <div ref={characterDataRef} className="character-data">
-              {/* <Intro txt={superhero.intro} /> */}
-              <DataSheet data={superhero.dataSheet} />
+              {/* <Intro txt={superhero.intro} /> 
+              <DataSheet data={superhero.dataSheet} /> */}
+              <Skills data={superhero.skills} />
             </div>
             <Tabs
               ref={characterTabsRef}
