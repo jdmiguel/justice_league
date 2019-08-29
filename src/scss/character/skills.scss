@@ -14,8 +14,6 @@
   }
   li{
     font-size: 0.9em;
-    list-style: disc;
-    list-style-position: inside;
     @media (min-width: 768px){
       margin-bottom: 0.3em;
     }
@@ -24,20 +22,43 @@
     }
   }
   strong{
-    margin-left: 0.5em;
-  }
-  span{
-    margin-left: 0.5em;
+    width: 140px;
+    display: inline-block;
   }
 }
 .character-stats{
   margin-right: 4em;
+  span{
+    text-align: right;
+    width: 25px;
+    display: inline-block;
+  }
   @media (min-width: 1400px){
     margin-right: 0;
     width: 53%;
   }
 }
+.bar{
+  display: inline-block;
+  position: relative;
+  margin: 0 0 0 10px;
+  width: 58%;
+  height: 13px;
+  background: $white;
+  overflow: hidden;
+  i{
+    background: $darkGrey;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
 .character-powers{
+  li{
+    list-style: disc;
+    list-style-position: inside;
+  }
   @media (min-width: 1400px){
     width: 47%;
   }

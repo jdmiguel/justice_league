@@ -1,5 +1,8 @@
 import React from 'react';
 
+/** Components */
+import BarChats from './BarChats';
+
 /** Models */
 import { skillsModel } from '../../utils/models';
 
@@ -10,8 +13,9 @@ const Skills = ({ data: { stats, powers } }) => (
       <ul>
         {stats.data.map(item => (
           <li key={item.title}>
-            <strong>{`${item.title}: `}</strong>
+            <strong>{`${item.title}`}</strong>
             <span>{`${item.value}`}</span>
+            <BarChats value={item.value} />
           </li>
         ))}
       </ul>

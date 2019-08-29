@@ -74,7 +74,7 @@ export const skillsModel = PropTypes.shape({
     data: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string,
-        value: PropTypes.string
+        value: PropTypes.number
       })
     )
   }),

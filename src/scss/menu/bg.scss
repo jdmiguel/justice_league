@@ -51,11 +51,11 @@
   &.greenlantern {
     background-image: url(#{$bgImgPath}/greenlantern_bg.jpg);
   }
-  &.greenarrow {
-    background-image: url(#{$bgImgPath}/greenarrow_bg.jpg);
-  }
   &.aquaman {
     background-image: url(#{$bgImgPath}/aquaman_bg.jpg);
+  }
+  &.greenarrow {
+    background-image: url(#{$bgImgPath}/greenarrow_bg.jpg);
   }
   &.cyborg {
     background-image: url(#{$bgImgPath}/cyborg_bg.jpg);

@@ -75,17 +75,17 @@
             }
         }
     }
-    &.greenarrow{
-        &.highlight{
-            path{
-                fill: $greenArrow;
-            }
-        }
-    }
     &.aquaman{
         &.highlight{
             path{
                 fill: $yellowAquaman;
+            }
+        }
+    }
+    &.greenarrow{
+        &.highlight{
+            path{
+                fill: $greenArrow;
             }
         }
     }

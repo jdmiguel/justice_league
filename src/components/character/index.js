@@ -280,7 +280,7 @@ const Character = ({ superhero, goMenu }) => {
             <h1 ref={characterTitleRef}>{superhero.name}</h1>
             <h2 ref={characterSubTitleRef}>{superhero.alias}</h2>
             <div ref={characterDataRef} className="character-data">
-              {/* <Intro txt={superhero.intro} /> 
+              {/*<Intro txt={superhero.intro} />
               <DataSheet data={superhero.dataSheet} /> */}
               <Skills data={superhero.skills} />
             </div>
