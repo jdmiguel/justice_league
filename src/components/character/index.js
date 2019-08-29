@@ -29,6 +29,7 @@ const Character = ({ superhero, goMenu }) => {
   const { tabs } = state;
 
   // Refs
+  const characterRef = React.useRef(null);
   const characterImgRef = React.useRef(null);
   const characterTitleRef = React.useRef(null);
   const characterSubTitleRef = React.useRef(null);
@@ -41,10 +42,6 @@ const Character = ({ superhero, goMenu }) => {
   const [imgClass, setImgClass] = React.useState('introTab');
   const [contentClasses, setContentClasses] = React.useState([
     'character-content'
-  ]);
-  const [logoClasses, setLogoClasses] = React.useState([
-    'character-logo',
-    superhero.class
   ]);
 
   // Handlers
@@ -59,11 +56,7 @@ const Character = ({ superhero, goMenu }) => {
       ? animationWithImgRef.current
       : animationWithoutImgRef.current;
 
-    setLogoClasses(['character-logo']);
-    tlSelected.timeScale(1.7);
-    tlSelected.reverse();
-
-    // goMenu();
+    tlSelected.play('out');
   });
 
   // UseEffects
@@ -117,7 +110,63 @@ const Character = ({ superhero, goMenu }) => {
             ease: Power2.easeOut
           },
           '-=0.4'
-        );
+        )
+        .addPause()
+        .addLabel('out')
+        .to(characterImgRef.current, 0.3, {
+          autoAlpha: 0,
+          x: -75,
+          ease: Power2.easeIn
+        })
+        .to(
+          characterTitleRef.current,
+          0.25,
+          {
+            autoAlpha: 0,
+            x: 100,
+            ease: Power2.easeIn
+          },
+          '-=0.3'
+        )
+        .to(
+          characterSubTitleRef.current,
+          0.25,
+          {
+            autoAlpha: 0,
+            x: 100,
+            ease: Power2.easeIn
+          },
+          '-=0.3'
+        )
+        .to(
+          characterDataRef.current,
+          0.25,
+          {
+            autoAlpha: 0,
+            x: 100,
+            ease: Power2.easeIn
+          },
+          '-=0.3'
+        )
+        .to(
+          characterTabsRef.current,
+          0.25,
+          {
+            autoAlpha: 0,
+            x: 100,
+            ease: Power2.easeIn
+          },
+          '-=0.3'
+        )
+        .to(
+          characterRef.current,
+          0.3,
+          {
+            autoAlpha: 0
+          },
+          '-=0.1'
+        )
+        .addCallback(() => goMenu());
     } else {
       setContentClasses([...contentClasses, 'visible']);
 
@@ -156,7 +205,48 @@ const Character = ({ superhero, goMenu }) => {
             ease: Power2.easeOut
           },
           '-=0.3'
-        );
+        )
+        .addPause()
+        .addLabel('out')
+        .to(characterTitleRef.current, 0.25, {
+          autoAlpha: 0,
+          y: 20,
+          ease: Power2.easeIn
+        })
+        .to(
+          characterSubTitleRef.current,
+          0.25,
+          {
+            autoAlpha: 0,
+            y: 20,
+            ease: Power2.easeIn
+          },
+          '-=0.3'
+        )
+        .to(
+          characterDataRef.current,
+          0.25,
+          {
+            autoAlpha: 0,
+            y: 20,
+            ease: Power2.easeIn
+          },
+          '-=0.3'
+        )
+        .to(
+          characterTabsRef.current,
+          0.25,
+          {
+            autoAlpha: 0,
+            y: 20,
+            ease: Power2.easeIn
+          },
+          '-=0.3'
+        )
+        .to(characterRef.current, 0.3, {
+          autoAlpha: 0
+        })
+        .addCallback(() => goMenu());
     }
     return () => {
       if (isBigLaptopOrDekstop) {
@@ -168,8 +258,8 @@ const Character = ({ superhero, goMenu }) => {
   }, []);
 
   return (
-    <div className={`character ${superhero.class}`}>
-      <div className={logoClasses.join(' ')}>
+    <div ref={characterRef} className={`character ${superhero.class}`}>
+      <div className={`character-logo ${superhero.class}`}>
         <Icon svg={superhero.icon} />
       </div>
       <div className={contentClasses.join(' ')}>

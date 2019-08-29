@@ -9,7 +9,7 @@ const DataSheet = ({ data: { originConnections, appearance } }) => (
       <h3>{originConnections.section}</h3>
       <ul>
         {originConnections.data.map(item => (
-          <li key={item.text}>
+          <li key={item.title}>
             <strong>{`${item.title}: `}</strong>
             <span>{`${item.text}`}</span>
           </li>
@@ -20,7 +20,7 @@ const DataSheet = ({ data: { originConnections, appearance } }) => (
       <h3>{appearance.section}</h3>
       <ul>
         {appearance.data.map(item => (
-          <li key={item.text}>
+          <li key={item.title}>
             <strong>{`${item.title}: `}</strong>
             <span>{`${item.text}`}</span>
           </li>
