@@ -1,11 +1,10 @@
 ## ANIMATED WEBSITE BASED ON DC CHARACTERS
 
-Animated website created with React and Redux which combines javascript animations (with Tweenmax from Greenshock) and css animations (with Sass)
+Animated website created with React (and its new features) which combines javascript animations (with Tweenmax from Greenshock) and css animations (with Sass)
 
 ### TECHNOLOGIES
 
-* **REACT**
-* **REDUX**
+* **REACT HOOKS**
 * **GREENSHOCK**
 * **SCSS**
 * **WEBPACK 4**
