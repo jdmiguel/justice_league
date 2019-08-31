@@ -17,7 +17,6 @@ const BgWrapper = ({ superheroes, highlightBg }) => (
         highlightBg={highlightBg}
       />
     ))}
-    ;
   </React.Fragment>
 );
 
