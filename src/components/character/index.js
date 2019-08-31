@@ -67,9 +67,19 @@ const Character = ({ superhero, goMenu }) => {
 
   // UseEffects
   React.useEffect(() => {
-    if (width > 1400) {
-      setContentClasses([...contentClasses, 'visible']);
+    setContentClasses([...contentClasses, 'visible']);
 
+    return () => {
+      if (width > 1400) {
+        animationWithImgRef.current.kill();
+      } else {
+        animationWithoutImgRef.current.kill();
+      }
+    };
+  }, []);
+
+  React.useEffect(() => {
+    if (width > 1400) {
       animationWithImgRef.current = new TimelineMax();
       animationWithImgRef.current
         .from(characterImgRef.current, 0.6, {
@@ -174,8 +184,6 @@ const Character = ({ superhero, goMenu }) => {
         )
         .addCallback(() => goMenu());
     } else {
-      setContentClasses([...contentClasses, 'visible']);
-
       animationWithoutImgRef.current = new TimelineMax();
       animationWithoutImgRef.current
         .from(characterTitleRef.current, 0.5, {
@@ -254,13 +262,6 @@ const Character = ({ superhero, goMenu }) => {
         })
         .addCallback(() => goMenu());
     }
-    return () => {
-      if (width > 1400) {
-        animationWithImgRef.current.kill();
-      } else {
-        animationWithoutImgRef.current.kill();
-      }
-    };
   }, [width]);
 
   return (

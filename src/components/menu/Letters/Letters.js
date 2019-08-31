@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/* Hooks */
+import useWindowResize from '../../../hooks/useWindowResize';
+
 const Letters = ({
   superheroName,
   superheroClass,
@@ -11,6 +14,9 @@ const Letters = ({
   endLettersAnimation,
   onClick
 }) => {
+  // Measures
+  const { width } = useWindowResize();
+  const outSeparatingLetters = width > 1400 ? 1.7 : 1;
   // Props
   const { inHero, outHero } = menuDirection;
 
@@ -207,7 +213,7 @@ const Letters = ({
     if (superheroActive) {
       setAllowMouseMove(false);
       setAllowMouseOver(false);
-      separatingAnimation(1.8);
+      separatingAnimation(outSeparatingLetters);
       onClick(superheroClass);
     }
   };

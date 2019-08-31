@@ -60,8 +60,8 @@ export const initialState = {
           data: [
             { title: 'Intelligence', value: 60 },
             { title: 'Strength', value: 100 },
-            { title: 'Speed', value: 95 },
-            { title: 'Power', value: 100 },
+            { title: 'Speed', value: 90 },
+            { title: 'Power', value: 90 },
             { title: 'Combat', value: 50 }
           ]
         },
@@ -91,7 +91,7 @@ export const initialState = {
       alias: 'The dark night',
       class: 'batman',
       intro:
-        'Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary batman.',
+        'Bruce Wayne, who witnessed the murder of his billionaire parents as a child, swore to avenge their deaths. He trained extensively to achieve mental and physical perfection, mastering martial arts, detective skills, and criminal psychology. Costumed as a bat to prey on the fears of criminals, and utilizing a high-tech arsenal, he became the legendary dark night of Gotham.',
       dataSheet: {
         originConnections: {
           title: 'Origin / connections',
@@ -122,8 +122,8 @@ export const initialState = {
           title: 'Ranked stats',
           data: [
             { title: 'Intelligence', value: 100 },
-            { title: 'Strength', value: 10 },
-            { title: 'Speed', value: 10 },
+            { title: 'Strength', value: 12 },
+            { title: 'Speed', value: 12 },
             { title: 'Power', value: 30 },
             { title: 'Combat', value: 100 }
           ]
@@ -153,7 +153,7 @@ export const initialState = {
       name: 'WonderWoman',
       alias: 'Princess of the Amazons',
       intro:
-        'Armed with superpowers of a god, Wonder Woman is one of Earth´s most powerful defenders of peace, justice, and equality and a member of the Justice League. Her original origin allegorically depicted her as a clay figure brought to life by the gods, but in recent years she has been depicted more literally as the daughter of Zeus and the Amazon queen Hippolyta.',
+        'Armed with superpowers of a god, Wonder Woman is one of Earth´s most powerful defenders of peace, justice, and equality in addition to be a member of the Justice League. Her original origin allegorically depicted her as a clay figure brought to life by the gods, but in recent years she has been depicted more literally as the daughter of Zeus and the Amazon queen Hippolyta.',
       class: 'wonderwoman',
       dataSheet: {
         originConnections: {
@@ -185,9 +185,9 @@ export const initialState = {
           title: 'Ranked stats',
           data: [
             { title: 'Intelligence', value: 70 },
-            { title: 'Strength', value: 95 },
+            { title: 'Strength', value: 90 },
             { title: 'Speed', value: 90 },
-            { title: 'Power', value: 95 },
+            { title: 'Power', value: 85 },
             { title: 'Combat', value: 70 }
           ]
         },
@@ -197,7 +197,7 @@ export const initialState = {
             'Super healing',
             'Super strength',
             'Flight',
-            'Invulnerability to fire',
+            'Invulnerability',
             'Telepathy'
           ]
         }
@@ -216,7 +216,7 @@ export const initialState = {
       name: 'TheFlash',
       alias: 'the Fastest Man Alive',
       intro:
-        'Having discovered his mother murdered and his father blamed for the act, forensic scientist Barry Allen sought to clear his father´s alias and find the real killer. After being doused in chemicals and struck by lightning, Barry was granted the gift of super-speed. Nowadays he protects his hometown of Central City as The Flash, the scarlet speedster.',
+        'Having discovered his mother murdered and his father blamed for the act, forensic scientist Barry Allen sought conscientiously to clear his father´s alias and find the real killer. After being doused in chemicals and struck by lightning, Barry was granted the gift of super-speed. Nowadays he protects his hometown of Central City as The Flash, the scarlet speedster.',
       class: 'flash',
       dataSheet: {
         originConnections: {
@@ -260,7 +260,7 @@ export const initialState = {
             'Super speed',
             'Super reflexes',
             'Super healing',
-            'Energy absorption',
+            'Time travel',
             'Enhanced senses'
           ]
         }
@@ -279,7 +279,7 @@ export const initialState = {
       name: 'GreenLantern',
       alias: 'God of Light',
       intro:
-        'With the ability to overcome great fear and harness the power of will, test-pilot Hal Jordan was chosen to be the Green Lantern of Sector 2814 inheriting the ring of the dying alien Green Lantern, Abin Sur. Through sheer will power and determination, Hal has established an impressive record of heroism across the galaxy with the help of his fellow Green Lanterns.',
+        'Gifted with the ability to overcome great fear and harness the power of will, test-pilot Hal Jordan was chosen to be the Green Lantern of Sector 2814 inheriting the ring of the dying alien Green Lantern, Abin Sur. Through sheer will power and determination, Hal has established an impressive record of heroism across the galaxy with the help of his fellow Green Lanterns.',
       class: 'greenlantern',
       dataSheet: {
         originConnections: {
@@ -321,9 +321,9 @@ export const initialState = {
           title: 'powers',
           data: [
             'Energy blasts',
-            'Energy manipulation',
-            'Psionic constructs',
             'Psionic powers',
+            'Invisiblity',
+            'Phasing',
             'Flight'
           ]
         }
@@ -342,7 +342,7 @@ export const initialState = {
       name: 'Aquaman',
       alias: 'The King of the Seven Seas',
       intro:
-        'The son of an Atlantean queen and a lighthouse keeper from the town of Amnesty Bay, Arthur Curry would grow up to become the superhero Aquaman, and later take on his birthright as the King of Atlantis. He is the bridge between the surface world and his tumultuous realm of the sea, in addition to being a notable founding member of the Justice League.',
+        'The son of an Atlantean queen and a lighthouse keeper from the town of Amnesty Bay, Arthur Curry would grow up to become the powerful superhero Aquaman, and later take on his birthright as the King of Atlantis. He is the bridge between the surface world and his tumultuous realm of the sea in addition to being an important founding member of the Justice League.',
       class: 'aquaman',
       dataSheet: {
         originConnections: {
@@ -405,7 +405,7 @@ export const initialState = {
       name: 'GreenArrow',
       alias: 'The hood',
       intro:
-        'Oliver Jonas "Ollie" Queen was a spoiled, thrill-seeking playboy, until he was left stranded on a deserted island for several years. There, he trained tirelessly to become a master archer and powerful fighter in order to survive. After his return home, he used his new-found skills and his wealth to became the costumed vigilante known as Green Arrow.',
+        'Oliver Jonas "Ollie" Queen was a spoiled, thrill-seeking playboy, until he was left stranded on a deserted island for several years. There, he trained tirelessly to become the both, a master archer and a powerful fighter, in order to survive. After his return home, he used his new-found skills, his wealth and his will to became the costumed vigilante known as Green Arrow.',
       class: 'greenarrow',
       dataSheet: {
         originConnections: {
@@ -437,10 +437,10 @@ export const initialState = {
           title: 'Ranked stats',
           data: [
             { title: 'Intelligence', value: 70 },
-            { title: 'Strength', value: 8 },
-            { title: 'Speed', value: 12 },
+            { title: 'Strength', value: 10 },
+            { title: 'Speed', value: 15 },
             { title: 'Power', value: 32 },
-            { title: 'Combat', value: 95 }
+            { title: 'Combat', value: 92 }
           ]
         },
         powers: {
@@ -462,7 +462,7 @@ export const initialState = {
       name: 'Cyborg',
       alias: 'Cyberion Technis',
       intro:
-        'Half man, half machine - all hero! After a near fatal incident, Victor Stone was cybernetically enhanced by his father. He now possesses the ability to communicate, manipulate, and interface with nearly all forms of technology. As he is constantly upgrading, he promises to defend the future from any threat. He is also a founding member of the Justice League.',
+        'Half man, half machine - all hero! After a near fatal incident, Victor Stone was cybernetically enhanced by his father. He now possesses the ability to communicate, manipulate, and interface with nearly all forms of technology. As he is constantly upgrading, he promises to defend the future from any threat. Furthermore, he is a founding member of the Justice League.',
       class: 'cyborg',
       dataSheet: {
         originConnections: {

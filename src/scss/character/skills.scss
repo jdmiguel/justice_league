@@ -54,6 +54,20 @@
 }
 .character-stats{
   width: 60%;
+  ul{
+    position: relative;
+    padding-left: 10px;
+    &::before{
+      content: '';
+      height: 100%;
+      width: 1px;
+      background: $white;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+    }
+  }
   span{
     text-align: right;
     width: 25px;
@@ -70,6 +84,9 @@
   }
   @media (min-width: 1400px){
     width: 56%;
+    ul{
+      padding-left: 20px;
+    }
   }
 }
 .bar{
@@ -81,7 +98,7 @@
   background: $white;
   overflow: hidden;
   i{
-    background: $darkGrey;
+    background: linear-gradient(90deg, rgba(90,90,90,1) 0%, rgba(50,50,50,1) 50%, rgba(30,30,30,1) 100%);
     height: 100%;
     position: absolute;
     left: 0;
