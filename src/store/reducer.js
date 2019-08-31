@@ -259,7 +259,7 @@ export const initialState = {
           data: [
             'Super speed',
             'Super reflexes',
-            'Accelerated healing',
+            'Super healing',
             'Energy absorption',
             'Enhanced senses'
           ]
@@ -385,7 +385,7 @@ export const initialState = {
           data: [
             'Animal control',
             'Cold resistence',
-            'Accelerated healing',
+            'Super healing',
             'Super strength',
             'Enhanced senses'
           ]
