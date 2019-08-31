@@ -23,7 +23,6 @@ import { superheroModel } from '../../utils/models';
 const Character = ({ superhero, goMenu }) => {
   // Measures
   const { width } = useWindowResize();
-  const isBigLaptopOrDekstop = width > 1400;
 
   // Reducers
   const [state, dispatch] = React.useReducer(reducer, initialState);
@@ -41,28 +40,34 @@ const Character = ({ superhero, goMenu }) => {
 
   // States
   const [imgClass, setImgClass] = React.useState('introTab');
+  const [introState, setIntroState] = React.useState(true);
+  const [dataSheetState, setDataSheetState] = React.useState(false);
+  const [skillsState, setSkillsState] = React.useState(false);
   const [contentClasses, setContentClasses] = React.useState([
     'character-content'
   ]);
 
   // Handlers
   const onClickTabHandler = React.useCallback(id => {
-    console.log('id: ', id);
+    setIntroState(id === 'introTab');
+    setDataSheetState(id === 'dataTab');
+    setSkillsState(id === 'skillsTab');
     setImgClass(id);
     setActiveTab(dispatch, tabs, id);
   });
 
   const onClickBackHandler = React.useCallback(() => {
-    const tlSelected = isBigLaptopOrDekstop
-      ? animationWithImgRef.current
-      : animationWithoutImgRef.current;
+    const tlSelected =
+      width > 1400
+        ? animationWithImgRef.current
+        : animationWithoutImgRef.current;
 
     tlSelected.play('out');
   });
 
   // UseEffects
   React.useEffect(() => {
-    if (isBigLaptopOrDekstop) {
+    if (width > 1400) {
       setContentClasses([...contentClasses, 'visible']);
 
       animationWithImgRef.current = new TimelineMax();
@@ -250,13 +255,13 @@ const Character = ({ superhero, goMenu }) => {
         .addCallback(() => goMenu());
     }
     return () => {
-      if (isBigLaptopOrDekstop) {
+      if (width > 1400) {
         animationWithImgRef.current.kill();
       } else {
         animationWithoutImgRef.current.kill();
       }
     };
-  }, []);
+  }, [width]);
 
   return (
     <div ref={characterRef} className={`character ${superhero.class}`}>
@@ -265,7 +270,7 @@ const Character = ({ superhero, goMenu }) => {
       </div>
       <div className={contentClasses.join(' ')}>
         <div className="character-main">
-          {isBigLaptopOrDekstop && (
+          {width > 1400 && (
             <div className="character-block-left">
               <div ref={characterImgRef} className="character-image">
                 <img
@@ -280,9 +285,9 @@ const Character = ({ superhero, goMenu }) => {
             <h1 ref={characterTitleRef}>{superhero.name}</h1>
             <h2 ref={characterSubTitleRef}>{superhero.alias}</h2>
             <div ref={characterDataRef} className="character-data">
-              {/*<Intro txt={superhero.intro} />
-              <DataSheet data={superhero.dataSheet} /> */}
-              <Skills data={superhero.skills} />
+              {introState && <Intro txt={superhero.intro} />}
+              {dataSheetState && <DataSheet data={superhero.dataSheet} />}
+              {skillsState && <Skills data={superhero.skills} />}
             </div>
             <Tabs
               ref={characterTabsRef}

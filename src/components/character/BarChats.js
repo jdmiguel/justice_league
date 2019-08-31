@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const BarChats = ({ value }) => (
   <div className="bar">
-    <i style={{ width: value * 2.95 }} />
+    <i style={{ width: `${value}%` }} />
   </div>
 );
 
