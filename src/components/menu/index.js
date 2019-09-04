@@ -104,6 +104,20 @@ const Menu = ({
     }
   });
 
+  const onClickMenuLettersHandler = React.useCallback(superheroClass => {
+    setCoverClasses([...coverClasses, superheroClass]);
+    setOutLogo(true);
+    setTimeout(() => {
+      goCharacter(superheroes[getActiveIndex()]);
+    }, 1000);
+  });
+
+  const endLettersAnimationHandler = React.useCallback(() => {
+    allowWheelRef.current = true;
+    allowSwipeRef.current = true;
+    allowSidedrawerItemClickRef.current = true;
+  });
+
   // UseEffects
   React.useEffect(() => {
     // MouseWheel Event
@@ -151,18 +165,8 @@ const Menu = ({
         superheroes={superheroes}
         menuDirection={menuDirectionRef.current}
         overLetters={isOver => setHighlightBg(isOver)}
-        endLettersAnimation={() => {
-          allowWheelRef.current = true;
-          allowSwipeRef.current = true;
-          allowSidedrawerItemClickRef.current = true;
-        }}
-        onClick={superheroClass => {
-          setCoverClasses([...coverClasses, superheroClass]);
-          setOutLogo(true);
-          setTimeout(() => {
-            goCharacter(superheroes[getActiveIndex()]);
-          }, 1000);
-        }}
+        endLettersAnimation={endLettersAnimationHandler}
+        onClick={onClickMenuLettersHandler}
       />
       <Logo
         superheroes={superheroes}

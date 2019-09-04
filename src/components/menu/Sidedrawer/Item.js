@@ -15,11 +15,16 @@ const Item = ({
 }) => {
   const { width, height } = superheroIconMeasures;
 
+  // Handlers
+  const onClickItemHandler = React.useCallback(() => {
+    onClickItem(superheroIndex);
+  });
+
   return (
     <li className={superheroActive ? 'active' : null}>
       <Icon svg={superheroIcon} width={width} height={height} />
       <span className={`${superheroClass}`}>{superheroName}</span>
-      <button type="button" onClick={() => onClickItem(superheroIndex)} />
+      <button type="button" onClick={onClickItemHandler} />
     </li>
   );
 };

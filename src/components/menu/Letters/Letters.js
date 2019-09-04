@@ -184,14 +184,14 @@ const Letters = ({
   });
 
   // Handlers
-  const mouseOverHandler = () => {
+  const mouseOverHandler = React.useCallback(() => {
     if (allowMouseOver) {
       overLetters(true);
       separatingAnimation(0.45);
     }
-  };
+  });
 
-  const mouseOutHandler = () => {
+  const mouseOutHandler = React.useCallback(() => {
     if (allowMouseOver) {
       overLetters(false);
       TweenMax.staggerTo(charsRef.current, 1, {
@@ -199,24 +199,26 @@ const Letters = ({
         ease: Power1.easeOut
       });
     }
-  };
+  });
 
-  const mouseMoveHandler = () => {
+  const mouseMoveHandler = React.useCallback(() => {
     if (allowMouseOver && allowMouseMove) {
       overLetters(true);
       separatingAnimation(0.45);
       setAllowMouseMove(false);
     }
-  };
+  });
 
-  const clickHandler = () => {
+  const clickHandler = React.useCallback(() => {
     if (superheroActive) {
       setAllowMouseMove(false);
       setAllowMouseOver(false);
       separatingAnimation(outSeparatingLetters);
       onClick(superheroClass);
     }
-  };
+  });
+
+  const preventDefaultHandler = React.useCallback(e => e.preventDefault);
 
   // UseEffects
   React.useEffect(() => {
@@ -258,9 +260,9 @@ const Letters = ({
         onMouseOver={mouseOverHandler}
         onMouseOut={mouseOutHandler}
         onMouseMove={mouseMoveHandler}
-        onKeyDown={e => e.preventDefault}
-        onFocus={e => e.preventDefault}
-        onBlur={e => e.preventDefault}
+        onKeyDown={preventDefaultHandler}
+        onFocus={preventDefaultHandler}
+        onBlur={preventDefaultHandler}
         onClick={clickHandler}
       />
       <h2 ref={lettersRef} className={`letters ${superheroClass}`}>
