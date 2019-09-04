@@ -293,7 +293,7 @@ const Character = ({ superhero, goMenu }) => {
             <Tabs
               ref={characterTabsRef}
               data={tabs}
-              onClick={id => onClickTabHandler(id)}
+              onClick={onClickTabHandler}
             />
           </div>
         </div>
