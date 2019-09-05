@@ -6,11 +6,15 @@ import Logo from './logo';
 import Corner from './corner';
 import Footer from './footer';
 
+const LogoMemoized = React.memo(Logo);
+const CornerMemoized = React.memo(Corner);
+const FooterMemoized = React.memo(Footer);
+
 const Layout = ({ children }) => (
   <div className="layout">
-    <Logo />
-    <Corner />
-    <Footer />
+    <LogoMemoized />
+    <CornerMemoized />
+    <FooterMemoized />
     {children}
   </div>
 );

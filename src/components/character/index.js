@@ -7,6 +7,7 @@ import Intro from './Intro';
 import DataSheet from './DataSheet';
 import Skills from './Skills';
 import Tabs from './Tabs';
+import BackBtn from './BackBtn';
 
 /* Reducer */
 import { reducer, initialState } from '../../store/reducer';
@@ -19,6 +20,8 @@ import useWindowResize from '../../hooks/useWindowResize';
 
 /** Models */
 import { superheroModel } from '../../utils/models';
+
+const BackBtnMemoized = React.memo(BackBtn);
 
 const Character = ({ superhero, goMenu }) => {
   // Measures
@@ -298,11 +301,7 @@ const Character = ({ superhero, goMenu }) => {
           </div>
         </div>
       </div>
-      <div className="character-btn-back">
-        <button type="button" onClick={onClickBackHandler}>
-          BACK TO HOME
-        </button>
-      </div>
+      <BackBtnMemoized onClick={onClickBackHandler} />
     </div>
   );
 };
