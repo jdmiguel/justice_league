@@ -6,44 +6,23 @@
   nav {
     @include flexContainer();
     height: 100%;
-    @media (min-width: 1200px) {
-      margin-left: 0;
-    }
-    @media (min-width: 1400px) {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin-left: 8px;
-      margin-left: 8px;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 8px;
+    margin-left: 8px;
   }
   ul {
-    width: 100%;
+    @include flexContainer($direction: column);
     display: flex;
-    @include flexContainer();
-    position: absolute;
-    bottom: 15px;
-    @media (min-width: 992px) {
-      bottom: 30px;
-    }
-    @media (min-width: 1200px) {
-      bottom: 35px;
-      width: 90px;
-    }
-    @media (min-width: 1400px) {
-      position: initial;
-      bottom: 0;
-      @include flexContainer($direction: column);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 81px;
-      width: 100px;
-    }
+    flex-direction: column;
+    align-items: center;
+    width: 81px;
+    width: 100px;
   }
   li {
     position: relative;
-    margin: 0 6vw 0 0;
+    margin: 0 0 3vw 0;
     &:last-of-type {
       margin: 0;
     }
@@ -63,9 +42,26 @@
         opacity: 1;
       }
       span {
-        transform: translateX(-4px);
+        transform: translateX(-2px);
+        opacity: 1;
         @media (min-width: 1200px) {
           transform: translateX(-5px);
+        }
+        @media (min-width: 1400px) {
+          transform: translateX(-2px);
+        }
+      }
+    }
+    &:hover {
+      svg {
+        opacity: 1;
+      }
+      span {
+        transform: translateX(-3px);
+        @media (min-width: 1200px) {
+          transform: translateX(-5px);
+          margin: 0 0 1.7vw 0;
+          height: auto;
         }
         @media (min-width: 1400px) {
           opacity: 1;
@@ -73,29 +69,10 @@
         }
       }
     }
-    @media (min-width: 992px) {
-      &:hover {
-        svg {
-          opacity: 1;
-        }
-        span {
-          transform: translateX(-3px);
-          @media (min-width: 1200px) {
-            transform: translateX(-5px);
-            margin: 0 0 1.7vw 0;
-            height: auto;
-          }
-          @media (min-width: 1400px) {
-            opacity: 1;
-            transform: translateX(-2px);
-          }
-        }
-      }
-    }
     @media (min-width: 1200px) {
-      margin: 0 4vw 0 0;
+      margin: 0 0 2.5vw 0;
     }
-    @media (min-width: 1400px) {
+    @media (min-width: 1600px) {
       margin: 0 0 2vw 0;
     }
   }
@@ -144,11 +121,7 @@
       left: 50px;
       top: 4px;
     }
-    @media (min-width: 992px) {
-      @include font("Cinzel", 0.9em, 700);
-    }
     @media (min-width: 1400px) {
-      @include font("Cinzel", 1em, 700);
       display: inline-block;
       opacity: 0;
       &.superman {

@@ -1,20 +1,20 @@
-import React from 'react';
-import { hot } from 'react-hot-loader';
+import React from "react";
+import { hot } from "react-hot-loader";
 
 /** Components */
-import Layout from './components/layout';
-import Intro from './components/intro';
-import Menu from './components/menu';
-import Character from './components/character';
+import Layout from "./components/layout";
+import Intro from "./components/intro";
+import Menu from "./components/menu";
+import Character from "./components/character";
 
 /* Reducer */
-import { reducer, initialState } from './store/reducer';
+import { reducer, initialState } from "./store/reducer";
 
 /* Actions */
-import { setActiveSuperhero, setMenuDirection } from './store/actions';
+import { setActiveSuperhero, setMenuDirection } from "./store/actions";
 
 /** Assets */
-import { landscapeImgPath } from './utils/imgPaths';
+import { noMobileImgPath } from "./utils/imgPaths";
 
 const App = () => {
   // Reducers
@@ -28,9 +28,9 @@ const App = () => {
   const [introStatus, setIntroStatus] = React.useState(true);
   const [menuStatus, setMenuStatus] = React.useState(true);
   const [superhero, setSuperhero] = React.useState(null);
-  const [wrapperClasses, setWrapperClasses] = React.useState(['app-wrapper']);
+  const [wrapperClasses, setWrapperClasses] = React.useState(["app-wrapper"]);
 
-  const preloadCharacter = React.useCallback(superhero => {
+  const preloadCharacter = React.useCallback((superhero) => {
     const img = new Image();
     img.src = superhero.characterImg;
     img.onload = () => {
@@ -40,17 +40,17 @@ const App = () => {
   });
 
   return (
-    <div ref={appWrapperRef} className={wrapperClasses.join(' ')}>
-      <div className="landscape">
-        <img alt="landscape forced" src={landscapeImgPath} />
+    <div ref={appWrapperRef} className={wrapperClasses.join(" ")}>
+      <div className="no-mobile">
+        <img alt="no mobile" src={noMobileImgPath} />
         <p>
-          Change your device from portrait to landscape orientation to enjoy a
-          better experience.
+          This site is not available for mobile devices, try it in bigger
+          devices!
         </p>
       </div>
       {introStatus ? (
         <Intro
-          middleIntro={() => setWrapperClasses([...wrapperClasses, 'black'])}
+          middleIntro={() => setWrapperClasses([...wrapperClasses, "black"])}
           endIntro={() => setIntroStatus(false)}
         />
       ) : (
@@ -58,18 +58,18 @@ const App = () => {
           {menuStatus ? (
             <Menu
               superheroes={superheroes}
-              setActiveSuperhero={index =>
+              setActiveSuperhero={(index) =>
                 setActiveSuperhero(dispatch, superheroes, index)
               }
               menuDirection={menuDirection}
-              setMenuDirection={directions =>
+              setMenuDirection={(directions) =>
                 setMenuDirection(dispatch, directions)
               }
-              goCharacter={superhero => {
+              goCharacter={(superhero) => {
                 preloadCharacter(superhero);
                 setMenuDirection(dispatch, {
-                  inHero: '',
-                  outHero: ''
+                  inHero: "",
+                  outHero: "",
                 });
               }}
             />
