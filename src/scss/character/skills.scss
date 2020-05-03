@@ -1,64 +1,67 @@
-.character-skills{
+.character-skills {
   width: 100%;
   @include flexContainer();
-  @media (min-width: 1200px){
+  @media (min-width: 1200px) {
     width: 100%;
   }
-  @media (min-width: 1400px){
+  @media (min-width: 1400px) {
     justify-content: flex-start;
   }
-  h3{
-    @include font('Cinzel',1.5em,400);
+  h3 {
+    @include font("Cinzel", 1.5em, 400);
     margin-bottom: 0.7em;
     display: none;
-    @media (min-width: 992px){
+    @media (min-width: 992px) {
       display: block;
       justify-content: flex-start;
     }
   }
-  li{
+  li {
     font-size: 0.9em;
-    @media (min-width: 768px){
+    @media (min-width: 768px) {
       margin-bottom: 0.3em;
     }
-    @media (min-width: 992px){
+    @media (min-width: 992px) {
       font-size: 1.1em;
     }
   }
-  strong{
+  strong {
     width: 110px;
-    @media (min-width: 768px){
+    @media (min-width: 768px) {
       width: 140px;
     }
     display: inline-block;
   }
 }
-.character-powers{
+.character-powers {
   width: 25%;
-  li{
+  li {
     list-style: disc;
     list-style-position: inside;
   }
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     width: 25%;
   }
-  @media (min-width: 992px){
+  @media (min-width: 992px) {
     width: 21%;
   }
-  @media (min-width: 1200px){
+  @media (min-width: 1200px) {
     width: 20%;
   }
-  @media (min-width: 1400px){
+  @media (min-width: 1400px) {
     width: 32%;
   }
 }
-.character-stats{
-  width: 60%;
-  ul{
+.character-stats {
+  width: 63%;
+  @media (min-width: 600px) {
+    width: 60%;
+  }
+  ul {
     position: relative;
     padding-left: 10px;
-    &::before{
-      content: '';
+    &::before {
+      content: "";
       height: 100%;
       width: 1px;
       background: $white;
@@ -68,28 +71,28 @@
       z-index: 1;
     }
   }
-  span{
+  span {
     text-align: right;
     width: 25px;
     display: inline-block;
   }
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     width: 55%;
   }
-  @media (min-width: 992px){
+  @media (min-width: 992px) {
     width: 43%;
   }
-  @media (min-width: 1200px){
+  @media (min-width: 1200px) {
     width: 38%;
   }
-  @media (min-width: 1400px){
+  @media (min-width: 1400px) {
     width: 56%;
-    ul{
+    ul {
       padding-left: 20px;
     }
   }
 }
-.bar{
+.bar {
   display: inline-block;
   position: relative;
   margin: 0 0 0 10px;
@@ -97,8 +100,13 @@
   height: 13px;
   background: $white;
   overflow: hidden;
-  i{
-    background: linear-gradient(90deg, rgba(90,90,90,1) 0%, rgba(50,50,50,1) 50%, rgba(30,30,30,1) 100%);
+  i {
+    background: linear-gradient(
+      90deg,
+      rgba(90, 90, 90, 1) 0%,
+      rgba(50, 50, 50, 1) 50%,
+      rgba(30, 30, 30, 1) 100%
+    );
     height: 100%;
     position: absolute;
     left: 0;

@@ -1,386 +1,422 @@
-.character{
-    position: fixed;
-    overflow: hidden;
-    width: 100%;
-    height: 100vh;
-    z-index: 2;
-    &.superman{
-        background: $blueSuperman;
+.character {
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  &.superman {
+    background: $blueSuperman;
+  }
+  &.batman {
+    background: $greyBatman;
+  }
+  &.wonderwoman {
+    background: $orangeWonder;
+  }
+  &.flash {
+    background: $redFlash;
+  }
+  &.greenlantern {
+    background: $greenLantern;
+  }
+  &.aquaman {
+    background: $yellowAquaman;
+  }
+  &.greenarrow {
+    background: $greenArrow;
+  }
+  &.cyborg {
+    background: $redCyborg;
+  }
+  h1 {
+    @include font("Cinzel", 3em, 700);
+    line-height: 0;
+    margin-bottom: 0.7em;
+    text-align: center;
+    @media (min-width: 768px) {
+      margin-bottom: 0.8em;
+      font-size: 3.3em;
     }
-    &.batman{
-        background: $greyBatman;
+    @media (min-width: 992px) {
+      font-size: 4em;
     }
-    &.wonderwoman{
-        background: $orangeWonder;
+    @media (min-width: 1200px) {
+      font-size: 5em;
     }
-    &.flash{
-        background: $redFlash;
+    @media (min-width: 1400px) {
+      margin-bottom: 0.7em;
+      font-size: 6.2em;
+      text-align: left;
     }
-    &.greenlantern{
-        background: $greenLantern;
+  }
+  h2 {
+    @include font("Cinzel", 1.2em, 400);
+    line-height: 0;
+    text-align: center;
+    font-style: italic;
+    @media (min-width: 768px) {
+      font-size: 1.5em;
     }
-    &.aquaman{
-        background: $yellowAquaman;
+    @media (min-width: 992px) {
+      font-size: 2em;
     }
-    &.greenarrow{
-        background: $greenArrow;
+    @media (min-width: 1200px) {
+      font-size: 2.2em;
     }
-    &.cyborg{
-        background: $redCyborg;
+    @media (min-width: 1400px) {
+      font-size: 2.6em;
+      text-align: left;
     }
-    h1{
-        @include font('Cinzel',3em,700);
-        line-height: 0;
-        margin: 0 0 0.7em 0;
-        text-align: center;
-        @media (min-width: 768px){
-            margin: 0 0 0.8em 0;
-            font-size: 3.3em;
-        }
-        @media (min-width: 992px){
-            font-size: 4em;
-        }
-        @media (min-width: 1200px){
-            font-size: 5em;
-        }
-        @media (min-width: 1400px){
-            margin: 0 0 0.7em 0;
-            font-size: 6.2em;
-            text-align: left;
-        }
+  }
+  p {
+    @include font("Cinzel", 0.85em, 400);
+    line-height: 1.35em;
+    text-align: center;
+    margin: 0 auto;
+    @media (min-width: 768px) {
+      font-size: 1em;
+      line-height: 1.3em;
     }
-    h2{
-        @include font('Cinzel',1.2em,400);
-        line-height: 0;
-        text-align: center;
-        font-style: italic;
-        @media (min-width: 768px){
-            font-size: 1.5em;
-        }
-        @media (min-width: 992px){
-            font-size: 2em;
-        }
-        @media (min-width: 1200px){
-            font-size: 2.2em;
-        }
-        @media (min-width: 1400px){
-            font-size: 2.6em;
-            text-align: left;
-        }
+    @media (min-width: 992px) {
+      font-size: 1.2em;
+      line-height: 1.45em;
+      width: 75%;
     }
-    p{
-        @include font('Cinzel',0.9em,400);
-        line-height: 1.15em;
-        text-align: center;
-        @media (min-width: 768px){
-            font-size: 1.2em;
-            line-height: 1.2em;
-        }
-        @media (min-width: 992px){
-            font-size: 1.3em;
-            line-height: 1.3em;
-        }
-        @media (min-width: 1400px){
-            text-align: left;
-            font-size: 1.4em;
-            line-height: 1.4em;
-        }
-        @media (min-width: 1500px){
-            font-size: 1.5em;
-            line-height: 1.6em;
+    @media (min-width: 1200px) {
+      font-size: 1.25em;
+      line-height: 1.5em;
+      width: 65%;
+    }
+    @media (min-width: 1400px) {
+      font-size: 1.2em;
+      line-height: 1.5em;
+      text-align: left;
+      margin: initial;
+    }
+    @media (min-width: 1500px) {
+      font-size: 1.4em;
+      line-height: 1.7em;
+    }
+  }
+}
+.character-content {
+  position: absolute;
+  left: 0;
+  top: -0;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.character-logo {
+  &.superman {
+    svg {
+      background: $blueSuperman;
+      left: -17.5%;
+      top: 14%;
+      width: 135%;
+      height: 135%;
+      @media (min-width: 1400px) {
+        left: -4%;
+        top: 10%;
+      }
+    }
+  }
+  &.batman {
+    svg {
+      background: $greyBatman;
+      left: -19.8%;
+      top: -10%;
+      width: 140%;
+      height: 140%;
+      @media (min-width: 1400px) {
+        left: -5%;
+        top: -8%;
+      }
+    }
+  }
+  &.wonderwoman {
+    svg {
+      left: -8%;
+      top: 2%;
+      width: 116%;
+      height: 116%;
+      background: $orangeWonder;
+      @media (min-width: 1400px) {
+        left: 4%;
+        top: 7%;
+      }
+    }
+  }
+  &.flash {
+    svg {
+      left: -55%;
+      top: -47%;
+      width: 210%;
+      height: 210%;
+      background: $redFlash;
+      @media (min-width: 1400px) {
+        left: -58%;
+        top: -51%;
+        width: 232%;
+        height: 232%;
+      }
+    }
+    path {
+      &:first-of-type {
+        fill: $black;
+      }
+      &:last-of-type {
+        fill: none;
+        stroke: $black;
+      }
+    }
+  }
+  &.greenlantern {
+    svg {
+      background: $greenLantern;
+    }
+  }
+  &.aquaman {
+    svg {
+      left: -50%;
+      top: -65%;
+      width: 200%;
+      height: 200%;
+      background: $yellowAquaman;
+      @media (min-width: 1400px) {
+        left: -47%;
+        top: -75%;
+        width: 212%;
+        height: 212%;
+      }
+    }
+  }
+  &.greenarrow {
+    svg {
+      background: $greenArrow;
+    }
+  }
+  &.cyborg {
+    svg {
+      background: $redCyborg;
+    }
+  }
+  svg {
+    position: absolute;
+    left: -30%;
+    top: -31%;
+    width: 160%;
+    height: 160%;
+    opacity: 0;
+    z-index: 1;
+    transform: scale(1.5);
+    transform-origin: 50% 50%;
+    animation: character-logo-in 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s
+      forwards;
+    @media (min-width: 1400px) {
+      left: -30%;
+      top: -31%;
+      width: 170%;
+      height: 170%;
+    }
+  }
+  path {
+    fill: $black;
+  }
+}
+.character-main {
+  height: 100vh;
+  @include flexContainer($rowAlign: flex-start, $columnAlign: center);
+}
+.character-block-left {
+  @include flexContainer();
+  width: 40%;
+  @media (min-width: 1500px) {
+    width: 42%;
+  }
+}
+.character-block-right {
+  width: 100%;
+  @media (min-width: 1400px) {
+    display: block;
+    width: 56%;
+  }
+  @media (min-width: 1500px) {
+    width: 55%;
+  }
+  @media (min-width: 1600px) {
+    width: 52%;
+  }
+  @media (min-width: 1800px) {
+    width: 50%;
+  }
+}
+.character-title {
+  margin-bottom: 1.7em;
+  @media (min-width: 768px) {
+    margin-bottom: 1.8em;
+  }
+  @media (min-width: 992px) {
+    margin-bottom: 2.3em;
+  }
+  @media (min-width: 1200px) {
+    margin-bottom: 3em;
+  }
+  @media (min-width: 1400px) {
+    margin-bottom: 4em;
+  }
+}
+.character-data {
+  margin-bottom: 1.5em;
+  height: 100px;
+  overflow-y: auto;
+  @include flexContainer($rowAlign: center, $columnAlign: flex-start);
+  @media (min-width: 768px) {
+    height: 120px;
+    align-items: center;
+    margin-bottom: 1.8em;
+  }
+  @media (min-width: 992px) {
+    margin-bottom: 2.3em;
+    height: 200px;
+  }
+  @media (min-width: 1200px) {
+    margin-bottom: 3em;
+  }
+  @media (min-width: 1400px) {
+    display: block;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 4em;
+  }
+  @media (min-width: 1600px) {
+    height: 220px;
+  }
+  @media (min-width: 1800px) {
+    height: 200px;
+  }
+}
+.character-image {
+  opacity: 0.7;
+  margin-top: 30px;
+  @media (min-width: 992px) {
+    margin-top: 0;
+  }
+  img {
+    width: 90%;
+    &.introTab {
+      filter: none;
+    }
+    &.dataTab {
+      filter: grayscale(100%);
+    }
+    &.skillsTab {
+      filter: sepia(100%) brightness(87%);
+    }
+    @media (min-width: 992px) {
+      height: auto;
+      margin: 0 auto;
+    }
+    @media (min-width: 1500px) {
+      width: 100%;
+    }
+  }
+}
+.character-txt-header {
+  margin-bottom: 3em;
+  @media (min-width: 1400px) {
+    margin-bottom: 4em;
+  }
+}
+.character-txt-body {
+  margin-bottom: 3em;
+  @media (min-width: 1400px) {
+    margin-bottom: 4em;
+  }
+}
+.character-txt-footer {
+  @media (min-width: 992px) {
+    min-height: 140px;
+  }
+  img {
+    margin-bottom: 2em;
+    @media (min-width: 992px) {
+      margin-bottom: 3em;
+    }
+    @media (min-width: 1400px) {
+      margin-bottom: 0;
+    }
+  }
+}
+.character-txt-footer-img-container {
+  align-items: center;
+}
+.character-btn-back {
+  position: absolute;
+  z-index: 3;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  outline: none;
+  @media (min-width: 768px) {
+    bottom: 22px;
+  }
+  @media (min-width: 992px) {
+    bottom: 25px;
+  }
+  button {
+    cursor: pointer;
+    @include font("Cinzel", 0.7em, 700);
+    position: relative;
+    text-decoration: underline;
+    @media (min-width: 768px) {
+      font-size: 0.8em;
+    }
+    @media (min-width: 992px) {
+      font-size: 1em;
+      text-decoration: none;
+    }
+    @media (min-width: 992px) {
+      font-size: 1.2em;
+      text-decoration: none;
+    }
+    &::after {
+      @media (min-width: 992px) {
+        content: "";
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: $white;
+        @include transition(all, 0.3s, cubic-bezier(0.215, 0.61, 0.355, 1), 0);
+        transform: scaleX(1);
+      }
+    }
+    &:hover {
+      &::after {
+        @media (min-width: 992px) {
+          transform: scaleX(0);
         }
       }
-}    
-.character-content{
-    position: absolute;
-    left: 0;
-    top: -0;
-    width: 100%;
-    height: 100vh;
-    z-index: 2;
-    opacity: 0;
-    visibility: hidden;
-    &.visible{
-        opacity: 1;
-        visibility: visible;
     }
-}
-.character-logo{
-    &.superman{
-        svg{
-            background: $blueSuperman;
-            left: -17.5%;
-            top: 14%;
-            width: 135%;
-            height: 135%;
-            @media (min-width: 1400px){
-                left: -4%;
-                top: 10%;
-            }
-        }
-    }
-    &.batman{
-        svg{
-            background: $greyBatman;
-            left: -19.8%;
-            top: -10%;
-            width: 140%;
-            height: 140%;
-            @media (min-width: 1400px){
-                left: -5%;
-                top: -8%;
-            }
-        }
-    }
-    &.wonderwoman{
-        svg{
-            left: -8%;
-            top: 2%;
-            width: 116%;
-            height: 116%;
-            background: $orangeWonder;
-            @media (min-width: 1400px){
-                left: 4%;
-                top: 7%;
-            }
-        }
-    }
-    &.flash{
-        svg{
-            left: -55%;
-            top: -47%;
-            width: 210%;
-            height: 210%;
-            background: $redFlash;
-            @media (min-width: 1400px){
-                left: -58%;
-                top: -51%;
-                width: 232%;
-                height: 232%;
-            }
-        }
-        path{
-            &:first-of-type {
-                fill:$black;
-            }
-            &:last-of-type {
-                fill:none;
-                stroke: $black;
-            }
-        }
-    }
-    &.greenlantern{
-        svg{
-            background: $greenLantern;
-        }  
-    }
-    &.aquaman{
-        svg{
-            left: -50%;
-            top: -65%;
-            width: 200%;
-            height: 200%;
-            background: $yellowAquaman;
-            @media (min-width: 1400px){
-                left: -47%;
-                top: -75%;
-                width: 212%;
-                height: 212%;
-            }
-        }
-    }
-    &.greenarrow{
-        svg{
-            background: $greenArrow;
-        }
-    }
-    &.cyborg{
-        svg{
-            background: $redCyborg;
-        }
-    }
-    svg{
-        position: absolute;
-        left: -30%;
-        top: -31%;
-        width: 160%;
-        height: 160%;
-        opacity: 0;
-        z-index: 1;
-        transform: scale(1.5);
-        transform-origin: 50% 50%;
-        animation: character-logo-in 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s forwards;
-        @media (min-width: 1400px){
-            left: -30%;
-            top: -31%;
-            width: 170%;
-            height: 170%;
-        }
-    }
-    path{
-        fill:$black;
-    }
-}
-.character-content{
-    height: 100vh;
-}
-.character-main{
-    height: 100vh;
-    @include flexContainer($rowAlign:flex-start,$columnAlign:center);
-}
-.character-block-left{
-    @include flexContainer();
-    width: 40%;
-    @media (min-width: 1500px){
-        width: 42%;
-    }
-}
-.character-block-right{
-    width: 100%;
-    @media (min-width: 1400px){
-        width: 55%;
-    }
-    @media (min-width: 1500px){
-        width: 50%;
-    }
-}
-.character-data{
-    margin-top: 1.5em;
-    pointer-events: none;
-    @include flexContainer($rowAlign:center,$columnAlign:flex-start);
-    @media (min-width: 768px){
-        align-items: center;
-        margin-top: 1.8em;
-    }
-    @media (min-width: 992px){
-        margin-top: 2.3em;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 90%;
-    }
-    @media (min-width: 1200px){
-        margin-top: 3em;
-    }
-    @media (min-width: 1400px){
-        margin-top: 4em;
-        display: block;
-        margin-left: 0;
-        margin-right: 0;
-        max-width: 100%;
-    }
-}
-.character-image{
-    opacity: 0.7;
-    margin-top: 30px;
-    @media (min-width: 992px){
-        margin-top: 0;
-    }
-    img{
-        width: 90%;
-        &.introTab{
-            filter: none;
-        }
-        &.dataTab{
-            filter: grayscale(100%);
-        }
-        &.skillsTab{
-            filter: sepia(100%) brightness(87%);
-        }
-        @media (min-width: 992px){
-            height: auto;
-            margin: 0 auto;
-        }
-        @media (min-width: 1500px){
-            width: 100%;
-        }
-    }
-}
-
-.character-txt-header{
-    margin-bottom: 3em;
-    @media (min-width: 1400px){
-        margin-bottom: 4em;
-    }
-}
-.character-txt-body{
-    margin-bottom: 3em;
-    @media (min-width: 1400px){
-        margin-bottom: 4em;
-    }
-}
-.character-txt-footer{
-    @media (min-width: 992px){
-        min-height: 140px;
-    }
-    img{
-        margin-bottom: 2em;
-        @media (min-width: 992px){
-            margin-bottom: 3em;
-        }
-        @media (min-width: 1400px){
-            margin-bottom: 0;
-        }
-    }
-}
-.character-txt-footer-img-container{
-    align-items: center;
-}
-.character-btn-back{
-    position: absolute;
-    z-index: 3;
-    bottom: 39px;
-    width: 100%;
-    text-align: center;
-    outline: none;
-    @media (min-width: 768px){
-        bottom: 25px;
-    }
-    button{
-        cursor: pointer;
-        @include font('Cinzel',0.7em,700);
-        position: relative;
-        text-decoration: underline;
-        @media (min-width: 768px){
-            font-size: 1em;
-            text-decoration: none;
-        }
-        @media (min-width: 992px){
-            text-decoration: none;
-        }
-        @media (min-width: 992px){
-            font-size: 1.2em;
-            text-decoration: none;
-        }
-        &::after{
-            @media (min-width: 992px){
-                content: '';
-                width: 100%;
-                height: 2px;
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                background: $white;
-                @include transition(all,.3s, cubic-bezier(0.215, 0.61, 0.355, 1),0);
-                transform: scaleX(1);
-            }
-        }
-        &:hover{
-            &::after{
-                @media (min-width: 992px){
-                    transform: scaleX(0);
-                }
-            }
-        }
-    }
+  }
 }
 
 @keyframes character-logo-in {
-    0% {
-        opacity: 0;
-        transform: scale(1.5);
-    }
-    100% {
-        opacity: 0.1;
-        transform: scale(1);
-    }
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
   }
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+}

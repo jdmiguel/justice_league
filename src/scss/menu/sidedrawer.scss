@@ -1,176 +1,180 @@
-.sidedrawer{
-    width: 100%;
+.sidedrawer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 3;
+  nav {
+    @include flexContainer();
     height: 100%;
+    @media (min-width: 1200px) {
+      margin-left: 0;
+    }
+    @media (min-width: 1400px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 8px;
+      margin-left: 8px;
+    }
+  }
+  ul {
+    width: 100%;
+    display: flex;
+    @include flexContainer();
     position: absolute;
-    z-index: 3;
-    nav{
-        @include flexContainer();
-        height: 100%;
-        @media (min-width: 1200px){
-            margin-left: 0;
-        }
-        @media (min-width: 1400px){
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-left: 8px;
-            margin-left: 8px;
-        }
+    bottom: 15px;
+    @media (min-width: 992px) {
+      bottom: 30px;
     }
-    ul{
-        width: 100%;
-        display: flex;
-        @include flexContainer();
-        position: absolute;
-        bottom: 35px;
-        @media (min-width: 1200px){
-            width: 90px;
-        }
-        @media (min-width: 1400px){
-            position: initial;
-            bottom: 0;
-            @include flexContainer($direction: column);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 81px;
-            width: 100px;
-        }
+    @media (min-width: 1200px) {
+      bottom: 35px;
+      width: 90px;
     }
-    li{
-        position: relative;
-        margin: 0 6vw 0 0;
-        &:last-of-type{
-            margin: 0;
-        }
-        @include flexContainer();
-        button{
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: 1;
-            cursor: pointer;
-        }
-        &.active{
-            pointer-events: none;
-            svg{
-                opacity: 1;
-            }
-            span{
-                transform: translateX(-4px);
-                @media (min-width: 1200px){
-                    transform: translateX(-5px);
-                }
-                @media (min-width: 1400px){
-                    opacity: 1;
-                    transform: translateX(-2px);
-                }
-            }
-        }
-        @media (min-width: 992px){
-            &:hover{
-                svg{
-                    opacity: 1;
-                }
-                span{
-                    transform: translateX(-3px);
-                    @media (min-width: 1200px){
-                        transform: translateX(-5px);
-                        margin: 0 0 1.7vw 0;
-                        height: auto;
-                    }
-                    @media (min-width: 1400px){
-                        opacity: 1;
-                        transform: translateX(-2px);
-                    }
-                }
-            }
-        }
-        @media (min-width: 1200px){
-            margin: 0 4vw 0 0;
-        }
-        @media (min-width: 1400px){
-            margin: 0 0 2vw 0;
-        }
+    @media (min-width: 1400px) {
+      position: initial;
+      bottom: 0;
+      @include flexContainer($direction: column);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 81px;
+      width: 100px;
     }
-    svg{
-        opacity: .5;
-        @include transition(all,.5s, ease-out,0);
+  }
+  li {
+    position: relative;
+    margin: 0 6vw 0 0;
+    &:last-of-type {
+      margin: 0;
     }
-    span{
-        text-align: center;
-        color: $white;
-        position: absolute;
-        display: none;
-        transform: translateX(15px);
-        pointer-events: none;
-        @include transition(all,.5s, cubic-bezier(0.215, 0.61, 0.355, 1),0);
-        @include font('Cinzel',1em,700);
-        &.superman{
-            left: 50px;
-            top: 3px;
-        }
-        &.batman{
-            left: 54px;
-            top: -2px;
-        }
-        &.wonderwoman{
-            left: 55px;
-            top: 1px;
-        }
-        &.flash{
-            left: 48px;
-            top: 8px;
-        }
-        &.greenlantern{
-            left: 50px;
-            top: 4px;
-        }
-        &.aquaman{
-            left: 49px;
-            top: 4px;
-        }
-        &.greenarrow{
-            left: 50px;
-            top: 4px;
-        }
-        &.cyborg{
-            left: 50px;
-            top: 4px;
-        }
-        @media (min-width: 992px){
-            @include font('Cinzel',.9em,700);
-        }
-        @media (min-width: 1400px){
-            @include font('Cinzel',1em,700);
-            display: inline-block;
-            opacity: 0;
-            &.superman{
-                left: 53px;
-            }
-            &.batman{
-                left: 57px;
-            }
-            &.wonderwoman{
-                left: 58px;
-            }
-            &.flash{
-                left: 51px;
-            }
-            &.greenlantern{
-                left: 53px;
-            }
-            &.aquaman{
-                left: 52px;
-            }
-            &.greenarrow{
-                left: 53px;
-            }
-            &.cyborg{
-                left: 53px;
-            }
-        }
+    @include flexContainer();
+    button {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      cursor: pointer;
     }
+    &.active {
+      pointer-events: none;
+      svg {
+        opacity: 1;
+      }
+      span {
+        transform: translateX(-4px);
+        @media (min-width: 1200px) {
+          transform: translateX(-5px);
+        }
+        @media (min-width: 1400px) {
+          opacity: 1;
+          transform: translateX(-2px);
+        }
+      }
+    }
+    @media (min-width: 992px) {
+      &:hover {
+        svg {
+          opacity: 1;
+        }
+        span {
+          transform: translateX(-3px);
+          @media (min-width: 1200px) {
+            transform: translateX(-5px);
+            margin: 0 0 1.7vw 0;
+            height: auto;
+          }
+          @media (min-width: 1400px) {
+            opacity: 1;
+            transform: translateX(-2px);
+          }
+        }
+      }
+    }
+    @media (min-width: 1200px) {
+      margin: 0 4vw 0 0;
+    }
+    @media (min-width: 1400px) {
+      margin: 0 0 2vw 0;
+    }
+  }
+  svg {
+    opacity: 0.5;
+    @include transition(all, 0.5s, ease-out, 0);
+  }
+  span {
+    text-align: center;
+    color: $white;
+    position: absolute;
+    display: none;
+    transform: translateX(15px);
+    pointer-events: none;
+    @include transition(all, 0.5s, cubic-bezier(0.215, 0.61, 0.355, 1), 0);
+    @include font("Cinzel", 1em, 700);
+    &.superman {
+      left: 50px;
+      top: 3px;
+    }
+    &.batman {
+      left: 54px;
+      top: -2px;
+    }
+    &.wonderwoman {
+      left: 55px;
+      top: 1px;
+    }
+    &.flash {
+      left: 48px;
+      top: 8px;
+    }
+    &.greenlantern {
+      left: 50px;
+      top: 4px;
+    }
+    &.aquaman {
+      left: 49px;
+      top: 4px;
+    }
+    &.greenarrow {
+      left: 50px;
+      top: 4px;
+    }
+    &.cyborg {
+      left: 50px;
+      top: 4px;
+    }
+    @media (min-width: 992px) {
+      @include font("Cinzel", 0.9em, 700);
+    }
+    @media (min-width: 1400px) {
+      @include font("Cinzel", 1em, 700);
+      display: inline-block;
+      opacity: 0;
+      &.superman {
+        left: 53px;
+      }
+      &.batman {
+        left: 57px;
+      }
+      &.wonderwoman {
+        left: 58px;
+      }
+      &.flash {
+        left: 51px;
+      }
+      &.greenlantern {
+        left: 53px;
+      }
+      &.aquaman {
+        left: 52px;
+      }
+      &.greenarrow {
+        left: 53px;
+      }
+      &.cyborg {
+        left: 53px;
+      }
+    }
+  }
 }
