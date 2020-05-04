@@ -63,8 +63,6 @@
     &::before {
       content: "";
       height: 100%;
-      /* Fallback for browsers that do not support Custom Properties */
-      height: calc(var(--vh, 1vh) * 100);
       width: 1px;
       background: $white;
       position: absolute;
