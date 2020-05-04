@@ -3,7 +3,7 @@
   overflow: hidden;
   width: 100%;
   /* Fallback for browsers that do not support Custom Properties */
-  height: 100vh;
+  height: 100%;
   height: calc(var(--vh, 1vh) * 100);
   background: $black;
   z-index: 1;
@@ -13,9 +13,7 @@
 .menu-texture {
   z-index: 2;
   backface-visibility: hidden;
-  height: 100vh;
-  /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100%;
   overflow: hidden;
   position: relative;
   width: 100%;

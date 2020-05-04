@@ -2,14 +2,12 @@
   position: fixed;
   overflow: hidden;
   width: 100%;
-  height: 100vh;
-  /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100%;
   z-index: 3;
   background: $white;
   .logo {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: absolute;
     z-index: 1;
     @include flexContainer();
@@ -21,7 +19,7 @@
   }
   .letters {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: absolute;
     z-index: 2;
     @include flexContainer();
