@@ -2,7 +2,9 @@
   position: fixed;
   overflow: hidden;
   width: 100%;
+  /* Fallback for browsers that do not support Custom Properties */
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   background: $black;
   z-index: 1;
   @include flexContainer();
