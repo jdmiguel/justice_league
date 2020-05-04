@@ -62,7 +62,9 @@
     padding-left: 10px;
     &::before {
       content: "";
-      height: 100%;
+      height: 100vh;
+      /* Fallback for browsers that do not support Custom Properties */
+      height: calc(var(--vh, 1vh) * 100);
       width: 1px;
       background: $white;
       position: absolute;
@@ -107,7 +109,9 @@
       rgba(50, 50, 50, 1) 50%,
       rgba(30, 30, 30, 1) 100%
     );
-    height: 100%;
+    height: 100vh;
+    /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
     position: absolute;
     left: 0;
     top: 0;

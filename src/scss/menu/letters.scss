@@ -1,54 +1,56 @@
-.letters-wrapper{
+.letters-wrapper {
+  position: absolute;
+  z-index: 3;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  &.disabled {
+    pointer-events: none;
+  }
+  &.active {
+    z-index: 4;
+    button {
+      display: block;
+    }
+    .letters {
+      pointer-events: all;
+    }
+  }
+  button {
+    outline: none;
+    width: 100%;
+    height: 100vh;
+    /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
     position: absolute;
-    z-index: 3;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    &.visible{
-        opacity: 1;
-        visibility: visible;
+    z-index: 1;
+    display: none;
+    cursor: pointer;
+  }
+  .letters {
+    @include font("Cinzel", 4.1em, 700);
+    text-align: center;
+    color: $white;
+    display: inline-block;
+    pointer-events: none;
+    @media (min-width: 768px) {
+      @include font("Cinzel", 5.3em, 700);
     }
-    &.disabled{
-        pointer-events: none;
+    @media (min-width: 992px) {
+      @include font("Cinzel", 5.2em, 700);
     }
-    &.active{
-        z-index: 4;
-        button{
-            display: block;
-        }
-        .letters{
-            pointer-events: all;
-        }
+    @media (min-width: 1200px) {
+      @include font("Cinzel", 6.5em, 700);
     }
-    button{
-        outline: none;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        z-index: 1;
-        display: none;
-        cursor: pointer;
+    @media (min-width: 1400px) {
+      @include font("Cinzel", 7em, 700);
     }
-    .letters{
-        @include font('Cinzel',4.1em,700);
-        text-align: center;
-        color: $white;
-        display: inline-block;
-        pointer-events: none;
-        @media (min-width: 768px){
-            @include font('Cinzel',5.3em,700);
-        }
-        @media (min-width: 992px){
-            @include font('Cinzel',5.2em,700);
-        }
-        @media (min-width: 1200px){
-            @include font('Cinzel',6.5em,700);
-        }
-        @media (min-width: 1400px){
-            @include font('Cinzel',7em,700);
-        }
-        @media (min-width: 1600px){
-            @include font('Cinzel',8em,700);
-        }
+    @media (min-width: 1600px) {
+      @include font("Cinzel", 8em, 700);
     }
+  }
 }

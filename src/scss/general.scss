@@ -1,20 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=Cinzel:400,700,900');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+@import url("https://fonts.googleapis.com/css?family=Cinzel:400,700,900");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700");
 
-body{
-    background: $white;
-    font-size: 15px;
-    @include font('Cinzel',15px,400);
+body {
+  background: $white;
+  font-size: 15px;
+  @include font("Cinzel", 15px, 400);
 }
 
-.app-wrapper{
-    width: 100%;
-    height: 100vh;
-    background: $white;
-    &.black{
-        background: $black;
-    }
-    @media (min-width: 992px){
-        overflow: hidden;
-    }
+.app-wrapper {
+  width: 100%;
+  height: 100vh;
+  /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
+  background: $white;
+  &.black {
+    background: $black;
+  }
+  @media (min-width: 992px) {
+    overflow: hidden;
+  }
 }

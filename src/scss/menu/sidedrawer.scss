@@ -1,11 +1,15 @@
 .sidedrawer {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
   position: absolute;
   z-index: 3;
   nav {
     @include flexContainer();
-    height: 100%;
+    height: 100vh;
+    /* Fallback for browsers that do not support Custom Properties */
+    height: calc(var(--vh, 1vh) * 100);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -29,7 +33,9 @@
     @include flexContainer();
     button {
       width: 100%;
-      height: 100%;
+      height: 100vh;
+      /* Fallback for browsers that do not support Custom Properties */
+      height: calc(var(--vh, 1vh) * 100);
       position: absolute;
       left: 0;
       top: 0;
