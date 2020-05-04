@@ -1,7 +1,7 @@
 .layout {
   animation: layout-showed 1s ease-out;
   .logo {
-    position: fixed;
+    position: absolute;
     z-index: 4;
     top: 0;
     @media (min-width: 992px) {
