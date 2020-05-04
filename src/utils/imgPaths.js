@@ -1,4 +1,4 @@
-import NoMobileImg from "../../assets/img/no-mobile.png";
+import landscapeImg from "../../assets/img/landscape.png";
 import SupermanImgCharacter from "../../assets/img/character/character_superman.png";
 import BatmanImgCharacter from "../../assets/img/character/character_batman.png";
 import WonderWomanImgCharacter from "../../assets/img/character/character_wonderwoman.png";
@@ -9,7 +9,7 @@ import GreenArrowImgCharacter from "../../assets/img/character/character_greenar
 import CyborgImgCharacter from "../../assets/img/character/character_cyborg.png";
 
 /* NO MOBILE */
-export const noMobileImgPath = NoMobileImg;
+export const landscapeImgPath = landscapeImg;
 
 /* SUPERMAN CHARACTER */
 export const supermanImgPath = SupermanImgCharacter;

@@ -1,4 +1,4 @@
-.no-mobile {
+.landscape {
   position: fixed;
   z-index: 5;
   width: 100%;
@@ -13,14 +13,19 @@
     margin-bottom: 40px;
   }
   p {
-    @include font("Cinzel", 1em, 400);
+    @include font("Cinzel", 0.9em, 400);
     text-align: center;
     line-height: 1.4em;
-    max-width: 90%;
+    max-width: 80%;
+    @media (min-width: 600px) {
+      font-size: 1.2em;
+      line-height: 1.5em;
+    }
   }
   @media (orientation: landscape) {
     display: none;
   }
+
   @media (min-width: 992px) {
     display: none;
   }

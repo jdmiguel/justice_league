@@ -14,7 +14,7 @@ import { reducer, initialState } from "./store/reducer";
 import { setActiveSuperhero, setMenuDirection } from "./store/actions";
 
 /** Assets */
-import { noMobileImgPath } from "./utils/imgPaths";
+import { landscapeImgPath } from "./utils/imgPaths";
 
 const App = () => {
   // Reducers
@@ -41,11 +41,11 @@ const App = () => {
 
   return (
     <div ref={appWrapperRef} className={wrapperClasses.join(" ")}>
-      <div className="no-mobile">
-        <img alt="no mobile" src={noMobileImgPath} />
+      <div className="landscape">
+        <img alt="no portrait allowed" src={landscapeImgPath} />
         <p>
-          This site is not available for mobile devices, try it in bigger
-          devices!
+          Change your device from portrait to landscape orientation to enjoy a
+          better experience
         </p>
       </div>
       {introStatus ? (
