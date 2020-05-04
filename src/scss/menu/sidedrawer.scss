@@ -7,9 +7,6 @@
     @include flexContainer();
     height: 100%;
     @media (min-width: 1200px) {
-      margin-left: 0;
-    }
-    @media (min-width: 1400px) {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -27,10 +24,6 @@
       bottom: 30px;
     }
     @media (min-width: 1200px) {
-      bottom: 35px;
-      width: 90px;
-    }
-    @media (min-width: 1400px) {
       position: initial;
       bottom: 0;
       @include flexContainer($direction: column);
@@ -80,11 +73,6 @@
         }
         span {
           transform: translateX(-3px);
-          @media (min-width: 1200px) {
-            transform: translateX(-5px);
-            margin: 0 0 1.7vw 0;
-            height: auto;
-          }
           @media (min-width: 1400px) {
             opacity: 1;
             transform: translateX(-2px);
@@ -93,9 +81,6 @@
       }
     }
     @media (min-width: 1200px) {
-      margin: 0 4vw 0 0;
-    }
-    @media (min-width: 1400px) {
       margin: 0 0 2vw 0;
     }
   }
