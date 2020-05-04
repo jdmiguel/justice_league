@@ -110,8 +110,6 @@
       rgba(30, 30, 30, 1) 100%
     );
     height: 100%;
-    /* Fallback for browsers that do not support Custom Properties */
-    height: calc(var(--vh, 1vh) * 100);
     position: absolute;
     left: 0;
     top: 0;
