@@ -6,12 +6,15 @@ const useWindowResize = () => {
     height: window.innerHeight,
   });
 
-  const onResize = React.useCallback(e => {
-    setWindowMeasures({
-      width: e.currentTarget.innerWidth,
-      height: e.currentTarget.innerHeight,
-    });
-  });
+  const onResize = React.useCallback(
+    e => {
+      setWindowMeasures({
+        width: e.currentTarget.innerWidth,
+        height: e.currentTarget.innerHeight,
+      });
+    },
+    [setWindowMeasures],
+  );
 
   React.useEffect(() => {
     window.addEventListener('resize', onResize);
@@ -19,7 +22,7 @@ const useWindowResize = () => {
     return () => {
       window.removeEventListener('resize', onResize);
     };
-  }, []);
+  }, [onResize]);
 
   return windowMeasures;
 };
