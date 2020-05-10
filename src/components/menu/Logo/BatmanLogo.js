@@ -47,7 +47,7 @@ const BatmanLogo = ({ classes }) => (
 );
 
 BatmanLogo.propTypes = {
-  classes: PropTypes.string
+  classes: PropTypes.string,
 };
 
 export default BatmanLogo;

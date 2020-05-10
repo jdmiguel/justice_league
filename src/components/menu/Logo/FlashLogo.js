@@ -30,7 +30,7 @@ const FlashLogo = ({ classes }) => (
 );
 
 FlashLogo.propTypes = {
-  classes: PropTypes.string
+  classes: PropTypes.string,
 };
 
 export default FlashLogo;

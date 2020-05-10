@@ -31,7 +31,7 @@ const forwardedTabs = React.forwardRef(Tabs);
 
 Tabs.propTypes = {
   data: tabsModel,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 
 export default forwardedTabs;

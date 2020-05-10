@@ -12,7 +12,7 @@ const Letters = ({
   menuDirection,
   overLetters,
   endLettersAnimation,
-  onClick
+  onClick,
 }) => {
   // Measures
   const { width } = useWindowResize();
@@ -50,11 +50,11 @@ const Letters = ({
       1,
       {
         cycle: {
-          x: i => getDistance(i, factor)
+          x: i => getDistance(i, factor),
         },
-        ease: Power1.easeOut
+        ease: Power1.easeOut,
       },
-      0
+      0,
     );
   });
 
@@ -68,20 +68,20 @@ const Letters = ({
       {
         alpha: 0,
         rotationY: -120,
-        scaleX: 0
+        scaleX: 0,
       },
       {
         alpha: 1,
         rotationY: 0,
         scaleX: 1,
-        ease: Power1.easeOut
+        ease: Power1.easeOut,
       },
       0.05,
       () => {
         setAllowMouseOver(true);
         setAllowMouseMove(true);
         endLettersAnimation();
-      }
+      },
     );
   });
 
@@ -94,14 +94,14 @@ const Letters = ({
       {
         alpha: 0,
         cycle: {
-          x: i => -250 + i * 20
-        }
+          x: i => -250 + i * 20,
+        },
       },
       {
         delay: 0.35,
         x: 0,
         alpha: 1,
-        ease: Power1.easeOut
+        ease: Power1.easeOut,
       },
       0.012,
       () => {
@@ -109,7 +109,7 @@ const Letters = ({
         setAllowMouseMove(true);
         overLetters(false);
         endLettersAnimation();
-      }
+      },
     );
   });
 
@@ -122,14 +122,14 @@ const Letters = ({
       {
         alpha: 0,
         cycle: {
-          x: i => 50 + i * 40
-        }
+          x: i => 50 + i * 40,
+        },
       },
       {
         delay: 0.35,
         x: 0,
         alpha: 1,
-        ease: Power1.easeOut
+        ease: Power1.easeOut,
       },
       0.012,
       () => {
@@ -137,7 +137,7 @@ const Letters = ({
         setAllowMouseMove(true);
         overLetters(false);
         endLettersAnimation();
-      }
+      },
     );
   });
 
@@ -149,16 +149,16 @@ const Letters = ({
       0.47,
       {
         alpha: 1,
-        x: 0
+        x: 0,
       },
       {
         cycle: {
-          x: i => -250 + i * 20
+          x: i => -250 + i * 20,
         },
         alpha: 0,
-        ease: Power1.easeInOut
+        ease: Power1.easeInOut,
       },
-      0.015
+      0.015,
     );
   });
 
@@ -170,16 +170,16 @@ const Letters = ({
       0.47,
       {
         alpha: 1,
-        x: 0
+        x: 0,
       },
       {
         cycle: {
-          x: i => 50 + i * 40
+          x: i => 50 + i * 40,
         },
         alpha: 0,
-        ease: Power1.easeInOut
+        ease: Power1.easeInOut,
       },
-      0.015
+      0.015,
     );
   });
 
@@ -196,7 +196,7 @@ const Letters = ({
       overLetters(false);
       TweenMax.staggerTo(charsRef.current, 1, {
         x: 0,
-        ease: Power1.easeOut
+        ease: Power1.easeOut,
       });
     }
   });
@@ -223,14 +223,14 @@ const Letters = ({
   // UseEffects
   React.useEffect(() => {
     const mySplitText = new SplitText(lettersRef.current, {
-      type: 'chars'
+      type: 'chars',
     });
     const { chars } = mySplitText;
 
     charsRef.current = chars;
 
     TweenMax.set(charsRef.current, {
-      alpha: 0
+      alpha: 0,
     });
 
     setClasses([...classes, 'visible']);
@@ -279,7 +279,7 @@ Letters.propTypes = {
   superheroBreakpoint: PropTypes.number,
   overLetters: PropTypes.func,
   endLettersAnimation: PropTypes.func,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 
 export default Letters;

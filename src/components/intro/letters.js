@@ -33,7 +33,7 @@ const Letters = () => {
       tenthLetterRef.current,
       eleventhLetterRef.current,
       twelfthLetterRef.current,
-      thirteenthLetterRef.current
+      thirteenthLetterRef.current,
     ];
 
     animationRef.current = new TimelineMax();
@@ -46,17 +46,17 @@ const Letters = () => {
           cycle: { y: i => (i % 2 ? 200 * (i / 12) : -100 * (i * 0.05)) },
           alpha: 0,
           fill: '#FFFFFF',
-          transformOrigin: '50% 50%'
+          transformOrigin: '50% 50%',
         },
         {
           delay: 1.9,
           y: 0,
           alpha: 1,
           fill: '#282828',
-          ease: Power1.easeOut
+          ease: Power1.easeOut,
         },
         0.02,
-        '+=0'
+        '+=0',
       )
       .to(
         letters,
@@ -65,9 +65,9 @@ const Letters = () => {
           delay: 2.8,
           drawSVG: 0,
           stroke: '#FFFFFF',
-          ease: Power1.easeInOut
+          ease: Power1.easeInOut,
         },
-        '-=5.2'
+        '-=5.2',
       );
 
     return () => {

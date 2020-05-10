@@ -34,7 +34,7 @@ const Skills = ({ data: { stats, powers } }) => (
 );
 
 Skills.propTypes = {
-  data: skillsModel
+  data: skillsModel,
 };
 
 export default Skills;

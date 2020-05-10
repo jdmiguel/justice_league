@@ -12,7 +12,7 @@ const Logo = ({ onEndLogoAnimation, onMiddleLogoAnimation }) => {
 
   React.useEffect(() => {
     animationRef.current = new TimelineMax({
-      onComplete: () => onEndLogoAnimation()
+      onComplete: () => onEndLogoAnimation(),
     });
 
     animationRef.current
@@ -24,9 +24,9 @@ const Logo = ({ onEndLogoAnimation, onMiddleLogoAnimation }) => {
           alpha: 0,
           scale: 0.2,
           rotation: -720,
-          ease: Quad.easeInOut
+          ease: Quad.easeInOut,
         },
-        '+= .2'
+        '+= .2',
       )
       .addCallback(() => onMiddleLogoAnimation())
       .to(
@@ -36,9 +36,9 @@ const Logo = ({ onEndLogoAnimation, onMiddleLogoAnimation }) => {
           fillOpacity: 0.3,
           scale: 0.8,
           transformOrigin: '50% 50%',
-          ease: Power1.easeInOut
+          ease: Power1.easeInOut,
         },
-        '+=0.5'
+        '+=0.5',
       );
 
     return () => {
@@ -81,7 +81,7 @@ const Logo = ({ onEndLogoAnimation, onMiddleLogoAnimation }) => {
 
 Logo.propTypes = {
   onMiddleLogoAnimation: PropTypes.func,
-  onEndLogoAnimation: PropTypes.func
+  onEndLogoAnimation: PropTypes.func,
 };
 
 export default Logo;

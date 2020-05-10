@@ -21,7 +21,7 @@ const LogoWrapper = ({ superheroes, highlightBg, outLogo }) =>
 LogoWrapper.propTypes = {
   superheroes: superheroesModel,
   highlightBg: PropTypes.bool,
-  outLogo: PropTypes.bool
+  outLogo: PropTypes.bool,
 };
 
 export default LogoWrapper;

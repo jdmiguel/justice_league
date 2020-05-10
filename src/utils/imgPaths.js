@@ -1,12 +1,12 @@
-import landscapeImg from "../../assets/img/landscape.png";
-import SupermanImgCharacter from "../../assets/img/character/character_superman.png";
-import BatmanImgCharacter from "../../assets/img/character/character_batman.png";
-import WonderWomanImgCharacter from "../../assets/img/character/character_wonderwoman.png";
-import FlashImgCharacter from "../../assets/img/character/character_flash.png";
-import GreenLanternImgCharacter from "../../assets/img/character/character_greenlantern.png";
-import AquamanImgCharacter from "../../assets/img/character/character_aquaman.png";
-import GreenArrowImgCharacter from "../../assets/img/character/character_greenarrow.png";
-import CyborgImgCharacter from "../../assets/img/character/character_cyborg.png";
+import landscapeImg from '../../assets/img/landscape.png';
+import SupermanImgCharacter from '../../assets/img/character/character_superman.png';
+import BatmanImgCharacter from '../../assets/img/character/character_batman.png';
+import WonderWomanImgCharacter from '../../assets/img/character/character_wonderwoman.png';
+import FlashImgCharacter from '../../assets/img/character/character_flash.png';
+import GreenLanternImgCharacter from '../../assets/img/character/character_greenlantern.png';
+import AquamanImgCharacter from '../../assets/img/character/character_aquaman.png';
+import GreenArrowImgCharacter from '../../assets/img/character/character_greenarrow.png';
+import CyborgImgCharacter from '../../assets/img/character/character_cyborg.png';
 
 /* NO MOBILE */
 export const landscapeImgPath = landscapeImg;

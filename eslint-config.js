@@ -2,7 +2,7 @@ module.exports = {
   extends: [
     'eslint-config-airbnb',
     'eslint-config-prettier',
-    'eslint-config-prettier/react'
+    'eslint-config-prettier/react',
   ].map(require.resolve),
 
   plugins: ['react', 'prettier'],
@@ -21,7 +21,7 @@ module.exports = {
     Power1: true,
     Power2: true,
     Power3: true,
-    Quad: true
+    Quad: true,
   },
 
   parserOptions: {
@@ -29,8 +29,8 @@ module.exports = {
     sourceType: 'module',
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
-      jsx: true
-    }
+      jsx: true,
+    },
   },
   rules: {
     indent: 0, // eslint vs prettier. Round 1! Fight!
@@ -58,8 +58,8 @@ module.exports = {
 
         // If true, puts the `>` of a multi-line jsx element at the end of
         // The last line instead of being alone on the next line
-        jsxBracketSameLine: false
-      }
-    ]
-  }
+        jsxBracketSameLine: false,
+      },
+    ],
+  },
 };

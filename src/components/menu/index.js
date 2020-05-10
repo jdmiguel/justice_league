@@ -15,7 +15,7 @@ const Menu = ({
   setActiveSuperhero,
   menuDirection,
   setMenuDirection,
-  goCharacter
+  goCharacter,
 }) => {
   // Refs
   const menuRef = React.useRef(null);
@@ -36,7 +36,7 @@ const Menu = ({
   const maxIndex = superheroes.length - 1;
 
   const getActiveIndex = React.useCallback(() =>
-    superheroes.findIndex(item => item.active)
+    superheroes.findIndex(item => item.active),
   );
 
   const getNextIndex = React.useCallback(factor => {
@@ -123,7 +123,7 @@ const Menu = ({
     // MouseWheel Event
     menuRef.current.addEventListener('mousewheel', e => mouseWheelHandler(e));
     menuRef.current.addEventListener('DOMMouseScroll', e =>
-      mouseWheelHandler(e)
+      mouseWheelHandler(e),
     );
 
     // Swipe Event
@@ -134,10 +134,10 @@ const Menu = ({
 
     return () => {
       menuRef.current.removeEventListener('mousewheel', event =>
-        mouseWheelHandler(event)
+        mouseWheelHandler(event),
       );
       menuRef.current.removeEventListener('DOMMouseScroll', event =>
-        mouseWheelHandler(event)
+        mouseWheelHandler(event),
       );
       swipeManagerRef.current.off('swipe', swipeHandler);
     };
@@ -182,7 +182,7 @@ Menu.propTypes = {
   setActiveSuperhero: PropTypes.func,
   menuDirection: menuDirectionModel,
   setMenuDirection: PropTypes.func,
-  goCharacter: PropTypes.func
+  goCharacter: PropTypes.func,
 };
 
 export default Menu;

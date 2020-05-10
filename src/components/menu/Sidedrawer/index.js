@@ -30,7 +30,7 @@ const Sidedrawer = ({ superheroes, onClickItem }) => (
 
 Sidedrawer.propTypes = {
   superheroes: superheroesModel,
-  onClickItem: PropTypes.func
+  onClickItem: PropTypes.func,
 };
 
 export default Sidedrawer;

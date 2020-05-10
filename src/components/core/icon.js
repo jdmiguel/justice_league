@@ -11,7 +11,7 @@ Icon.propTypes = {
   className: PropTypes.string,
   svg: PropTypes.func.isRequired,
   width: PropTypes.string,
-  height: PropTypes.string
+  height: PropTypes.string,
 };
 
 export default Icon;

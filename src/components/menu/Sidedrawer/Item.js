@@ -11,7 +11,7 @@ const Item = ({
   superheroIndex,
   superheroIcon,
   superheroIconMeasures,
-  onClickItem
+  onClickItem,
 }) => {
   const { width, height } = superheroIconMeasures;
 
@@ -35,7 +35,7 @@ Item.propTypes = {
   superheroActive: PropTypes.bool,
   superheroIndex: PropTypes.number,
   superheroIcon: PropTypes.func,
-  onClickItem: PropTypes.func
+  onClickItem: PropTypes.func,
 };
 
 export default Item;

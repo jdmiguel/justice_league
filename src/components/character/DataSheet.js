@@ -31,7 +31,7 @@ const DataSheet = ({ data: { originConnections, appearance } }) => (
 );
 
 DataSheet.propTypes = {
-  data: dataSheetModel
+  data: dataSheetModel,
 };
 
 export default DataSheet;

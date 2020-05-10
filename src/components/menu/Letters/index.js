@@ -12,7 +12,7 @@ const LettersWrapper = ({
   menuDirection,
   overLetters,
   endLettersAnimation,
-  onClick
+  onClick,
 }) =>
   superheroes.map(superhero => (
     <Letters
@@ -32,7 +32,7 @@ LettersWrapper.propTypes = {
   superheroes: superheroesModel,
   overLetters: PropTypes.func,
   endLettersAnimation: PropTypes.func,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 
 export default LettersWrapper;

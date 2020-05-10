@@ -1,25 +1,25 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 /** Components */
-import Icon from "../core/icon";
-import Intro from "./Intro";
-import DataSheet from "./DataSheet";
-import Skills from "./Skills";
-import Tabs from "./Tabs";
-import BackBtn from "./BackBtn";
+import Icon from '../core/icon';
+import Intro from './Intro';
+import DataSheet from './DataSheet';
+import Skills from './Skills';
+import Tabs from './Tabs';
+import BackBtn from './BackBtn';
 
 /* Reducer */
-import { reducer, initialState } from "../../store/reducer";
+import { reducer, initialState } from '../../store/reducer';
 
 /* Actions */
-import { setActiveTab } from "../../store/actions";
+import { setActiveTab } from '../../store/actions';
 
 /* Hooks */
-import useWindowResize from "../../hooks/useWindowResize";
+import useWindowResize from '../../hooks/useWindowResize';
 
 /** Models */
-import { superheroModel } from "../../utils/models";
+import { superheroModel } from '../../utils/models';
 
 const BackBtnMemoized = React.memo(BackBtn);
 
@@ -42,19 +42,19 @@ const Character = ({ superhero, goMenu }) => {
   const animationWithoutImgRef = React.useRef(null);
 
   // States
-  const [imgClass, setImgClass] = React.useState("introTab");
+  const [imgClass, setImgClass] = React.useState('introTab');
   const [introState, setIntroState] = React.useState(true);
   const [dataSheetState, setDataSheetState] = React.useState(false);
   const [skillsState, setSkillsState] = React.useState(false);
   const [contentClasses, setContentClasses] = React.useState([
-    "character-content",
+    'character-content',
   ]);
 
   // Handlers
-  const onClickTabHandler = React.useCallback((id) => {
-    setIntroState(id === "introTab");
-    setDataSheetState(id === "dataTab");
-    setSkillsState(id === "skillsTab");
+  const onClickTabHandler = React.useCallback(id => {
+    setIntroState(id === 'introTab');
+    setDataSheetState(id === 'dataTab');
+    setSkillsState(id === 'skillsTab');
     setImgClass(id);
     setActiveTab(dispatch, tabs, id);
   });
@@ -65,12 +65,12 @@ const Character = ({ superhero, goMenu }) => {
         ? animationWithImgRef.current
         : animationWithoutImgRef.current;
 
-    tlSelected.play("out");
+    tlSelected.play('out');
   });
 
   // UseEffects
   React.useEffect(() => {
-    setContentClasses([...contentClasses, "visible"]);
+    setContentClasses([...contentClasses, 'visible']);
 
     return () => {
       if (width > 1400) {
@@ -98,7 +98,7 @@ const Character = ({ superhero, goMenu }) => {
             x: 200,
             ease: Power2.easeOut,
           },
-          "-=0.6"
+          '-=0.6',
         )
         .from(
           characterSubTitleRef.current,
@@ -108,7 +108,7 @@ const Character = ({ superhero, goMenu }) => {
             x: 150,
             ease: Power2.easeOut,
           },
-          "-=0.4"
+          '-=0.4',
         )
         .from(
           characterDataRef.current,
@@ -118,7 +118,7 @@ const Character = ({ superhero, goMenu }) => {
             x: 120,
             ease: Power2.easeOut,
           },
-          "-=0.4"
+          '-=0.4',
         )
         .from(
           characterTabsRef.current,
@@ -128,10 +128,10 @@ const Character = ({ superhero, goMenu }) => {
             x: 120,
             ease: Power2.easeOut,
           },
-          "-=0.4"
+          '-=0.4',
         )
         .addPause()
-        .addLabel("out")
+        .addLabel('out')
         .to(characterImgRef.current, 0.3, {
           autoAlpha: 0,
           x: -75,
@@ -145,7 +145,7 @@ const Character = ({ superhero, goMenu }) => {
             x: 100,
             ease: Power2.easeIn,
           },
-          "-=0.3"
+          '-=0.3',
         )
         .to(
           characterSubTitleRef.current,
@@ -155,7 +155,7 @@ const Character = ({ superhero, goMenu }) => {
             x: 100,
             ease: Power2.easeIn,
           },
-          "-=0.3"
+          '-=0.3',
         )
         .to(
           characterDataRef.current,
@@ -165,7 +165,7 @@ const Character = ({ superhero, goMenu }) => {
             x: 100,
             ease: Power2.easeIn,
           },
-          "-=0.3"
+          '-=0.3',
         )
         .to(
           characterTabsRef.current,
@@ -175,7 +175,7 @@ const Character = ({ superhero, goMenu }) => {
             x: 100,
             ease: Power2.easeIn,
           },
-          "-=0.3"
+          '-=0.3',
         )
         .to(
           characterRef.current,
@@ -183,7 +183,7 @@ const Character = ({ superhero, goMenu }) => {
           {
             autoAlpha: 0,
           },
-          "-=0.1"
+          '-=0.1',
         )
         .addCallback(() => goMenu());
     } else {
@@ -202,7 +202,7 @@ const Character = ({ superhero, goMenu }) => {
             x: -50,
             ease: Power2.easeOut,
           },
-          "-=0.3"
+          '-=0.3',
         )
         .from(
           characterDataRef.current,
@@ -212,7 +212,7 @@ const Character = ({ superhero, goMenu }) => {
             y: 30,
             ease: Power2.easeOut,
           },
-          "-=0.3"
+          '-=0.3',
         )
         .from(
           characterTabsRef.current,
@@ -221,10 +221,10 @@ const Character = ({ superhero, goMenu }) => {
             autoAlpha: 0,
             ease: Power2.easeOut,
           },
-          "-=0.3"
+          '-=0.3',
         )
         .addPause()
-        .addLabel("out")
+        .addLabel('out')
         .to(characterTitleRef.current, 0.25, {
           autoAlpha: 0,
           y: 20,
@@ -238,7 +238,7 @@ const Character = ({ superhero, goMenu }) => {
             y: 20,
             ease: Power2.easeIn,
           },
-          "-=0.3"
+          '-=0.3',
         )
         .to(
           characterDataRef.current,
@@ -248,7 +248,7 @@ const Character = ({ superhero, goMenu }) => {
             y: 20,
             ease: Power2.easeIn,
           },
-          "-=0.3"
+          '-=0.3',
         )
         .to(
           characterTabsRef.current,
@@ -258,7 +258,7 @@ const Character = ({ superhero, goMenu }) => {
             y: 20,
             ease: Power2.easeIn,
           },
-          "-=0.3"
+          '-=0.3',
         )
         .to(characterRef.current, 0.3, {
           autoAlpha: 0,
@@ -272,7 +272,7 @@ const Character = ({ superhero, goMenu }) => {
       <div className={`character-logo ${superhero.class}`}>
         <Icon svg={superhero.icon} />
       </div>
-      <div className={contentClasses.join(" ")}>
+      <div className={contentClasses.join(' ')}>
         <div className="character-main">
           {width > 1400 && (
             <div className="character-block-left">

@@ -22,7 +22,7 @@ const BgWrapper = ({ superheroes, highlightBg }) => (
 
 BgWrapper.propTypes = {
   superheroes: superheroesModel,
-  highlightBg: PropTypes.bool
+  highlightBg: PropTypes.bool,
 };
 
 export default BgWrapper;

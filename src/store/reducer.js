@@ -9,7 +9,7 @@ import {
   greenLanternImgPath,
   aquamanImgPath,
   greenArrowImgPath,
-  cyborgImgPath
+  cyborgImgPath,
 } from '../utils/imgPaths';
 
 /** Utils */
@@ -21,7 +21,7 @@ import {
   GreenLanternIcon,
   AquamanIcon,
   GreenArrowIcon,
-  CyborgIcon
+  CyborgIcon,
 } from '../utils/svgs';
 
 export const initialState = {
@@ -40,8 +40,8 @@ export const initialState = {
             { title: 'Place of birth', text: 'Krypton' },
             { title: 'Occupation', text: 'Reporter' },
             { title: 'Base', text: 'Metropolis' },
-            { title: 'First appearance', text: 'Action Comics #1' }
-          ]
+            { title: 'First appearance', text: 'Action Comics #1' },
+          ],
         },
         appearance: {
           title: 'Appearance',
@@ -50,9 +50,9 @@ export const initialState = {
             { title: 'Height', text: '6.3 / 191 cm' },
             { title: 'Weight', text: '225 lb / 101 kg' },
             { title: 'Eye color', text: 'Blue' },
-            { title: 'Hair color', text: 'Black' }
-          ]
-        }
+            { title: 'Hair color', text: 'Black' },
+          ],
+        },
       },
       skills: {
         stats: {
@@ -62,8 +62,8 @@ export const initialState = {
             { title: 'Strength', value: 100 },
             { title: 'Speed', value: 90 },
             { title: 'Power', value: 90 },
-            { title: 'Combat', value: 50 }
-          ]
+            { title: 'Combat', value: 50 },
+          ],
         },
         powers: {
           title: 'powers',
@@ -72,9 +72,9 @@ export const initialState = {
             'Flight',
             'Invulnerability',
             'Vision - X-Ray',
-            'Vision - Heat'
-          ]
-        }
+            'Vision - Heat',
+          ],
+        },
       },
       active: true,
       breakpoint: 4,
@@ -83,8 +83,8 @@ export const initialState = {
       characterImg: supermanImgPath,
       iconMeasures: {
         width: '32px',
-        height: '24px'
-      }
+        height: '24px',
+      },
     },
     {
       name: 'Batman',
@@ -100,11 +100,11 @@ export const initialState = {
             { title: 'Place of birth', text: 'Gotham City' },
             {
               title: 'Occupation',
-              text: 'Businessman'
+              text: 'Businessman',
             },
             { title: 'Base', text: 'Gotham City' },
-            { title: 'First appearance', text: 'Detective Comics #27' }
-          ]
+            { title: 'First appearance', text: 'Detective Comics #27' },
+          ],
         },
         appearance: {
           title: 'Appearance',
@@ -113,9 +113,9 @@ export const initialState = {
             { title: 'Height', text: '6.2 / 188 cm' },
             { title: 'Weight', text: '210 lb / 95 kg' },
             { title: 'Eye color', text: 'Blue' },
-            { title: 'Hair color', text: 'Black' }
-          ]
-        }
+            { title: 'Hair color', text: 'Black' },
+          ],
+        },
       },
       skills: {
         stats: {
@@ -125,8 +125,8 @@ export const initialState = {
             { title: 'Strength', value: 12 },
             { title: 'Speed', value: 12 },
             { title: 'Power', value: 30 },
-            { title: 'Combat', value: 100 }
-          ]
+            { title: 'Combat', value: 100 },
+          ],
         },
         powers: {
           title: 'powers',
@@ -135,9 +135,9 @@ export const initialState = {
             'Detective skills',
             'Agility',
             'Reflexes',
-            'Fear creation'
-          ]
-        }
+            'Fear creation',
+          ],
+        },
       },
       active: false,
       breakpoint: 2,
@@ -146,8 +146,8 @@ export const initialState = {
       characterImg: batmanImgPath,
       iconMeasures: {
         width: '40px',
-        height: '14px'
-      }
+        height: '14px',
+      },
     },
     {
       name: 'WonderWoman',
@@ -163,11 +163,11 @@ export const initialState = {
             { title: 'Place of birth', text: 'Themyscira' },
             {
               title: 'Occupation',
-              text: 'Adventurer'
+              text: 'Adventurer',
             },
             { title: 'Base', text: 'Paradise Island' },
-            { title: 'First appearance', text: 'All-Star Comics #8' }
-          ]
+            { title: 'First appearance', text: 'All-Star Comics #8' },
+          ],
         },
         appearance: {
           title: 'Appearance',
@@ -176,9 +176,9 @@ export const initialState = {
             { title: 'Height', text: '6.0 / 183 cm' },
             { title: 'Weight', text: '165 lb / 74 kg' },
             { title: 'Eye color', text: 'Blue' },
-            { title: 'Hair color', text: 'Black' }
-          ]
-        }
+            { title: 'Hair color', text: 'Black' },
+          ],
+        },
       },
       skills: {
         stats: {
@@ -188,8 +188,8 @@ export const initialState = {
             { title: 'Strength', value: 90 },
             { title: 'Speed', value: 90 },
             { title: 'Power', value: 85 },
-            { title: 'Combat', value: 70 }
-          ]
+            { title: 'Combat', value: 70 },
+          ],
         },
         powers: {
           title: 'powers',
@@ -198,9 +198,9 @@ export const initialState = {
             'Super strength',
             'Flight',
             'Invulnerability',
-            'Telepathy'
-          ]
-        }
+            'Telepathy',
+          ],
+        },
       },
       active: false,
       breakpoint: 5,
@@ -209,8 +209,8 @@ export const initialState = {
       characterImg: wonderWomanImgPath,
       iconMeasures: {
         width: '40px',
-        height: '19px'
-      }
+        height: '19px',
+      },
     },
     {
       name: 'TheFlash',
@@ -226,11 +226,11 @@ export const initialState = {
             { title: 'Place of birth', text: 'Fallville, Iowa' },
             {
               title: 'Occupation',
-              text: 'Forensic Scientist'
+              text: 'Forensic Scientist',
             },
             { title: 'Base', text: 'Central City' },
-            { title: 'First appearance', text: 'Showcase #4' }
-          ]
+            { title: 'First appearance', text: 'Showcase #4' },
+          ],
         },
         appearance: {
           title: 'Appearance',
@@ -239,9 +239,9 @@ export const initialState = {
             { title: 'Height', text: '6.0 / 183 cm' },
             { title: 'Weight', text: '195 lb / 88 kg' },
             { title: 'Eye color', text: 'Blue' },
-            { title: 'Hair color', text: 'Blond' }
-          ]
-        }
+            { title: 'Hair color', text: 'Blond' },
+          ],
+        },
       },
       skills: {
         stats: {
@@ -251,8 +251,8 @@ export const initialState = {
             { title: 'Strength', value: 35 },
             { title: 'Speed', value: 100 },
             { title: 'Power', value: 85 },
-            { title: 'Combat', value: 50 }
-          ]
+            { title: 'Combat', value: 50 },
+          ],
         },
         powers: {
           title: 'powers',
@@ -261,9 +261,9 @@ export const initialState = {
             'Super reflexes',
             'Super healing',
             'Time travel',
-            'Enhanced senses'
-          ]
-        }
+            'Enhanced senses',
+          ],
+        },
       },
       active: false,
       breakpoint: 3,
@@ -272,8 +272,8 @@ export const initialState = {
       characterImg: flashImgPath,
       iconMeasures: {
         width: '24px',
-        height: '33px'
-      }
+        height: '33px',
+      },
     },
     {
       name: 'GreenLantern',
@@ -289,11 +289,11 @@ export const initialState = {
             { title: 'Place of birth', text: 'Coast City, California' },
             {
               title: 'Occupation',
-              text: 'Air Force Pilot'
+              text: 'Air Force Pilot',
             },
             { title: 'Base', text: 'Oa Planet' },
-            { title: 'First appearance', text: 'Showcase #22' }
-          ]
+            { title: 'First appearance', text: 'Showcase #22' },
+          ],
         },
         appearance: {
           title: 'Appearance',
@@ -302,9 +302,9 @@ export const initialState = {
             { title: 'Height', text: '6.2 / 188 cm' },
             { title: 'Weight', text: '200 lb / 90 kg' },
             { title: 'Eye color', text: 'Brown' },
-            { title: 'Hair color', text: 'Brown' }
-          ]
-        }
+            { title: 'Hair color', text: 'Brown' },
+          ],
+        },
       },
       skills: {
         stats: {
@@ -314,8 +314,8 @@ export const initialState = {
             { title: 'Strength', value: 40 },
             { title: 'Speed', value: 50 },
             { title: 'Power', value: 100 },
-            { title: 'Combat', value: 55 }
-          ]
+            { title: 'Combat', value: 55 },
+          ],
         },
         powers: {
           title: 'powers',
@@ -324,9 +324,9 @@ export const initialState = {
             'Psionic powers',
             'Invisiblity',
             'Phasing',
-            'Flight'
-          ]
-        }
+            'Flight',
+          ],
+        },
       },
       active: false,
       breakpoint: 5,
@@ -335,8 +335,8 @@ export const initialState = {
       characterImg: greenLanternImgPath,
       iconMeasures: {
         width: '26px',
-        height: '26px'
-      }
+        height: '26px',
+      },
     },
     {
       name: 'Aquaman',
@@ -352,11 +352,11 @@ export const initialState = {
             { title: 'Place of birth', text: 'Amnesty Bay, Massachusetts' },
             {
               title: 'Occupation',
-              text: 'Adventurer'
+              text: 'Adventurer',
             },
             { title: 'Base', text: 'Atlantis' },
-            { title: 'First appearance', text: 'More Fun Comics #73' }
-          ]
+            { title: 'First appearance', text: 'More Fun Comics #73' },
+          ],
         },
         appearance: {
           title: 'Appearance',
@@ -365,9 +365,9 @@ export const initialState = {
             { title: 'Height', text: '6.1 / 185 cm' },
             { title: 'Weight', text: '325 lb / 146 kg' },
             { title: 'Eye color', text: 'Blue' },
-            { title: 'Hair color', text: 'Blond' }
-          ]
-        }
+            { title: 'Hair color', text: 'Blond' },
+          ],
+        },
       },
       skills: {
         stats: {
@@ -377,8 +377,8 @@ export const initialState = {
             { title: 'Strength', value: 85 },
             { title: 'Speed', value: 65 },
             { title: 'Power', value: 75 },
-            { title: 'Combat', value: 55 }
-          ]
+            { title: 'Combat', value: 55 },
+          ],
         },
         powers: {
           title: 'powers',
@@ -387,9 +387,9 @@ export const initialState = {
             'Cold resistence',
             'Super healing',
             'Super strength',
-            'Enhanced senses'
-          ]
-        }
+            'Enhanced senses',
+          ],
+        },
       },
       active: false,
       breakpoint: 3,
@@ -398,8 +398,8 @@ export const initialState = {
       characterImg: aquamanImgPath,
       iconMeasures: {
         width: '24px',
-        height: '28px'
-      }
+        height: '28px',
+      },
     },
     {
       name: 'GreenArrow',
@@ -415,11 +415,11 @@ export const initialState = {
             { title: 'Place of birth', text: 'Starling City' },
             {
               title: 'Occupation',
-              text: 'Businessman'
+              text: 'Businessman',
             },
             { title: 'Base', text: 'Star City' },
-            { title: 'First appearance', text: 'Arrow Season 1' }
-          ]
+            { title: 'First appearance', text: 'Arrow Season 1' },
+          ],
         },
         appearance: {
           title: 'Appearance',
@@ -428,9 +428,9 @@ export const initialState = {
             { title: 'Height', text: '6.1 / 185 cm' },
             { title: 'Weight', text: '182 lb / 82 kg' },
             { title: 'Eye color', text: 'Blue' },
-            { title: 'Hair color', text: 'Brown' }
-          ]
-        }
+            { title: 'Hair color', text: 'Brown' },
+          ],
+        },
       },
       skills: {
         stats: {
@@ -440,13 +440,13 @@ export const initialState = {
             { title: 'Strength', value: 10 },
             { title: 'Speed', value: 15 },
             { title: 'Power', value: 32 },
-            { title: 'Combat', value: 92 }
-          ]
+            { title: 'Combat', value: 92 },
+          ],
         },
         powers: {
           title: 'powers',
-          data: ['Perfect aim', 'Dexterity', 'Agility', 'Reflexes', 'Stamina']
-        }
+          data: ['Perfect aim', 'Dexterity', 'Agility', 'Reflexes', 'Stamina'],
+        },
       },
       active: false,
       breakpoint: 5,
@@ -455,8 +455,8 @@ export const initialState = {
       characterImg: greenArrowImgPath,
       iconMeasures: {
         width: '26px',
-        height: '26px'
-      }
+        height: '26px',
+      },
     },
     {
       name: 'Cyborg',
@@ -472,11 +472,11 @@ export const initialState = {
             { title: 'Place of birth', text: 'New York City, New York' },
             {
               title: 'Occupation',
-              text: 'Adventurer'
+              text: 'Adventurer',
             },
             { title: 'Base', text: 'San Francisco' },
-            { title: 'First appearance', text: 'DC Comics Presents #26' }
-          ]
+            { title: 'First appearance', text: 'DC Comics Presents #26' },
+          ],
         },
         appearance: {
           title: 'Appearance',
@@ -485,9 +485,9 @@ export const initialState = {
             { title: 'Height', text: '6.6 / 198 cm' },
             { title: 'Weight', text: '385 lb / 173 kg' },
             { title: 'Eye color', text: 'Brown' },
-            { title: 'Hair color', text: 'Black' }
-          ]
-        }
+            { title: 'Hair color', text: 'Black' },
+          ],
+        },
       },
       skills: {
         stats: {
@@ -497,8 +497,8 @@ export const initialState = {
             { title: 'Strength', value: 85 },
             { title: 'Speed', value: 30 },
             { title: 'Power', value: 60 },
-            { title: 'Combat', value: 60 }
-          ]
+            { title: 'Combat', value: 60 },
+          ],
         },
         powers: {
           title: 'powers',
@@ -507,9 +507,9 @@ export const initialState = {
             'Biokinesis',
             'Super strength',
             'Flight',
-            'Shapeshifting'
-          ]
-        }
+            'Shapeshifting',
+          ],
+        },
       },
       active: false,
       breakpoint: 2,
@@ -518,19 +518,19 @@ export const initialState = {
       characterImg: cyborgImgPath,
       iconMeasures: {
         width: '26px',
-        height: '26px'
-      }
-    }
+        height: '26px',
+      },
+    },
   ],
   menuDirection: {
     inHero: '',
-    outHero: ''
+    outHero: '',
   },
   tabs: [
     { txt: 'Intro', id: 'introTab', active: true },
     { txt: 'Data sheet', id: 'dataTab', active: false },
-    { txt: 'Skills', id: 'skillsTab', active: false }
-  ]
+    { txt: 'Skills', id: 'skillsTab', active: false },
+  ],
 };
 
 export const reducer = (state = initialState, action) => {
@@ -540,17 +540,17 @@ export const reducer = (state = initialState, action) => {
     case actionTypes.SET_ACTIVE_SUPERHERO:
       return {
         ...state,
-        superheroes
+        superheroes,
       };
     case actionTypes.SET_MENU_DIRECTION:
       return {
         ...state,
-        menuDirection
+        menuDirection,
       };
     case actionTypes.SET_ACTIVE_TAB:
       return {
         ...state,
-        tabs
+        tabs,
       };
     default:
       return state;

@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 const Footer = () => (
   <footer>
     <div className="created">
       <h3>
-        Created by{" "}
+        Created by{' '}
         <a
           href="https://jdmiguel.netlify.app"
           target="_blank"

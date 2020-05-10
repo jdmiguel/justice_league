@@ -41,7 +41,7 @@ const CyborgLogo = ({ classes }) => (
 );
 
 CyborgLogo.propTypes = {
-  classes: PropTypes.string
+  classes: PropTypes.string,
 };
 
 export default CyborgLogo;

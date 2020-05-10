@@ -8,7 +8,7 @@ const Intro = ({ txt }) => (
 );
 
 Intro.propTypes = {
-  txt: PropTypes.string
+  txt: PropTypes.string,
 };
 
 export default Intro;

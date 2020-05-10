@@ -8,7 +8,7 @@ const BarChats = ({ value }) => (
 );
 
 BarChats.propTypes = {
-  value: PropTypes.number
+  value: PropTypes.number,
 };
 
 export default BarChats;

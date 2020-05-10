@@ -15,7 +15,7 @@ const Logo = ({ superheroActive, superheroClass, highlightBg, outLogo }) => {
   // States
   const [classes, setClasses] = React.useState([
     'menu-logo',
-    `${superheroClass}`
+    `${superheroClass}`,
   ]);
   const [isFirstLogo, setIsFirstLogo] = React.useState(true);
 
@@ -25,7 +25,7 @@ const Logo = ({ superheroActive, superheroClass, highlightBg, outLogo }) => {
       setClasses([...classes, 'active']);
     } else {
       setClasses(
-        classes.filter(item => item !== 'active' && item !== 'highlight')
+        classes.filter(item => item !== 'active' && item !== 'highlight'),
       );
     }
   }, [superheroActive]);
@@ -75,7 +75,7 @@ Logo.propTypes = {
   superheroActive: PropTypes.bool,
   superheroClass: PropTypes.string,
   highlightBg: PropTypes.bool,
-  outLogo: PropTypes.bool
+  outLogo: PropTypes.bool,
 };
 
 export default Logo;

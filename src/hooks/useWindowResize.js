@@ -3,13 +3,13 @@ import React from 'react';
 const useWindowResize = () => {
   const [windowMeasures, setWindowMeasures] = React.useState({
     width: window.innerWidth,
-    height: window.innerHeight
+    height: window.innerHeight,
   });
 
   const onResize = React.useCallback(e => {
     setWindowMeasures({
       width: e.currentTarget.innerWidth,
-      height: e.currentTarget.innerHeight
+      height: e.currentTarget.innerHeight,
     });
   });
 

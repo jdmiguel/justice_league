@@ -19,12 +19,12 @@ module.exports = {
       './vendor/gsap/TweenMax.min.js',
       './vendor/gsap/utils/SplitText.min.js',
       './vendor/gsap/plugins/DrawSVGPlugin.js',
-      './index.js'
-    ]
+      './index.js',
+    ],
   },
 
   devServer: {
-    port: 9000
+    port: 9000,
   },
 
   module: {
@@ -32,7 +32,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: 'babel-loader',
       },
       {
         test: /\.scss$/,
@@ -42,8 +42,8 @@ module.exports = {
             ? 'style-loader'
             : MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
       },
       {
         test: /\.(woff|png|jpg|gif)$/,
@@ -51,10 +51,10 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]'
-            }
-          }
-        ]
+              name: '[name].[ext]',
+            },
+          },
+        ],
       },
       {
         test: /\.svg$/,
@@ -64,17 +64,17 @@ module.exports = {
             options: {
               svgoConfig: {
                 plugins: {
-                  removeViewBox: false
-                }
-              }
-            }
+                  removeViewBox: false,
+                },
+              },
+            },
           },
           {
-            loader: 'file-loader'
-          }
-        ]
-      }
-    ]
+            loader: 'file-loader',
+          },
+        ],
+      },
+    ],
   },
 
   plugins: [
@@ -82,11 +82,11 @@ module.exports = {
       title: 'justice_league',
       template: '../assets/template-app.ejs',
       filename: 'index.html',
-      hash: false
+      hash: false,
     }),
 
     new MiniCssExtractPlugin({
-      filename: '[name].css'
-    })
-  ]
+      filename: '[name].css',
+    }),
+  ],
 };

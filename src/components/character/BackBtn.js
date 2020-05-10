@@ -10,7 +10,7 @@ const BackBtn = ({ onClick }) => (
 );
 
 BackBtn.propTypes = {
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
 };
 
 export default BackBtn;

@@ -35,7 +35,7 @@ const AquamanLogo = ({ classes }) => (
 );
 
 AquamanLogo.propTypes = {
-  classes: PropTypes.string
+  classes: PropTypes.string,
 };
 
 export default AquamanLogo;

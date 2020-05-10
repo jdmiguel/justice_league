@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Bg = ({ superheroClass, superheroActive, highlightBg }) => {
   const [classes, setClasses] = React.useState([
     'menu-bg',
-    `${superheroClass}`
+    `${superheroClass}`,
   ]);
   const [isFirstBg, setIsFirstBg] = React.useState(true);
 
@@ -13,7 +13,7 @@ const Bg = ({ superheroClass, superheroActive, highlightBg }) => {
       setClasses([...classes, 'active']);
     } else {
       setClasses(
-        classes.filter(item => item !== 'active' && item !== 'highlight')
+        classes.filter(item => item !== 'active' && item !== 'highlight'),
       );
     }
   }, [superheroActive]);
@@ -33,7 +33,7 @@ const Bg = ({ superheroClass, superheroActive, highlightBg }) => {
 Bg.propTypes = {
   superheroClass: PropTypes.string,
   superheroActive: PropTypes.bool,
-  highlightBg: PropTypes.bool
+  highlightBg: PropTypes.bool,
 };
 
 export default Bg;

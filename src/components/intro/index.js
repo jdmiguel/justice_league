@@ -13,7 +13,7 @@ const Intro = ({ middleIntro, endIntro }) => {
   // Handlers
   const onMiddleLogoAnimationHandler = React.useCallback(() => middleIntro());
   const onEndLogoAnimationHandler = React.useCallback(() =>
-    animationRef.current.restart()
+    animationRef.current.restart(),
   );
 
   // UseEffects
@@ -22,7 +22,7 @@ const Intro = ({ middleIntro, endIntro }) => {
       onComplete: () => endIntro(),
       paused: true,
       y: '-120%',
-      ease: Power1.easeIn
+      ease: Power1.easeIn,
     });
 
     return () => {
@@ -43,7 +43,7 @@ const Intro = ({ middleIntro, endIntro }) => {
 
 Intro.propTypes = {
   middleIntro: PropTypes.func,
-  endIntro: PropTypes.func
+  endIntro: PropTypes.func,
 };
 
 export default Intro;
