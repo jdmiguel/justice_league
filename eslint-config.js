@@ -5,8 +5,6 @@ module.exports = {
     'eslint-config-prettier/react',
   ].map(require.resolve),
 
-  plugins: ['react', 'prettier'],
-
   globals: {
     PLATFORM: true,
     MODE: true,
