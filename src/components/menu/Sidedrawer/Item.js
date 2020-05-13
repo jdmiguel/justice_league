@@ -18,7 +18,7 @@ const Item = ({
   // Handlers
   const onClickItemHandler = React.useCallback(() => {
     onClickItem(superheroIndex);
-  });
+  }, [onClickItem, superheroIndex]);
 
   return (
     <li className={superheroActive ? 'active' : null}>

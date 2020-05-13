@@ -16,7 +16,9 @@ const Letters = ({
 }) => {
   // Measures
   const { width } = useWindowResize();
-  const outSeparatingLetters = width > 1400 ? 1.7 : 1;
+  const outSeparatingLetters = React.useMemo(() => (width > 1400 ? 1.7 : 1), [
+    width,
+  ]);
   // Props
   const { inHero, outHero } = menuDirection;
 
@@ -30,33 +32,39 @@ const Letters = ({
   const [allowMouseMove, setAllowMouseMove] = React.useState(false);
 
   // Utils
-  const getDistance = React.useCallback((index, splitFactor) => {
-    const totalChars = superheroName.length;
-    const distance =
-      index < superheroBreakpoint
-        ? (Math.asinh(index) - totalChars) *
-          (superheroBreakpoint - index) *
-          splitFactor
-        : (Math.asinh(index) + totalChars) *
-          (index - superheroBreakpoint) *
-          splitFactor;
+  const getDistance = React.useCallback(
+    (index, splitFactor) => {
+      const totalChars = superheroName.length;
+      const distance =
+        index < superheroBreakpoint
+          ? (Math.asinh(index) - totalChars) *
+            (superheroBreakpoint - index) *
+            splitFactor
+          : (Math.asinh(index) + totalChars) *
+            (index - superheroBreakpoint) *
+            splitFactor;
 
-    return distance;
-  });
+      return distance;
+    },
+    [superheroBreakpoint, superheroName],
+  );
 
-  const separatingAnimation = React.useCallback(factor => {
-    TweenMax.staggerTo(
-      charsRef.current,
-      1,
-      {
-        cycle: {
-          x: i => getDistance(i, factor),
+  const separatingAnimation = React.useCallback(
+    factor => {
+      TweenMax.staggerTo(
+        charsRef.current,
+        1,
+        {
+          cycle: {
+            x: i => getDistance(i, factor),
+          },
+          ease: Power1.easeOut,
         },
-        ease: Power1.easeOut,
-      },
-      0,
-    );
-  });
+        0,
+      );
+    },
+    [getDistance],
+  );
 
   // Animations
   const entryAnimation = React.useCallback(() => {
@@ -83,10 +91,10 @@ const Letters = ({
         endLettersAnimation();
       },
     );
-  });
+  }, [classes, endLettersAnimation]);
 
   const inLeftAnimation = React.useCallback(() => {
-    setClasses([...classes, 'active']);
+    setClasses(state => [...state, 'active']);
 
     TweenMax.staggerFromTo(
       charsRef.current,
@@ -111,10 +119,10 @@ const Letters = ({
         endLettersAnimation();
       },
     );
-  });
+  }, [endLettersAnimation, overLetters]);
 
   const inRightAnimation = React.useCallback(() => {
-    setClasses([...classes, 'active']);
+    setClasses(state => [...state, 'active']);
 
     TweenMax.staggerFromTo(
       charsRef.current,
@@ -139,10 +147,10 @@ const Letters = ({
         endLettersAnimation();
       },
     );
-  });
+  }, [endLettersAnimation, overLetters]);
 
   const outLeftAnimation = React.useCallback(() => {
-    setClasses(classes.filter(item => item !== 'active'));
+    setClasses(state => state.filter(item => item !== 'active'));
 
     TweenMax.staggerFromTo(
       charsRef.current,
@@ -160,10 +168,10 @@ const Letters = ({
       },
       0.015,
     );
-  });
+  }, []);
 
   const outRightAnimation = React.useCallback(() => {
-    setClasses(classes.filter(item => item !== 'active'));
+    setClasses(state => state.filter(item => item !== 'active'));
 
     TweenMax.staggerFromTo(
       charsRef.current,
@@ -181,7 +189,7 @@ const Letters = ({
       },
       0.015,
     );
-  });
+  }, []);
 
   // Handlers
   const mouseOverHandler = React.useCallback(() => {
@@ -189,7 +197,7 @@ const Letters = ({
       overLetters(true);
       separatingAnimation(0.45);
     }
-  });
+  }, [allowMouseOver, overLetters, separatingAnimation]);
 
   const mouseOutHandler = React.useCallback(() => {
     if (allowMouseOver) {
@@ -199,7 +207,7 @@ const Letters = ({
         ease: Power1.easeOut,
       });
     }
-  });
+  }, [allowMouseOver, overLetters]);
 
   const mouseMoveHandler = React.useCallback(() => {
     if (allowMouseOver && allowMouseMove) {
@@ -207,7 +215,7 @@ const Letters = ({
       separatingAnimation(0.45);
       setAllowMouseMove(false);
     }
-  });
+  }, [allowMouseMove, allowMouseOver, overLetters, separatingAnimation]);
 
   const clickHandler = React.useCallback(() => {
     if (superheroActive) {
@@ -216,9 +224,13 @@ const Letters = ({
       separatingAnimation(outSeparatingLetters);
       onClick(superheroClass);
     }
-  });
-
-  const preventDefaultHandler = React.useCallback(e => e.preventDefault);
+  }, [
+    onClick,
+    outSeparatingLetters,
+    separatingAnimation,
+    superheroActive,
+    superheroClass,
+  ]);
 
   // UseEffects
   React.useEffect(() => {
@@ -233,7 +245,7 @@ const Letters = ({
       alpha: 0,
     });
 
-    setClasses([...classes, 'visible']);
+    setClasses(state => [...state, 'visible']);
   }, []);
 
   React.useEffect(() => {
@@ -251,6 +263,7 @@ const Letters = ({
         outHero === 'left' ? outLeftAnimation : outRightAnimation;
       outAnimation();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [superheroActive]);
 
   return (
@@ -260,9 +273,9 @@ const Letters = ({
         onMouseOver={mouseOverHandler}
         onMouseOut={mouseOutHandler}
         onMouseMove={mouseMoveHandler}
-        onKeyDown={preventDefaultHandler}
-        onFocus={preventDefaultHandler}
-        onBlur={preventDefaultHandler}
+        onKeyDown={e => e.preventDefault}
+        onFocus={e => e.preventDefault}
+        onBlur={e => e.preventDefault}
         onClick={clickHandler}
       />
       <h2 ref={lettersRef} className={`letters ${superheroClass}`}>

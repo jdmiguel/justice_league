@@ -22,28 +22,28 @@ const Logo = ({ superheroActive, superheroClass, highlightBg, outLogo }) => {
   // UseEffects
   React.useEffect(() => {
     if (superheroActive) {
-      setClasses([...classes, 'active']);
+      setClasses(state => [...state, 'active']);
     } else {
-      setClasses(
-        classes.filter(item => item !== 'active' && item !== 'highlight'),
+      setClasses(state =>
+        state.filter(item => item !== 'active' && item !== 'highlight'),
       );
     }
   }, [superheroActive]);
 
   React.useEffect(() => {
     if (highlightBg && superheroActive) {
-      setClasses([...classes, 'highlight']);
+      setClasses(state => [...state, 'highlight']);
       setIsFirstLogo(false);
     } else if (!isFirstLogo) {
-      setClasses(classes.filter(item => item !== 'highlight'));
+      setClasses(state => state.filter(item => item !== 'highlight'));
     }
-  }, [highlightBg]);
+  }, [highlightBg, superheroActive, isFirstLogo]);
 
   React.useEffect(() => {
     if (outLogo && superheroActive) {
-      setClasses([...classes, 'out']);
+      setClasses(state => [...state, 'out']);
     }
-  }, [outLogo]);
+  }, [outLogo, superheroActive]);
 
   const getLogo = () => {
     switch (superheroClass) {

@@ -35,94 +35,114 @@ const Menu = ({
   // Utils
   const maxIndex = superheroes.length - 1;
 
-  const getActiveIndex = React.useCallback(() =>
-    superheroes.findIndex(item => item.active),
+  const getActiveIndex = React.useCallback(
+    () => superheroes.findIndex(item => item.active),
+    [superheroes],
   );
 
-  const getNextIndex = React.useCallback(factor => {
-    const indexSelected = activeIndexRef.current + factor;
+  const getNextIndex = React.useCallback(
+    factor => {
+      const indexSelected = activeIndexRef.current + factor;
 
-    if (indexSelected < 0) {
-      return maxIndex;
-    }
-    if (indexSelected > maxIndex) {
-      return 0;
-    }
-    return indexSelected;
-  });
+      if (indexSelected < 0) {
+        return maxIndex;
+      }
+      if (indexSelected > maxIndex) {
+        return 0;
+      }
+      return indexSelected;
+    },
+    [maxIndex],
+  );
 
-  const setMenuDirectionFromSidedrawer = React.useCallback(index => {
-    const currentIndex = superheroes.find(item => item.active).index;
-    const menuDirection =
-      index > currentIndex
-        ? { inHero: 'left', outHero: 'right' }
-        : { inHero: 'right', outHero: 'left' };
+  const setMenuDirectionFromSidedrawer = React.useCallback(
+    index => {
+      const currentIndex = superheroes.find(item => item.active).index;
+      const menuDirection =
+        index > currentIndex
+          ? { inHero: 'left', outHero: 'right' }
+          : { inHero: 'right', outHero: 'left' };
 
-    setMenuDirection(menuDirection);
-  });
+      setMenuDirection(menuDirection);
+    },
+    [setMenuDirection, superheroes],
+  );
 
   // Refs settings
   menuDirectionRef.current = menuDirection;
   activeIndexRef.current = getActiveIndex();
 
   // Handlers
-  const mouseWheelHandler = React.useCallback(e => {
-    if (allowWheelRef.current) {
-      if (e.deltaY > 0) {
-        allowWheelRef.current = false;
-        setMenuDirection({ inHero: 'left', outHero: 'right' });
-        setActiveSuperhero(getNextIndex(1));
+  const mouseWheelHandler = React.useCallback(
+    e => {
+      if (allowWheelRef.current) {
+        if (e.deltaY > 0) {
+          allowWheelRef.current = false;
+          setMenuDirection({ inHero: 'left', outHero: 'right' });
+          setActiveSuperhero(getNextIndex(1));
+        }
+        if (e.deltaY < 0) {
+          allowWheelRef.current = false;
+          setMenuDirection({ inHero: 'right', outHero: 'left' });
+          setActiveSuperhero(getNextIndex(-1));
+        }
       }
-      if (e.deltaY < 0) {
-        allowWheelRef.current = false;
-        setMenuDirection({ inHero: 'right', outHero: 'left' });
-        setActiveSuperhero(getNextIndex(-1));
+    },
+    [getNextIndex, setActiveSuperhero, setMenuDirection],
+  );
+
+  const swipeHandler = React.useCallback(
+    e => {
+      if (allowSwipeRef.current) {
+        if (e.direction === 2) {
+          allowSwipeRef.current = false;
+          setMenuDirection({ inHero: 'right', outHero: 'left' });
+          setActiveSuperhero(getNextIndex(-1));
+        }
+        if (e.direction === 4) {
+          allowSwipeRef.current = false;
+          setMenuDirection({ inHero: 'left', outHero: 'right' });
+          setActiveSuperhero(getNextIndex(1));
+        }
       }
-    }
-  });
+    },
+    [getNextIndex, setActiveSuperhero, setMenuDirection],
+  );
 
-  const swipeHandler = React.useCallback(e => {
-    if (allowSwipeRef.current) {
-      if (e.direction === 2) {
-        allowSwipeRef.current = false;
-        setMenuDirection({ inHero: 'right', outHero: 'left' });
-        setActiveSuperhero(getNextIndex(-1));
+  const sidedrawerItemClickHandler = React.useCallback(
+    index => {
+      if (allowSidedrawerItemClickRef.current) {
+        allowSidedrawerItemClickRef.current = false;
+        setMenuDirectionFromSidedrawer(index);
+        setActiveSuperhero(index);
       }
-      if (e.direction === 4) {
-        allowSwipeRef.current = false;
-        setMenuDirection({ inHero: 'left', outHero: 'right' });
-        setActiveSuperhero(getNextIndex(1));
-      }
-    }
-  });
+    },
+    [setActiveSuperhero, setMenuDirectionFromSidedrawer],
+  );
 
-  const sidedrawerItemClickHandler = React.useCallback(index => {
-    if (allowSidedrawerItemClickRef.current) {
-      allowSidedrawerItemClickRef.current = false;
-      setMenuDirectionFromSidedrawer(index);
-      setActiveSuperhero(index);
-    }
-  });
+  const onClickMenuLettersHandler = React.useCallback(
+    superheroClass => {
+      setCoverClasses([...coverClasses, superheroClass]);
+      setOutLogo(true);
+      setTimeout(() => {
+        goCharacter(superheroes[getActiveIndex()]);
+      }, 1000);
+    },
+    [coverClasses, getActiveIndex, goCharacter, superheroes],
+  );
 
-  const onClickMenuLettersHandler = React.useCallback(superheroClass => {
-    setCoverClasses([...coverClasses, superheroClass]);
-    setOutLogo(true);
-    setTimeout(() => {
-      goCharacter(superheroes[getActiveIndex()]);
-    }, 1000);
-  });
-
-  const endLettersAnimationHandler = React.useCallback(() => {
+  const endLettersAnimationHandler = () => {
     allowWheelRef.current = true;
     allowSwipeRef.current = true;
     allowSidedrawerItemClickRef.current = true;
-  });
+  };
 
   // UseEffects
   React.useEffect(() => {
+    const currentMenuRef = menuRef.current;
     // MouseWheel Event
-    menuRef.current.addEventListener('mousewheel', e => mouseWheelHandler(e));
-    menuRef.current.addEventListener('DOMMouseScroll', e =>
+    currentMenuRef.addEventListener('mousewheel', e => mouseWheelHandler(e));
+    currentMenuRef.addEventListener('DOMMouseScroll', e =>
       mouseWheelHandler(e),
     );
 
@@ -133,15 +153,15 @@ const Menu = ({
     swipeManagerRef.current.on('swipe', swipeHandler);
 
     return () => {
-      menuRef.current.removeEventListener('mousewheel', event =>
+      currentMenuRef.removeEventListener('mousewheel', event =>
         mouseWheelHandler(event),
       );
-      menuRef.current.removeEventListener('DOMMouseScroll', event =>
+      currentMenuRef.removeEventListener('DOMMouseScroll', event =>
         mouseWheelHandler(event),
       );
       swipeManagerRef.current.off('swipe', swipeHandler);
     };
-  }, []);
+  }, [mouseWheelHandler, swipeHandler]);
 
   React.useEffect(() => {
     activeIndexRef.current = superheroes.findIndex(item => item.active);

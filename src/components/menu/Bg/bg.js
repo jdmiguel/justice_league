@@ -10,22 +10,22 @@ const Bg = ({ superheroClass, superheroActive, highlightBg }) => {
 
   React.useEffect(() => {
     if (superheroActive) {
-      setClasses([...classes, 'active']);
+      setClasses(state => [...state, 'active']);
     } else {
-      setClasses(
-        classes.filter(item => item !== 'active' && item !== 'highlight'),
+      setClasses(state =>
+        state.filter(item => item !== 'active' && item !== 'highlight'),
       );
     }
   }, [superheroActive]);
 
   React.useEffect(() => {
     if (highlightBg && superheroActive) {
-      setClasses([...classes, 'highlight']);
+      setClasses(state => [...state, 'highlight']);
       setIsFirstBg(false);
     } else if (!isFirstBg) {
-      setClasses(classes.filter(item => item !== 'highlight'));
+      setClasses(state => state.filter(item => item !== 'highlight'));
     }
-  }, [highlightBg]);
+  }, [highlightBg, isFirstBg, superheroActive]);
 
   return <div className={classes.join(' ')} />;
 };

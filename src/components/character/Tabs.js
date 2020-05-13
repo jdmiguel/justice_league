@@ -6,9 +6,12 @@ import { tabsModel } from '../../utils/models';
 
 const Tabs = ({ data, onClick }, ref) => {
   // Handlers
-  const onClickHandler = React.useCallback(id => {
-    onClick(id);
-  });
+  const onClickHandler = React.useCallback(
+    id => {
+      onClick(id);
+    },
+    [onClick],
+  );
 
   return (
     <ul ref={ref} className="tabs">

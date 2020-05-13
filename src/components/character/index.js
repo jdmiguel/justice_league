@@ -51,13 +51,16 @@ const Character = ({ superhero, goMenu }) => {
   ]);
 
   // Handlers
-  const onClickTabHandler = React.useCallback(id => {
-    setIntroState(id === 'introTab');
-    setDataSheetState(id === 'dataTab');
-    setSkillsState(id === 'skillsTab');
-    setImgClass(id);
-    setActiveTab(dispatch, tabs, id);
-  });
+  const onClickTabHandler = React.useCallback(
+    id => {
+      setIntroState(id === 'introTab');
+      setDataSheetState(id === 'dataTab');
+      setSkillsState(id === 'skillsTab');
+      setImgClass(id);
+      setActiveTab(dispatch, tabs, id);
+    },
+    [tabs],
+  );
 
   const onClickBackHandler = React.useCallback(() => {
     const tlSelected =
@@ -66,11 +69,11 @@ const Character = ({ superhero, goMenu }) => {
         : animationWithoutImgRef.current;
 
     tlSelected.play('out');
-  });
+  }, [width]);
 
   // UseEffects
   React.useEffect(() => {
-    setContentClasses([...contentClasses, 'visible']);
+    setContentClasses(state => [...state, 'visible']);
 
     return () => {
       if (width > 1400) {
@@ -79,7 +82,7 @@ const Character = ({ superhero, goMenu }) => {
         animationWithoutImgRef.current.kill();
       }
     };
-  }, []);
+  }, [width]);
 
   React.useEffect(() => {
     if (width > 1400) {
@@ -265,7 +268,7 @@ const Character = ({ superhero, goMenu }) => {
         })
         .addCallback(() => goMenu());
     }
-  }, [width]);
+  }, [goMenu, width]);
 
   return (
     <div ref={characterRef} className={`character ${superhero.class}`}>

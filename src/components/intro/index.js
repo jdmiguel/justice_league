@@ -10,12 +10,6 @@ const Intro = ({ middleIntro, endIntro }) => {
   const introRef = React.useRef(null);
   const animationRef = React.useRef(null);
 
-  // Handlers
-  const onMiddleLogoAnimationHandler = React.useCallback(() => middleIntro());
-  const onEndLogoAnimationHandler = React.useCallback(() =>
-    animationRef.current.restart(),
-  );
-
   // UseEffects
   React.useEffect(() => {
     animationRef.current = TweenMax.to(introRef.current, 0.5, {
@@ -28,13 +22,13 @@ const Intro = ({ middleIntro, endIntro }) => {
     return () => {
       animationRef.current.kill();
     };
-  }, []);
+  }, [endIntro]);
 
   return (
     <div ref={introRef} className="intro">
       <Logo
-        onMiddleLogoAnimation={onMiddleLogoAnimationHandler}
-        onEndLogoAnimation={onEndLogoAnimationHandler}
+        onMiddleLogoAnimation={() => middleIntro()}
+        onEndLogoAnimation={() => animationRef.current.restart()}
       />
       <Letters />
     </div>

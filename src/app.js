@@ -30,14 +30,14 @@ const App = () => {
   const [superhero, setSuperhero] = React.useState(null);
   const [wrapperClasses, setWrapperClasses] = React.useState(['app-wrapper']);
 
-  const preloadCharacter = React.useCallback(superhero => {
+  const preloadCharacter = superhero => {
     const img = new Image();
     img.src = superhero.characterImg;
     img.onload = () => {
       setSuperhero(superhero);
       setMenuStatus(false);
     };
-  });
+  };
 
   return (
     <div ref={appWrapperRef} className={wrapperClasses.join(' ')}>
