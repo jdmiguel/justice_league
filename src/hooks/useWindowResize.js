@@ -6,15 +6,12 @@ const useWindowResize = () => {
     height: window.innerHeight,
   });
 
-  const onResize = React.useCallback(
-    e => {
-      setWindowMeasures({
-        width: e.currentTarget.innerWidth,
-        height: e.currentTarget.innerHeight,
-      });
-    },
-    [setWindowMeasures],
-  );
+  const onResize = React.useCallback(e => {
+    setWindowMeasures({
+      width: e.currentTarget.innerWidth,
+      height: e.currentTarget.innerHeight,
+    });
+  }, []);
 
   React.useEffect(() => {
     window.addEventListener('resize', onResize);
