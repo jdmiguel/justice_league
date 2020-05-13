@@ -10,8 +10,6 @@ module.exports = {
     MODE: true,
     window: true,
     document: true,
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: true,
-    __REDUX_DEVTOOLS_EXTENSION__: true,
     TweenMax: true,
     TimelineMax: true,
     SplitText: true,
