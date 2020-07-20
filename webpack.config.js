@@ -46,7 +46,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(woff|png|jpg|gif)$/,
+        test: /\.(woff|png|jpg|gif|ico)$/,
         use: [
           {
             loader: 'file-loader',
@@ -80,6 +80,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'justice_league',
+      favicon: '../assets/img/favicon.ico',
       template: '../assets/template-app.ejs',
       filename: 'index.html',
       hash: false,
