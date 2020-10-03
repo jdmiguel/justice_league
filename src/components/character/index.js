@@ -180,15 +180,7 @@ const Character = ({ superhero, goMenu }) => {
           },
           '-=0.3',
         )
-        .to(
-          characterRef.current,
-          0.3,
-          {
-            autoAlpha: 0,
-          },
-          '-=0.1',
-        )
-        .addCallback(() => goMenu());
+        .addCallback(() => goMenu(), '+=0.1');
     } else {
       animationWithoutImgRef.current = new TimelineMax();
       animationWithoutImgRef.current
@@ -263,10 +255,7 @@ const Character = ({ superhero, goMenu }) => {
           },
           '-=0.3',
         )
-        .to(characterRef.current, 0.3, {
-          autoAlpha: 0,
-        })
-        .addCallback(() => goMenu());
+        .addCallback(() => goMenu(), '+=0.1');
     }
   }, [goMenu, width]);
 
