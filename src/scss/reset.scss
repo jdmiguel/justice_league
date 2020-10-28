@@ -1,47 +1,70 @@
-html, body, h1, h2, h3, h4, h5, h6, span, dt, p, section, figure, div, header, ul, li {
-    margin: 0;
-    padding: 0;
-  }
-
-  html, body {
-    background: $white;
-  }
-
-  html {
-    -webkit-text-size-adjust: none;
-    touch-action: manipulation;
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+dt,
+p,
+section,
+figure,
+div,
+header,
+ul,
+li {
+  margin: 0;
+  padding: 0;
 }
-  
-  li{
-    list-style: none;
-  }
-  
-  img{
-    display: block;
-  }
-  
-  a{
+
+html,
+body {
+  background: $white;
+}
+
+html {
+  -webkit-text-size-adjust: none;
+  touch-action: manipulation;
+}
+
+body {
+  overflow: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
     text-decoration: none;
-    &:hover{
-      text-decoration: none;
-    }
   }
-  
-  button{
-    background: transparent;
-    border: none;
-    outline: none;
-    &:focus{
-      outline: none;
-    }
-  }
-  
-  input{
+}
+
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+  &:focus {
     outline: none;
   }
-  
-  input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
-    background-color: none !important;
-    background-image: none !important;
-    color: inherit !important;
-  }
+}
+
+input {
+  outline: none;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background-color: none !important;
+  background-image: none !important;
+  color: inherit !important;
+}
