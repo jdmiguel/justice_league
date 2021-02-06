@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 /* Hooks */
 import useWindowResize from '../../../hooks/useWindowResize';
 
+/** Constants */
+import { BIG_DEVICE_WIDTH } from '../../../utils/constants';
+
 const Letters = ({
   superheroName,
   superheroClass,
@@ -14,11 +17,12 @@ const Letters = ({
   endLettersAnimation,
   onClick,
 }) => {
-  // Measures
+  // Measurements
   const { width } = useWindowResize();
-  const outSeparatingLetters = React.useMemo(() => (width > 1400 ? 1.7 : 1), [
-    width,
-  ]);
+  const outSeparatingLetters = React.useMemo(
+    () => (width > BIG_DEVICE_WIDTH ? 1.7 : 1),
+    [width],
+  );
   // Props
   const { inHero, outHero } = menuDirection;
 

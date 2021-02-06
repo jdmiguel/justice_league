@@ -81,7 +81,7 @@ export const initialState = {
       index: 0,
       icon: SupermanIcon,
       characterImg: supermanImgPath,
-      iconMeasures: {
+      iconMeasurements: {
         width: '32px',
         height: '24px',
       },
@@ -144,7 +144,7 @@ export const initialState = {
       index: 1,
       icon: BatmanIcon,
       characterImg: batmanImgPath,
-      iconMeasures: {
+      iconMeasurements: {
         width: '40px',
         height: '14px',
       },
@@ -207,7 +207,7 @@ export const initialState = {
       index: 2,
       icon: WonderWomanIcon,
       characterImg: wonderWomanImgPath,
-      iconMeasures: {
+      iconMeasurements: {
         width: '40px',
         height: '19px',
       },
@@ -270,7 +270,7 @@ export const initialState = {
       index: 3,
       icon: FlashIcon,
       characterImg: flashImgPath,
-      iconMeasures: {
+      iconMeasurements: {
         width: '24px',
         height: '33px',
       },
@@ -333,7 +333,7 @@ export const initialState = {
       index: 4,
       icon: GreenLanternIcon,
       characterImg: greenLanternImgPath,
-      iconMeasures: {
+      iconMeasurements: {
         width: '26px',
         height: '26px',
       },
@@ -396,7 +396,7 @@ export const initialState = {
       index: 5,
       icon: AquamanIcon,
       characterImg: aquamanImgPath,
-      iconMeasures: {
+      iconMeasurements: {
         width: '24px',
         height: '28px',
       },
@@ -453,7 +453,7 @@ export const initialState = {
       index: 6,
       icon: GreenArrowIcon,
       characterImg: greenArrowImgPath,
-      iconMeasures: {
+      iconMeasurements: {
         width: '26px',
         height: '26px',
       },
@@ -516,7 +516,7 @@ export const initialState = {
       index: 7,
       icon: CyborgIcon,
       characterImg: cyborgImgPath,
-      iconMeasures: {
+      iconMeasurements: {
         width: '26px',
         height: '26px',
       },

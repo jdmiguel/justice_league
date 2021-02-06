@@ -11,7 +11,7 @@ export const superheroesModel = PropTypes.arrayOf(
     index: PropTypes.number,
     icon: PropTypes.func,
     characterImg: PropTypes.string,
-    iconMeasures: PropTypes.shape({
+    iconMeasurements: PropTypes.shape({
       width: PropTypes.string,
       height: PropTypes.string,
     }),
@@ -33,7 +33,7 @@ export const superheroModel = PropTypes.shape({
   index: PropTypes.number,
   icon: PropTypes.func,
   characterImg: PropTypes.string,
-  iconMeasures: PropTypes.shape({
+  iconMeasurements: PropTypes.shape({
     width: PropTypes.string,
     height: PropTypes.string,
   }),

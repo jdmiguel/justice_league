@@ -10,10 +10,10 @@ const Item = ({
   superheroActive,
   superheroIndex,
   superheroIcon,
-  superheroIconMeasures,
+  superheroIconMeasurements,
   onClickItem,
 }) => {
-  const { width, height } = superheroIconMeasures;
+  const { width, height } = superheroIconMeasurements;
 
   // Handlers
   const onClickItemHandler = React.useCallback(() => {

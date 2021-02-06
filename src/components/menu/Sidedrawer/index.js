@@ -19,7 +19,7 @@ const Sidedrawer = ({ superheroes, onClickItem }) => (
             superheroActive={superhero.active}
             superheroIndex={superhero.index}
             superheroIcon={superhero.icon}
-            superheroIconMeasures={superhero.iconMeasures}
+            superheroIconMeasurements={superhero.iconMeasurements}
             onClickItem={onClickItem}
           />
         ))}

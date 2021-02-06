@@ -21,10 +21,13 @@ import useWindowResize from '../../hooks/useWindowResize';
 /** Models */
 import { superheroModel } from '../../utils/models';
 
+/** Constants */
+import { BIG_DEVICE_WIDTH } from '../../utils/constants';
+
 const BackBtnMemoized = React.memo(BackBtn);
 
 const Character = ({ superhero, goMenu }) => {
-  // Measures
+  // Measurements
   const { width } = useWindowResize();
 
   // Reducers
@@ -64,7 +67,7 @@ const Character = ({ superhero, goMenu }) => {
 
   const onClickBackHandler = React.useCallback(() => {
     const tlSelected =
-      width > 1400
+      width > BIG_DEVICE_WIDTH
         ? animationWithImgRef.current
         : animationWithoutImgRef.current;
 
@@ -76,7 +79,7 @@ const Character = ({ superhero, goMenu }) => {
     setContentClasses(state => [...state, 'visible']);
 
     return () => {
-      if (width > 1400) {
+      if (width > BIG_DEVICE_WIDTH) {
         animationWithImgRef.current.kill();
       } else {
         animationWithoutImgRef.current.kill();
@@ -85,7 +88,7 @@ const Character = ({ superhero, goMenu }) => {
   }, [width]);
 
   React.useEffect(() => {
-    if (width > 1400) {
+    if (width > BIG_DEVICE_WIDTH) {
       animationWithImgRef.current = new TimelineMax();
       animationWithImgRef.current
         .from(characterImgRef.current, 0.6, {
@@ -266,7 +269,7 @@ const Character = ({ superhero, goMenu }) => {
       </div>
       <div className={contentClasses.join(' ')}>
         <div className="character-main">
-          {width > 1400 && (
+          {width > BIG_DEVICE_WIDTH && (
             <div className="character-block-left">
               <div ref={characterImgRef} className="character-image">
                 <img
