@@ -8,7 +8,7 @@
     justify-content: flex-start;
   }
   h3 {
-    @include font("Cinzel", 1.5em, 400);
+    @include font('Cinzel', 1.5em, 400);
     margin-bottom: 0.7em;
     display: none;
     @media (min-width: 992px) {
@@ -61,7 +61,7 @@
     position: relative;
     padding-left: 10px;
     &::before {
-      content: "";
+      content: '';
       height: 100%;
       width: 1px;
       background: $white;
@@ -101,12 +101,7 @@
   background: $white;
   overflow: hidden;
   i {
-    background: linear-gradient(
-      90deg,
-      rgba(90, 90, 90, 1) 0%,
-      rgba(50, 50, 50, 1) 50%,
-      rgba(30, 30, 30, 1) 100%
-    );
+    background: $softGrey;
     height: 100%;
     position: absolute;
     left: 0;
